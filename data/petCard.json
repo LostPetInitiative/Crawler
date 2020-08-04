@@ -1,0 +1,116 @@
+﻿{
+  "pet": {
+    "id": "434545",
+    "art": "rf434545",
+    "address": "Чебоксары",
+    "latitude": "56.14624700",
+    "longitude": "47.25015300",
+    "age": "1",
+    "animal": "1",
+    "breed": "1",
+    "status": "1",
+    "collar": "1",
+    "date": "1596315600",
+    "nickname": null,
+    "reward": null,
+    "sex": "1",
+    "sterile": "1",
+    "type": "2",
+    "user": "221045",
+    "description": "Мальчик и девочка ",
+    "contact_info": "",
+    "delete_reason": null,
+    "location_id": "11",
+    "display_views": "0",
+    "source": null,
+    "hide_phone": "0",
+    "created_at": "1596364058",
+    "photos": [
+      {
+        "id": "752320",
+        "url": "/Pet_1596364103.424476.jpeg",
+        "thumb": "/Pet_thumb_1596364103.424476.jpeg",
+        "pet_id": "434545",
+        "url_google": null,
+        "thumb_google": null
+      },
+      {
+        "id": "752321",
+        "url": "/Pet_1596364129.217829.jpeg",
+        "thumb": "/Pet_thumb_1596364129.217829.jpeg",
+        "pet_id": "434545",
+        "url_google": null,
+        "thumb_google": null
+      },
+      {
+        "id": "752322",
+        "url": "/Pet_1596364127.183260.png",
+        "thumb": "/Pet_thumb_1596364127.183260.png",
+        "pet_id": "434545",
+        "url_google": null,
+        "thumb_google": null
+      },
+      {
+        "id": "752323",
+        "url": "/Pet_1596364132.839325.jpeg",
+        "thumb": "/Pet_thumb_1596364132.839325.jpeg",
+        "pet_id": "434545",
+        "url_google": null,
+        "thumb_google": null
+      },
+      {
+        "id": "752324",
+        "url": "/Pet_1596364142.932849.jpeg",
+        "thumb": "/Pet_thumb_1596364142.932849.jpeg",
+        "pet_id": "434545",
+        "url_google": null,
+        "thumb_google": null
+      },
+      {
+        "id": "752325",
+        "url": "/Pet_1596364142.073216.png",
+        "thumb": "/Pet_thumb_1596364142.073216.png",
+        "pet_id": "434545",
+        "url_google": null,
+        "thumb_google": null
+      }
+    ],
+    "author": {
+      "id": "221045",
+      "username": "Александр",
+      "lastname": "",
+      "phone": "+7 (927) 999-9403",
+      "email": "sashayg@inbox.ru"
+    },
+    "colors": [],
+    "location": {
+      "id": "11",
+      "name": "Чебоксары",
+      "title": "{{type}} {{animal}} Чебоксары",
+      "slug": "{{type}}-{{animal}}-cheboksary",
+      "into_name": "Чебоксарах"
+    },
+    "comments": [
+      {
+        "id": "293497",
+        "pet_id": "434545",
+        "name": "Всероссийская система поиска животных Pet911",
+        "text": "Объявление rf434545 размещено в группе ВКонтакте <a href=\"https://vk.com/pet911cheboksary?w=wall-176474910_604%2Fall\" target=\"_blank\">Чебоксары | Pet911 пропала найдена собака кошка</a>",
+        "created_at": "1596364203",
+        "type": "3"
+      }
+    ],
+    "petBreed": {
+      "id": 1,
+      "name": "Неизвестно",
+      "bid": 1,
+      "type": 1,
+      "status": 10,
+      "created_at": 1501497454,
+      "updated_at": 1507134033,
+      "slug": "neizvestno"
+    },
+    "numberOfViews": "1"
+  },
+  "isHash": false
+}
