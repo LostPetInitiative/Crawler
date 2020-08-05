@@ -6,19 +6,24 @@ open System.Diagnostics
 [<EntryPoint>]
 let main argv =
     async {
-        Trace.Listeners.Add(ConsoleTraceListener()) |> ignore
+        Trace.Listeners.Add(new ConsoleTraceListener()) |> ignore
 
         let startId = 434884
-        let maxConcurrentDownload = 1
+        let maxConcurrentDownload = 5
         let maxImageConcurrentDownload = 1
-        let dbPath = "db"
-        let ids = Seq.init startId (fun idx -> let idx = startId - idx in [sprintf "rf%d" idx ; sprintf "rl%d" idx]) |> Seq.collect id
+        let dbPath = @"D:\pet911ru"
+
+        //let! res = tryExtractCard "rf434884"
+
+        let ids =
+            Seq.init startId (fun idx -> let idx = startId - idx in [sprintf "rf%d" idx ; sprintf "rl%d" idx])
+            |> Seq.collect id
+            // |> Seq.take 170
         let cardProcessor = PetCardDownloader(maxConcurrentDownload, maxImageConcurrentDownload, dbPath)
-        let finished = cardProcessor.PostWithReply(Start)
-        cardProcessor.Post(ExitAfter 5)
+        
+        
         ids |> Seq.iter (fun artId -> cardProcessor.Post(ProcessArtId artId))
+        do! cardProcessor.PostWithReply(ShutdownPetCardDownloader)
         
-        
-        do! finished
         return 0
     } |> Async.RunSynchronously
