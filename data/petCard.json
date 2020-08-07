@@ -1,116 +1,67 @@
 ﻿{
   "pet": {
-    "id": "434545",
-    "art": "rf434545",
-    "address": "Чебоксары",
-    "latitude": "56.14624700",
-    "longitude": "47.25015300",
+    "id": "433516",
+    "art": "rl433516",
+    "address": "Россия, Томск, Иркутский тракт, 214",
+    "latitude": "56.52333900",
+    "longitude": "85.07401500",
     "age": "1",
-    "animal": "1",
+    "animal": "2",
     "breed": "1",
-    "status": "1",
+    "status": "4",
     "collar": "1",
-    "date": "1596315600",
+    "date": "1595610000",
     "nickname": null,
     "reward": null,
-    "sex": "1",
+    "sex": "2",
     "sterile": "1",
-    "type": "2",
-    "user": "221045",
-    "description": "Мальчик и девочка ",
+    "type": "1",
+    "user": "220341",
+    "description": "Пропал кот по кличке Петя. Выпал с балкона 214 дома. Нашедшим просьба сообщить.",
     "contact_info": "",
-    "delete_reason": null,
-    "location_id": "11",
+    "delete_reason": "1",
+    "location_id": "85",
     "display_views": "0",
-    "source": null,
+    "source": "fromYandex",
     "hide_phone": "0",
-    "created_at": "1596364058",
+    "created_at": "1595770489",
     "photos": [
       {
-        "id": "752320",
-        "url": "/Pet_1596364103.424476.jpeg",
-        "thumb": "/Pet_thumb_1596364103.424476.jpeg",
-        "pet_id": "434545",
-        "url_google": null,
-        "thumb_google": null
-      },
-      {
-        "id": "752321",
-        "url": "/Pet_1596364129.217829.jpeg",
-        "thumb": "/Pet_thumb_1596364129.217829.jpeg",
-        "pet_id": "434545",
-        "url_google": null,
-        "thumb_google": null
-      },
-      {
-        "id": "752322",
-        "url": "/Pet_1596364127.183260.png",
-        "thumb": "/Pet_thumb_1596364127.183260.png",
-        "pet_id": "434545",
-        "url_google": null,
-        "thumb_google": null
-      },
-      {
-        "id": "752323",
-        "url": "/Pet_1596364132.839325.jpeg",
-        "thumb": "/Pet_thumb_1596364132.839325.jpeg",
-        "pet_id": "434545",
-        "url_google": null,
-        "thumb_google": null
-      },
-      {
-        "id": "752324",
-        "url": "/Pet_1596364142.932849.jpeg",
-        "thumb": "/Pet_thumb_1596364142.932849.jpeg",
-        "pet_id": "434545",
-        "url_google": null,
-        "thumb_google": null
-      },
-      {
-        "id": "752325",
-        "url": "/Pet_1596364142.073216.png",
-        "thumb": "/Pet_thumb_1596364142.073216.png",
-        "pet_id": "434545",
-        "url_google": null,
-        "thumb_google": null
+        "id": "750805",
+        "url": "/Pet_1595770502.394647.jpg",
+        "thumb": "/Pet_thumb_1595770502.394647.jpg",
+        "pet_id": "433516",
+        "url_google": "https://drive.google.com/uc?id=1QKLRgv6VFYu9W3Vus9nuF06TNkEAygLD&export=download",
+        "thumb_google": "https://drive.google.com/uc?id=1xSvr0e99WrkUcCbGICOLEBipWeR7WHoT&export=download"
       }
     ],
     "author": {
-      "id": "221045",
-      "username": "Александр",
+      "id": "220341",
+      "username": "Татьяна",
       "lastname": "",
-      "phone": "+7 (927) 999-9403",
-      "email": "sashayg@inbox.ru"
+      "phone": "+7 (952) 886-4571",
+      "email": "liza.letyagina.97@gmail.com"
     },
     "colors": [],
     "location": {
-      "id": "11",
-      "name": "Чебоксары",
-      "title": "{{type}} {{animal}} Чебоксары",
-      "slug": "{{type}}-{{animal}}-cheboksary",
-      "into_name": "Чебоксарах"
+      "id": "85",
+      "name": "Томск",
+      "title": "{{type}} {{animal}} Томск",
+      "slug": "{{type}}-{{animal}}-tomsk",
+      "into_name": "Томске"
     },
-    "comments": [
-      {
-        "id": "293497",
-        "pet_id": "434545",
-        "name": "Всероссийская система поиска животных Pet911",
-        "text": "Объявление rf434545 размещено в группе ВКонтакте <a href=\"https://vk.com/pet911cheboksary?w=wall-176474910_604%2Fall\" target=\"_blank\">Чебоксары | Pet911 пропала найдена собака кошка</a>",
-        "created_at": "1596364203",
-        "type": "3"
-      }
-    ],
+    "comments": [],
     "petBreed": {
-      "id": 1,
+      "id": 330,
       "name": "Неизвестно",
       "bid": 1,
-      "type": 1,
+      "type": 2,
       "status": 10,
       "created_at": 1501497454,
-      "updated_at": 1507134033,
+      "updated_at": 1507134034,
       "slug": "neizvestno"
     },
-    "numberOfViews": "1"
+    "numberOfViews": "24"
   },
   "isHash": false
 }

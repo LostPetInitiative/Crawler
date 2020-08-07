@@ -8,10 +8,25 @@ let main argv =
     async {
         Trace.Listeners.Add(new ConsoleTraceListener()) |> ignore
 
+        let dbPath =
+            if argv.Length > 0 then
+                argv.[0]
+            else
+                @"./db"
+        let googleApiKey =
+            if argv.Length > 1 then
+                Some(argv.[1])
+            else
+                None
+
+        Trace.WriteLine(sprintf "DB path is %s" dbPath)
+
         let startId = 434884
-        let maxConcurrentDownload = 5
-        let maxImageConcurrentDownload = 1
-        let dbPath = @"D:\pet911ru"
+        let maxConcurrentCardDownload = 5
+        let maxImage911ConcurrentDownload = 1
+        let maxImageGoogleConcurrentDownload = 2
+        //let dbPath = @"D:\pet911ru"
+        //let dbPath = @"./db"
 
         //let! res = tryExtractCard "rf434884"
 
@@ -19,7 +34,7 @@ let main argv =
             Seq.init startId (fun idx -> let idx = startId - idx in [sprintf "rf%d" idx ; sprintf "rl%d" idx])
             |> Seq.collect id
             // |> Seq.take 170
-        let cardProcessor = PetCardDownloader(maxConcurrentDownload, maxImageConcurrentDownload, dbPath)
+        let cardProcessor = PetCardDownloader(maxConcurrentCardDownload, maxImage911ConcurrentDownload, maxImageGoogleConcurrentDownload, dbPath, googleApiKey)
         
         
         ids |> Seq.iter (fun artId -> cardProcessor.Post(ProcessArtId artId))

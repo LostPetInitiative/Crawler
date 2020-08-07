@@ -6,6 +6,9 @@ open System.Diagnostics
 open System.Net
 open System.IO
 open System.Threading
+open SixLabors.ImageSharp
+open Google.Apis
+open Google.Apis.Drive.v3
 
 module Pet911ru =
     type CardSearchResult =
@@ -122,48 +125,204 @@ module Pet911ru =
 
 
     type ImageDownloaderMsg =
-    |   DownloadImage of uri:System.Uri*filename:string
-    |   DownloadedImage of uri:System.Uri*filename:string
+    |   DownloadImage of photo:CardJson.Photo * artId:string
+    |   DownloadedImage of photo:CardJson.Photo
     |   ShutdownImageDownloader of AsyncReplyChannel<unit>
 
-    type ImageDownloader(maxConcurrentDownloads) =
-        let semaphore = new SemaphoreSlim(maxConcurrentDownloads)
-
-        let download url path =
-            use client = new WebClient()
-            async {
-                do! Async.SwitchToThreadPool()
-                do! semaphore.WaitAsync() |> Async.AwaitTask
+    type ImageDownloader(dbPath, maxConcurrentDownloads911, maxConcurrentDownloadsGoogle, googleApiKey) =
+        let semaphore911 = new SemaphoreSlim(maxConcurrentDownloads911)
+        let semaphoreGoogle = new SemaphoreSlim(maxConcurrentDownloadsGoogle)
+        let googleDriveServiceInitializer = Google.Apis.Services.BaseClientService.Initializer()
+        let mutable googleDriveService:DriveService = null
+        
+        let validateLocalImage imagePath = async {
+            if File.Exists(imagePath) then
                 try
-                    do! client.AsyncDownloadFile(url,path)
-                    Trace.TraceInformation(sprintf "Image %O downloaded" path)
+                    use! image = (Image.LoadAsync(imagePath, cancellationToken= CancellationToken()) |> Async.AwaitTask)
+                    // Trace.TraceInformation(sprintf "valid local image %s found" imagePath)
+                    return true
                 with
-                |   :? WebException as we ->
-                    Trace.TraceError(sprintf "Got WebException(%s) when downloading %O to %O" (we.ToString()) url path)
-                semaphore.Release() |> ignore
-                return ()
+                |   _ ->
+                    File.Delete(imagePath)
+                    // Trace.TraceWarning(sprintf "Invalid local image %s. Marked for re-download" imagePath)
+                    return false
+            else
+                return false
             }
 
+        let mimeToFormat (mimeStr:string) = 
+            if mimeStr.Contains("image/jpeg") || mimeStr.Contains("image/jpg") then
+                Some "jpg"
+            elif mimeStr.Contains("image/png") then
+                Some "png"
+            else
+                None
+
+        let downloadGoogleDriveHostedPhoto fileID = async {
+            try
+                do! semaphoreGoogle.WaitAsync() |> Async.AwaitTask
+                // Trace.TraceInformation(sprintf "GoogleDriveAPI: downloading file %s" fileID)
+                let! res = async {
+                    try
+                        let getRequest = googleDriveService.Files.Get(fileID) 
+                        let! metadata = getRequest.ExecuteAsync() |> Async.AwaitTask
+                        let mimeType = metadata.MimeType
+                        // Trace.TraceInformation(sprintf "GoogleDriveAPI: file %s has mime type %s" fileID mimeType)
+                        let format = mimeToFormat mimeType
+                        match format with
+                        |   Some validFormat ->
+                            use memStream = new MemoryStream()
+                            let! exportStream = getRequest.DownloadAsync(memStream) |> Async.AwaitTask
+                            match exportStream.Status with
+                            |   Download.DownloadStatus.Completed ->
+                                //Trace.TraceInformation(sprintf "GoogleDriveAPI: successfully exported file %s" fileID)
+                                return Ok(validFormat,memStream.GetBuffer())
+                            |   _ ->
+                                return Error(sprintf "GoogleDriveAPI: media download failed: %O" exportStream.Exception)
+                        |   None ->
+                            return Error(sprintf "mime type is not supported: %s" mimeType)
+                    finally
+                        semaphoreGoogle.Release() |> ignore
+                    }
+                return res
+            with
+            |   ex -> return Error(ex.ToString())
+            }
+
+        let downloadHttpHostedPhoto (url:string) = 
+            async {
+                if url.Length = 0 then
+                    return Error("empty url")
+                else
+                    do! semaphore911.WaitAsync() |> Async.AwaitTask
+                    let res = async {
+                        try
+                            try
+                                let headers = [
+                                    HttpRequestHeaders.UserAgent agentName;
+                                    ]
+                                let! response = Http.AsyncRequest(url,
+                                                                    headers = headers,
+                                                                    httpMethod = "GET", silentHttpErrors = true,
+                                                                    timeout = 30000)
+                                match response.StatusCode with
+                                |   HttpStatusCodes.OK ->
+                                    match Map.tryFind HttpResponseHeaders.ContentType response.Headers with
+                                    |   Some contentType ->
+                                        let format = mimeToFormat contentType
+                                        let content =
+                                            match response.Body with
+                                            |   HttpResponseBody.Text -> None
+                                            |   HttpResponseBody.Binary bin ->
+                                                Some(bin)
+                                        match format,content with
+                                        |   Some(imageFormat),Some(data)->
+                                            return Ok(imageFormat,data)
+                                        |   _, _ ->
+                                            let errMsg = "invalid content or response body type"
+                                            Trace.TraceError(errMsg)
+                                            return Error errMsg
+                                    |   None ->
+                                        let errMsg = "Got HTTP response with no contentType header for image"
+                                        Trace.TraceError(errMsg)
+                                        return Error errMsg
+                                |   _ ->
+                                    let errMsg = sprintf "Got not successful HTTP code: %d. %O" response.StatusCode response.Body
+                                    Trace.TraceError(errMsg)
+                                    return Error errMsg
+                            finally
+                                semaphore911.Release() |> ignore
+                        with
+                        |   we ->
+                            let errMsg = we.ToString()
+                            Trace.TraceError(errMsg)
+                            return Error errMsg
+                    }
+                    return! res
+            }
+
+        let extractGoogleDriveFileId (url:string) =
+            if url.Length = 0 then
+                Error("GoolgeDrive URL is empty")
+            else
+                let uri = System.Uri(url)
+                let query = uri.GetComponents(System.UriComponents.Query,System.UriFormat.Unescaped)
+                let queryParsed = System.Web.HttpUtility.ParseQueryString(query)
+                if not (Seq.exists (fun k -> k = "id") queryParsed.AllKeys) then
+                    let errMsg = sprintf "google file URL %s; query %s does not contain id parameter" url query
+                    Trace.TraceError(errMsg)
+                    Error(errMsg)
+                else
+                    Ok(queryParsed.Get("id"))
+
+        let downloadPhoto (photo:CardJson.Photo) petDir = async {
+            let downloadPet911Thumb() = async {
+                if photo.Thumb.Length > 0 then
+                    return! downloadHttpHostedPhoto (sprintf "%s/images%s" urlPrefix photo.Thumb)
+                else
+                    let errorMsg = "thumb URL is empty"
+                    Trace.TraceError(errorMsg)
+                    return Error(errorMsg)
+            }
+                
+            let downloadGoogleThumb() = async {
+                let googleFileID = extractGoogleDriveFileId photo.ThumbGoogle
+                match googleFileID with
+                |   Error(errMsg) -> return Error(errMsg)
+                |   Ok(fileId) ->
+                    return! downloadGoogleDriveHostedPhoto fileId
+            }
+
+            let saveSuccessfullDownload arg = async {
+                let format,content = arg
+                let outFilename = Path.Combine(petDir, sprintf "%d.%s" photo.Id format)
+                do! File.WriteAllBytesAsync(outFilename, content) |> Async.AwaitTask
+                // Trace.TraceInformation(sprintf "Thumb image %O downloaded (%s) to %s" photo.Id format outFilename)
+                return outFilename
+                }
+
+            let! thumbDownloaded = downloadGoogleThumb() 
+            match thumbDownloaded with
+            |   Ok(format,content) ->
+                Trace.TraceInformation(sprintf "got valid thumb from google for pet %d" photo.PetId)
+                let! outFilename = saveSuccessfullDownload(format,content)
+                return Ok(outFilename)
+            |   Error(thumbError) ->
+                let! thumb2Downloaded = downloadPet911Thumb()
+                match thumb2Downloaded with
+                |   Ok(format,content) ->
+                    Trace.TraceInformation(sprintf "got valid thumb from pet991 for pet %d" photo.PetId)
+                    let! outFilename = saveSuccessfullDownload(format,content)
+                    return Ok(outFilename)
+                |   Error(thumb2error) ->
+                    let errorMsg = sprintf "Failed to get either of thumbs: (%s) and (%s)" thumbError thumb2error
+                    Trace.TraceError(errorMsg)
+                    return Error(errorMsg)
+        }
+        
         let mbProcessor = MailboxProcessor<ImageDownloaderMsg>.Start(fun inbox ->
             let rec messageLoop state = async {
                 let! msg = inbox.Receive()
                 match msg with
-                |   DownloadImage(url, localFilename) ->
-                    //match state.ShutdownChannel with
-                    //|   Some(_) ->
-                    //    Trace.TraceInformation(sprintf "ignoring image downloading %O as shutdown has started" url)
-                    //    return! messageLoop state
-                    //|   None ->
-                    if not (File.Exists(localFilename)) then
-                        async {
-                            do! download url localFilename 
-                            inbox.Post(DownloadedImage(url, localFilename))
-                        } |> Async.Start
-                        return! messageLoop {state with ActiveDownloads = state.ActiveDownloads + 1}
-                    else
-                        Trace.TraceInformation(sprintf "Image %s is already on disk" localFilename)
-                        return! messageLoop state
-                |   DownloadedImage(_,_) ->
+                |   DownloadImage(photo,artId) ->
+                    async {
+                        let petDir = Path.Combine(dbPath,artId)
+                        let localImagePaths = ["jpg"; "png"] |> Seq.map (fun ext -> Path.Combine(petDir, sprintf "%d.%s" photo.Id ext))
+                        let! localValidations = localImagePaths |> Seq.map validateLocalImage |> Async.Parallel
+                        let localValid = Seq.exists id localValidations
+                        if not localValid then
+                            Trace.TraceInformation(sprintf "Queuing to download image %d (for %s)" photo.Id artId)
+                            let! photoDownloadResult =  downloadPhoto photo petDir 
+                            Trace.TraceInformation(sprintf "Processed download image %d job (for %s)" photo.Id artId)
+                            ()
+                        else
+                            Trace.TraceInformation(sprintf "Valid image %d (for %s) is already on disk" photo.Id artId)
+                        inbox.Post(DownloadedImage(photo))
+                        return ()
+                    } |> Async.Start
+                    
+                    return! messageLoop {state with ActiveDownloads = state.ActiveDownloads + 1}
+                |   DownloadedImage(_) ->
                     match state.ShutdownChannel with
                     |   Some(sc) ->
                         if state.ActiveDownloads = 1 then
@@ -189,8 +348,17 @@ module Pet911ru =
                 
             messageLoop initialState)
 
-        member _.Post(url,path) =
-            mbProcessor.Post(DownloadImage(url,path))
+        do
+            match googleApiKey with
+            |   Some key ->
+                Trace.TraceInformation ("Google API key is set")
+                googleDriveServiceInitializer.ApiKey <- key
+            |   None -> ()
+
+            googleDriveService <- new DriveService(googleDriveServiceInitializer)
+
+        member _.Post(msg) =
+            mbProcessor.Post(msg)
 
         member _.Shutdown() =
             mbProcessor.PostAndAsyncReply(fun r -> ShutdownImageDownloader(r))
@@ -212,7 +380,7 @@ module Pet911ru =
     |   AddNewEntry of artID:string
     |   CheckIfInSet of artID:string * AsyncReplyChannel<bool>
 
-    type PetCardDownloader(maxConcurrentCardDownloads, maxConcurrentImageDownloads, dbPath:string) =
+    type PetCardDownloader(maxConcurrentCardDownloads, maxConcurrent911ImageDownloads, maxConcurrentGoogleImageDownloads, dbPath:string, googleApiKey) =
         let semaphore = new SemaphoreSlim(maxConcurrentCardDownloads)
         
         let missingArtSetPath = Path.Combine(dbPath,"missingArtSet.json")
@@ -242,7 +410,7 @@ module Pet911ru =
                     return! loop (missingSet, persistenceFile)
                 }
             loop (Set.empty,""))
-        let imageDownloadProcessor = ImageDownloader(maxConcurrentImageDownloads)
+        let imageDownloadProcessor = ImageDownloader(dbPath, maxConcurrent911ImageDownloads, maxConcurrentGoogleImageDownloads, googleApiKey)
         do
             if not(Directory.Exists(dbPath)) then
                 Directory.CreateDirectory(dbPath) |> ignore
@@ -253,10 +421,7 @@ module Pet911ru =
             let artDirPath = Path.Combine(dbPath, artId)
             if not (Directory.Exists(artDirPath)) then
                 Directory.CreateDirectory(artDirPath) |> ignore
-            let photoThumbOutPaths = card.Pet.Photos |> Seq.map (fun photo -> Path.Combine(artDirPath, sprintf "%d.jpg" photo.Id))
-            let photoThumbUrls = card.Pet.Photos |> Seq.map (fun photo -> new System.Uri(sprintf "%s/images%s" urlPrefix photo.Thumb)) 
-            let imageDownloadCommands = Seq.zip photoThumbUrls photoThumbOutPaths
-            imageDownloadCommands
+            card.Pet.Photos |> Seq.map (fun p -> DownloadImage(p,artId))
 
         let checkArtId postImageDownloadRequest artId = async {
                 //Trace.TraceInformation(sprintf "Processing %s" artId)
