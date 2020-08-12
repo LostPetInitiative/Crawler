@@ -20,7 +20,8 @@ module Pet911ru =
     type CardJson = JsonProvider<"../data/petCard.json">
 
     let urlPrefix = @"https://pet911.ru"
-    let agentName = "LostPetInitiative:Crawler-pet911.ru / 0.1 (https://github.com/LostPetInitiative/Crawler-pet911.ru)"
+    // let agentName = "LostPetInitiative:Crawler-pet911.ru / 0.1 (https://github.com/LostPetInitiative/Crawler-pet911.ru)"
+    let agentName = "Crawler-pet911.ru / 0.1"
 
     let private apiRequest path jsonBody =
         let fullURL = sprintf "%s%s" urlPrefix path
@@ -34,7 +35,7 @@ module Pet911ru =
                         //HttpRequestHeaders.Origin urlPrefix
                         ],
             httpMethod = "POST",
-            body = TextRequest jsonBody, silentHttpErrors = false, timeout = 30000)
+            body = TextRequest jsonBody, silentHttpErrors = true, timeout = 30000)
 
     /// Extracts the URL for some cardID (if any)
     let tryFetchCardPageURL cardId = 
@@ -71,7 +72,7 @@ module Pet911ru =
         }
     
     /// Tries to extract the pet card by art
-    let tryExtractCard cardId =
+    let tryExtractRemoteCard cardId =
         let jsonBody = sprintf """{"art": "%s"}""" cardId
         // request 
         // { "art": "rf434545" }
@@ -81,7 +82,7 @@ module Pet911ru =
                     try
                         let! response = apiRequest "/api/view-pet" jsonBody
                         // Trace.TraceInformation(sprintf "Got reply for %s" cardId)
-                        return Some response
+                        return Ok response
                     with
                     |   :? WebException as we ->
                         if we.Status = WebExceptionStatus.ProtocolError then
@@ -89,10 +90,10 @@ module Pet911ru =
                             ()
                         else
                             Trace.TraceInformation(sprintf "WE %O for %s status %O" we  cardId we.Status);
-                        return None
+                        return Error(we.ToString())
                 }
             match responseOption with
-            |   Some response ->
+            |   Ok response ->
                 match response.StatusCode with
                 |   HttpStatusCodes.OK ->
                     let contentTypeFound, contentType = response.Headers.TryGetValue HttpResponseHeaders.ContentType
@@ -101,27 +102,45 @@ module Pet911ru =
                             match response.Body with
                             |   HttpResponseBody.Text responseStr ->
                                 let responseJson = CardJson.Parse(responseStr)
-                                return Some(responseJson)
+                                return Ok(Some(responseJson))
                             |   HttpResponseBody.Binary _ ->
-                                Trace.TraceError(sprintf "Binary body returned when extracting a pet card \'%s\'" cardId)
-                                return None
+                                let errMsg = sprintf "Binary body returned when extracting a pet card \'%s\'" cardId
+                                //Trace.TraceError(errMsg)
+                                return Error(errMsg)
                         else
-                            return None
+                            let errMsg = sprintf "Content type \'%s\' is not JSON for \'%s\'" contentType cardId
+                            //Trace.TraceError(errMsg)
+                            return Error(errMsg)
                     else
-                        Trace.TraceWarning(sprintf "The response for artId %s does not contain ContentType header" cardId)
-                        return None
+                        let errMsg = sprintf "The response for artId %s does not contain ContentType header" cardId
+                        //Trace.TraceError(errMsg)
+                        return Error(errMsg)
                 |   HttpStatusCodes.NotFound ->
-                        return None
+                        Trace.TraceInformation(sprintf "Got 404 for %s" cardId)
+                        return Ok(None)
                 |   _ ->
-                    Trace.TraceError(sprintf "Non successful error code (%d) when extracting the pet card \'%s\'" response.StatusCode cardId)
-                    return None
-            |   None -> return None
+                    let errMsg = sprintf "Non successful error code (%d) when extracting the pet card \'%s\'" response.StatusCode cardId
+                    //Trace.TraceError(errMsg)
+                    return Error(errMsg)
+            |   Error msg -> return Error msg
         }
 
     type ImageDownloaderState = {
         ActiveDownloads: int
         ShutdownChannel: AsyncReplyChannel<unit> option
     }
+
+    type ProxySupportedHttpClientFactory()=
+        inherit Google.Apis.Http.HttpClientFactory()
+
+        override s.CreateHandler(args) =
+            let proxy = new WebProxy("http://10.0.10.24:3128", true, null, null)
+
+            let handler = new System.Net.Http.HttpClientHandler()
+            handler.Proxy <- proxy
+            handler.UseProxy <- true
+
+            upcast handler
 
 
     type ImageDownloaderMsg =
@@ -130,6 +149,11 @@ module Pet911ru =
     |   ShutdownImageDownloader of AsyncReplyChannel<unit>
 
     type ImageDownloader(dbPath, maxConcurrentDownloads911, maxConcurrentDownloadsGoogle, googleApiKey) =
+        let concurrentTasksSemaphore = new SemaphoreSlim(System.Environment.ProcessorCount * 2)
+        let random = System.Random()
+        let minIntervalBetweenGoogleAPIRequests = System.TimeSpan.FromSeconds(10.0)
+        let latestGoogleRequestLock = obj()
+        let mutable latestGoogleRequest = System.DateTime.Now
         let semaphore911 = new SemaphoreSlim(maxConcurrentDownloads911)
         let semaphoreGoogle = new SemaphoreSlim(maxConcurrentDownloadsGoogle)
         let googleDriveServiceInitializer = Google.Apis.Services.BaseClientService.Initializer()
@@ -161,18 +185,30 @@ module Pet911ru =
         let downloadGoogleDriveHostedPhoto fileID = async {
             try
                 do! semaphoreGoogle.WaitAsync() |> Async.AwaitTask
+                let delayMs =
+                    lock latestGoogleRequestLock (fun () ->
+                                                    let now = System.DateTime.Now
+                                                    let nextAvailableTime = latestGoogleRequest + minIntervalBetweenGoogleAPIRequests
+                                                    let delay = max 0 (int((nextAvailableTime - now).TotalMilliseconds))
+                                                    if delay > 0 then
+                                                        latestGoogleRequest <- nextAvailableTime
+                                                    else
+                                                        latestGoogleRequest <- now
+                                                    delay)
+                if delayMs > 0 then
+                    Trace.TraceInformation(sprintf "GoogleDriveAPI throttling: sleeping for %d milliseconds" delayMs)
+                    do! Async.Sleep (delayMs + random.Next(500))
                 // Trace.TraceInformation(sprintf "GoogleDriveAPI: downloading file %s" fileID)
                 let! res = async {
                     try
-                        let getRequest = googleDriveService.Files.Get(fileID) 
-                        let! metadata = getRequest.ExecuteAsync() |> Async.AwaitTask
+                        let! metadata = googleDriveService.Files.Get(fileID).ExecuteAsync() |> Async.AwaitTask
                         let mimeType = metadata.MimeType
                         // Trace.TraceInformation(sprintf "GoogleDriveAPI: file %s has mime type %s" fileID mimeType)
                         let format = mimeToFormat mimeType
                         match format with
                         |   Some validFormat ->
                             use memStream = new MemoryStream()
-                            let! exportStream = getRequest.DownloadAsync(memStream) |> Async.AwaitTask
+                            let! exportStream = googleDriveService.Files.Get(fileID).DownloadAsync(memStream) |> Async.AwaitTask
                             match exportStream.Status with
                             |   Download.DownloadStatus.Completed ->
                                 //Trace.TraceInformation(sprintf "GoogleDriveAPI: successfully exported file %s" fileID)
@@ -189,9 +225,67 @@ module Pet911ru =
             |   ex -> return Error(ex.ToString())
             }
 
+        let downloadHttpHostedPhotoAsBrowser (url:string) = 
+            async {
+                if System.String.IsNullOrEmpty(url) then
+                    return Error("empty url")
+                else
+                    do! semaphoreGoogle.WaitAsync() |> Async.AwaitTask
+                    let res = async {
+                        try
+                            try
+                                let headers = [
+                                    HttpRequestHeaders.UserAgent @"Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:79.0) Gecko/20100101 Firefox/79.0";
+                                    "DNT","1";
+                                    "Accept",@"text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8";
+                                    "Accept-Language",@"en-GB,en;q=0.5"
+                                    "Upgrade-Insecure-Requests","1";
+                                    "Pragma",@"no-cache";
+                                    "Cache-Control", @"no-cache"
+                                    ]
+                                let! response = Http.AsyncRequest(url,
+                                                                    headers = headers,
+                                                                    httpMethod = "GET", silentHttpErrors = true,
+                                                                    timeout = 30000)
+                                match response.StatusCode with
+                                |   HttpStatusCodes.OK ->
+                                    match Map.tryFind HttpResponseHeaders.ContentType response.Headers with
+                                    |   Some contentType ->
+                                        let format = mimeToFormat contentType
+                                        let content =
+                                            match response.Body with
+                                            |   HttpResponseBody.Text -> None
+                                            |   HttpResponseBody.Binary bin ->
+                                                Some(bin)
+                                        match format,content with
+                                        |   Some(imageFormat),Some(data)->
+                                            return Ok(imageFormat,data)
+                                        |   _, _ ->
+                                            let errMsg = "invalid content or response body type"
+                                            Trace.TraceError(errMsg)
+                                            return Error errMsg
+                                    |   None ->
+                                        let errMsg = "Got HTTP response with no contentType header for image"
+                                        Trace.TraceError(errMsg)
+                                        return Error errMsg
+                                |   _ ->
+                                    let errMsg = sprintf "Got not successful HTTP code: %d. %O" response.StatusCode response.Body
+                                    Trace.TraceError(errMsg)
+                                    return Error errMsg
+                            finally
+                                semaphoreGoogle.Release() |> ignore
+                        with
+                        |   we ->
+                            let errMsg = we.ToString()
+                            Trace.TraceError(errMsg)
+                            return Error errMsg
+                    }
+                    return! res
+            }
+
         let downloadHttpHostedPhoto (url:string) = 
             async {
-                if url.Length = 0 then
+                if System.String.IsNullOrEmpty(url) then
                     return Error("empty url")
                 else
                     do! semaphore911.WaitAsync() |> Async.AwaitTask
@@ -266,11 +360,17 @@ module Pet911ru =
             }
                 
             let downloadGoogleThumb() = async {
-                let googleFileID = extractGoogleDriveFileId photo.ThumbGoogle
-                match googleFileID with
-                |   Error(errMsg) -> return Error(errMsg)
-                |   Ok(fileId) ->
-                    return! downloadGoogleDriveHostedPhoto fileId
+                if photo.Thumb.Length > 0 then
+                    return! downloadHttpHostedPhotoAsBrowser photo.ThumbGoogle
+                else
+                    let errorMsg = "google thumb URL is empty"
+                    Trace.TraceError(errorMsg)
+                    return Error(errorMsg)
+                //let googleFileID = extractGoogleDriveFileId photo.ThumbGoogle
+                //match googleFileID with
+                //|   Error(errMsg) -> return Error(errMsg)
+                //|   Ok(fileId) ->
+                //    return! downloadGoogleDriveHostedPhoto fileId
             }
 
             let saveSuccessfullDownload arg = async {
@@ -291,7 +391,7 @@ module Pet911ru =
                 let! thumb2Downloaded = downloadPet911Thumb()
                 match thumb2Downloaded with
                 |   Ok(format,content) ->
-                    Trace.TraceInformation(sprintf "got valid thumb from pet991 for pet %d" photo.PetId)
+                    Trace.TraceInformation(sprintf "got valid thumb from pet911.ru for pet %d" photo.PetId)
                     let! outFilename = saveSuccessfullDownload(format,content)
                     return Ok(outFilename)
                 |   Error(thumb2error) ->
@@ -306,19 +406,23 @@ module Pet911ru =
                 match msg with
                 |   DownloadImage(photo,artId) ->
                     async {
-                        let petDir = Path.Combine(dbPath,artId)
-                        let localImagePaths = ["jpg"; "png"] |> Seq.map (fun ext -> Path.Combine(petDir, sprintf "%d.%s" photo.Id ext))
-                        let! localValidations = localImagePaths |> Seq.map validateLocalImage |> Async.Parallel
-                        let localValid = Seq.exists id localValidations
-                        if not localValid then
-                            Trace.TraceInformation(sprintf "Queuing to download image %d (for %s)" photo.Id artId)
-                            let! photoDownloadResult =  downloadPhoto photo petDir 
-                            Trace.TraceInformation(sprintf "Processed download image %d job (for %s)" photo.Id artId)
-                            ()
-                        else
-                            Trace.TraceInformation(sprintf "Valid image %d (for %s) is already on disk" photo.Id artId)
-                        inbox.Post(DownloadedImage(photo))
-                        return ()
+                        do! concurrentTasksSemaphore.WaitAsync() |> Async.AwaitTask
+                        try
+                            let petDir = Path.Combine(dbPath,artId)
+                            let localImagePaths = ["jpg"; "png"] |> Seq.map (fun ext -> Path.Combine(petDir, sprintf "%d.%s" photo.Id ext))
+                            let! localValidations = localImagePaths |> Seq.map validateLocalImage |> Async.Parallel
+                            let localValid = Seq.exists id localValidations
+                            if not localValid then
+                                Trace.TraceInformation(sprintf "Queuing to download image %d (for %s)" photo.Id artId)
+                                let! photoDownloadResult =  downloadPhoto photo petDir 
+                                Trace.TraceInformation(sprintf "Processed download image %d job (for %s)" photo.Id artId)
+                                ()
+                            else
+                                Trace.TraceInformation(sprintf "Valid image %d (for %s) is already on disk" photo.Id artId)
+                            inbox.Post(DownloadedImage(photo))
+                            return ()
+                        finally
+                            concurrentTasksSemaphore.Release() |> ignore
                     } |> Async.Start
                     
                     return! messageLoop {state with ActiveDownloads = state.ActiveDownloads + 1}
@@ -353,9 +457,12 @@ module Pet911ru =
             |   Some key ->
                 Trace.TraceInformation ("Google API key is set")
                 googleDriveServiceInitializer.ApiKey <- key
+                googleDriveServiceInitializer.ApplicationName <- "pet911 crawler"
+                // googleDriveServiceInitializer.HttpClientFactory <- ProxySupportedHttpClientFactory()
             |   None -> ()
 
             googleDriveService <- new DriveService(googleDriveServiceInitializer)
+            
 
         member _.Post(msg) =
             mbProcessor.Post(msg)
@@ -381,7 +488,8 @@ module Pet911ru =
     |   CheckIfInSet of artID:string * AsyncReplyChannel<bool>
 
     type PetCardDownloader(maxConcurrentCardDownloads, maxConcurrent911ImageDownloads, maxConcurrentGoogleImageDownloads, dbPath:string, googleApiKey) =
-        let semaphore = new SemaphoreSlim(maxConcurrentCardDownloads)
+        let concurrentRequestSemaphore = new SemaphoreSlim(maxConcurrentCardDownloads)
+        let concurrentTasksSemaphore = new SemaphoreSlim(System.Environment.ProcessorCount * 2)
         
         let missingArtSetPath = Path.Combine(dbPath,"missingArtSet.json")
 
@@ -423,49 +531,66 @@ module Pet911ru =
                 Directory.CreateDirectory(artDirPath) |> ignore
             card.Pet.Photos |> Seq.map (fun p -> DownloadImage(p,artId))
 
-        let checkArtId postImageDownloadRequest artId = async {
+        let checkArtId postImageDownloadRequest (artId:string) = async {
                 //Trace.TraceInformation(sprintf "Processing %s" artId)
-                let! previouslyMissing = missingArtSetProcessor.PostAndAsyncReply(fun r -> CheckIfInSet(artId,r))
-                if not previouslyMissing then
-                    let artDirPath = Path.Combine(dbPath,artId)
-                    let cardPath = Path.Combine(artDirPath, "card.json")
-                    let! imageJobs = async {
-                        let! localCardCheckResult = async {
-                            if File.Exists cardPath then
-                                let! cardText = File.ReadAllTextAsync(cardPath) |> Async.AwaitTask
-                                try
-                                    return Some(CardJson.Parse(cardText))
-                                with
-                                |   _ -> return None
-                            else
-                                return None
-                            }
-                        match localCardCheckResult with
-                        |   Some(card) ->
-                            Trace.TraceInformation(sprintf "Valid card for %s already exists locally" artId)
-                            return extractImageJobs card
-                        |   None ->
-                            // local snapshot not found, checking remote
-                            do! semaphore.WaitAsync() |> Async.AwaitTask
-                            Trace.TraceInformation(sprintf "Checking remote card for %s" artId)
-                            let! cardExtractResult = tryExtractCard artId
-                            semaphore.Release() |> ignore
-                            // Trace.TraceInformation(sprintf "remote card for %s checked" artId)
+                let tryParseLocalCard cardPath = async {
+                    if File.Exists cardPath then
+                        let! cardText = File.ReadAllTextAsync(cardPath) |> Async.AwaitTask
+                        try
+                            return Some(CardJson.Parse(cardText))
+                        with
+                        |   _ -> return None
+                    else
+                        return None
+                    }
 
-                            match cardExtractResult with
-                            |   None ->
-                                // Trace.TraceInformation(sprintf "Card for %s does not exist remotely" artId)
-                                missingArtSetProcessor.Post(AddNewEntry artId)
-                                return Seq.empty
+                let altArtId =
+                    let altType = if artId.Substring(0,2) = "rl" then "rf" else "rl"
+                    sprintf "%s%s" altType (artId.Substring(2))
+                let altArtDirPath = Path.Combine(dbPath,altArtId)
+                let altCardPath = Path.Combine(altArtDirPath, "card.json")
+                let! altCardParseResult = tryParseLocalCard altCardPath
+                match altCardParseResult with
+                |   Some(_) ->
+                    Trace.TraceInformation(sprintf "Valid ALT card for %s already exists locally" artId)
+                    return () // if alternative card id exists, we do not check the requested card, as they are mutually exclusive
+                |   None ->
+                    let! previouslyMissing = missingArtSetProcessor.PostAndAsyncReply(fun r -> CheckIfInSet(artId,r))
+                    if not previouslyMissing then
+                        let artDirPath = Path.Combine(dbPath,artId)
+                        let cardPath = Path.Combine(artDirPath, "card.json")
+                        let! imageJobs = async {
+                            let! localCardCheckResult = tryParseLocalCard cardPath
+                            match localCardCheckResult with
                             |   Some(card) ->
-                                Trace.TraceInformation(sprintf "Valid card acquired for %s" artId)
-                                Directory.CreateDirectory(artDirPath) |> ignore
-                                File.WriteAllTextAsync(cardPath,card.JsonValue.ToString(JsonSaveOptions.None)) |> ignore
+                                Trace.TraceInformation(sprintf "Valid card for %s already exists locally" artId)
                                 return extractImageJobs card
-                        }
+                            |   None ->
+                                // local snapshot not found, checking remote
+                                do! concurrentRequestSemaphore.WaitAsync() |> Async.AwaitTask
+                                // Trace.TraceInformation(sprintf "Checking remote card for %s" artId)
+                                let! cardExtractResult = tryExtractRemoteCard artId
+                                concurrentRequestSemaphore.Release() |> ignore
+                                // Trace.TraceInformation(sprintf "remote card for %s checked" artId)
+
+                                match cardExtractResult with
+                                |   Error msg ->
+                                    Trace.TraceError(sprintf "Error obtaining remote card for %s: %s" artId msg)
+                                    return Seq.empty
+                                |   Ok result ->
+                                    match result with
+                                    |   None ->
+                                        // Trace.TraceInformation(sprintf "Card for %s does not exist remotely" artId)
+                                        missingArtSetProcessor.Post(AddNewEntry artId)
+                                        return Seq.empty
+                                    |   Some(card) ->
+                                        Trace.TraceInformation(sprintf "Valid card acquired for %s" artId)
+                                        Directory.CreateDirectory(artDirPath) |> ignore
+                                        File.WriteAllTextAsync(cardPath,card.JsonValue.ToString(JsonSaveOptions.None)) |> ignore
+                                        return extractImageJobs card
+                            }
                             
-                    Seq.iter postImageDownloadRequest imageJobs
-                
+                        Seq.iter postImageDownloadRequest imageJobs
             }
 
         let mbProcessor = MailboxProcessor.Start(fun inbox ->
@@ -479,8 +604,12 @@ module Pet911ru =
                         ()
                     |   None ->
                         let processJob = async {
-                                do! checkArtId (fun job -> imageDownloadProcessor.Post(job)) artId
-                                inbox.Post(ProcesssingFinished artId)
+                                do! concurrentTasksSemaphore.WaitAsync() |> Async.AwaitTask
+                                try
+                                    do! checkArtId (fun job -> imageDownloadProcessor.Post(job)) artId
+                                    inbox.Post(ProcesssingFinished artId)
+                                finally
+                                    concurrentTasksSemaphore.Release() |> ignore
                             }
                         processJob |> Async.Start
                     return! loop {state with activeJobs = state.activeJobs + 1}
