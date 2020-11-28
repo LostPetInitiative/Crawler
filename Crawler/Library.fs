@@ -19,9 +19,11 @@ module Pet911ru =
 
     type CardJson = JsonProvider<"../data/petCard.json">
 
+    type CardsJson = JsonProvider<"../data/petCards.json">
+
     let urlPrefix = @"https://pet911.ru"
     // let agentName = "LostPetInitiative:Crawler-pet911.ru / 0.1 (https://github.com/LostPetInitiative/Crawler-pet911.ru)"
-    let agentName = "Crawler-pet911.ru / 0.1"
+    let agentName = "LostPetInitiative:Kashtanka-crawler / 0.1 (https://kashtanka.pet/)"
 
     let private apiRequest path jsonBody =
         let fullURL = sprintf "%s%s" urlPrefix path
@@ -35,7 +37,7 @@ module Pet911ru =
                         //HttpRequestHeaders.Origin urlPrefix
                         ],
             httpMethod = "POST",
-            body = TextRequest jsonBody, silentHttpErrors = true, timeout = 30000)
+            body = TextRequest jsonBody, silentHttpErrors = true, timeout = 60000)
 
     /// Extracts the URL for some cardID (if any)
     let tryFetchCardPageURL cardId = 
@@ -182,49 +184,6 @@ module Pet911ru =
             else
                 None
 
-        let downloadGoogleDriveHostedPhoto fileID = async {
-            try
-                do! semaphoreGoogle.WaitAsync() |> Async.AwaitTask
-                let delayMs =
-                    lock latestGoogleRequestLock (fun () ->
-                                                    let now = System.DateTime.Now
-                                                    let nextAvailableTime = latestGoogleRequest + minIntervalBetweenGoogleAPIRequests
-                                                    let delay = max 0 (int((nextAvailableTime - now).TotalMilliseconds))
-                                                    if delay > 0 then
-                                                        latestGoogleRequest <- nextAvailableTime
-                                                    else
-                                                        latestGoogleRequest <- now
-                                                    delay)
-                if delayMs > 0 then
-                    Trace.TraceInformation(sprintf "GoogleDriveAPI throttling: sleeping for %d milliseconds" delayMs)
-                    do! Async.Sleep (delayMs + random.Next(500))
-                // Trace.TraceInformation(sprintf "GoogleDriveAPI: downloading file %s" fileID)
-                let! res = async {
-                    try
-                        let! metadata = googleDriveService.Files.Get(fileID).ExecuteAsync() |> Async.AwaitTask
-                        let mimeType = metadata.MimeType
-                        // Trace.TraceInformation(sprintf "GoogleDriveAPI: file %s has mime type %s" fileID mimeType)
-                        let format = mimeToFormat mimeType
-                        match format with
-                        |   Some validFormat ->
-                            use memStream = new MemoryStream()
-                            let! exportStream = googleDriveService.Files.Get(fileID).DownloadAsync(memStream) |> Async.AwaitTask
-                            match exportStream.Status with
-                            |   Download.DownloadStatus.Completed ->
-                                //Trace.TraceInformation(sprintf "GoogleDriveAPI: successfully exported file %s" fileID)
-                                return Ok(validFormat,memStream.GetBuffer())
-                            |   _ ->
-                                return Error(sprintf "GoogleDriveAPI: media download failed: %O" exportStream.Exception)
-                        |   None ->
-                            return Error(sprintf "mime type is not supported: %s" mimeType)
-                    finally
-                        semaphoreGoogle.Release() |> ignore
-                    }
-                return res
-            with
-            |   ex -> return Error(ex.ToString())
-            }
-
         let downloadHttpHostedPhotoAsBrowser (url:string) = 
             async {
                 if System.String.IsNullOrEmpty(url) then
@@ -334,20 +293,6 @@ module Pet911ru =
                     }
                     return! res
             }
-
-        let extractGoogleDriveFileId (url:string) =
-            if url.Length = 0 then
-                Error("GoolgeDrive URL is empty")
-            else
-                let uri = System.Uri(url)
-                let query = uri.GetComponents(System.UriComponents.Query,System.UriFormat.Unescaped)
-                let queryParsed = System.Web.HttpUtility.ParseQueryString(query)
-                if not (Seq.exists (fun k -> k = "id") queryParsed.AllKeys) then
-                    let errMsg = sprintf "google file URL %s; query %s does not contain id parameter" url query
-                    Trace.TraceError(errMsg)
-                    Error(errMsg)
-                else
-                    Ok(queryParsed.Get("id"))
 
         let downloadPhoto (photo:CardJson.Photo) petDir = async {
             let downloadPet911Thumb() = async {
@@ -478,6 +423,7 @@ module Pet911ru =
 
     type PetCardDownloaderState = {
         activeJobs: int
+        downladedCardIds : string list
         finishedEvent : AsyncReplyChannel<unit> option
         imageDownloaderRunning : bool
     }
@@ -625,7 +571,7 @@ module Pet911ru =
                                 }
                             imageDownloaderShutdownTask |> Async.Start
                         |   None -> ()
-                    return! loop {state with activeJobs = state.activeJobs - 1}
+                    return! loop {state with activeJobs = state.activeJobs - 1; downladedCardIds = artId::state.downladedCardIds }
                 |   ShutdownPetCardDownloader exitChannel ->
                     Trace.TraceInformation(sprintf "Shutting down card downloader: %d to download" state.activeJobs)
                     return! loop {state with finishedEvent = Some(exitChannel)}
@@ -641,6 +587,7 @@ module Pet911ru =
             let firstState = {
                 activeJobs = 0
                 finishedEvent = None
+                downladedCardIds = []
                 imageDownloaderRunning = true
             }
             loop firstState)
@@ -651,3 +598,71 @@ module Pet911ru =
         member _.PostWithReply reply =
             mbProcessor.PostAndAsyncReply(reply)
 
+    let detectNewCardIds (latestDownloadedID:string) =
+        // Trace.TraceInformation(sprintf "Checking newer than %s" latestDownloadedID)
+        let latestNumID = System.Int32.Parse(latestDownloadedID.Substring(2))
+        let pageSize = 100
+        let rec getNewCardIDs pageNum gatheredNewIDs =
+            let jsonReqestBody = sprintf """{
+                                    "filters": {
+                                      "pets": [],
+                                      "type": [],
+                                      "address": null,
+                                      "latitude": null,
+                                      "longitude": null,
+                                      "date": null,
+                                      "_date": null,
+                                      "radius": null,
+                                      "animal": [],
+                                      "breed": null,
+                                      "breeds": [],
+                                      "color": [],
+                                      "sex": [],
+                                      "age": null,
+                                      "collar": [],
+                                      "sterile": [],
+                                      "sortBy": "id",
+                                      "searchByArt": null,
+                                      "mapRadius": null
+                                    },
+                                    "pagination": {
+                                      "pageSize": %d,
+                                      "page": %d,
+                                      "end": false
+                                    }
+                                }""" pageSize pageNum //"sortBy": "created_at",
+            async {
+                Trace.TraceInformation(sprintf "Getting new cards page %d (%d cards per page)" pageNum pageSize)
+                try
+                    let! response = apiRequest "/api/pets" jsonReqestBody
+                    match response.StatusCode with
+                    |   HttpStatusCodes.OK ->
+                        match response.Body with
+                        |   HttpResponseBody.Text responseStr->
+                            let responseJson = CardsJson.Parse(responseStr)
+                            let isNotOldPremium (p:CardsJson.Pet) =
+                                not((p.Id < latestNumID) && p.IsPremium)
+
+                            let latestIds =
+                                responseJson.Pets
+                                |> Seq.filter isNotOldPremium
+                                |> Seq.map(fun p -> p.Art) |> Seq.takeWhile (fun x -> x <> latestDownloadedID) |> Set.ofSeq
+                            Trace.TraceInformation(sprintf "Got new %d new cards in page %d" (Set.count latestIds) pageNum)
+                            let accumulatedLatestIds = Set.union gatheredNewIDs latestIds
+                            if Set.count latestIds < pageSize then
+                                Trace.TraceInformation(sprintf "Found id %s that we already have" latestDownloadedID)
+                                return Some(accumulatedLatestIds)
+                            else
+                                return! getNewCardIDs (pageNum+1) accumulatedLatestIds
+                        |   HttpResponseBody.Binary _ ->
+                            Trace.TraceError(sprintf "Binary body returned when searching for a new cards")
+                            return None
+                    |   _ ->
+                        Trace.TraceError(sprintf "Non successful error code (%d) when searching for a new cards" response.StatusCode)
+                        return None
+                with
+                |  :? WebException as ex1 ->
+                    Trace.TraceError(sprintf "WebException during new cards fetch: %A" ex1)
+                    return None
+            }
+        getNewCardIDs 0 Set.empty
