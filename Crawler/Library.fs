@@ -640,17 +640,24 @@ module Pet911ru =
                         match response.Body with
                         |   HttpResponseBody.Text responseStr->
                             let responseJson = CardsJson.Parse(responseStr)
-                            let isNotOldPremium (p:CardsJson.Pet) =
-                                not((p.Id < latestNumID) && p.IsPremium)
+                            let newerThenLatestDownloaded (p:CardsJson.Pet) = p.Id > latestNumID
+                            let premiumOrDownloaded (p:CardsJson.Pet) = (p.PremiumStatus = 1) || (p.Id > latestNumID)
 
                             let latestIds =
                                 responseJson.Pets
-                                |> Seq.filter isNotOldPremium
-                                |> Seq.map(fun p -> p.Art) |> Seq.takeWhile (fun x -> x <> latestDownloadedID) |> Set.ofSeq
-                            Trace.TraceInformation(sprintf "Got new %d new cards in page %d" (Set.count latestIds) pageNum)
+                                |> Seq.filter newerThenLatestDownloaded
+                                |> Seq.map (fun card -> card.Art)
+                                |> Set.ofSeq
+
+                            let skippedFetchedCards =
+                                responseJson.Pets
+                                |> Seq.takeWhile premiumOrDownloaded
+                                |> Seq.length
+
+                            Trace.TraceInformation(sprintf "Got %d new cards in page %d" (Set.count latestIds) pageNum)
                             let accumulatedLatestIds = Set.union gatheredNewIDs latestIds
-                            if Set.count latestIds < pageSize then
-                                Trace.TraceInformation(sprintf "Found id %s that we already have" latestDownloadedID)
+                            if skippedFetchedCards < pageSize then
+                                Trace.TraceInformation("Found previously downloaded non premium IDs")
                                 return Some(accumulatedLatestIds)
                             else
                                 return! getNewCardIDs (pageNum+1) accumulatedLatestIds

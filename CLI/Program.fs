@@ -43,15 +43,14 @@ let main argv =
             else
                 None
 
-        let maxConcurrentCardDownload = 5
+        let maxConcurrentCardDownload = 1
         let maxImage911ConcurrentDownload = 1
-        let maxImageGoogleConcurrentDownload = 2
+        let maxImageGoogleConcurrentDownload = 5
         
         match mode with
         |  AllDB->
-            let startId = 434884
             let ids =
-                Seq.init startId (fun idx -> let idx = startId - idx in [sprintf "rf%d" idx ; sprintf "rl%d" idx])
+                seq {434884 .. 448902} |> Seq.map (fun idx -> [sprintf "rf%d" idx ; sprintf "rl%d" idx])
                 |> Seq.collect id
                 // |> Seq.take 170
             let cardProcessor = PetCardDownloader(maxConcurrentCardDownload, maxImage911ConcurrentDownload, maxImageGoogleConcurrentDownload, dbPath, googleApiKey)
@@ -66,7 +65,7 @@ let main argv =
             let getHighestPetId (ids:string seq) =
                 let idsArray = Array.ofSeq ids
                 if Array.length idsArray = 0 then
-                    let startId = "rl448880" // hardcoded start point if the DB is empty
+                    let startId = "rl450544" // hardcoded start point if the DB is empty
                     Trace.TraceWarning(sprintf "The DB is empty. Starting from %s (exclusively)" startId)
                     startId
                 else
