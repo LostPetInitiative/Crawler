@@ -50,8 +50,9 @@ let main argv =
         match mode with
         |  AllDB->
             let ids =
-                seq {434884 .. 448902} |> Seq.map (fun idx -> [sprintf "rf%d" idx ; sprintf "rl%d" idx])
-                |> Seq.collect id
+                //seq {476712 .. 476712} |> Seq.map (fun idx -> [sprintf "rf%d" idx ; sprintf "rl%d" idx])
+                //|> Seq.collect id
+                 seq {"rl476712"}
                 // |> Seq.take 170
             let cardProcessor = PetCardDownloader(maxConcurrentCardDownload, maxImage911ConcurrentDownload, maxImageGoogleConcurrentDownload, dbPath, googleApiKey)
         

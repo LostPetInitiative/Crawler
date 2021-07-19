@@ -11,51 +11,69 @@ open Google.Apis
 open Google.Apis.Drive.v3
 
 module Pet911ru =
+    type Animal = 
+    |   dog = 1
+    |   cat = 2
+    type Sex = 
+    |   unknown = 1
+    |   male = 2
+    |   female = 3
+    type CardType =
+    |   lost = 1
+    |   found = 2
+    type PetPhoto = {
+        /// Filename with extension
+        id: string
+    }
+    type Author = {
+        username: string
+        phone: string
+        email: string
+    }
+    type PetCard = {
+        art: string
+        photos : PetPhoto[]
+        animal: Animal
+        sex: Sex
+        address: string
+        latitude: string
+        longitude: string
+        date: string // %Y-%m-%dT%H:%M:%SZ
+        ``type``: CardType
+        description: string
+        author: Author
+
+    }
+
     type CardSearchResult =
         {
             art: string
             url: string
         }
 
-    type CardJson = JsonProvider<"../data/petCard.json">
-
-    type CardsJson = JsonProvider<"../data/petCards.json">
-
     let urlPrefix = @"https://pet911.ru"
     // let agentName = "LostPetInitiative:Crawler-pet911.ru / 0.1 (https://github.com/LostPetInitiative/Crawler-pet911.ru)"
     let agentName = "LostPetInitiative:Kashtanka-crawler / 0.1 (https://kashtanka.pet/)"
 
-    let private apiRequest path jsonBody =
+    let private apiRequest path =
         let fullURL = sprintf "%s%s" urlPrefix path
         // Trace.TraceInformation(sprintf "Requesting %s (%s)" fullURL jsonBody)
         Http.AsyncRequest(
             fullURL,
             headers = [
-                        HttpRequestHeaders.ContentType HttpContentTypes.Json;
+                        HttpRequestHeaders.ContentType HttpContentTypes.Html;
                         //HttpRequestHeaders.Accept HttpContentTypes.Json;
                         HttpRequestHeaders.UserAgent agentName;
                         //HttpRequestHeaders.Origin urlPrefix
                         ],
-            httpMethod = "POST",
-            body = TextRequest jsonBody, silentHttpErrors = true, timeout = 60000)
+            httpMethod = "GET",
+            silentHttpErrors = true, timeout = 60000)
 
     /// Extracts the URL for some cardID (if any)
     let tryFetchCardPageURL cardId = 
-        // https://pet911.ru/api/pets/check-pet
-        //
-        // request:
-        //  {
-        //      "art": "rf434545"
-        //  }
-        //
-        // found response:
-        // {"art":"rf434545","url":"/Чебоксары/найдена/собака/rf434545"}
-        //
-        // not found response:
-        //  { "art": "rl434545" }
-        let jsonBody = sprintf """{"art": "%s"}""" cardId
         async {
-            let! response = apiRequest "/api/pets/check-pet" jsonBody
+            let path = sprintf "/Челябинск/найдена/собака/%s" cardId // the city, type and animal can be arbitrary and does not affect the results
+            let! response = apiRequest path
             match response.StatusCode with
             |   HttpStatusCodes.OK ->
                 match response.Body with
@@ -75,14 +93,12 @@ module Pet911ru =
     
     /// Tries to extract the pet card by art
     let tryExtractRemoteCard cardId =
-        let jsonBody = sprintf """{"art": "%s"}""" cardId
-        // request 
-        // { "art": "rf434545" }
+        let path = sprintf "/Челябинск/найдена/собака/%s" cardId // the city, type and animal can be arbitrary and does not affect the results
         async {
             let! responseOption =
                 async {
                     try
-                        let! response = apiRequest "/api/view-pet" jsonBody
+                        let! response = apiRequest path
                         // Trace.TraceInformation(sprintf "Got reply for %s" cardId)
                         return Ok response
                     with
@@ -100,10 +116,10 @@ module Pet911ru =
                 |   HttpStatusCodes.OK ->
                     let contentTypeFound, contentType = response.Headers.TryGetValue HttpResponseHeaders.ContentType
                     if contentTypeFound then
-                        if contentType.Contains(@"application/json") then
+                        if contentType.Contains(@"text/html") then
                             match response.Body with
                             |   HttpResponseBody.Text responseStr ->
-                                let responseJson = CardJson.Parse(responseStr)
+                                
                                 return Ok(Some(responseJson))
                             |   HttpResponseBody.Binary _ ->
                                 let errMsg = sprintf "Binary body returned when extracting a pet card \'%s\'" cardId
@@ -213,7 +229,7 @@ module Pet911ru =
                                         let format = mimeToFormat contentType
                                         let content =
                                             match response.Body with
-                                            |   HttpResponseBody.Text -> None
+                                            |   HttpResponseBody.Text _ -> None
                                             |   HttpResponseBody.Binary bin ->
                                                 Some(bin)
                                         match format,content with
@@ -265,7 +281,7 @@ module Pet911ru =
                                         let format = mimeToFormat contentType
                                         let content =
                                             match response.Body with
-                                            |   HttpResponseBody.Text -> None
+                                            |   HttpResponseBody.Text _ -> None
                                             |   HttpResponseBody.Binary bin ->
                                                 Some(bin)
                                         match format,content with
