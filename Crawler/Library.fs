@@ -22,8 +22,10 @@ module Pet911ru =
     |   lost = 1
     |   found = 2
     type PetPhoto = {
-        /// Filename with extension
-        id: string
+        /// Full photo Filename with extension
+        Filename: string
+        /// Thumbnail photo filename with extension
+        ThumbFilename: string
     }
     type Author = {
         username: string
@@ -42,7 +44,6 @@ module Pet911ru =
         ``type``: CardType
         description: string
         author: Author
-
     }
 
     type CardSearchResult =
@@ -50,6 +51,10 @@ module Pet911ru =
             art: string
             url: string
         }
+
+    let parseCard cardText : PetCard =
+        // TODO: do html parsing here
+        failwith "not implemented"
 
     let urlPrefix = @"https://pet911.ru"
     // let agentName = "LostPetInitiative:Crawler-pet911.ru / 0.1 (https://github.com/LostPetInitiative/Crawler-pet911.ru)"
@@ -119,8 +124,8 @@ module Pet911ru =
                         if contentType.Contains(@"text/html") then
                             match response.Body with
                             |   HttpResponseBody.Text responseStr ->
-                                
-                                return Ok(Some(responseJson))
+                                let card = parseCard responseStr
+                                return Ok(Some(card))
                             |   HttpResponseBody.Binary _ ->
                                 let errMsg = sprintf "Binary body returned when extracting a pet card \'%s\'" cardId
                                 //Trace.TraceError(errMsg)
@@ -162,8 +167,8 @@ module Pet911ru =
 
 
     type ImageDownloaderMsg =
-    |   DownloadImage of photo:CardJson.Photo * artId:string
-    |   DownloadedImage of photo:CardJson.Photo
+    |   DownloadImage of photo:PetPhoto * artId:string
+    |   DownloadedImage of photo:PetPhoto
     |   ShutdownImageDownloader of AsyncReplyChannel<unit>
 
     type ImageDownloader(dbPath, maxConcurrentDownloads911, maxConcurrentDownloadsGoogle, googleApiKey) =
@@ -310,55 +315,52 @@ module Pet911ru =
                     return! res
             }
 
-        let downloadPhoto (photo:CardJson.Photo) petDir = async {
+        let downloadPhoto (photo:PetPhoto) petDir = async {
             let downloadPet911Thumb() = async {
-                if photo.Thumb.Length > 0 then
-                    return! downloadHttpHostedPhoto (sprintf "%s/images%s" urlPrefix photo.Thumb)
+                if photo.ThumbFilename.Length > 0 then
+                    return! downloadHttpHostedPhoto (sprintf "%s/upload/%s" urlPrefix photo.ThumbFilename)
                 else
                     let errorMsg = "thumb URL is empty"
                     Trace.TraceError(errorMsg)
                     return Error(errorMsg)
             }
                 
-            let downloadGoogleThumb() = async {
-                if photo.Thumb.Length > 0 then
-                    return! downloadHttpHostedPhotoAsBrowser photo.ThumbGoogle
-                else
-                    let errorMsg = "google thumb URL is empty"
-                    Trace.TraceError(errorMsg)
-                    return Error(errorMsg)
-                //let googleFileID = extractGoogleDriveFileId photo.ThumbGoogle
-                //match googleFileID with
-                //|   Error(errMsg) -> return Error(errMsg)
-                //|   Ok(fileId) ->
-                //    return! downloadGoogleDriveHostedPhoto fileId
-            }
+            //let downloadGoogleThumb() = async {
+            //    if photo.Thumb.Length > 0 then
+            //        return! downloadHttpHostedPhotoAsBrowser photo.ThumbGoogle
+            //    else
+            //        let errorMsg = "google thumb URL is empty"
+            //        Trace.TraceError(errorMsg)
+            //        return Error(errorMsg)
+            //}
 
             let saveSuccessfullDownload arg = async {
                 let format,content = arg
-                let outFilename = Path.Combine(petDir, sprintf "%d.%s" photo.Id format)
+                let outFilename = Path.Combine(petDir, photo.ThumbFilename)
                 do! File.WriteAllBytesAsync(outFilename, content) |> Async.AwaitTask
                 // Trace.TraceInformation(sprintf "Thumb image %O downloaded (%s) to %s" photo.Id format outFilename)
                 return outFilename
                 }
 
-            let! thumbDownloaded = downloadGoogleThumb() 
+            let! thumbDownloaded = downloadPet911Thumb() 
             match thumbDownloaded with
             |   Ok(format,content) ->
-                Trace.TraceInformation(sprintf "got valid thumb from google for pet %d" photo.PetId)
+                Trace.TraceInformation(sprintf "got valid thumb from pet911.ru")
+                //Trace.TraceInformation(sprintf "got valid thumb from google for pet %d" photo.PetId)
                 let! outFilename = saveSuccessfullDownload(format,content)
                 return Ok(outFilename)
             |   Error(thumbError) ->
-                let! thumb2Downloaded = downloadPet911Thumb()
-                match thumb2Downloaded with
-                |   Ok(format,content) ->
-                    Trace.TraceInformation(sprintf "got valid thumb from pet911.ru for pet %d" photo.PetId)
-                    let! outFilename = saveSuccessfullDownload(format,content)
-                    return Ok(outFilename)
-                |   Error(thumb2error) ->
-                    let errorMsg = sprintf "Failed to get either of thumbs: (%s) and (%s)" thumbError thumb2error
-                    Trace.TraceError(errorMsg)
-                    return Error(errorMsg)
+                //let! thumb2Downloaded = downloadPet911Thumb()
+                //match thumb2Downloaded with
+                //|   Ok(format,content) ->
+                //    Trace.TraceInformation(sprintf "got valid thumb from pet911.ru for pet %d" photo.PetId)
+                //    let! outFilename = saveSuccessfullDownload(format,content)
+                //    return Ok(outFilename)
+                //|   Error(thumb2error) ->
+                //    let errorMsg = sprintf "Failed to get either of thumbs: (%s) and (%s)" thumbError thumb2error
+                //    Trace.TraceError(errorMsg)
+                //    return Error(errorMsg)
+                return Error(thumbError)
         }
         
         let mbProcessor = MailboxProcessor<ImageDownloaderMsg>.Start(fun inbox ->
@@ -370,16 +372,15 @@ module Pet911ru =
                         do! concurrentTasksSemaphore.WaitAsync() |> Async.AwaitTask
                         try
                             let petDir = Path.Combine(dbPath,artId)
-                            let localImagePaths = ["jpg"; "png"] |> Seq.map (fun ext -> Path.Combine(petDir, sprintf "%d.%s" photo.Id ext))
-                            let! localValidations = localImagePaths |> Seq.map validateLocalImage |> Async.Parallel
-                            let localValid = Seq.exists id localValidations
+                            let petImage = Path.Combine(petDir, photo.ThumbFilename)
+                            let! localValid = validateLocalImage petImage
                             if not localValid then
-                                Trace.TraceInformation(sprintf "Queuing to download image %d (for %s)" photo.Id artId)
+                                Trace.TraceInformation(sprintf "Queuing to download image %s (for %s)" photo.ThumbFilename artId)
                                 let! photoDownloadResult =  downloadPhoto photo petDir 
-                                Trace.TraceInformation(sprintf "Processed download image %d job (for %s)" photo.Id artId)
+                                Trace.TraceInformation(sprintf "Processed download image %s job (for %s)" photo.ThumbFilename artId)
                                 ()
                             else
-                                Trace.TraceInformation(sprintf "Valid image %d (for %s) is already on disk" photo.Id artId)
+                                Trace.TraceInformation(sprintf "Valid image %s (for %s) is already on disk" photo.ThumbFilename artId)
                             inbox.Post(DownloadedImage(photo))
                             return ()
                         finally
@@ -399,7 +400,7 @@ module Pet911ru =
                     return! messageLoop {state with ActiveDownloads = state.ActiveDownloads - 1}
                 |   ShutdownImageDownloader(channel) ->
                     if state.ActiveDownloads = 0 then
-                        Trace.TraceInformation("Image downloader has shutted down")
+                        Trace.TraceInformation("Image downloader has shut down")
                         channel.Reply()
                     else
                         Trace.TraceInformation(sprintf "Graceful shut down image downloader started (%d active downloads still active)" state.ActiveDownloads)
@@ -486,12 +487,12 @@ module Pet911ru =
                 Directory.CreateDirectory(dbPath) |> ignore
             missingArtSetProcessor.Post(InitialLoad missingArtSetPath)
 
-        let extractImageJobs (card:CardJson.Root) =
-            let artId = card.Pet.Art
+        let extractImageJobs (card:PetCard) =
+            let artId = card.art
             let artDirPath = Path.Combine(dbPath, artId)
             if not (Directory.Exists(artDirPath)) then
                 Directory.CreateDirectory(artDirPath) |> ignore
-            card.Pet.Photos |> Seq.map (fun p -> DownloadImage(p,artId))
+            card.photos |> Seq.map (fun p -> DownloadImage(p,artId))
 
         let checkArtId postImageDownloadRequest (artId:string) = async {
                 //Trace.TraceInformation(sprintf "Processing %s" artId)
@@ -499,7 +500,7 @@ module Pet911ru =
                     if File.Exists cardPath then
                         let! cardText = File.ReadAllTextAsync(cardPath) |> Async.AwaitTask
                         try
-                            return Some(CardJson.Parse(cardText))
+                            return Some(parseCard(cardText))
                         with
                         |   _ -> return None
                     else
@@ -548,7 +549,8 @@ module Pet911ru =
                                     |   Some(card) ->
                                         Trace.TraceInformation(sprintf "Valid card acquired for %s" artId)
                                         Directory.CreateDirectory(artDirPath) |> ignore
-                                        File.WriteAllTextAsync(cardPath,card.JsonValue.ToString(JsonSaveOptions.None)) |> ignore
+                                        let serialized = JsonConvert.SerializeObject(card)
+                                        File.WriteAllTextAsync(cardPath,serialized) |> ignore
                                         return extractImageJobs card
                             }
                             
@@ -614,6 +616,10 @@ module Pet911ru =
         member _.PostWithReply reply =
             mbProcessor.PostAndAsyncReply(reply)
 
+    let detectNewCardIds (latestDownloadedID:string) = [latestDownloadedID]
+        
+
+    (*
     let detectNewCardIds (latestDownloadedID:string) =
         // Trace.TraceInformation(sprintf "Checking newer than %s" latestDownloadedID)
         let latestNumID = System.Int32.Parse(latestDownloadedID.Substring(2))
@@ -689,3 +695,4 @@ module Pet911ru =
                     return None
             }
         getNewCardIDs 0 Set.empty
+*)
