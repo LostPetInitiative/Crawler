@@ -10,6 +10,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Include="SemanticTypes.fs" />
     <Compile Include="Tracing.fs" />
     <Compile Include="Downloader.fs" />
     <Compile Include="Library.fs" />

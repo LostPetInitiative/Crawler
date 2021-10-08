@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30225.117
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "CLI", "CLI\CLI.fsproj", "{64259960-9EBB-43B2-9940-D072A30A2990}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{8EA5244F-5C71-4F46-91D7-CF87DCFA4562}"
 	ProjectSection(SolutionItems) = preProject
 		petCard.html = petCard.html
@@ -15,7 +13,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "CrawlerLib", "Crawler\CrawlerLib.fsproj", "{C10762AB-213F-40A4-882A-3CE84C7F8517}"
 EndProject
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "CrawlerLib.Tests", "CrawlerLib.Tests\CrawlerLib.Tests.fsproj", "{8250B41A-E453-42D8-84B9-7911A4375BE4}"
+Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "CrawlerLib.Tests", "CrawlerLib.Tests\CrawlerLib.Tests.fsproj", "{8250B41A-E453-42D8-84B9-7911A4375BE4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,10 +21,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{64259960-9EBB-43B2-9940-D072A30A2990}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{64259960-9EBB-43B2-9940-D072A30A2990}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{64259960-9EBB-43B2-9940-D072A30A2990}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{64259960-9EBB-43B2-9940-D072A30A2990}.Release|Any CPU.Build.0 = Release|Any CPU
 		{C10762AB-213F-40A4-882A-3CE84C7F8517}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{C10762AB-213F-40A4-882A-3CE84C7F8517}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C10762AB-213F-40A4-882A-3CE84C7F8517}.Release|Any CPU.ActiveCfg = Release|Any CPU
