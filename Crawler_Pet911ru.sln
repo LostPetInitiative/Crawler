@@ -5,10 +5,11 @@ VisualStudioVersion = 16.0.30225.117
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{8EA5244F-5C71-4F46-91D7-CF87DCFA4562}"
 	ProjectSection(SolutionItems) = preProject
-		petCard.html = petCard.html
+		.drone.yml = .drone.yml
 		data\petCard.json = data\petCard.json
+		data\petCard_rl476712.html = data\petCard_rl476712.html
 		data\petCards.json = data\petCards.json
-		searchResults.html = searchResults.html
+		data\searchResults.html = data\searchResults.html
 	EndProjectSection
 EndProject
 Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "CrawlerLib", "Crawler\CrawlerLib.fsproj", "{C10762AB-213F-40A4-882A-3CE84C7F8517}"

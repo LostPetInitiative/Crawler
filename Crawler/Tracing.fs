@@ -1,4 +1,4 @@
-﻿module Tracing
+﻿module Kashtanka.Tracing
 
 open System.Diagnostics
 

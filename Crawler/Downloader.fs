@@ -1,4 +1,4 @@
-﻿module Downloader
+﻿module Kashtanka.Downloader
 
 open System.Threading
 open FSharp.Data
@@ -67,15 +67,11 @@ type DownloaderSettings = {
     /// The delays will be Fibonacci sequence multiplied by the `delayUnitMs` milliseconds
     delayUnitMs:int
     maxPermittedDelayMs: int
-    agentName:string
-    requestTimeoutMs: int
 }
 
 let defaultDownloaderSettings: DownloaderSettings = {
     delayUnitMs = 10;
     maxPermittedDelayMs = 180000;
-    agentName= "Kashtanka Crawler";
-    requestTimeoutMs = 30000;
 }
 
 type AgentState = {
@@ -83,7 +79,7 @@ type AgentState = {
     shutdownChannel: AsyncReplyChannel<unit> option
 }
 
-type Agent(concurrentDownloads:int, settings:DownloaderSettings) =
+type Agent(concurrentDownloads:int, settings:DownloaderSettings, fetch: (string -> Async<DownloadResult>)) =
     let semaphore = new SemaphoreSlim(concurrentDownloads)
     let mbProcessor = MailboxProcessor<DownloaderMsg>.Start(fun inbox ->
         let rec messageLoop state = async {
@@ -97,7 +93,7 @@ type Agent(concurrentDownloads:int, settings:DownloaderSettings) =
                 async {
                     do! semaphore.WaitAsync() |> Async.AwaitTask
                     traceInfo(sprintf "Downloading %s. Attempt #%d" url (retryIdx+1))
-                    let! downloadRes =  httpDownload settings.agentName settings.requestTimeoutMs url
+                    let! downloadRes =  fetch url
                     semaphore.Release() |> ignore
                     match downloadRes with
                     |   Error(errMsg) ->
@@ -144,7 +140,7 @@ type Agent(concurrentDownloads:int, settings:DownloaderSettings) =
             
         messageLoop initialState)
 
-    member _.EnqueueDownload(url) =
+    member _.Download(url) =
         mbProcessor.PostAndAsyncReply(fun resultChan -> Enqueue(url,resultChan))
 
     member _.Shutdown() =

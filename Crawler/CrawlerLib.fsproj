@@ -10,17 +10,23 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Include="SemanticTypes.fs" />
+    <Compile Include="Common.fs" />
     <Compile Include="Tracing.fs" />
     <Compile Include="Downloader.fs" />
-    <Compile Include="Library.fs" />
+    <Compile Include="FileCollector.fs" />
+    <Compile Include="SemanticTypes.fs" />
+    <Compile Include="cardParserPet911.fs" />
+    <None Include="Library.fs" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="FSharp.Data" Version="3.3.3" />
-    <PackageReference Include="Google.Apis.Drive.v3" Version="1.48.0.2030" />
-    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
-    <PackageReference Include="SixLabors.ImageSharp" Version="1.0.0" />
+    <PackageReference Include="FSharp.Data" Version="4.2.4" />
+    <PackageReference Include="HtmlAgilityPack" Version="1.11.37" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Update="FSharp.Core" Version="6.0.0" />
   </ItemGroup>
 
 </Project>
