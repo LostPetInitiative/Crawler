@@ -34,3 +34,15 @@ let ``Extract cat species`` () =
         let parseRes = pet911.getAnimalSpecies doc
         Assert.Equal(Species.cat, extractSuccessful(parseRes))
     }
+
+[<Fact>]
+let ``Extract photo URLs`` () =
+    async {
+        let! doc = loadAndParseHtmlTestFile "petCard_rl476712.html"
+        let parseRes = pet911.getPhotoUrls doc
+        Assert.Equal(4, extractSuccessful(parseRes).Length)
+        Assert.Contains("https://pet911.ru/upload/Pet_thumb_162560784360e4cea36deb30.11666472.jpeg",extractSuccessful(parseRes))
+        Assert.Contains("https://pet911.ru/upload/Pet_thumb_162560784360e4cea3b97075.01962179.jpeg",extractSuccessful(parseRes))
+        Assert.Contains("https://pet911.ru/upload/Pet_thumb_162560784460e4cea4185588.03311919.jpeg",extractSuccessful(parseRes))
+        Assert.Contains("https://pet911.ru/upload/Pet_thumb_162560784460e4cea4998d43.72303042.jpeg",extractSuccessful(parseRes))
+    }
