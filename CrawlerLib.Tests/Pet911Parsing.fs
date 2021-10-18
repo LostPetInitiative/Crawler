@@ -46,3 +46,11 @@ let ``Extract photo URLs`` () =
         Assert.Contains("https://pet911.ru/upload/Pet_thumb_162560784460e4cea4185588.03311919.jpeg",extractSuccessful(parseRes))
         Assert.Contains("https://pet911.ru/upload/Pet_thumb_162560784460e4cea4998d43.72303042.jpeg",extractSuccessful(parseRes))
     }
+
+[<Fact>]
+let ``Extract event time``() =
+    async {
+        let! doc = loadAndParseHtmlTestFile "petCard_rl476712.html"
+        let parseRes = pet911.getEventTimeUTC(doc) 
+        Assert.Equal(System.DateTime(2021,6,26),extractSuccessful(parseRes))
+    }
