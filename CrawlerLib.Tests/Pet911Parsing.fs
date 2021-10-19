@@ -1,4 +1,4 @@
-module Parsers.Pet911
+﻿module Parsers.Pet911
 
 open System
 open System.IO
@@ -53,4 +53,44 @@ let ``Extract event time``() =
         let! doc = loadAndParseHtmlTestFile "petCard_rl476712.html"
         let parseRes = pet911.getEventTimeUTC(doc) 
         Assert.Equal(System.DateTime(2021,6,26),extractSuccessful(parseRes))
+    }
+
+[<Fact>]
+let ``Extract author name``() =
+    async {
+        let! doc = loadAndParseHtmlTestFile "petCard_rl476712.html"
+        let authorRes = pet911.getAuthorName(doc) 
+        Assert.Equal("Анастасия",extractSuccessful(authorRes))
+    }
+
+[<Fact>]
+let ``Extract author message``() =
+    async {
+        let! doc = loadAndParseHtmlTestFile "petCard_rl476712.html"
+        let messageRes = pet911.getAuthorMessage(doc) 
+        Assert.Equal("Сломанных хвостик на конце в двух местах, вислоухий, крупные передние лапы, оранжевые глаза, пугливый, жмётся к земле, был в голубом ошейнике от блох", extractSuccessful(messageRes))
+    }
+
+[<Fact>]
+let ``Extract event address``() =
+    async {
+        let! doc = loadAndParseHtmlTestFile "petCard_rl476712.html"
+        let messageRes = pet911.getEventAddress(doc) 
+        Assert.Equal("11 к1, Чусовская улица, район Гольяново, Москва, Центральный федеральный округ, 107207, Россия", extractSuccessful(messageRes))
+    }
+
+[<Fact>]
+let ``Extract animal sex``() =
+    async {
+        let! doc = loadAndParseHtmlTestFile "petCard_rl476712.html"
+        let sexRes = pet911.getAnimalSex(doc) 
+        Assert.Equal(Sex.male, extractSuccessful(sexRes))
+    }
+
+[<Fact>]
+let ``Extract event type``() =
+    async {
+        let! doc = loadAndParseHtmlTestFile "petCard_rl476712.html"
+        let eventTypeRes = pet911.getEventType(doc) 
+        Assert.Equal(EventType.lost, extractSuccessful(eventTypeRes))
     }

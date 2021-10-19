@@ -7,7 +7,7 @@ type Sex =
 |   unknown = 1
 |   male = 2
 |   female = 3
-type CardType =
+type EventType =
 |   lost = 1
 |   found = 2
 type PetPhoto = {
@@ -29,7 +29,7 @@ type PetCard = {
     latitude: string
     longitude: string
     date: string // %Y-%m-%dT%H:%M:%SZ
-    ``type``: CardType
+    ``type``: EventType
     description: string
     author: Author
 }
