@@ -7,14 +7,16 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 	ProjectSection(SolutionItems) = preProject
 		.drone.yml = .drone.yml
 		data\petCard.json = data\petCard.json
-		data\petCard_rl476712.html = data\petCard_rl476712.html
+		data\petCard_rl476712.html.dump = data\petCard_rl476712.html.dump
 		data\petCards.json = data\petCards.json
-		data\searchResults.html = data\searchResults.html
+		data\searchResults.html.dump = data\searchResults.html.dump
 	EndProjectSection
 EndProject
-Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "CrawlerLib", "Crawler\CrawlerLib.fsproj", "{C10762AB-213F-40A4-882A-3CE84C7F8517}"
+Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "CrawlerPet911", "CrawlerPet911\CrawlerPet911.fsproj", "{5EADE857-BC95-4A8A-9537-90155E20160C}"
 EndProject
-Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "CrawlerLib.Tests", "CrawlerLib.Tests\CrawlerLib.Tests.fsproj", "{8250B41A-E453-42D8-84B9-7911A4375BE4}"
+Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "CrawlerLib", "CrawlerLib\CrawlerLib.fsproj", "{9721717B-9B62-4E37-8177-4234FCDD3BC7}"
+EndProject
+Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "Tests", "Tests\Tests.fsproj", "{AA48B1FF-67F4-4A73-9ABF-E2188C1304CF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -22,14 +24,18 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{C10762AB-213F-40A4-882A-3CE84C7F8517}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C10762AB-213F-40A4-882A-3CE84C7F8517}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C10762AB-213F-40A4-882A-3CE84C7F8517}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C10762AB-213F-40A4-882A-3CE84C7F8517}.Release|Any CPU.Build.0 = Release|Any CPU
-		{8250B41A-E453-42D8-84B9-7911A4375BE4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8250B41A-E453-42D8-84B9-7911A4375BE4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8250B41A-E453-42D8-84B9-7911A4375BE4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8250B41A-E453-42D8-84B9-7911A4375BE4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5EADE857-BC95-4A8A-9537-90155E20160C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5EADE857-BC95-4A8A-9537-90155E20160C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5EADE857-BC95-4A8A-9537-90155E20160C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5EADE857-BC95-4A8A-9537-90155E20160C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9721717B-9B62-4E37-8177-4234FCDD3BC7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9721717B-9B62-4E37-8177-4234FCDD3BC7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9721717B-9B62-4E37-8177-4234FCDD3BC7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9721717B-9B62-4E37-8177-4234FCDD3BC7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AA48B1FF-67F4-4A73-9ABF-E2188C1304CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AA48B1FF-67F4-4A73-9ABF-E2188C1304CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AA48B1FF-67F4-4A73-9ABF-E2188C1304CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AA48B1FF-67F4-4A73-9ABF-E2188C1304CF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

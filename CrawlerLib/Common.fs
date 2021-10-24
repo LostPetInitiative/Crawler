@@ -9,3 +9,9 @@ let extractSuccessful (result:Result<'T,_>) =
     match result with
     |   Error e -> failwithf "can't extract successful result: %A" e
     |   Ok v -> v
+
+type IAsyncSet<'TKey> =
+    interface
+        abstract member Exists: 'TKey -> Async<bool>
+        abstract member Add: 'TKey -> Async<unit>
+    end

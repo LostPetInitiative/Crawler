@@ -13,9 +13,10 @@
     <Compile Include="Common.fs" />
     <Compile Include="Tracing.fs" />
     <Compile Include="Downloader.fs" />
+    <Compile Include="Images.fs" />
     <Compile Include="FileCollector.fs" />
     <Compile Include="SemanticTypes.fs" />
-    <Compile Include="cardParserPet911.fs" />
+    <Compile Include="Crawler.fs" />
     <None Include="Library.fs" />
   </ItemGroup>
 
@@ -23,6 +24,7 @@
     <PackageReference Include="FSharp.Data" Version="4.2.4" />
     <PackageReference Include="HtmlAgilityPack" Version="1.11.37" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="SixLabors.ImageSharp" Version="1.0.4" />
   </ItemGroup>
 
   <ItemGroup>

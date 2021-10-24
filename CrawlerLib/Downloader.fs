@@ -23,7 +23,13 @@ type DownloadedFile =
     |   Text of string
     |   Binary of byte[]
 
-type DownloadResult = Result<DownloadedFile*string option,string>
+let downloadedFileToText (file:DownloadedFile) = 
+    match file with
+    |   Text(t) -> t
+    |   Binary(b) -> System.Text.Encoding.Default.GetString(b)
+
+type DownloadedFileWithMime = DownloadedFile*string option 
+type DownloadResult = Result<DownloadedFileWithMime,string>
 
 type internal DownloaderMsg =
     |   Enqueue of url:string * AsyncReplyChannel<DownloadResult>
