@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
@@ -8,6 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Include="Pet911Crawling.fs" />
     <Compile Include="Pet911Parsing.fs" />
     <Compile Include="Program.fs" />
   </ItemGroup>
@@ -26,7 +27,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Crawler\CrawlerLib.fsproj" />
+    <ProjectReference Include="..\CrawlerLib\CrawlerLib.fsproj" />
+    <ProjectReference Include="..\CrawlerPet911\CrawlerPet911.fsproj" />
   </ItemGroup>
 
   <ItemGroup>
