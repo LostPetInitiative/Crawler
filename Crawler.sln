@@ -7,7 +7,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 	ProjectSection(SolutionItems) = preProject
 		.drone.yml = .drone.yml
 		data\petCard.json = data\petCard.json
+		data\petCard_rf492825.html.dump = data\petCard_rf492825.html.dump
 		data\petCard_rl476712.html.dump = data\petCard_rl476712.html.dump
+		data\petCard_rl476712_lost_is_found.html.dump = data\petCard_rl476712_lost_is_found.html.dump
 		data\petCards.json = data\petCards.json
 		data\searchResults.html.dump = data\searchResults.html.dump
 	EndProjectSection

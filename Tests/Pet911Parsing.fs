@@ -64,6 +64,14 @@ let ``Extract author name``() =
     }
 
 [<Fact>]
+let ``Extract author name for lost card that is found``() =
+    async {
+        let! doc = loadAndParseHtmlTestFile "petCard_rl476712_lost_is_found.html.dump"
+        let authorRes = pet911.getAuthorName(doc) 
+        Assert.True(hasFailed(authorRes))
+    }
+
+[<Fact>]
 let ``Extract author message``() =
     async {
         let! doc = loadAndParseHtmlTestFile "petCard_rl476712.html.dump"
@@ -93,4 +101,15 @@ let ``Extract event type``() =
         let! doc = loadAndParseHtmlTestFile "petCard_rl476712.html.dump"
         let eventTypeRes = pet911.getEventType(doc) 
         Assert.Equal(EventType.lost, extractSuccessful(eventTypeRes))
+    }
+
+[<Fact>]
+let ``Extract event coords``() =
+    async {
+        let! text = IO.File.ReadAllTextAsync(Path.Combine(dataDir,"petCard_rl476712.html.dump")) |> Async.AwaitTask
+        match pet911.getEventCoords(text) with
+        |   Error er -> Assert.False(true,"failed to extract coords")
+        |   Ok(lat,lon) ->
+            Assert.Equal(55.81373210,lat, 10)
+            Assert.Equal(37.81203200,lon, 10)
     }
