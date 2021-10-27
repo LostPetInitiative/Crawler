@@ -10,24 +10,20 @@ type Sex =
 type EventType =
     |   lost = 1
     |   found = 2
-type PetPhoto = {
-    /// Filename with extension
-    id: string
-    url: string
-}
+
 type Author = {
     name: string
-    phone: string
-    email: string
+    phone: string option
+    email: string option
 }
 type PetCard = {
     id: string
-    photos : PetPhoto[]
+    photos : Crawler.RemoteResourseDescriptor[]
     animal: Species
     sex: Sex
     address: string
-    latitude: string
-    longitude: string
+    latitude: float option
+    longitude: float option
     date: System.DateTime
     ``type``: EventType
     description: string

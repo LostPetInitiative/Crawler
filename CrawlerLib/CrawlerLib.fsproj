@@ -15,8 +15,8 @@
     <Compile Include="Downloader.fs" />
     <Compile Include="Images.fs" />
     <Compile Include="FileCollector.fs" />
-    <Compile Include="SemanticTypes.fs" />
     <Compile Include="Crawler.fs" />
+    <Compile Include="SemanticTypes.fs" />
     <None Include="Library.fs" />
   </ItemGroup>
 
