@@ -1,5 +1,7 @@
 ﻿module Kashtanka.Crawler
 
+open Downloader
+
 type ResourceID = string
 
 type RemoteResourseDescriptor = {
@@ -7,17 +9,21 @@ type RemoteResourseDescriptor = {
     url:string
 }
 
+type ResourceProcessResult<'T> = 
+    |   Processed of 'T
+    |   Missing
+
 type CrawlerCallbacks<'T> = {
-    tryGetLocal: RemoteResourseDescriptor -> Async<Result<Downloader.DownloadedFileWithMime option,string>>
+    tryGetLocal: RemoteResourseDescriptor -> Async<Result<RemoteResourseLookup option,string>>
     processResource: Downloader.DownloadedFileWithMime -> Async<Result<'T,string>>
-    download: RemoteResourseDescriptor -> Async<Downloader.DownloadResult>
-    reportProcessed: RemoteResourseDescriptor * Result<'T,string> -> unit
-    saveLocal: RemoteResourseDescriptor * Downloader.DownloadedFileWithMime -> Async<Result<unit,string>>
+    download: RemoteResourseDescriptor -> Async<Result<RemoteResourseLookup,string>>
+    reportProcessed: RemoteResourseDescriptor * Result<ResourceProcessResult<'T>,string> -> unit
+    saveLocal: RemoteResourseDescriptor * RemoteResourseLookup -> Async<Result<unit,string>>
 }
 
 type private CrawlerMsg<'T> =
     |   ProcessResource of RemoteResourseDescriptor
-    |   ResourceProcessed of RemoteResourseDescriptor*Result<'T,string>
+    |   ResourceProcessed of RemoteResourseDescriptor*Result<ResourceProcessResult<'T>,string>
     |   ShutdownRequest of AsyncReplyChannel<unit>
 
 type private AgentState = {
@@ -39,10 +45,16 @@ type Agent<'T>(callbacks:CrawlerCallbacks<'T>) =
                                 let! downloadRes = callbacks.download resource
                                 match downloadRes with
                                 |   Error msg -> return Error msg
-                                |   Ok downloaded ->
-                                    match! callbacks.saveLocal(resource,downloaded) with
+                                |   Ok success ->
+                                    match! callbacks.saveLocal(resource,success) with
                                     |   Ok() ->
-                                        return! callbacks.processResource downloaded
+                                        match success with
+                                        |   Downloaded downloaded ->
+                                            match! callbacks.processResource downloaded with
+                                            |   Error e -> return Error (sprintf "Resource processing error: %s" e)
+                                            |   Ok processed -> return Ok(Processed processed)
+                                        |   Absent ->
+                                            return Ok(Missing)
                                     |   Error msg -> return Error msg
                             }
                         async {
@@ -54,9 +66,12 @@ type Agent<'T>(callbacks:CrawlerCallbacks<'T>) =
                                     match localCheck with
                                     |   Some(localResource) ->
                                         async {
-                                            match! callbacks.processResource localResource with
-                                            |   Error _ -> return! downloadAndProcess()
-                                            |   Ok local -> return Ok(local)
+                                            match localResource with
+                                            |   Absent -> return Ok(Missing)
+                                            |   Downloaded data ->
+                                                match! callbacks.processResource data with
+                                                |   Error _ -> return! downloadAndProcess()
+                                                |   Ok local -> return Ok(Processed local)
                                         }
                                     |   None ->
                                         downloadAndProcess()

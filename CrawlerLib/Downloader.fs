@@ -29,7 +29,15 @@ let downloadedFileToText (file:DownloadedFile) =
     |   Binary(b) -> System.Text.Encoding.Default.GetString(b)
 
 type DownloadedFileWithMime = DownloadedFile*string option 
-type DownloadResult = Result<DownloadedFileWithMime,string>
+
+type RemoteResourseLookup = 
+    /// Remote resource exists and successfully acquired
+    |   Downloaded of DownloadedFileWithMime
+    /// Reliably checked that the remote resource is missing
+    |   Absent
+
+type DownloadResult = Result<RemoteResourseLookup,string>
+
 
 type internal DownloaderMsg =
     |   Enqueue of url:string * AsyncReplyChannel<DownloadResult>
@@ -58,7 +66,9 @@ let httpDownload (userAgent:string) (timeoutMs:int) (url:string) =
                         |   HttpResponseBody.Text text -> Text text
                         |   HttpResponseBody.Binary bin -> Binary bin
                     let contentType = Map.tryFind HttpResponseHeaders.ContentType response.Headers
-                    return Ok(content,contentType)
+                    return Ok(Downloaded(content,contentType))
+                |   HttpStatusCodes.NotFound ->
+                    return Ok(Absent)
                 |   _ ->
                     let errMsg = sprintf "Got not successful HTTP code: %d. %O" response.StatusCode response.Body
                     return Error errMsg
@@ -110,13 +120,18 @@ type Agent(concurrentDownloads:int, settings:DownloaderSettings, fetch: (string 
                             inbox.Post(DoDownloadAttempt(url,retryIdx+1,resultChannel))
                         else
                             inbox.Post(DownloadFinished(Error(errMsg),resultChannel))
-                    |   Ok(file,mimeType) ->
-                        let size =
-                            match file with
-                            |   Text t -> t.Length
-                            |   Binary b -> b.Length
-                        traceInfo(sprintf "Downloaded %s. Size %db. Type %A." url size mimeType)
-                        inbox.Post(DownloadFinished(Ok(file,mimeType),resultChannel))
+                    |   Ok(lookup) ->
+                        match lookup with
+                        |   Absent ->
+                                traceInfo(sprintf "Reliably checked that remote resource does not exists: %s" url)
+                                inbox.Post(DownloadFinished(Ok(Absent),resultChannel))
+                        |   Downloaded(file,mimeType) ->
+                            let size =
+                                match file with
+                                |   Text t -> t.Length
+                                |   Binary b -> b.Length
+                            traceInfo(sprintf "Downloaded %s. Size %db. Type %A." url size mimeType)
+                            inbox.Post(DownloadFinished(Ok(Downloaded(file,mimeType)),resultChannel))
                 } |> Async.Start
                 return! messageLoop state
             |   DownloadFinished(result,resultChannel) ->
