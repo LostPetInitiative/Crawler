@@ -6,7 +6,6 @@ open Xunit
 
 open Kashtanka
 open Kashtanka.Common
-open Kashtanka.Parsers
 open Kashtanka.Crawler
 open Kashtanka.SemanticTypes
 
@@ -67,6 +66,81 @@ type Pet911RealCrawling() =
             do! agent.Shutdown()
 
             Assert.True(File.Exists(Path.Combine(tempDir,"rl476712","162560784360e4cea36deb30.11666472.jpeg")))
+        }
+
+    [<Fact>]
+    member _.``Acquiring inexistent photo is reported`` () =
+        async {
+            let descr:RemoteResourseDescriptor = {
+                ID = "rf476712/162560784360e4cea36deb30.00000000.jpeg"
+                url= "https://pet911.ru/upload/Pet_thumb_162560784360e4cea36deb30.00000000.jpeg"
+            }
+
+            let mutable result:Result<ResourceProcessResult<unit>,string> = Error("not set")
+            
+
+            let! agent =
+                constructPet911ImageProcessor tempDir downloadResource (fun r -> result <- snd r)
+
+            agent.Enqueue(descr);
+            do! agent.Shutdown()
+
+            match result with
+            |   Error er -> Assert.True(false, sprintf "supposed to get successful result: %s" er)
+            |   Ok downloaded ->
+                match downloaded with
+                |   Missing _ -> Assert.True(true)
+                |   Processed _ -> Assert.True(false, "supposed to get Missing result")
+        }
+
+    [<Fact>]
+    member _.``Inexistent photo info persists`` () =
+        async {
+            let descr:RemoteResourseDescriptor = {
+                ID = "rf476712/162560784360e4cea36deb30.00000000.jpeg"
+                url= "https://pet911.ru/upload/Pet_thumb_162560784360e4cea36deb30.00000000.jpeg"
+            }
+
+            let mutable result:Result<ResourceProcessResult<unit>,string> = Error("not set")
+            
+
+            let! agent =
+                constructPet911ImageProcessor tempDir downloadResource (fun r -> result <- snd r)
+
+            agent.Enqueue(descr);
+            do! agent.Shutdown()
+
+            match result with
+            |   Error er -> Assert.True(false, sprintf "supposed to get successful result: %s" er)
+            |   Ok downloaded ->
+                match downloaded with
+                |   Missing _ -> 
+                    let filepath = Path.Combine(tempDir,missingImagesFilename)
+                    Assert.True(File.Exists filepath)
+                    let! lines = File.ReadAllLinesAsync(filepath) |> Async.AwaitTask
+                    Assert.Equal(1,lines.Length)
+                    Assert.Equal("rf476712/162560784360e4cea36deb30.00000000.jpeg",lines.[0])
+                |   Processed _ -> Assert.True(false, "supposed to get Missing result")
+        }
+
+    [<Fact>]
+    member _.``Acquiring inexistent photo does not create file`` () =
+        async {
+            let descr:RemoteResourseDescriptor = {
+                ID = "rf476712/162560784360e4cea36deb30.11666472.jpeg"
+                url= "https://pet911.ru/upload/Pet_thumb_162560784360e4cea36deb30.00000000.jpeg"
+            }
+
+            let mutable result:Result<ResourceProcessResult<unit>,string> = Error("not set")
+            
+
+            let! agent =
+                constructPet911ImageProcessor tempDir downloadResource (fun r -> result <- snd r)
+
+            agent.Enqueue(descr);
+            do! agent.Shutdown()
+
+            Assert.False(File.Exists(Path.Combine(tempDir,"rl476712","162560784360e4cea36deb30.11666472.jpeg")))
         }
 
     [<Fact>]
@@ -146,7 +220,7 @@ type Pet911RealCrawling() =
             |   Error er -> Assert.False(true,er)
             |   Ok(check) ->
                 match check with
-                |   Missing -> Assert.True(false, "Card is missing while supposedto be there")
+                |   Missing -> Assert.True(false, "Card is missing while supposed to be there")
                 |   Processed card ->
                     Assert.Equal("rf492825", card.id)
                     Assert.Equal(Species.dog, card.animal)
@@ -161,4 +235,59 @@ type Pet911RealCrawling() =
                     Assert.Contains({url="https://pet911.ru/upload/Pet_thumb_163492926461730a70237913.59627594.jpeg";ID="rf492825/163492926461730a70237913.59627594.jpeg"},card.photos)
                     Assert.Contains({url="https://pet911.ru/upload/Pet_thumb_163492933561730ab74aae92.23740926.jpeg";ID="rf492825/163492933561730ab74aae92.23740926.jpeg"},card.photos)
                     Assert.Contains({url="https://pet911.ru/upload/Pet_thumb_163492941061730b0281fd52.90613683.jpeg";ID="rf492825/163492941061730b0281fd52.90613683.jpeg"},card.photos)
+        }
+
+    [<Fact>]
+    member _.``Missing card reported`` () =
+        async {
+            let descr:RemoteResourseDescriptor = {
+                ID = "rl492825"
+                url= "https://pet911.ru/%D0%9D%D0%B8%D0%B6%D0%BD%D0%B8%D0%B9-%D0%9D%D0%BE%D0%B2%D0%B3%D0%BE%D1%80%D0%BE%D0%B4/%D0%BD%D0%B0%D0%B9%D0%B4%D0%B5%D0%BD%D0%B0/%D1%81%D0%BE%D0%B1%D0%B0%D0%BA%D0%B0/rl492825"
+            }
+
+            let mutable result:Result<ResourceProcessResult<PetCard>,string> = Error("not set")
+
+            let! agent =
+                constructPet911CardProcessor tempDir downloadResource (fun r -> result <- snd r)
+
+            agent.Enqueue(descr);
+            do! agent.Shutdown()
+            
+            match result with
+            |   Error er -> Assert.False(true,er)
+            |   Ok(check) ->
+                match check with
+                |   Missing -> Assert.True(true)
+                |   Processed _ ->
+                    Assert.True(false, "Card is present while supposed to be missing")
+        }
+
+    [<Fact>]
+    member _.``Missing card info persisted`` () =
+        async {
+            let descr:RemoteResourseDescriptor = {
+                ID = "rl492825"
+                url= "https://pet911.ru/%D0%9D%D0%B8%D0%B6%D0%BD%D0%B8%D0%B9-%D0%9D%D0%BE%D0%B2%D0%B3%D0%BE%D1%80%D0%BE%D0%B4/%D0%BD%D0%B0%D0%B9%D0%B4%D0%B5%D0%BD%D0%B0/%D1%81%D0%BE%D0%B1%D0%B0%D0%BA%D0%B0/rl492825"
+            }
+
+            let mutable result:Result<ResourceProcessResult<PetCard>,string> = Error("not set")
+
+            let! agent =
+                constructPet911CardProcessor tempDir downloadResource (fun r -> result <- snd r)
+
+            agent.Enqueue(descr);
+            do! agent.Shutdown()
+            
+            match result with
+            |   Error er -> Assert.False(true,er)
+            |   Ok(check) ->
+                match check with
+                |   Missing ->
+                    let filePath = Path.Combine(tempDir, missingCardsFilename)
+                    Assert.True(File.Exists filePath)
+                    let! lines = File.ReadAllLinesAsync(filePath) |> Async.AwaitTask
+                    Assert.Equal(1, lines.Length)
+                    Assert.Equal("rl492825",lines.[0])
+                |   Processed _ ->
+                    Assert.True(false, "Card is present while supposed to be missing")
         }
