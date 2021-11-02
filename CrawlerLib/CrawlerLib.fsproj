@@ -10,6 +10,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Include="MissingResourceTracker.fs" />
     <Compile Include="Common.fs" />
     <Compile Include="Tracing.fs" />
     <Compile Include="Downloader.fs" />

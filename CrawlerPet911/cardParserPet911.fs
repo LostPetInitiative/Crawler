@@ -19,7 +19,7 @@ let getAnimalSpecies (htmlDoc:HtmlDocument) : Result<Species,string> =
     let speciesNodes = htmlDoc.DocumentNode.SelectNodes("//div[@class='only-mobile']/div[@class='p-animal']");
     if speciesNodes = null then
         Error "Can't find species node"
-    elif speciesNodes = null or speciesNodes.Count <> 1 then Error(sprintf "Found %d species tags instead of 1" speciesNodes.Count)
+    elif speciesNodes = null || speciesNodes.Count <> 1 then Error(sprintf "Found %d species tags instead of 1" speciesNodes.Count)
     else
         let node = speciesNodes.[0]
         match node.InnerText.Trim().ToLowerInvariant() with
@@ -118,5 +118,5 @@ let getEventCoords (htmlDoc:string) : Result<float*float, string> =
         match System.Double.TryParse(latGrp.Value),System.Double.TryParse(lonGrp.Value) with
         |   (true,lat),(true,lon) ->
             Ok(lat,lon) 
-    | _ -> 
-        Error "Regex did not find the lat/lon"
+        |   _ -> Error "Can't parse lat/lon"
+    | _ ->  Error "Regex did not find the lat/lon"
