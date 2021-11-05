@@ -8,6 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Include="Crawler.fs" />
     <Compile Include="Pet911Crawling.fs" />
     <Compile Include="Pet911Parsing.fs" />
     <Compile Include="Program.fs" />

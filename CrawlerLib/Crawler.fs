@@ -31,7 +31,6 @@ type private AgentState = {
     shuttingDown: AsyncReplyChannel<unit> option
 }
 
-/// Generic crawler, that first 
 type Agent<'T>(callbacks:CrawlerCallbacks<'T>) =
     let mbProcessor = MailboxProcessor<CrawlerMsg<'T>>.Start(fun inbox ->
         let rec messageLoop (state:AgentState) = async {
