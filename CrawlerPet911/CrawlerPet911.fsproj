@@ -9,6 +9,7 @@
     <Compile Include="Utils.fs" />
     <Compile Include="ParserPet911.fs" />
     <Compile Include="CrawlerPet911.fs" />
+    <Compile Include="NewCards.fs" />
     <Compile Include="Program.fs" />
   </ItemGroup>
 

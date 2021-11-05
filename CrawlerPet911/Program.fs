@@ -12,32 +12,22 @@ let traceWarning msg = Tracing.traceWarning moduleName msg
 let traceInfo msg = Tracing.traceInfo moduleName msg
 
 
-type RangeArgs = 
-    |   FirstCard of cardID: int
-    |   LastCard of cardID: int
-    interface IArgParserTemplate with
-        member x.Usage = 
-            match x with
-            |   FirstCard _ -> "ID of the first card to obtain"
-            |   LastCard _ -> "ID of the last card to obtain"
-
-
 type CLIArgs = 
     |   [<AltCommandLine("-d") ; Mandatory>]Dir of path:string
     |   [<CliPrefix(CliPrefix.None)>]Range of firstCardID:int * lastCardID:int
+    |   [<CliPrefix(CliPrefix.None)>]NewCards of checkIntervalSet:int
     interface IArgParserTemplate with
         member x.Usage =
             match x with
             |   Dir _ -> "Directory of the stored data"
             |   Range _ -> "Process a fixed specified range of cards (first,last)"
+            |   NewCards _ -> "Detect and download new cards loop (intervals in seconds between checks)"
 
 let userAgent = "KashtankaCrawler/2.0.0-alpha"
 
 [<EntryPoint>]
 let main argv =
     System.Diagnostics.Trace.Listeners.Add(new System.Diagnostics.ConsoleTraceListener()) |> ignore
-
-    printfn "привет"
 
     let programName = System.AppDomain.CurrentDomain.FriendlyName
     let parser = ArgumentParser.Create<CLIArgs>(programName = programName)
@@ -75,6 +65,74 @@ let main argv =
                     |   Ok _ ->
                         traceInfo "All jobs are complete"
                         return 0
+                elif parsed.Contains NewCards then
+                    let checkIntervalSec = parsed.GetResult NewCards
+                    let failedLogPath = System.IO.Path.Combine(dbDir,"failedCards.log")
+                    sprintf "Entering new cards monitoring mode. Poll interval: %d sec" checkIntervalSec |> traceInfo
+                    let latest =
+                        System.IO.Directory.EnumerateDirectories(dbDir)
+                        |> Seq.map (fun x -> System.IO.Path.GetRelativePath(dbDir,x))
+                        |> Seq.sortByDescending (fun x -> System.Int32.Parse(x.Substring(2)))
+                        |> Seq.map cardIDtoDescriptor
+                        |> Seq.tryHead
+                    let rec loop latestKnown =
+                        sprintf "Latest known card: %A" latestKnown |> traceInfo
+                        async {
+                            let! latestKnown2 =
+                                async {
+                                    match! NewCards.getNewCards latestKnown downloadResource with
+                                    |   Error er ->
+                                        sprintf "Error while detecting new cards: %s" er |> traceError
+                                        return latestKnown
+                                
+                                    |   Ok cardIdsAll ->
+                                        let cardIds = 
+                                            match latestKnown with
+                                            |   None -> cardIdsAll
+                                            |   Some latestKnownCard ->
+                                                let latestNum = System.Int32.Parse(latestKnownCard.ID.Substring(2))
+                                                cardIdsAll
+                                                |> Set.filter (fun x -> System.Int32.Parse(x.ID.Substring(2)) > latestNum)
+                                        sprintf "Detected %d new cards: %A" cardIds.Count (Set.map (fun x -> x.ID) cardIds) |> traceInfo
+                                        let cardsIdsArray = Array.ofSeq cardIds
+                                        let! results =  cardsIdsArray |> Seq.map crawler |> Async.Parallel
+                                        // dumping failed results to disk
+                                        let failed =
+                                            let mapper idx r =
+                                                match r with
+                                                |   Error er -> Some (er,cardsIdsArray.[idx].ID)
+                                                |   Ok _ -> None
+                                            results
+                                            |> Seq.mapi mapper
+                                            |> Seq.choose id
+                                            |> Seq.toArray
+                                        failed |> Seq.iter (fun x -> let (msg,cId) = x in traceError(sprintf "Card %s failed: %s" cId msg))
+                                        let failedIDs = failed |> Array.map snd
+                                        if Array.isEmpty failedIDs then
+                                            do! System.IO.File.AppendAllLinesAsync(failedLogPath,failedIDs) |> Async.AwaitTask
+                                        
+                                        let newLatest = 
+                                            let mapper idx r =
+                                                match r with
+                                                |   Error _ -> None
+                                                |   Ok() -> Some(cardsIdsArray.[idx],System.Int32.Parse(cardsIdsArray.[idx].ID.Substring(2)))
+                                            results
+                                            |> Seq.mapi mapper
+                                            |> Seq.choose id
+                                            |> Seq.sortByDescending snd
+                                            |> Seq.map fst
+                                            |> Seq.tryHead
+                                        match newLatest with
+                                        |   None -> return latestKnown
+                                        |   Some l -> return Some l
+                                    }
+                            sprintf "Sleeping %d seconds..." checkIntervalSec |> traceInfo
+                            do! Async.Sleep (System.TimeSpan.FromSeconds (float checkIntervalSec))
+                            return! loop latestKnown2
+
+                        }
+                    do! loop latest
+                    return 0 // unreachable
                 else     
                     sprintf "Subcommand missing.\n%s" usage |> traceError
                     return 1
