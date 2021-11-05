@@ -186,9 +186,11 @@ type Pet911RealCrawling() =
             let! result = agent.Process(descr);
             do! agent.Shutdown()
             
-            Assert.True(hasFailed(result))
+            Assert.False(hasFailed(result), "fetch is supposed to succeed")
 
-            Assert.True(File.Exists(Path.Combine(tempDir,"rl476712",CrawlerPet911.cardFilename)))
+            let path = Path.Combine(tempDir,"rl476712",cardFilename)
+
+            Assert.True(File.Exists(path),sprintf "File %s does not exist" path)
         }
 
     [<Fact>]
