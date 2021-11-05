@@ -6,13 +6,6 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{8EA5244F-5C71-4F46-91D7-CF87DCFA4562}"
 	ProjectSection(SolutionItems) = preProject
 		.drone.yml = .drone.yml
-		data\petCard.json = data\petCard.json
-		data\petCard_rf492825.html.dump = data\petCard_rf492825.html.dump
-		petCard_rf494618.html.dump = petCard_rf494618.html.dump
-		data\petCard_rl476712.html.dump = data\petCard_rl476712.html.dump
-		data\petCard_rl476712_lost_is_found.html.dump = data\petCard_rl476712_lost_is_found.html.dump
-		data\petCards.json = data\petCards.json
-		data\searchResults.html.dump = data\searchResults.html.dump
 	EndProjectSection
 EndProject
 Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "CrawlerPet911", "CrawlerPet911\CrawlerPet911.fsproj", "{5EADE857-BC95-4A8A-9537-90155E20160C}"
@@ -23,10 +16,12 @@ Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "Tests", "Tests\Tests.fsproj
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "data", "data", "{D649B448-1E02-4247-8C3F-F049BB4AC846}"
 	ProjectSection(SolutionItems) = preProject
+		data\catalog.html.dump = data\catalog.html.dump
 		data\petCard.json = data\petCard.json
 		data\petCard_rf492825.html.dump = data\petCard_rf492825.html.dump
 		data\petCard_rf494610_no_author.html.dump = data\petCard_rf494610_no_author.html.dump
 		data\petCard_rf494611_no_photo.html.dump = data\petCard_rf494611_no_photo.html.dump
+		petCard_rf494618.html.dump = petCard_rf494618.html.dump
 		data\petCard_rf494618_no_sex.html.dump = data\petCard_rf494618_no_sex.html.dump
 		data\petCard_rl476712.html.dump = data\petCard_rl476712.html.dump
 		data\petCard_rl476712_lost_is_found.html.dump = data\petCard_rl476712_lost_is_found.html.dump

@@ -138,3 +138,14 @@ let ``Extract event coords``() =
             Assert.Equal(55.81373210,lat, 10)
             Assert.Equal(37.81203200,lon, 10)
     }
+
+[<Fact>]
+let ``Extract cards from catalog``() =
+    async {
+        let! doc = loadAndParseHtmlTestFile("catalog.html.dump")
+        match pet911.getCatalogCards doc with
+        |   Error er -> Assert.True(false,sprintf "Failed to get cards from catalog: %s" er)
+        |   Ok(cards) ->
+            Assert.Equal(20, cards.Length)
+            Assert.True(cards |> Seq.exists (fun x -> x.ID="rf494635" && x.url="https://pet911.ru/%D0%A2%D0%B2%D0%B5%D1%80%D1%8C/найдена/собака/rf494635"))
+    }

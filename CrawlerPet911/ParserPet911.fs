@@ -2,8 +2,10 @@
 
 open HtmlAgilityPack
 open Kashtanka.SemanticTypes
+open Kashtanka.Crawler
 
-let photoUrlPrefix = "https://pet911.ru/upload/Pet_thumb_"
+let hostUrl = "https://pet911.ru"
+let photoUrlPrefix = sprintf "%s/upload/Pet_thumb_" hostUrl
 
 let getCardId (htmlDoc:HtmlDocument) : Result<string,string> =        
     let idNodes = htmlDoc.DocumentNode.SelectNodes("//div[@class='p-art']/span[@class='text']");
@@ -124,3 +126,16 @@ let getEventCoords (htmlDoc:string) : Result<float*float, string> =
             Ok(lat,lon) 
         |   _ -> Error "Can't parse lat/lon"
     | _ ->  Error "Regex did not find the lat/lon"
+
+let getCatalogCards (htmlDoc:HtmlDocument) : Result<RemoteResourseDescriptor[],string> = 
+    let cardRefNodes = htmlDoc.DocumentNode.SelectNodes("//a[@class='btn btn-green']")
+    let idFromUrl (url:string) =
+        let idx = url.LastIndexOf('/')
+        url.Substring(idx+1)
+    let hrefs =
+        cardRefNodes
+        |> Seq.map (fun node -> node.GetAttributeValue("href","NOT_FOUND"))
+        |> Seq.distinct
+        |> Seq.map (fun x -> {ID = idFromUrl x; url = sprintf "%s%s" hostUrl x})
+        |> Seq.toArray
+    Ok(hrefs)
