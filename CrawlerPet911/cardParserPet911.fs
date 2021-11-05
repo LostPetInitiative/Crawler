@@ -32,7 +32,11 @@ let getPhotoUrls (htmlDoc:HtmlDocument) : Result<string[], string> =
     if photoNodes = null then
         Error ("Can't find photo elements")
     else
-        let hrefs = photoNodes |> Seq.map (fun node -> node.Attributes.["href"].Value) |> Array.ofSeq
+        let hrefs =
+            photoNodes
+            |> Seq.map (fun node -> node.Attributes.["href"].Value)
+            |> Seq.filter (fun x -> not(x.StartsWith("/img/no_photo"))) // missing photo stub
+            |> Array.ofSeq
         if hrefs |> Seq.forall (fun (href:string) -> href.StartsWith("/upload/Pet_")) then
             Ok(hrefs |> Array.map (fun href -> sprintf "%s%s" photoUrlPrefix (href.Substring("/upload/Pet_".Length))))
         else
@@ -54,14 +58,14 @@ let getEventTimeUTC (htmlDoc:HtmlDocument) : Result<System.DateTime, string> =
         else
             Error "Could not parse event date"
 
-let getAuthorName (htmlDoc:HtmlDocument) : Result<string,string> =
+let getAuthorName (htmlDoc:HtmlDocument) : Result<string option,string> =
     let authorNodes = htmlDoc.DocumentNode.SelectNodes("//section[@id='view-pet']//div[@class='p-author']/span[@class='text']")
     if authorNodes = null then
-        Error "Can't find author element"
+        Ok None
     elif authorNodes.Count <> 1 then
         Error(sprintf "Expected single author element, found %d" authorNodes.Count)
     else
-        Ok(authorNodes.[0].InnerText.Trim())
+        Ok(Some(authorNodes.[0].InnerText.Trim()))
 
 let getAuthorMessage (htmlDoc:HtmlDocument) : Result<string,string> =
     let messageNodes = htmlDoc.DocumentNode.SelectNodes("//section[@id='view-pet']//div[@class='p-description']")
@@ -84,16 +88,16 @@ let getEventAddress (htmlDoc:HtmlDocument) : Result<string, string> =
 let getAnimalSex (htmlDoc:HtmlDocument) : Result<Sex, string> =
     let sexNodes = htmlDoc.DocumentNode.SelectNodes("//section[@id='view-pet']//div[@class='p-sex']/span[@class='text']")
     if sexNodes = null then
-        Error "Can't find sex element"
+        Ok Sex.unknown
     elif sexNodes.Count <> 1 then
         Error(sprintf "Expected single animal sex element, but got %d" sexNodes.Count)
     else
         let sex =
             match sexNodes.[0].InnerText.Trim().ToLowerInvariant() with
-            |   "м" -> Sex.male
-            |   "ж" -> Sex.female
-            |   _ -> Sex.unknown
-        Ok sex
+            |   "м" -> Ok Sex.male
+            |   "ж" -> Ok Sex.female
+            |   s -> Error (sprintf "Unexpected sex value %s" s)
+        sex
 
 let getEventType (htmlDoc:HtmlDocument) : Result<EventType, string> =
     let dateNodes = htmlDoc.DocumentNode.SelectNodes("//section[@id='view-pet']//div[@class='only-mobile']/div[@class='p-date']")

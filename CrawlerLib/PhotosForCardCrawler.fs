@@ -22,7 +22,7 @@ type Agent<'T>(processPhoto: RemoteResourseDescriptor -> Async<Result<unit,strin
         let rec messageLoop (state:AgentState) = async {
             let! nextState = async {
                 match! inbox.Receive() with
-                |   ShutdownRequest channel ->
+                |   ShutdownRequest channel ->                
                     return {
                         state with
                             shuttingDown = Some channel
@@ -34,12 +34,16 @@ type Agent<'T>(processPhoto: RemoteResourseDescriptor -> Async<Result<unit,strin
                             inbox.Post(PhotoProcessed (photo.ID,result))
                         } |> Async.Start
                     photos |> Seq.iter processPhotoAndRegisterCompletion
-
-                    return {
-                        state with
-                            ongoingJobs = Map.add cardID (Set.map (fun x -> x.ID) photos, readyChannel) state.ongoingJobs
-                            photoToCard = photos |> Set.fold (fun m photo -> Map.add photo.ID cardID m) state.photoToCard
-                    }
+                    
+                    if Set.isEmpty photos then
+                        readyChannel.Reply(Ok())
+                        return state
+                    else
+                        return {
+                            state with
+                                ongoingJobs = Map.add cardID (Set.map (fun x -> x.ID) photos, readyChannel) state.ongoingJobs
+                                photoToCard = photos |> Set.fold (fun m photo -> Map.add photo.ID cardID m) state.photoToCard
+                        }
                 |   PhotoProcessed(photoID, result) ->
                     let cardID = Map.find photoID state.photoToCard
                     let ongoingCardJobs,readyChannel = Map.find cardID state.ongoingJobs

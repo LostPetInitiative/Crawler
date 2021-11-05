@@ -190,11 +190,14 @@ let constructCrawler baseDir download  =
             async {
                 match! cardProcessor.Process cardDescriptor with
                 |   Error er -> return Error (sprintf "Failed to process card %s: %s" cardDescriptor.ID er)
-                |   Ok processedResource ->
+                |   Ok processedResource ->                    
                     match processedResource with
                     |   Missing -> return Ok()
-                    |   Processed card ->                        
-                        return! photosForCardCrawler.AwaitAllPhotos card.id card.photos                        
+                    |   Processed card ->
+                        sprintf "Card %s parsed successfully" cardDescriptor.ID |> traceInfo
+                        let! res = photosForCardCrawler.AwaitAllPhotos card.id card.photos                        
+                        sprintf "Card %s (and its %d photos) are processed" card.id card.photos.Length |> traceInfo
+                        return res
             }
 
         return processCard

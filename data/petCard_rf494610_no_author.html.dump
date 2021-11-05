@@ -1,0 +1,1116 @@
+!DOCTYPE html
+html lang=ru
+head
+meta charset=UTF-8
+meta http-equiv=X-UA-Compatible content=IE=edge
+meta id=vp name=viewport content=width=device-width, initial-scale=1
+meta name=csrf-param content=_csrf-newfront
+meta name=csrf-token content=6yFRrl25K2Cs2Rsze9_5cjNzeJ9SenUu92vzSDjQz0qBUSvNKdx7JPvrXmkRtaoqWwky7yUzEV-OWboEDLOmfQ==
+titleНайдена собака, Бийск, Pet911 - Всероссийская система поиска и возврата животных.title
+meta name=description content=Нашли собаку по адресу улица Александра Пушкина, 152, Бийск  – размещайте объявления на Pet911 – объявления о пропаже собак и кошек рядом с Вами, найдём потеряшек вместе.
+meta name=keywords content=найдена собака Бийск
+meta property=ogurl content=httpspet911.ru%D0%91%D0%B8%D0%B9%D1%81%D0%BAнайденасобакаrf494610
+meta property=ogtype content=website
+meta property=ogtitle content=Найдена собака, Бийск, Pet911 - Всероссийская система поиска и возврата животных.
+meta property=ogdescription content=
+meta property=ogimage content=uploadPet_16360934136184cde5e77f50.14081119.jpeg
+meta name=twittercard content=summary_large_image
+meta name=twittertitle content=Найдена собака, Бийск, Pet911 - Всероссийская система поиска и возврата животных.
+meta name=twitterdescription content=
+meta name=twitterimage content=uploadPet_16360934136184cde5e77f50.14081119.jpeg
+meta property=ogurl content=httppet911.ru%D0%91%D0%B8%D0%B9%D1%81%D0%BA%D0%BD%D0%B0%D0%B9%D0%B4%D0%B5%D0%BD%D0%B0%D1%81%D0%BE%D0%B1%D0%B0%D0%BA%D0%B0rf494610
+meta property=ogimage content=httppet911.ruimglogo.png
+meta name=twitterimage content=httppet911.ruimglogo.png
+link href=httpspet911.ru%D0%91%D0%B8%D0%B9%D1%81%D0%BA%D0%BD%D0%B0%D0%B9%D0%B4%D0%B5%D0%BD%D0%B0%D1%81%D0%BE%D0%B1%D0%B0%D0%BA%D0%B0rf494610 rel=canonical
+link href=httpsunpkg.comleaflet@1.7.1distleaflet.css rel=stylesheet media=print onload=this.media=&#039;all&#039;
+link href=httpsunpkg.comleaflet-geosearch@3.0.0distgeosearch.css rel=stylesheet media=print onload=this.media=&#039;all&#039;
+link href=httpsunpkg.comleaflet.markercluster@1.3.0distMarkerCluster.css rel=stylesheet media=print onload=this.media=&#039;all&#039;
+link href=httpsunpkg.comleaflet.markercluster@1.3.0distMarkerCluster.Default.css rel=stylesheet media=print onload=this.media=&#039;all&#039;
+link href=assetsb65b97e3cssstyle.min.cssv=1631545441 rel=stylesheet
+link href=assets2f9b551ecssbootstrap.cssv=1631545440 rel=stylesheet
+link href=cssfont-awesome.min.cssv=1624897402 rel=stylesheet media=print onload=this.media=&#039;all&#039;
+link href=cssnova.cssv=1629366360 rel=stylesheet
+link href=cssnew.cssv=1635844909 rel=stylesheet
+link href=jspluginsowlowl.carousel.min.cssv=1624897402 rel=stylesheet
+link href=jspluginsowlowl.theme.default.min.cssv=1624897402 rel=stylesheet
+link href=csslightbox.min.cssv=1624897402 rel=stylesheet script
+        var mapUrl = 'httpstile.openstreetmap.org{z}{x}{y}.png';
+    script
+head
+body
+div id=header class=fixed-top 
+div class=container
+nav class=navbar navbar-expand-lg navbar-dark
+a class=navbar-brand href=
+Pet911.ru a
+div class=search-by-art
+form id=searchFrm
+input name=art type=text placeholder=Номер объявления class=
+i class=fa fa-searchi
+form
+div
+button class=navbar-toggler type=button data-toggle=collapse data-target=#navbar aria-controls=navbar aria-expanded=false aria-label=Toggle navigation
+span class=navbar-toggler-iconspan
+button
+div class=collapse navbar-collapse id=navbar
+ul class=navbar-nav ml-auto
+li class=nav-item 
+a class=nav-link color-red href=form-addfirst-step
+Создать объявление a
+li
+li class=nav-item 
+a class=nav-link href=catalog
+Картотека a
+li
+li class=nav-item
+a class=nav-link href=statchip
+Чипирование a
+li
+li class=nav-item
+a class=nav-link href=statblog
+Блог a
+li
+li class=nav-item
+a class=nav-link href=success-stories
+Отзывы a
+li
+li class=nav-item dropdown
+a class=nav-link dropdown-toggle data-toggle=dropdown aria-expanded=false
+Помощь a
+div aria-labelledby=navbarDropdown class=dropdown-menu text-right text-lg-left
+a class=dropdown-item href=faq
+Вопросы и ответы a
+div class=dropdown-dividerdiv
+a class=dropdown-item href=postpoleznye-sovety
+Полезные советы aa class=dropdown-item href=postplatnye-uslugi
+Платные услуги aa class=dropdown-item href=postosteregajtes-mosennikov
+Остерегайтесь мошенников a
+div
+li
+ li class=nav-item
+a class=nav-link href=landing-for-volunteer
+Стать волонтером a
+li
+li class=nav-item 
+a class=nav-link href=login
+Войти a
+li
+ul
+div
+nav
+div
+div
+main role=main
+div class=widget widget-stat with-bg
+h5 class=font-second
+Объявлений за сутки b140b, за неделю b730b. Найдено всего b44843b. h5
+div
+div class=container id=breadcrumb
+ul class=li class='breadcrumb-item'a class=menuitem-link href=span class=menuitem-textГлавнаяspanalili class='breadcrumb-item'a href=catalogОбъявленияalili class='breadcrumb-item'a href=catalognaydennye-sobaki-byskОбъявления о найденных собаках в Бийскеalili class=breadcrumb-item active aria-current=pagespan class='menuitem-text'Найдена Собакаspanliul div
+codecode
+section id=view-pet
+div class=section-container container
+h1 class=section-title
+Найдена собака, Бийск h1
+h3 class=section-subtitle
+span
+питомцу найден новый дом span
+h3
+div class=grid
+div class=row
+div class=col-sm-12
+div class=only-mobile
+div class=p-animal
+Собака div
+div class=p-art
+span class=label
+Номер span
+span class=text
+rf494610 span
+div
+div class=p-date
+bДобавленоb
+пт, 05.11.2021 div
+div class=p-date
+bДата находкиb
+пн, 01.11.2021 div
+div
+div
+div class=col-md-5 col-sm-12 order-md-1
+div class=grid-1
+a data-lightbox=pet href=uploadPet_16360934136184cde5e77f50.14081119.jpeg
+img src=cdn-cgiimagequality=65,f=autouploadPet_thumb_16360934136184cde5e77f50.14081119.jpeg
+a
+div class=photos
+div class=row
+div class=col-4
+a data-lightbox=pet href=uploadPet_16360934146184cde6469471.99580318.jpeg
+div class=photo style=background-image url(cdn-cgiimagequality=65,f=autouploadPet_thumb_16360934146184cde6469471.99580318.jpeg)div
+a
+div
+div
+div
+div
+noindex
+div class=grid-1 only-desktop
+div class=soc
+h5 class=s-titleПожалуйста поделитесь информацией с друзьямиh5
+p class=s-infoПост в соцсетях на span37%span процентов повышает вероятность успешного завершения поисковp
+ul class=s-iconslia href=httpwww.facebook.comsharer.phpu=https%3A%2F%2Fpet911.ru%2F%25D0%2591%25D0%25B8%25D0%25B9%25D1%2581%25D0%25BA%2F%D0%BD%D0%B0%D0%B9%D0%B4%D0%B5%D0%BD%D0%B0%2F%D1%81%D0%BE%D0%B1%D0%B0%D0%BA%D0%B0%2Frf494610 rel=noopener target=_blankfai class=fa fa-facebookifaalilia href=httpvk.comshare.phpurl=https%3A%2F%2Fpet911.ru%2F%25D0%2591%25D0%25B8%25D0%25B9%25D1%2581%25D0%25BA%2F%D0%BD%D0%B0%D0%B9%D0%B4%D0%B5%D0%BD%D0%B0%2F%D1%81%D0%BE%D0%B1%D0%B0%D0%BA%D0%B0%2Frf494610&amp;title=%D0%9D%D0%B0%D0%B9%D0%B4%D0%B5%D0%BD%D0%B0+%D1%81%D0%BE%D0%B1%D0%B0%D0%BA%D0%B0%2C+%D0%91%D0%B8%D0%B9%D1%81%D0%BA%2C+Pet911+-+%D0%92%D1%81%D0%B5%D1%80%D0%BE%D1%81%D1%81%D0%B8%D0%B9%D1%81%D0%BA%D0%B0%D1%8F+%D1%81%D0%B8%D1%81%D1%82%D0%B5%D0%BC%D0%B0+%D0%BF%D0%BE%D0%B8%D1%81%D0%BA%D0%B0+%D0%B8+%D0%B2%D0%BE%D0%B7%D0%B2%D1%80%D0%B0%D1%82%D0%B0+%D0%B6%D0%B8%D0%B2%D0%BE%D1%82%D0%BD%D1%8B%D1%85.&amp;description=&amp;image=%2Fupload%2FPet_16360934136184cde5e77f50.14081119.jpeg rel=noopener target=_blankfai class=fa fa-vkifaalilia href=httptwitter.comshareurl=https%3A%2F%2Fpet911.ru%2F%25D0%2591%25D0%25B8%25D0%25B9%25D1%2581%25D0%25BA%2F%D0%BD%D0%B0%D0%B9%D0%B4%D0%B5%D0%BD%D0%B0%2F%D1%81%D0%BE%D0%B1%D0%B0%D0%BA%D0%B0%2Frf494610&amp;text= rel=noopener target=_blankfai class=fa fa-twitterifaalilia href=httpsmail.google.commailview=cm&amp;fs=1&amp;su=%D0%9D%D0%B0%D0%B9%D0%B4%D0%B5%D0%BD%D0%B0+%D1%81%D0%BE%D0%B1%D0%B0%D0%BA%D0%B0%2C+%D0%91%D0%B8%D0%B9%D1%81%D0%BA%2C+Pet911+-+%D0%92%D1%81%D0%B5%D1%80%D0%BE%D1%81%D1%81%D0%B8%D0%B9%D1%81%D0%BA%D0%B0%D1%8F+%D1%81%D0%B8%D1%81%D1%82%D0%B5%D0%BC%D0%B0+%D0%BF%D0%BE%D0%B8%D1%81%D0%BA%D0%B0+%D0%B8+%D0%B2%D0%BE%D0%B7%D0%B2%D1%80%D0%B0%D1%82%D0%B0+%D0%B6%D0%B8%D0%B2%D0%BE%D1%82%D0%BD%D1%8B%D1%85.&amp;body=+-+https%3A%2F%2Fpet911.ru%2F%25D0%2591%25D0%25B8%25D0%25B9%25D1%2581%25D0%25BA%2F%D0%BD%D0%B0%D0%B9%D0%B4%D0%B5%D0%BD%D0%B0%2F%D1%81%D0%BE%D0%B1%D0%B0%D0%BA%D0%B0%2Frf494610 rel=noopener target=_blankfai class=fa fa-envelopeifaalilia href=httpsconnect.ok.ruofferurl=https%3A%2F%2Fpet911.ru%2F%25D0%2591%25D0%25B8%25D0%25B9%25D1%2581%25D0%25BA%2F%D0%BD%D0%B0%D0%B9%D0%B4%D0%B5%D0%BD%D0%B0%2F%D1%81%D0%BE%D0%B1%D0%B0%D0%BA%D0%B0%2Frf494610&amp;title=%D0%9D%D0%B0%D0%B9%D0%B4%D0%B5%D0%BD%D0%B0+%D1%81%D0%BE%D0%B1%D0%B0%D0%BA%D0%B0%2C+%D0%91%D0%B8%D0%B9%D1%81%D0%BA%2C+Pet911+-+%D0%92%D1%81%D0%B5%D1%80%D0%BE%D1%81%D1%81%D0%B8%D0%B9%D1%81%D0%BA%D0%B0%D1%8F+%D1%81%D0%B8%D1%81%D1%82%D0%B5%D0%BC%D0%B0+%D0%BF%D0%BE%D0%B8%D1%81%D0%BA%D0%B0+%D0%B8+%D0%B2%D0%BE%D0%B7%D0%B2%D1%80%D0%B0%D1%82%D0%B0+%D0%B6%D0%B8%D0%B2%D0%BE%D1%82%D0%BD%D1%8B%D1%85.&amp;description=&amp;imageUrl=%2Fupload%2FPet_16360934136184cde5e77f50.14081119.jpeg rel=noopener target=_blankfai class=fa fa-odnoklassnikiifaaliul div
+div class=print only-desktop
+fai class=fa fa-printifa
+a href=javascriptvoid(0) id=print_listing onclick=window.print()Распечатать объявление о находкеa
+div
+div
+noindex
+div
+div class=col-md-7 col-sm-12 order-md-2
+div class=grid-2
+div class=row
+div class=col-md-7 col-sm-12
+div class=left
+div class=only-desktop
+div class=p-animal
+ Собака span3062.4 кмspan
+div
+div class=p-date
+Добавлено
+пт, 05.11.2021 div
+div class=p-date
+Дата находки
+пн, 01.11.2021 div
+div
+div
+div
+div class=col-md-5 col-sm-12
+div class=right
+div class=p-art only-desktop
+span class=label
+Номер
+span
+span class=text
+rf494610 span
+div
+div class=p-sex
+span class=label
+Пол
+span
+span class=text
+М span
+div
+div
+div
+div class=col-md-12 complain-desktop
+div class=complain
+a class=complain-link href=javascriptvoid(0) data-toggle=modal data-target=#modalComplain
+i class=fa fa-exclamation-trianglei
+spanПожаловатьсяspan
+a
+div class=complain-hoverСообщить о проблемеdiv
+div
+div
+div
+div
+div class=grid-2
+div class=down
+div class=p-address
+span class=label
+i class=fa fa-map-markeri
+Адрес
+span
+span class=text
+улица Александра Пушкина, 152, Бийск span
+div
+div
+div id=map style=height 220px;div
+div class=p-description
+Немецкая овчарка, на вид года 3-4, знает команды, не агрессивен div
+div
+div class=grid-1 only-mobile
+noindex
+div class=soc
+h5 class=s-titleПожалуйста поделитесь информацией с друзьямиh5
+p class=s-infoПост в соцсетях на span37%span процентов повышает вероятность успешного завершения поисковp
+ul class=s-iconslia href=httpwww.facebook.comsharer.phpu=http%3A%2F%2Fpet911.ru%2F%25D0%2591%25D0%25B8%25D0%25B9%25D1%2581%25D0%25BA%2F%25D0%25BD%25D0%25B0%25D0%25B9%25D0%25B4%25D0%25B5%25D0%25BD%25D0%25B0%2F%25D1%2581%25D0%25BE%25D0%25B1%25D0%25B0%25D0%25BA%25D0%25B0%2Frf494610 rel=noopener target=_blankfai class=fa fa-facebookifaalilia href=httpvk.comshare.phpurl=http%3A%2F%2Fpet911.ru%2F%25D0%2591%25D0%25B8%25D0%25B9%25D1%2581%25D0%25BA%2F%25D0%25BD%25D0%25B0%25D0%25B9%25D0%25B4%25D0%25B5%25D0%25BD%25D0%25B0%2F%25D1%2581%25D0%25BE%25D0%25B1%25D0%25B0%25D0%25BA%25D0%25B0%2Frf494610&amp;title=%D0%9D%D0%B0%D0%B9%D0%B4%D0%B5%D0%BD%D0%B0+%D1%81%D0%BE%D0%B1%D0%B0%D0%BA%D0%B0%2C+%D0%91%D0%B8%D0%B9%D1%81%D0%BA%2C+Pet911+-+%D0%92%D1%81%D0%B5%D1%80%D0%BE%D1%81%D1%81%D0%B8%D0%B9%D1%81%D0%BA%D0%B0%D1%8F+%D1%81%D0%B8%D1%81%D1%82%D0%B5%D0%BC%D0%B0+%D0%BF%D0%BE%D0%B8%D1%81%D0%BA%D0%B0+%D0%B8+%D0%B2%D0%BE%D0%B7%D0%B2%D1%80%D0%B0%D1%82%D0%B0+%D0%B6%D0%B8%D0%B2%D0%BE%D1%82%D0%BD%D1%8B%D1%85.&amp;description=&amp;image=%2Fupload%2FPet_16360934136184cde5e77f50.14081119.jpeg rel=noopener target=_blankfai class=fa fa-vkifaalilia href=httptwitter.comshareurl=http%3A%2F%2Fpet911.ru%2F%25D0%2591%25D0%25B8%25D0%25B9%25D1%2581%25D0%25BA%2F%25D0%25BD%25D0%25B0%25D0%25B9%25D0%25B4%25D0%25B5%25D0%25BD%25D0%25B0%2F%25D1%2581%25D0%25BE%25D0%25B1%25D0%25B0%25D0%25BA%25D0%25B0%2Frf494610&amp;text= rel=noopener target=_blankfai class=fa fa-twitterifaalilia href=httpsmail.google.commailview=cm&amp;fs=1&amp;su=%D0%9D%D0%B0%D0%B9%D0%B4%D0%B5%D0%BD%D0%B0+%D1%81%D0%BE%D0%B1%D0%B0%D0%BA%D0%B0%2C+%D0%91%D0%B8%D0%B9%D1%81%D0%BA%2C+Pet911+-+%D0%92%D1%81%D0%B5%D1%80%D0%BE%D1%81%D1%81%D0%B8%D0%B9%D1%81%D0%BA%D0%B0%D1%8F+%D1%81%D0%B8%D1%81%D1%82%D0%B5%D0%BC%D0%B0+%D0%BF%D0%BE%D0%B8%D1%81%D0%BA%D0%B0+%D0%B8+%D0%B2%D0%BE%D0%B7%D0%B2%D1%80%D0%B0%D1%82%D0%B0+%D0%B6%D0%B8%D0%B2%D0%BE%D1%82%D0%BD%D1%8B%D1%85.&amp;body=+-+http%3A%2F%2Fpet911.ru%2F%25D0%2591%25D0%25B8%25D0%25B9%25D1%2581%25D0%25BA%2F%25D0%25BD%25D0%25B0%25D0%25B9%25D0%25B4%25D0%25B5%25D0%25BD%25D0%25B0%2F%25D1%2581%25D0%25BE%25D0%25B1%25D0%25B0%25D0%25BA%25D0%25B0%2Frf494610 rel=noopener target=_blankfai class=fa fa-envelopeifaalilia href=httpsconnect.ok.ruofferurl=http%3A%2F%2Fpet911.ru%2F%25D0%2591%25D0%25B8%25D0%25B9%25D1%2581%25D0%25BA%2F%25D0%25BD%25D0%25B0%25D0%25B9%25D0%25B4%25D0%25B5%25D0%25BD%25D0%25B0%2F%25D1%2581%25D0%25BE%25D0%25B1%25D0%25B0%25D0%25BA%25D0%25B0%2Frf494610&amp;title=%D0%9D%D0%B0%D0%B9%D0%B4%D0%B5%D0%BD%D0%B0+%D1%81%D0%BE%D0%B1%D0%B0%D0%BA%D0%B0%2C+%D0%91%D0%B8%D0%B9%D1%81%D0%BA%2C+Pet911+-+%D0%92%D1%81%D0%B5%D1%80%D0%BE%D1%81%D1%81%D0%B8%D0%B9%D1%81%D0%BA%D0%B0%D1%8F+%D1%81%D0%B8%D1%81%D1%82%D0%B5%D0%BC%D0%B0+%D0%BF%D0%BE%D0%B8%D1%81%D0%BA%D0%B0+%D0%B8+%D0%B2%D0%BE%D0%B7%D0%B2%D1%80%D0%B0%D1%82%D0%B0+%D0%B6%D0%B8%D0%B2%D0%BE%D1%82%D0%BD%D1%8B%D1%85.&amp;description=&amp;imageUrl=%2Fupload%2FPet_16360934136184cde5e77f50.14081119.jpeg rel=noopener target=_blankfai class=fa fa-odnoklassnikiifaaliul div
+div class=print only-desktop
+fai class=fa fa-printifa
+a href=javascriptvoid(0) id=print_listing onclick=window.print()Распечатать объявление о находкеa
+div
+noindex
+div
+div
+div
+div
+div
+section
+section id=comments
+div class=section-container container
+h2 class=section-titleКомментарииh2
+div id=commentPjax data-pjax-container= data-pjax-push-state data-pjax-timeout=0 form id=commentViewForm action=%D0%91%D0%B8%D0%B9%D1%81%D0%BA%D0%BD%D0%B0%D0%B9%D0%B4%D0%B5%D0%BD%D0%B0%D1%81%D0%BE%D0%B1%D0%B0%D0%BA%D0%B0rf494610 method=post
+input type=hidden name=_csrf-newfront value=6yFRrl25K2Cs2Rsze9_5cjNzeJ9SenUu92vzSDjQz0qBUSvNKdx7JPvrXmkRtaoqWwky7yUzEV-OWboEDLOmfQ== div class=row
+div class=col-lg-4 col-md-6 col-12
+div class=form-item custom-input comment-name field-addcommentform-name required
+input type=text id=addcommentform-name class=form-control name=AddCommentForm[name] placeholder=Ваше имя aria-required=truediv class=errordiv
+div div
+div class=col-12
+div class=form-item comment-text field-addcommentform-comment required
+textarea id=addcommentform-comment class=form-control name=AddCommentForm[comment] placeholder=Ваш комментарий aria-required=truetextareadiv class=errordiv
+div div
+div class=col-12
+div class=row justify-content-end
+div class=col-lg-8 col-md-6
+div class=form-group field-addcommentform-recaptcha
+input type=hidden id=addcommentform-recaptcha class=form-control name=AddCommentForm[reCaptcha]div id=addcommentform-recaptcha-recaptcha-commentViewForm class=g-recaptcha data-sitekey=6Lemis4cAAAAADfcgs5_cfbF2bSFYpWSncAZbMT8 data-input-id=addcommentform-recaptcha data-form-id=commentViewFormdiv
+div class=errordiv
+div div
+div class=col-lg-4 col-md-6 col-12
+button class=btn btn-green type=submit
+Добавить button
+div
+div
+div
+div
+form
+div class=comments-list
+div data-key=337552div class=comment
+div class=comment-authorВсероссийская система поиска животных Pet911div
+div class=comment-date(пятница, 0926)div
+div class=comment-textОбъявление rf494610 размещено в группе ВКонтакте a href=httpsvk.compet911altayw=wall-176726988_1155%2Fall target=_blankГорно-Алтайск  Pet911 пропала собака кошкаadiv
+divdiv div
+nav aria-label=Page navigation class=m-auto mt20
+nav
+div div
+section
+section id=similar-pets
+div class=section-container container
+h2 class=section-titleПохожие найденные питомцыh2
+div class=s-pets d-none d-lg-block
+div class=row
+div class=col-lg-4
+a class=s-pet d-block target=_blank href=%D0%91%D0%B8%D0%B9%D1%81%D0%BAнайденасобакаrf492746
+div class=img style=background-image url('cdn-cgiimagequality=65,f=autouploadPet_thumb_163489077761727419e119f3.93374411.jpg');div
+div class=info
+div class=p-date
+Добавлено пт, 22.10.2021 div
+div class=p-date
+Дата находки чт, 21.10.2021 div
+div class=p-sex
+ span class=labelПолspan
+span class=textМspan
+div
+div class=p-address
+fai class=fa fa-map-markerifa
+span class=textПолеводка, Светлоозёрский сельсовет, Бийский район, Алтайский край, Сибирский федеральный округ, Россияspan
+div
+div
+a
+div
+div class=col-lg-4
+a class=s-pet d-block target=_blank href=%D0%91%D0%B8%D0%B9%D1%81%D0%BAнайденасобакаrf489483
+div class=img style=background-image url('cdn-cgiimagequality=65,f=autouploadPet_thumb_163265997261506a04c6e7a61.60351043.jpg');div
+div class=info
+div class=p-date
+Добавлено вс, 26.09.2021 div
+div class=p-date
+Дата находки вс, 26.09.2021 div
+div class=p-sex
+span class=labelПолspan
+span class=textМspan
+div
+div class=p-address
+fai class=fa fa-map-markerifa
+span class=textДом советов, улица Ленина, Бийск, городской округ Бийск, Алтайский край, Сибирский федеральный округ, 659300, Россияspan
+div
+div
+a
+div
+div class=col-lg-4
+a class=s-pet d-block target=_blank href=%D0%91%D0%B8%D0%B9%D1%81%D0%BAнайденасобакаrf477264
+div class=img style=background-image url('cdn-cgiimagequality=65,f=autouploadPet_thumb_162591087360e96e592d9de2.53144393.jpg');div
+div class=info
+div class=p-date
+Добавлено сб, 10.07.2021 div
+div class=p-date
+Дата находки пт, 09.07.2021 div
+div class=p-sex
+span class=labelПолspan
+span class=textМspan
+div
+div class=p-address
+fai class=fa fa-map-markerifa
+span class=textМалоенисейский сельсовет, Бийский район, Алтайский край, Сибирский федеральный округ, Россияspan
+div
+div
+a
+div
+div
+div
+div class=s-pets d-block d-lg-none
+div class=ui-carousel ui-widget ui-widget-content ui-corner-all owl-carousel
+div class=ui-carousel-header ui-widget-header ui-corner-all
+span class=ui-carousel-header-titlespan
+ span class=ui-carousel-button ui-carousel-next-button fa fa-arrow-circle-rightspan
+span class=ui-carousel-button ui-carousel-prev-button fa fa-arrow-circle-left ui-state-disabledspan
+div
+div class=ui-carousel-viewport
+div class=ui-carousel-items
+div class=ui-carousel-item ui-widget-content ui-corner-all
+div class=s-pets
+a class=s-pet d-block href=%D0%91%D0%B8%D0%B9%D1%81%D0%BAнайденасобакаrf492746
+div class=img style=background-image url('cdn-cgiimagequality=65,f=autouploadPet_thumb_163489077761727419e119f3.93374411.jpg');div
+div class=info
+div class=p-date
+Добавлено чт, 21.10.2021 div
+div class=p-date
+Дата находки чт, 21.10.2021 div
+div class=p-sex
+span class=labelПолspan
+span class=textМspan
+div
+div class=p-address
+fai class=fa fa-map-markerifa
+span class=textПолеводка, Светлоозёрский сельсовет, Бийский район, Алтайский край, Сибирский федеральный округ, Россияspan
+div
+div
+a
+div
+div
+div class=ui-carousel-item ui-widget-content ui-corner-all
+div class=s-pets
+a class=s-pet d-block href=%D0%91%D0%B8%D0%B9%D1%81%D0%BAнайденасобакаrf489483
+div class=img style=background-image url('cdn-cgiimagequality=65,f=autouploadPet_thumb_163265997261506a04c6e7a61.60351043.jpg');div
+div class=info
+div class=p-date
+Добавлено вс, 26.09.2021 div
+div class=p-date
+Дата находки вс, 26.09.2021 div
+div class=p-sex
+span class=labelПолspan
+span class=textМspan
+div
+div class=p-address
+fai class=fa fa-map-markerifa
+span class=textДом советов, улица Ленина, Бийск, городской округ Бийск, Алтайский край, Сибирский федеральный округ, 659300, Россияspan
+div
+div
+a
+div
+div
+div class=ui-carousel-item ui-widget-content ui-corner-all
+div class=s-pets
+a class=s-pet d-block href=%D0%91%D0%B8%D0%B9%D1%81%D0%BAнайденасобакаrf477264
+div class=img style=background-image url('cdn-cgiimagequality=65,f=autouploadPet_thumb_162591087360e96e592d9de2.53144393.jpg');div
+div class=info
+div class=p-date
+Добавлено пт, 09.07.2021 div
+div class=p-date
+Дата находки пт, 09.07.2021 div
+div class=p-sex
+span class=labelПолspan
+span class=textМspan
+div
+div class=p-address
+fai class=fa fa-map-markerifa
+span class=textМалоенисейский сельсовет, Бийский район, Алтайский край, Сибирский федеральный округ, Россияspan
+div
+div
+a
+div
+div
+div
+div
+div
+div
+div
+sectionnoindex
+section id=you-volunteer class=
+div class=section-container container
+h2 class=section-titleСтаньте частью всероссийской сети волонтеров Pet911h2
+p class=section-subtitleЛюбите животных Внесите свой вклад в поиск пропавших питомцев!p
+div class=row
+div class=col-lg col-md-12 d-none d-md-block
+div class=photos
+div class=photo photo-1
+div class=overlay
+spanspan
+pНас уже более 100 000 человекp
+div
+div
+div class=photo photo-2
+div class=overlay
+pКаждый день нас на 50 большеp
+spanspan
+div
+div
+div
+div
+div class=col-lg col-md-12
+div class=text
+pКаждый день в России пропадает около 300 питомцев. Из них потом находится меньше половины. Мы хотим это изменить. И Вы можете нам в этом помочь.p
+pПросто зарегистрируйтесь в системе и получайте сообщения о пропавших питомцах в Вашем районе. Вы можете встретить их по дороге на работу, в магазин, или просто гуляя в парке.p
+pСообщите об этом - и мы вместе изменим этот мир к лучшему, помогая питомцам и их хозяевам найти друг друга.p
+div
+div
+div class=col-12
+ p class=info
+Все, что от Вас нужно - всего лишь адрес электронной почты i class=fa fa-envelope-oi и большое любящее сердце i class=fa fa-heart-oi p
+div
+div class=col-12
+div class=row justify-content-center
+div class=col-lg-5 col-md-8 col-10
+div class=text-center
+a class=btn btn-green href=landing-for-volunteer#block-3
+Присоединиться a
+div
+div
+div
+div
+div
+div
+sectionnoindex
+div id=modalLoginSignup class=fade modal role=dialog tabindex=-1
+div class=modal-dialog  modal-dialog-centered
+div class=modal-content
+div class=modal-header
+button type=button class=close data-dismiss=modal aria-hidden=true aria-label=Close&times;button
+div
+div class=modal-body
+div class=row
+div class=col-12
+pДля просмотра телефона необходимо зарегистрироваться. Это быстро, бесплатно и откроет Вам новые функции!p
+fieldset id=signupFieldset
+legendРегистрацияlegend
+form id=form-registration action=sitefast-sign-up method=post autocomplete=off
+input type=hidden name=_csrf-newfront value=6yFRrl25K2Cs2Rsze9_5cjNzeJ9SenUu92vzSDjQz0qBUSvNKdx7JPvrXmkRtaoqWwky7yUzEV-OWboEDLOmfQ==
+div class=form-item custom-input
+div class= field-fastsignupform-username required
+fai class=fa fa-userifainput type=text id=fastsignupform-username class= name=FastSignupForm[username] placeholder=Имя aria-required=truediv class=errordiv
+div div
+div class=form-item custom-input
+div class= field-fastsignupform-email required
+fai class=fa fa-envelopeifainput type=text id=fastsignupform-email class= name=FastSignupForm[email] placeholder=Е-mail aria-required=truediv class=errordiv
+div div
+div class=form-item mb10
+label class=custom-checkbox
+input name=FastSignupForm[volunteer] value=1 type=checkbox class=
+spanspan
+Я помогаю в поисках label
+div
+div class=form-item mb10
+label class=custom-checkbox
+input name=FastSignupForm[type_seeker] value=1 type=checkbox class=
+spanspan
+Я потерял питомца label
+div
+div class=form-item mb10
+label class=custom-checkbox
+input name=FastSignupForm[type_found] value=1 type=checkbox class=
+spanspan
+Я нашел питомца label
+div
+button type=submit class=btn btn-greenЗарегистрироватьсяbutton
+form small class=small-link
+Если Вы уже зарегистрированы в системе a href=# id=showLogFieldset
+Вход a
+small
+fieldset
+fieldset id=loginFieldset style=display none;
+legend
+Вход legend
+form id=form-login action=login method=post
+input type=hidden name=_csrf-newfront value=6yFRrl25K2Cs2Rsze9_5cjNzeJ9SenUu92vzSDjQz0qBUSvNKdx7JPvrXmkRtaoqWwky7yUzEV-OWboEDLOmfQ==
+div class= field-loginform-goback
+input type=hidden id=loginform-goback class=form-control name=LoginForm[goBack] value=1
+div class=errordiv
+div
+div class=form-item custom-input
+div class= field-loginform-email required
+fai class=fa fa-userifainput type=text id=loginform-email class= name=LoginForm[email] placeholder=E-mail или телефон aria-required=truediv class=errordiv
+div div
+div class=form-item custom-input
+div class= field-loginform-password required
+fai class=fa fa-keyifainput type=password id=loginform-password class= name=LoginForm[password] placeholder=Пароль aria-required=truediv class=errordiv
+div div
+button type=submit class=btn btn-greenВойтиbutton
+form small class=small-link
+a href=# id=showRegFieldset
+Регистрация a
+small
+fieldset
+div
+div
+div
+div
+div
+div
+div id=modalComplain class=fade modal role=dialog tabindex=-1
+div class=modal-dialog modal-lg modal-dialog-centered
+div class=modal-content
+div class=modal-header
+h3 class=modal-titleСообщите о проблемеh3
+button type=button class=close data-dismiss=modal aria-hidden=true aria-label=Close&times;button
+div
+div class=modal-body
+div
+form id=complainForm class=complain-form action=petsend-complain method=post
+input type=hidden name=_csrf-newfront value=6yFRrl25K2Cs2Rsze9_5cjNzeJ9SenUu92vzSDjQz0qBUSvNKdx7JPvrXmkRtaoqWwky7yUzEV-OWboEDLOmfQ== input type=hidden name=petID value=494610
+div class=form-item custom-input
+select name=reason class= style=width 100%;
+option disabled= value=Выберите причинуoption
+optionСпамoption
+optionОбъявление задублированоoption
+optionЭтот питомец не терялсяoption
+optionЕсть подходящий найденный (потерянный)option
+optionУже найденoption
+optionДругоеoption
+select
+div
+div class=form-item
+textarea id=complainMes required name=mes placeholder=Сообщите подробностиtextarea
+div
+formdiv
+div
+div class=modal-footer
+div class=col-6 button type=button id=sendComplainFormBtn class=btn btn-greenОтправитьbuttondiv
+div class=col-6 button type=button class=btn data-dismiss=modalЗакрытьbuttondiv
+div
+div
+div
+div
+main
+div id=footer
+div class=footer-container
+div class=row
+div class=col-lg-4 left
+ul
+li
+a href=login
+Вход в личный кабинет a
+li
+li
+a href=form-addfirst-step
+Создать объявление a
+li
+li
+a href=catalog
+Картотека питомцев a
+li
+li
+a href=cities
+Пропавшие и найденные животные России a
+li
+li
+a href=animals
+Пропавшие и найденные животные России по породам a
+li
+li
+a href=contact
+Контакты a
+li
+li
+a href=# data-target=#modalPolicy data-toggle=modal
+Политика конфиденциальности a
+li
+ul
+div
+div class=col-lg-4 center
+div class=row
+div class=col-lg-12 col-md-6 col-sm-12
+ul class=tel
+li
+8-800-3500-610 li
+li
+Ответим на Ваш звонок в ПН-ПТ с 900 до 1800 (МСК) li
+li
+Все опции подключаются своевременно, независимо от дня недели li
+ul
+div
+div class=col-lg-12 col-md-6 col-sm-12
+ul class=email
+li
+a href=cdn-cgilemail-protection#452c2b232a053520317c74746b3730
+span class=__cf_email__ data-cfemail=50393e363f102035246961617e2225[email&#160;protected]span a
+li
+lia href=donateПоддержать проектali
+lia href=statadvertРеклама на Pet911ali
+lia href=statblogБлогali
+lia href=statpressСМИ о насali
+ul
+div
+div
+div
+div class=col-lg-4 right
+div class=row
+div class=col-lg-12 col-md-6 col-sm-12
+ul class=soc text-lg-right text-center
+liРасскажите о нас друзьямli
+li
+ul class=s-iconslia href=httpwww.facebook.comsharer.phpu=http%3A%2F%2Fpet911.ru%2F%25D0%2591%25D0%25B8%25D0%25B9%25D1%2581%25D0%25BA%2F%25D0%25BD%25D0%25B0%25D0%25B9%25D0%25B4%25D0%25B5%25D0%25BD%25D0%25B0%2F%25D1%2581%25D0%25BE%25D0%25B1%25D0%25B0%25D0%25BA%25D0%25B0%2Frf494610 rel=noopener target=_blankfai class=fa fa-facebookifaalilia href=httpvk.comshare.phpurl=http%3A%2F%2Fpet911.ru%2F%25D0%2591%25D0%25B8%25D0%25B9%25D1%2581%25D0%25BA%2F%25D0%25BD%25D0%25B0%25D0%25B9%25D0%25B4%25D0%25B5%25D0%25BD%25D0%25B0%2F%25D1%2581%25D0%25BE%25D0%25B1%25D0%25B0%25D0%25BA%25D0%25B0%2Frf494610&amp;title=%D0%9D%D0%B0%D0%B9%D0%B4%D0%B5%D0%BD%D0%B0+%D1%81%D0%BE%D0%B1%D0%B0%D0%BA%D0%B0%2C+%D0%91%D0%B8%D0%B9%D1%81%D0%BA%2C+Pet911+-+%D0%92%D1%81%D0%B5%D1%80%D0%BE%D1%81%D1%81%D0%B8%D0%B9%D1%81%D0%BA%D0%B0%D1%8F+%D1%81%D0%B8%D1%81%D1%82%D0%B5%D0%BC%D0%B0+%D0%BF%D0%BE%D0%B8%D1%81%D0%BA%D0%B0+%D0%B8+%D0%B2%D0%BE%D0%B7%D0%B2%D1%80%D0%B0%D1%82%D0%B0+%D0%B6%D0%B8%D0%B2%D0%BE%D1%82%D0%BD%D1%8B%D1%85.&amp;description=&amp;image=http%3A%2F%2Fpet911.ru%2Fimg%2Flogo.png rel=noopener target=_blankfai class=fa fa-vkifaalilia href=httptwitter.comshareurl=http%3A%2F%2Fpet911.ru%2F%25D0%2591%25D0%25B8%25D0%25B9%25D1%2581%25D0%25BA%2F%25D0%25BD%25D0%25B0%25D0%25B9%25D0%25B4%25D0%25B5%25D0%25BD%25D0%25B0%2F%25D1%2581%25D0%25BE%25D0%25B1%25D0%25B0%25D0%25BA%25D0%25B0%2Frf494610&amp;text= rel=noopener target=_blankfai class=fa fa-twitterifaalilia href=httpsmail.google.commailview=cm&amp;fs=1&amp;su=%D0%9D%D0%B0%D0%B9%D0%B4%D0%B5%D0%BD%D0%B0+%D1%81%D0%BE%D0%B1%D0%B0%D0%BA%D0%B0%2C+%D0%91%D0%B8%D0%B9%D1%81%D0%BA%2C+Pet911+-+%D0%92%D1%81%D0%B5%D1%80%D0%BE%D1%81%D1%81%D0%B8%D0%B9%D1%81%D0%BA%D0%B0%D1%8F+%D1%81%D0%B8%D1%81%D1%82%D0%B5%D0%BC%D0%B0+%D0%BF%D0%BE%D0%B8%D1%81%D0%BA%D0%B0+%D0%B8+%D0%B2%D0%BE%D0%B7%D0%B2%D1%80%D0%B0%D1%82%D0%B0+%D0%B6%D0%B8%D0%B2%D0%BE%D1%82%D0%BD%D1%8B%D1%85.&amp;body=+-+http%3A%2F%2Fpet911.ru%2F%25D0%2591%25D0%25B8%25D0%25B9%25D1%2581%25D0%25BA%2F%25D0%25BD%25D0%25B0%25D0%25B9%25D0%25B4%25D0%25B5%25D0%25BD%25D0%25B0%2F%25D1%2581%25D0%25BE%25D0%25B1%25D0%25B0%25D0%25BA%25D0%25B0%2Frf494610 rel=noopener target=_blankfai class=fa fa-envelopeifaalilia href=httpsconnect.ok.ruofferurl=http%3A%2F%2Fpet911.ru%2F%25D0%2591%25D0%25B8%25D0%25B9%25D1%2581%25D0%25BA%2F%25D0%25BD%25D0%25B0%25D0%25B9%25D0%25B4%25D0%25B5%25D0%25BD%25D0%25B0%2F%25D1%2581%25D0%25BE%25D0%25B1%25D0%25B0%25D0%25BA%25D0%25B0%2Frf494610&amp;title=%D0%9D%D0%B0%D0%B9%D0%B4%D0%B5%D0%BD%D0%B0+%D1%81%D0%BE%D0%B1%D0%B0%D0%BA%D0%B0%2C+%D0%91%D0%B8%D0%B9%D1%81%D0%BA%2C+Pet911+-+%D0%92%D1%81%D0%B5%D1%80%D0%BE%D1%81%D1%81%D0%B8%D0%B9%D1%81%D0%BA%D0%B0%D1%8F+%D1%81%D0%B8%D1%81%D1%82%D0%B5%D0%BC%D0%B0+%D0%BF%D0%BE%D0%B8%D1%81%D0%BA%D0%B0+%D0%B8+%D0%B2%D0%BE%D0%B7%D0%B2%D1%80%D0%B0%D1%82%D0%B0+%D0%B6%D0%B8%D0%B2%D0%BE%D1%82%D0%BD%D1%8B%D1%85.&amp;description=&amp;imageUrl=http%3A%2F%2Fpet911.ru%2Fimg%2Flogo.png rel=noopener target=_blankfai class=fa fa-odnoklassnikiifaaliul li
+ul
+div
+div class=col-lg-12 col-md-6 col-sm-12
+ul class=logo text-lg-right text-center
+lia href=Pet911.ruali
+ul
+div
+div
+div
+div class=col-lg-12 down
+div class=row
+div class=col-lg-10
+p class=text-lg-left
+Копирование и публичное воспроизведение материалов и оформления сайта допускается только с письменного разрешения. p
+div
+div class=col-lg-2
+p class=text-lg-right
+Все права защищены. p
+div
+div
+div
+div
+div
+div
+div id=modalPolicy class=fade modal role=dialog tabindex=-1
+div class=modal-dialog modal-lg modal-dialog-centered
+div class=modal-content
+div class=modal-header
+Политика конфиденциальности
+button type=button class=close data-dismiss=modal aria-hidden=true aria-label=Close&times;button
+div
+div class=modal-body
+div class=ui-dialog-content ui-widget-content ppolicy
+I. Общие положения
+Настоящие Положение о политике конфиденциальности (далее — Положение) является официальным документом ООО «Техномаркт», расположенного по адресу 125367, Москва, проезд Врачебный, д 10 (далее — «Компания» «Оператор»), и определяет порядок обработки и защиты информации о физических лицах (далее — Пользователи), пользующихся сервисами, информацией, услугами, программами (в т.ч. программами лояльности) и продуктами интернет-магазина, расположенного на доменном имени www.pet911.ru (далее — Сайт).
+Соблюдение конфиденциальности важно для Компании, ведь целью данной Политики конфиденциальности является обеспечение защиты прав и свобод человека и гражданина при обработке его персональных данных, в том числе защиты прав на неприкосновенность частной жизни, личную и семейную тайну, от несанкционированного доступа и разглашения.
+Мы разработали Политику Конфиденциальности, которая описывает, как мы осуществляем обработку персональных данных — любые действия (операции) или совокупность действий (операций), совершаемых с использованием средств автоматизации или без использования таких средств с персональными данными, включая сбор, запись, систематизацию, накопление, хранение, уточнение (обновление, изменение), извлечение, использование, передачу (распространение, предоставление, доступ), обезличивание, блокирование, удаление, уничтожение персональных данных.
+Отношения, связанные с обработкой персональных данных и информации о пользователях Сайта, регулируются настоящим Положением, иными официальными документами Оператора и действующим законодательством РФ
+Обработка персональных данных осуществляется нами на законной и справедливой основе, действуя разумно и добросовестно и на основе принципов
+— законности целей и способов обработки персональных данных;— добросовестности;— соответствия целей обработки персональных данных целям, заранее определенным и заявленным при сборе персональных данных, а также полномочиям Компании;— соответствия объема и характера обрабатываемых персональных данных, способов обработки персональных данных целям обработки персональных данных
+Настоящая Политика Конфиденциальности регулирует любой вид обработки персональных данных и информации личного характера (любой информации, позволяющей установить личность, и любой иной информации, связанной с этим) о физических лицах, которые являются потребителями продукции или услуг Компании.
+Настоящая Политика распространяется на обработку личных, персональных данных, собранных любыми средствами, как активными, так и пассивными, как через Интернет, так и без его использования, от лиц, находящихся в любой точке мира.
+II. Сбор персональных данных
+Целью обработки персональных данных является выполнения обязательств Оператора перед Пользователями в отношении использования Сайта и его сервисов.
+Обработка персональных данных пользователей осуществляется с согласия субъекта персональных данных на обработку его персональных данных.
+Под персональными данными понимается любая информация, относящаяся к прямо или косвенно определенному или определяемому физическому лицу (субъекту персональных данных) и которая может быть использована для идентификации определенного лица либо связи с ним.
+Мы можем запросить у Вас персональные данные в любой момент, когда Вы связываетесь с Компанией. Компания может использовать такие данные в соответствии с настоящей Политикой Конфиденциальности. Она также может совмещать такую информацию с иной информацией для целей предоставления и улучшения своих продуктов, услуг, информационного наполнения (контента) и коммуникаций.
+Ниже приведены некоторые примеры типов персональных данных, которые Компания может собирать, и как мы можем использовать такую информацию.
+КАКИЕ ПЕРСОНАЛЬНЫЕ ДАННЫЕ МЫ СОБИРАЕМ
+Мы можем собирать различные данныеинформацию, включая
+— имя и фамилию,— почтовый адрес;— номер телефона;— адрес электронной почты;— информацию о банковских картах (ФИО, № карты).
+Персональные данные могут также включать в себя дополнительно предоставляемые Пользователями по запросу Оператора в целях исполнения Оператором обязательств перед Пользователями, вытекающих из договора на оказание услуг. Оператор вправе, в частности, запросить у Пользователя копию документа, удостоверяющего личность, либо иного документа, содержащего имя, фамилию, фотографию Пользователя, а также иные дополнительные данные, которые, по усмотрению Оператора, будут являться необходимыми и достаточными для идентификации такого Пользователя и позволят исключить злоупотребления и нарушения прав третьих лиц.
+Когда Вы привлекаете к нашим мероприятиям и активностям других лиц или приглашаете их к коммуникациям с нами, Компания может собирать предоставляемые Вами персональные данных об этих лицах, такую как имя, фамилия, дата рождения, почтовый адрес, адрес электронной почты и номер телефона.
+При обработке персональных данных нами обеспечивается точность персональных данных, их достаточность, а в необходимых случаях и актуальность по отношению к целям обработки персональных данных.
+III. Хранение и использование персональных данных
+Персональные данные Пользователей хранятся исключительно на электронных носителях и обрабатываются с использованием автоматизированных систем, за исключением случаев, когда неавтоматизированная обработка персональных данных необходима в связи с исполнением требований законодательства.
+КАК МЫ ИСПОЛЬЗУЕМ ВАШУ ПЕРСОНАЛЬНУЮ ИНФОРМАЦИЮ
+Собираемые нами персональные данные позволяют направлять Вам уведомления о новых продуктах, специальных предложениях и различных событиях. Они также помогает нам улучшать наши услуги, контент и коммуникации. Если Вы не желаете быть включен½ÑÐ¼ Ð²Â Ð½Ð°Ñ ÑÐ¿Ð¸ÑÐ¾Ðº ÑÐ°ÑÑÑÐ»ÐºÐ¸, ÐÑÂ Ð¼Ð¾Ð¶ÐµÑÐµ Ð²Â Ð»ÑÐ±Ð¾Ðµ Ð²ÑÐµÐ¼Ñ Ð¾ÑÐºÐ°Ð·Ð°ÑÑÑÑ Ð¾ÑÂ ÑÐ°ÑÑÑÐ»ÐºÐ¸ Ð¿ÑÑÑÐ¼ Ð¸Ð½ÑÐ¾ÑÐ¼Ð¸ÑÐ¾Ð²Ð°Ð½Ð¸Ñ Ð½Ð°Ñ Ð¿Ð¾Â ÑÐºÐ°Ð·Ð°Ð½Ð½ÑÐ¼ ÐºÐ¾Ð½ÑÐ°ÐºÑÐ°Ð¼ Ð´Ð»Ñ Ð¾Ð±ÑÐ°ÑÐ½Ð¾Ð¹ ÑÐ²ÑÐ·Ð¸, Ð°Â ÑÐ°ÐºÐ¶Ðµ Ð²Ð½ÐµÑÐµÐ½Ð¸Ñ Ð¸Ð·Ð¼ÐµÐ½ÐµÐ½Ð¸Ð¹ Ð²Â Ð½Ð°ÑÑÑÐ¾Ð¹ÐºÐ°Ñ Ð²Ð°ÑÐµÐ³Ð¾ Ð¿ÑÐ¾ÑÐ¸Ð»Ñ Ð½Ð°Â ÑÐ°Ð¹ÑÐµ.
+ÐÑÐµÐ¼Ñ Ð¾ÑÂ Ð²ÑÐµÐ¼ÐµÐ½Ð¸ Ð¼ÑÂ Ð¼Ð¾Ð¶ÐµÐ¼ Ð¸ÑÐ¿Ð¾Ð»ÑÐ·Ð¾Ð²Ð°ÑÑ ÐÐ°ÑÐ¸ Ð¿ÐµÑÑÐ¾Ð½Ð°Ð»ÑÐ½ÑÐµ Ð´Ð°Ð½Ð½ÑÐµ Ð´Ð»Ñ Ð¾ÑÐ¿ÑÐ°Ð²ÐºÐ¸ Ð²Ð°Ð¶Ð½ÑÑ ÑÐ²ÐµÐ´Ð¾Ð¼Ð»ÐµÐ½Ð¸Ð¹, ÑÐ¾Ð´ÐµÑÐ¶Ð°ÑÐ¸Ñ Ð¸Ð½ÑÐ¾ÑÐ¼Ð°ÑÐ¸Ñ Ð¾Ð±Â Ð¸Ð·Ð¼ÐµÐ½ÐµÐ½Ð¸ÑÑ Ð½Ð°ÑÐ¸Ñ Ð¿Ð¾Ð»Ð¾Ð¶ÐµÐ½Ð¸Ð¹, ÑÑÐ»Ð¾Ð²Ð¸Ð¹ Ð¸Â Ð¿Ð¾Ð»Ð¸ÑÐ¸Ðº, Ð°Â ÑÐ°ÐºÐ¶Ðµ Ð¿Ð¾Ð´ÑÐ²ÐµÑÐ¶Ð´Ð°ÑÑÐ¸Ñ ÑÐ°Ð·Ð¼ÐµÑÐµÐ½Ð½ÑÐµ ÐÐ°Ð¼Ð¸ Ð·Ð°ÐºÐ°Ð·Ñ Ð¸Â ÑÐ¾Ð²ÐµÑÑÐµÐ½Ð½ÑÐµ Ð¿Ð¾ÐºÑÐ¿ÐºÐ¸. ÐÐ¾ÑÐºÐ¾Ð»ÑÐºÑ ÑÐ°ÐºÐ°Ñ Ð¸Ð½ÑÐ¾ÑÐ¼Ð°ÑÐ¸Ñ Ð²Ð°Ð¶Ð½Ð° Ð´Ð»Ñ ÐÐ°ÑÐ¸Ñ Ð²Ð·Ð°Ð¸Ð¼Ð¾Ð¾ÑÐ½Ð¾ÑÐµÐ½Ð¸Ð¹ ÑÂ ÐÐ¾Ð¼Ð¿Ð°Ð½Ð¸ÐµÐ¹, ÐÑÂ Ð½ÐµÂ Ð¼Ð¾Ð¶ÐµÑÐµ Ð¾ÑÐºÐ°Ð·Ð°ÑÑÑÑ Ð¾ÑÂ Ð¿Ð¾Ð»ÑÑÐµÐ½Ð¸Ñ ÑÐ°ÐºÐ¸Ñ ÑÐ¾Ð¾Ð±ÑÐµÐ½Ð¸Ð¹.
+ÐÑÂ ÑÐ°ÐºÐ¶Ðµ Ð¼Ð¾Ð¶ÐµÐ¼ Ð¸ÑÐ¿Ð¾Ð»ÑÐ·Ð¾Ð²Ð°ÑÑ Ð¿ÐµÑÑÐ¾Ð½Ð°Ð»ÑÐ½ÑÑ Ð¸Ð½ÑÐ¾ÑÐ¼Ð°ÑÐ¸Ñ Ð´Ð»Ñ Ð²Ð½ÑÑÑÐµÐ½Ð½Ð¸Ñ ÑÐµÐ»ÐµÐ¹, ÑÐ°ÐºÐ¸Ñ ÐºÐ°Ðº Ð¿ÑÐ¾Ð²ÐµÐ´ÐµÐ½Ð¸Ðµ Ð°ÑÐ´Ð¸ÑÐ°, Ð°Ð½Ð°Ð»Ð¸Ð· Ð´Ð°Ð½Ð½ÑÑ Ð¸Â ÑÐ°Ð·Ð»Ð¸ÑÐ½ÑÑ Ð¸ÑÑÐ»ÐµÐ´Ð¾Ð²Ð°Ð½Ð¸Ð¹ Ð²Â ÑÐµÐ»ÑÑ ÑÐ»ÑÑÑÐµÐ½Ð¸Ñ Ð¿ÑÐ¾Ð´ÑÐºÑÐ¾Ð² Ð¸Â ÑÑÐ»ÑÐ³ ÐÐ¾Ð¼Ð¿Ð°Ð½Ð¸Ð¸, Ð°Â ÑÐ°ÐºÐ¶Ðµ Ð²Ð·Ð°Ð¸Ð¼Ð¾Ð´ÐµÐ¹ÑÑÐ²Ð¸Ðµ ÑÂ Ð¿Ð¾ÑÑÐµÐ±Ð¸ÑÐµÐ»ÑÐ¼Ð¸.
+ÐÑÐ»Ð¸ ÐÑÂ Ð¿ÑÐ¸Ð½Ð¸Ð¼Ð°ÐµÑÐµ ÑÑÐ°ÑÑÐ¸Ðµ Ð²Â ÑÐ¾Ð·ÑÐ³ÑÑÑÐµ Ð¿ÑÐ¸Ð·Ð¾Ð², ÐºÐ¾Ð½ÐºÑÑÑÐµ Ð¸Ð»Ð¸ Ð¿Ð¾ÑÐ¾Ð¶ÐµÐ¼ ÑÑÐ¸Ð¼ÑÐ»Ð¸ÑÑÑÑÐµÐ¼ Ð¼ÐµÑÐ¾Ð¿ÑÐ¸ÑÑÐ¸Ð¸, Ð¼ÑÂ ÑÐ¾ÑÑÐ°Ð½ÑÐµÐ¼ Ð·Ð°Â ÑÐ¾Ð±Ð¾Ð¹ Ð¿ÑÐ°Ð²Ð¾ Ð¸ÑÐ¿Ð¾Ð»ÑÐ·Ð¾Ð²Ð°ÑÑ Ð¿ÑÐµÐ´Ð¾ÑÑÐ°Ð²Ð»ÑÐµÐ¼ÑÐµ ÐÐ°Ð¼Ð¸ Ð¿ÐµÑÑÐ¾Ð½Ð°Ð»ÑÐ½ÑÐµ Ð´Ð°Ð½Ð½ÑÐµ Ð´Ð»Ñ ÑÐ¿ÑÐ°Ð²Ð»ÐµÐ½Ð¸Ñ ÑÐ°ÐºÐ¸Ð¼Ð¸ Ð¿ÑÐ¾Ð³ÑÐ°Ð¼Ð¼Ð°Ð¼Ð¸.
+Ð¡ÐÐÐ  ÐÂ ÐÐ¡ÐÐÐÐ¬ÐÐÐÐÐÐÐ ÐÐÐ¤ÐÐ ÐÐÐ¦ÐÐ, ÐÐÂ Ð¯ÐÐÐ¯Ð®Ð©ÐÐÐ¡Ð¯ ÐÐÐ Ð¡ÐÐÐÐÐ¬ÐÐÐ
+ÐÑÂ ÑÐ°ÐºÐ¶Ðµ ÑÐ¾Ð±Ð¸ÑÐ°ÐµÐ¼ Ð¿ÐµÑÑÐ¾Ð½Ð°Ð»ÑÐ½ÑÐµ Ð´Ð°Ð½Ð½ÑÐµ, Ð½ÐµÂ ÑÐ²Ð»ÑÑÑÐ¸ÐµÑÑ Ð¿ÐµÑÑÐ¾Ð½Ð°Ð»ÑÐ½ÑÐ¼Ð¸  Ð´Ð°Ð½Ð½ÑÐµ, Ð½ÐµÂ Ð¿Ð¾Ð·Ð²Ð¾Ð»ÑÑÑÐ¸Ðµ Ð¿ÑÑÐ¼Ð¾ Ð°ÑÑÐ¾ÑÐ¸Ð¸ÑÐ¾Ð²Ð°ÑÑ Ð¸ÑÂ ÑÂ ÐºÐ°ÐºÐ¸Ð¼-Ð»Ð¸Ð±Ð¾ Ð¾Ð¿ÑÐµÐ´ÐµÐ»ÑÐ½Ð½ÑÐ¼ Ð»Ð¸ÑÐ¾Ð¼. ÐÑÂ Ð¼Ð¾Ð¶ÐµÐ¼ ÑÐ¾Ð±Ð¸ÑÐ°ÑÑ, Ð¸ÑÐ¿Ð¾Ð»ÑÐ·Ð¾Ð²Ð°ÑÑ, Ð¿ÐµÑÐµÐ´Ð°Ð²Ð°ÑÑ Ð¸Â ÑÐ°ÑÐºÑÑÐ²Ð°ÑÑ Ð¸Ð½ÑÐ¾ÑÐ¼Ð°ÑÐ¸Ñ, Ð½ÐµÂ ÑÐ²Ð»ÑÑÑÑÑÑÑ Ð¿ÐµÑÑÐ¾Ð½Ð°Ð»ÑÐ½Ð¾Ð¹, Ð´Ð»Ñ Ð»ÑÐ±ÑÑ ÑÐµÐ»ÐµÐ¹. ÐÐ¸Ð¶Ðµ Ð¿ÑÐ¸Ð²ÐµÐ´ÐµÐ½Ñ Ð¿ÑÐ¸Ð¼ÐµÑÑ Ð¸Ð½ÑÐ¾ÑÐ¼Ð°ÑÐ¸Ð¸, Ð½ÐµÂ ÑÐ²Ð»ÑÑÑÐµÐ¹ÑÑ Ð¿ÐµÑÑÐ¾Ð½Ð°Ð»ÑÐ½Ð¾Ð¹, ÐºÐ¾ÑÐ¾ÑÑÑ Ð¼ÑÂ ÑÐ¾Ð±Ð¸ÑÐ°ÐµÐ¼, Ð¸Â ÐºÐ°Ðº Ð¼ÑÂ Ð¼Ð¾Ð¶ÐµÐ¼ ÐµÑÂ Ð¸ÑÐ¿Ð¾Ð»ÑÐ·Ð¾Ð²Ð°ÑÑ
+ÐÑÂ Ð¼Ð¾Ð¶ÐµÐ¼ ÑÐ¾Ð±Ð¸ÑÐ°ÑÑ Ð¿ÐµÑÑÐ¾Ð½Ð°Ð»ÑÐ½ÑÐµ Ð´Ð°Ð½Ð½ÑÐµ, ÑÐ°ÐºÐ¸Ðµ ÐºÐ°Ðº ÑÐ²ÐµÐ´ÐµÐ½Ð¸Ñ Ð¾Â ÑÐ¾Ð´Ðµ Ð·Ð°Ð½ÑÑÐ¸Ð¹, ÑÐ·ÑÐºÐµ, Ð¿Ð¾ÑÑÐ¾Ð²Ð¾Ð¼ Ð¸Ð½Ð´ÐµÐºÑÐµ, ÑÐ½Ð¸ÐºÐ°Ð»ÑÐ½Ð¾Ð¼ Ð¸Ð´ÐµÐ½ÑÐ¸ÑÐ¸ÐºÐ°ÑÐ¾ÑÐµ ÑÑÑÑÐ¾Ð¹ÑÑÐ²Ð°, Ð¼ÐµÑÑÐ¾Ð¿Ð¾Ð»Ð¾Ð¶ÐµÐ½Ð¸Ð¸ Ð¸Â Ð²ÑÐµÐ¼ÐµÐ½Ð½Ð¾Ð¹ Ð·Ð¾Ð½Ðµ, Ð²Â ÐºÐ¾ÑÐ¾ÑÐ¾Ð¹ Ð¸ÑÐ¿Ð¾Ð»ÑÐ·ÑÐµÑÑÑ ÑÐ¾Ñ Ð¸Ð»Ð¸ Ð¸Ð½Ð¾Ð¹ Ð¿ÑÐ¾Ð´ÑÐºÑ, Ð´Ð»Ñ ÑÐ¾Ð³Ð¾ ÑÑÐ¾Ð±Ñ Ð»ÑÑÑÐµ Ð¿Ð¾Ð½Ð¸Ð¼Ð°ÑÑ Ð¿Ð¾Ð²ÐµÐ´ÐµÐ½Ð¸Ðµ Ð¿Ð¾ÑÑÐµÐ±Ð¸ÑÐµÐ»ÐµÐ¹ Ð¸Â ÑÐ»ÑÑÑÐ°ÑÑ Ð½Ð°ÑÐ¸ Ð¿ÑÐ¾Ð´ÑÐºÑÑ, ÑÑÐ»ÑÐ³Ð¸ Ð¸Â ÐºÐ¾Ð¼Ð¼ÑÐ½Ð¸ÐºÐ°ÑÐ¸Ð¸.
+ÐÑÂ Ð¼Ð¾Ð¶ÐµÐ¼ ÑÐ°ÐºÐ¶Ðµ ÑÐ¾Ð±Ð¸ÑÐ°ÑÑ Ð¿ÐµÑÑÐ¾Ð½Ð°Ð»ÑÐ½ÑÐµ Ð´Ð°Ð½Ð½ÑÐµÐ¸Ð½ÑÐ¾ÑÐ¼Ð°ÑÐ¸Ñ Ð¾Â ÑÐ¾Ð¼, ÑÐµÐ¼ Ð¸Ð½ÑÐµÑÐµÑÑÐµÑÑÑ Ð¿Ð¾Ð»ÑÐ·Ð¾Ð²Ð°ÑÐµÐ»Ñ Ð½Ð°Â Ð½Ð°ÑÐµÐ¼ Ð²ÐµÐ±-ÑÐ°Ð¹ÑÐµ Ð¿ÑÐ¸ Ð¸ÑÐ¿Ð¾Ð»ÑÐ·Ð¾Ð²Ð°Ð½Ð¸Ð¸ Ð´ÑÑÐ³Ð¸Ñ Ð½Ð°ÑÐ¸Ñ Ð¿ÑÐ¾Ð´ÑÐºÑÐ¾Ð² Ð¸Â ÑÐµÑÐ²Ð¸ÑÐ¾Ð². Ð¢Ð°ÐºÐ¸Ðµ Ð¿ÐµÑÑÐ¾Ð½Ð°Ð»ÑÐ½ÑÐµ Ð´Ð°Ð½Ð½ÑÐµÐ¸Ð½ÑÐ¾ÑÐ¼Ð°ÑÐ¸Ñ ÑÐ¾Ð±Ð¸ÑÐ°ÐµÑÑÑ Ð¸Â Ð¸ÑÐ¿Ð¾Ð»ÑÐ·ÑÐµÑÑÑ Ð´Ð»Ñ ÑÐ¾Ð³Ð¾, ÑÑÐ¾Ð±Ñ Ð¿Ð¾Ð¼Ð¾ÑÑ Ð½Ð°Ð¼ Ð¿ÑÐµÐ´Ð¾ÑÑÐ°Ð²Ð»ÑÑÑ Ð±Ð¾Ð»ÐµÐµ Ð¿Ð¾Ð»ÐµÐ·Ð½ÑÑ Ð¸Ð½ÑÐ¾ÑÐ¼Ð°ÑÐ¸Ñ Ð½Ð°ÑÐ¸Ð¼ Ð¿Ð¾ÐºÑÐ¿Ð°ÑÐµÐ»ÑÐ¼ Ð¸Â Ð´Ð»Ñ Ð¿Ð¾Ð½Ð¸Ð¼Ð°Ð½Ð¸Ñ ÑÐ¾Ð³Ð¾, ÐºÐ°ÐºÐ¸Ðµ ÑÐ»ÐµÐ¼ÐµÐ½ÑÑ Ð½Ð°ÑÐµÐ³Ð¾ ÑÐ°Ð¹ÑÐ°, Ð¿ÑÐ¾Ð´ÑÐºÑÐ¾Ð² Ð¸Â ÑÑÐ»ÑÐ³ Ð½Ð°Ð¸Ð±Ð¾Ð»ÐµÐµ Ð¸Ð½ÑÐµÑÐµÑÐ½Ñ. ÐÐ»Ñ ÑÐµÐ»ÐµÐ¹ Ð½Ð°ÑÑÐ¾ÑÑÐµÐ¹ ÐÐ¾Ð»Ð¸ÑÐ¸ÐºÐ¸ ÐÐ¾Ð½ÑÐ¸Ð´ÐµÐ½ÑÐ¸Ð°Ð»ÑÐ½Ð¾ÑÑÐ¸ ÑÐ¾Ð²Ð¾ÐºÑÐ¿Ð½ÑÐµ Ð´Ð°Ð½Ð½ÑÐµ ÑÐ°ÑÑÐ¼Ð°ÑÑÐ¸Ð²Ð°ÑÑÑÑ ÐºÐ°Ðº Ð´Ð°Ð½Ð½ÑÐµÐ¸Ð½ÑÐ¾ÑÐ¼Ð°ÑÐ¸Ñ, Ð½ÐµÂ ÑÐ²Ð»ÑÑÑÐ¸ÐµÑÑ Ð¿ÐµÑÑÐ¾Ð½Ð°Ð»ÑÐ½ÑÐ¼Ð¸.
+ÐÑÐ»Ð¸ Ð¼ÑÂ ÑÐ¾Ð²Ð¼ÐµÑÐ°ÐµÐ¼ Ð¸Ð½ÑÐ¾ÑÐ¼Ð°ÑÐ¸Ñ, Ð½ÐµÂ ÑÐ²Ð»ÑÑÑÑÑÑÑ Ð¿ÐµÑÑÐ¾Ð½Ð°Ð»ÑÐ½Ð¾Ð¹, ÑÂ Ð¿ÐµÑÑÐ¾Ð½Ð°Ð»ÑÐ½Ð¾Ð¹ Ð¸Ð½ÑÐ¾ÑÐ¼Ð°ÑÐ¸ÐµÐ¹, ÑÐ°ÐºÐ°Ñ ÑÐ¾Ð²Ð¾ÐºÑÐ¿Ð½Ð°Ñ Ð¸Ð½ÑÐ¾ÑÐ¼Ð°ÑÐ¸Ñ Ð±ÑÐ´ÐµÑ ÑÐ°ÑÑÐ¼Ð°ÑÑÐ¸Ð²Ð°ÑÑÑÑ ÐºÐ°Ðº Ð¿ÐµÑÑÐ¾Ð½Ð°Ð»ÑÐ½Ð°Ñ Ð¸Ð½ÑÐ¾ÑÐ¼Ð°ÑÐ¸Ñ, Ð¿Ð¾ÐºÐ° ÑÐ°ÐºÐ°Ñ Ð¸Ð½ÑÐ¾ÑÐ¼Ð°ÑÐ¸Ñ Ð±ÑÐ´ÐµÑ ÑÐ²Ð»ÑÑÑÑÑ ÑÐ¾Ð²Ð¼ÐµÑÑÐ½Ð½Ð¾Ð¹.
+IV. ÐÐµÑÐµÐ´Ð°ÑÐ° Ð¿ÐµÑÑÐ¾Ð½Ð°Ð»ÑÐ½ÑÑ Ð´Ð°Ð½Ð½ÑÑ
+ÐÐµÑÑÐ¾Ð½Ð°Ð»ÑÐ½ÑÐµ Ð´Ð°Ð½Ð½ÑÐµ ÐÐ¾Ð»ÑÐ·Ð¾Ð²Ð°ÑÐµÐ»ÐµÐ¹ Ð½ÐµÂ Ð¿ÐµÑÐµÐ´Ð°ÑÑÑÑ ÐºÐ°ÐºÐ¸Ð¼-Ð»Ð¸Ð±Ð¾ ÑÑÐµÑÑÐ¸Ð¼ Ð»Ð¸ÑÐ°Ð¼, Ð·Ð°Â Ð¸ÑÐºÐ»ÑÑÐµÐ½Ð¸ÐµÐ¼ ÑÐ»ÑÑÐ°ÐµÐ², Ð¿ÑÑÐ¼Ð¾ Ð¿ÑÐµÐ´ÑÑÐ¼Ð¾ÑÑÐµÐ½Ð½ÑÑ Ð½Ð°ÑÑÐ¾ÑÑÐ¸Ð¼Ð¸ ÐÑÐ°Ð²Ð¸Ð»Ð°Ð¼Ð¸.
+ÐÐ±ÑÐ°Ð±Ð¾ÑÐºÐ° Ð¿ÐµÑÑÐ¾Ð½Ð°Ð»ÑÐ½ÑÑ Ð´Ð°Ð½Ð½ÑÑ ÐÐ¾Ð»ÑÐ·Ð¾Ð²Ð°ÑÐµÐ»Ñ Ð¾ÑÑÑÐµÑÑÐ²Ð»ÑÐµÑÑÑ Ð±ÐµÐ· Ð¾Ð³ÑÐ°Ð½Ð¸ÑÐµÐ½Ð¸Ñ ÑÑÐ¾ÐºÐ°, Ð»ÑÐ±ÑÐ¼ Ð·Ð°ÐºÐ¾Ð½Ð½ÑÐ¼ ÑÐ¿Ð¾ÑÐ¾Ð±Ð¾Ð¼, Ð²Â ÑÐ¾Ð¼ ÑÐ¸ÑÐ»Ðµ Ð²Â Ð¸Ð½ÑÐ¾ÑÐ¼Ð°ÑÐ¸Ð¾Ð½Ð½ÑÑ ÑÐ¸ÑÑÐµÐ¼Ð°Ñ Ð¿ÐµÑÑÐ¾Ð½Ð°Ð»ÑÐ½ÑÑ Ð´Ð°Ð½Ð½ÑÑ ÑÂ Ð¸ÑÐ¿Ð¾Ð»ÑÐ·Ð¾Ð²Ð°Ð½Ð¸ÐµÐ¼ ÑÑÐµÐ´ÑÑÐ² Ð°Ð²ÑÐ¾Ð¼Ð°ÑÐ¸Ð·Ð°ÑÐ¸Ð¸ Ð¸Ð»Ð¸ Ð±ÐµÐ· Ð¸ÑÐ¿Ð¾Ð»ÑÐ·Ð¾Ð²Ð°Ð½Ð¸Ñ ÑÐ°ÐºÐ¸Ñ ÑÑÐµÐ´ÑÑÐ²
+ÐÐ¾Ð»ÑÐ·Ð¾Ð²Ð°ÑÐµÐ»Ñ ÑÐ¾Ð³Ð»Ð°ÑÐ°ÐµÑÑÑ ÑÂ ÑÐµÐ¼, ÑÑÐ¾ ÐÐ¿ÐµÑÐ°ÑÐ¾Ñ Ð²Ð¿ÑÐ°Ð²Ðµ Ð¿ÐµÑÐµÐ´Ð°Ð²Ð°ÑÑ Ð¿ÐµÑÑÐ¾Ð½Ð°Ð»ÑÐ½ÑÐµ Ð´Ð°Ð½Ð½ÑÐµ ÑÑÐµÑÑÐ¸Ð¼ Ð»Ð¸ÑÐ°Ð¼, Ð²Â ÑÐ°ÑÑÐ½Ð¾ÑÑÐ¸, ÐºÑÑÑÐµÑÑÐºÐ¸Ð¼ ÑÐ»ÑÐ¶Ð±Ð°Ð¼, Ð¾ÑÐ³Ð°Ð½Ð¸Ð·Ð°ÑÐ¸ÑÐ¼Ð¸ Ð¿Ð¾ÑÑÐ¾Ð²Ð¾Ð¹ ÑÐ²ÑÐ·Ð¸, Ð¾Ð¿ÐµÑÐ°ÑÐ¾ÑÐ°Ð¼ ÑÐ»ÐµÐºÑÑÐ¾ÑÐ²ÑÐ·Ð¸ Ð¸Â Ñ.Ð´., Ð¸ÑÐºÐ»ÑÑÐ¸ÑÐµÐ»ÑÐ½Ð¾ Ð´Ð»Ñ ÑÐµÐ»ÐµÐ¹, ÑÐºÐ°Ð·Ð°Ð½Ð½ÑÑ Ð²Â ÑÐ°Ð·Ð´ÐµÐ»Ðµ Â«Ð¡Ð±Ð¾Ñ Ð¿ÐµÑÑÐ¾Ð½Ð°Ð»ÑÐ½ÑÑ Ð´Ð°Ð½Ð½ÑÑÂ» Ð½Ð°ÑÑÐ¾ÑÑÐµÐ¹ ÐÐ¾Ð»Ð¸ÑÐ¸ÐºÐ¸ ÐºÐ¾Ð½ÑÐ¸Ð´ÐµÐ½ÑÐ¸Ð°Ð»ÑÐ½Ð¾ÑÑÐ¸
+ÐÑÐ¸ ÑÐºÐ°Ð·Ð°Ð½Ð¸Ð¸ Ð¿Ð¾Ð»ÑÐ·Ð¾Ð²Ð°ÑÐµÐ»Ñ Ð¸Ð»Ð¸ Ð¿ÑÐ¸ Ð½Ð°Ð»Ð¸ÑÐ¸Ð¸ ÑÐ¾Ð³Ð»Ð°ÑÐ¸Ñ Ð¿Ð¾Ð»ÑÐ·Ð¾Ð²Ð°ÑÐµÐ»Ñ Ð²Ð¾Ð·Ð¼Ð¾Ð¶Ð½Ð° Ð¿ÐµÑÐµÐ´Ð°ÑÐ° Ð¿ÐµÑÑÐ¾Ð½Ð°Ð»ÑÐ½ÑÑ Ð´Ð°Ð½Ð½ÑÑ ÐÐ¾Ð»ÑÐ·Ð¾Ð²Ð°ÑÐµÐ»Ñ ÑÑÐµÑÑÐ¸Ð¼ Ð»Ð¸ÑÐ°Ð¼-ÐºÐ¾Ð½ÑÑÐ°Ð³ÐµÐ½ÑÐ°Ð¼ ÐÐ¿ÐµÑÐ°ÑÐ¾ÑÐ° ÑÂ ÑÑÐ»Ð¾Ð²Ð¸ÐµÐ¼ Ð¿ÑÐ¸Ð½ÑÑÐ¸Ñ ÑÐ°ÐºÐ¸Ð¼Ð¸ ÐºÐ¾Ð½ÑÑÐ°Ð³ÐµÐ½ÑÐ°Ð¼Ð¸ Ð¾Ð±ÑÐ·Ð°ÑÐµÐ»ÑÑÑÐ² Ð¿Ð¾Â Ð¾Ð±ÐµÑÐ¿ÐµÑÐµÐ½Ð¸Ñ ÐºÐ¾Ð½ÑÐ¸Ð´ÐµÐ½ÑÐ¸Ð°Ð»ÑÐ½Ð¾ÑÑÐ¸ Ð¿Ð¾Ð»ÑÑÐµÐ½Ð½Ð¾Ð¹ Ð¸Ð½ÑÐ¾ÑÐ¼Ð°ÑÐ¸Ð¸, Ð²Â ÑÐ°ÑÑÐ½Ð¾ÑÑÐ¸, Ð¿ÑÐ¸ Ð¸ÑÐ¿Ð¾Ð»ÑÐ·Ð¾Ð²Ð°Ð½Ð¸Ð¸ Ð¿ÑÐ¸Ð»Ð¾Ð¶ÐµÐ½Ð¸Ð¹.
+ÐÑÐ¸Ð»Ð¾Ð¶ÐµÐ½Ð¸Ñ, Ð¸ÑÐ¿Ð¾Ð»ÑÐ·ÑÐµÐ¼ÑÐµ ÐÐ¾Ð»ÑÐ·Ð¾Ð²Ð°ÑÐµÐ»ÑÐ¼Ð¸ Ð½Ð°Â Ð¡Ð°Ð¹ÑÐµ, ÑÐ°Ð·Ð¼ÐµÑÐ°ÑÑÑÑ Ð¸Â Ð¿Ð¾Ð´Ð´ÐµÑÐ¶Ð¸Ð²Ð°ÑÑÑÑ ÑÑÐµÑÑÐ¸Ð¼Ð¸ Ð»Ð¸ÑÐ°Ð¼Ð¸ (ÑÐ°Ð·ÑÐ°Ð±Ð¾ÑÑÐ¸ÐºÐ°Ð¼Ð¸), ÐºÐ¾ÑÐ¾ÑÑÐµ Ð´ÐµÐ¹ÑÑÐ²ÑÑÑ Ð½ÐµÐ·Ð°Ð²Ð¸ÑÐ¸Ð¼Ð¾ Ð¾ÑÂ ÐÐ¿ÐµÑÐ°ÑÐ¾ÑÐ° Ð¸Â Ð½ÐµÂ Ð²ÑÑÑÑÐ¿Ð°ÑÑ Ð¾ÑÂ Ð¸Ð¼ÐµÐ½Ð¸ Ð¸Ð»Ð¸ Ð¿Ð¾Â Ð¿Ð¾ÑÑÑÐµÐ½Ð¸Ñ ÐÐ¿ÐµÑÐ°ÑÐ¾ÑÐ°. ÐÐ¾Ð»ÑÐ·Ð¾Ð²Ð°ÑÐµÐ»Ð¸ Ð¾Ð±ÑÐ·Ð°Ð½Ñ ÑÐ°Ð¼Ð¾ÑÑÐ¾ÑÑÐµÐ»ÑÐ½Ð¾ Ð¾Ð·Ð½Ð°ÐºÐ¾Ð¼Ð¸ÑÑÑÑ ÑÂ Ð¿ÑÐ°Ð²Ð¸Ð»Ð°Ð¼Ð¸ Ð¾ÐºÐ°Ð·Ð°Ð½Ð¸Ñ ÑÑÐ»ÑÐ³ Ð¸Â Ð¿Ð¾Ð»Ð¸ÑÐ¸ÐºÐ¾Ð¹ Ð·Ð°ÑÐ¸ÑÑ Ð¿ÐµÑÑÐ¾Ð½Ð°Ð»ÑÐ½ÑÑ Ð´Ð°Ð½Ð½ÑÑ ÑÐ°ÐºÐ¸Ñ ÑÑÐµÑÑÐ¸Ñ Ð»Ð¸Ñ (ÑÐ°Ð·ÑÐ°Ð±Ð¾ÑÑÐ¸ÐºÐ¾Ð²) Ð´Ð¾Â Ð½Ð°ÑÐ°Ð»Ð° Ð¸ÑÐ¿Ð¾Ð»ÑÐ·Ð¾Ð²Ð°Ð½Ð¸Ñ ÑÐ¾Ð¾ÑÐ²ÐµÑÑÑÐ²ÑÑÑÐ¸Ñ Ð¿ÑÐ¸Ð»Ð¾Ð¶ÐµÐ½Ð¸Ð¹.
+ÐÐµÑÑÐ¾Ð½Ð°Ð»ÑÐ½ÑÐµ Ð´Ð°Ð½Ð½ÑÐµ ÐÐ¾Ð»ÑÐ·Ð¾Ð²Ð°ÑÐµÐ»Ñ Ð¼Ð¾Ð³ÑÑ Ð±ÑÑÑ Ð¿ÐµÑÐµÐ´Ð°Ð½Ñ Ð¿Ð¾Â Ð·Ð°Ð¿ÑÐ¾ÑÐ°Ð¼ ÑÐ¿Ð¾Ð»Ð½Ð¾Ð¼Ð¾ÑÐµÐ½Ð½ÑÑ Ð¾ÑÐ³Ð°Ð½Ð¾Ð² Ð³Ð¾ÑÑÐ´Ð°ÑÑÑÐ²ÐµÐ½Ð½Ð¾Ð¹ Ð²Ð»Ð°ÑÑÐ¸Â Ð Ð¤ ÑÐ¾Ð»ÑÐºÐ¾ Ð¿Ð¾Â Ð¾ÑÐ½Ð¾Ð²Ð°Ð½Ð¸ÑÐ¼ Ð¸Â Ð²Â Ð¿Ð¾ÑÑÐ´ÐºÐµ, ÑÑÑÐ°Ð½Ð¾Ð²Ð»ÐµÐ½Ð½ÑÐ¼ Ð·Ð°ÐºÐ¾Ð½Ð¾Ð´Ð°ÑÐµÐ»ÑÑÑÐ²Ð¾Ð¼ Ð Ð¤.
+ÐÐ¿ÐµÑÐ°ÑÐ¾Ñ Ð¾ÑÑÑÐµÑÑÐ²Ð»ÑÐµÑ Ð±Ð»Ð¾ÐºÐ¸ÑÐ¾Ð²Ð°Ð½Ð¸Ðµ Ð¿ÐµÑÑÐ¾Ð½Ð°Ð»ÑÐ½ÑÑ Ð´Ð°Ð½Ð½ÑÑ, Ð¾ÑÐ½Ð¾ÑÑÑÐ¸ÑÑÑ ÐºÂ ÑÐ¾Ð¾ÑÐ²ÐµÑÑÑÐ²ÑÑÑÐµÐ¼Ñ ÐÐ¾Ð»ÑÐ·Ð¾Ð²Ð°ÑÐµÐ»Ñ, ÑÂ Ð¼Ð¾Ð¼ÐµÐ½ÑÐ° Ð¾Ð±ÑÐ°ÑÐµÐ½Ð¸Ñ Ð¸Ð»Ð¸ Ð·Ð°Ð¿ÑÐ¾ÑÐ° ÐÐ¾Ð»ÑÐ·Ð¾Ð²Ð°ÑÐµÐ»Ñ Ð¸Ð»Ð¸ ÐµÐ³Ð¾ Ð·Ð°ÐºÐ¾Ð½Ð½Ð¾Ð³Ð¾ Ð¿ÑÐµÐ´ÑÑÐ°Ð²Ð¸ÑÐµÐ»Ñ Ð»Ð¸Ð±Ð¾ ÑÐ¿Ð¾Ð»Ð½Ð¾Ð¼Ð¾ÑÐµÐ½Ð½Ð¾Ð³Ð¾ Ð¾ÑÐ³Ð°Ð½Ð° Ð¿Ð¾Â Ð·Ð°ÑÐ¸ÑÐµ Ð¿ÑÐ°Ð² ÑÑÐ±ÑÐµÐºÑÐ¾Ð² Ð¿ÐµÑÑÐ¾Ð½Ð°Ð»ÑÐ½ÑÑ Ð´Ð°Ð½Ð½ÑÑ Ð½Ð°Â Ð¿ÐµÑÐ¸Ð¾Ð´ Ð¿ÑÐ¾Ð²ÐµÑÐºÐ¸, Ð²Â ÑÐ»ÑÑÐ°Ðµ Ð²ÑÑÐ²Ð»ÐµÐ½Ð¸Ñ Ð½ÐµÐ´Ð¾ÑÑÐ¾Ð²ÐµÑÐ½ÑÑ Ð¿ÐµÑÑÐ¾Ð½Ð°Ð»ÑÐ½ÑÑ Ð´Ð°Ð½Ð½ÑÑ Ð¸Ð»Ð¸ Ð½ÐµÐ¿ÑÐ°Ð²Ð¾Ð¼ÐµÑÐ½ÑÑ Ð´ÐµÐ¹ÑÑÐ²Ð¸Ð¹.
+Ð ÐÐ¡ÐÐ Ð«Ð¢ÐÐ ÐÐÐ¤ÐÐ ÐÐÐ¦ÐÐ Ð¢Ð ÐÐ¢Ð¬ÐÐ ÐÐÐ¦ÐÐ
+ÐÂ Ð½ÐµÐºÐ¾ÑÐ¾ÑÑÑ ÑÐ»ÑÑÐ°ÑÑ ÐÐ¾Ð¼Ð¿Ð°Ð½Ð¸Ñ Ð¼Ð¾Ð¶ÐµÑ Ð¿ÑÐµÐ´Ð¾ÑÑÐ°Ð²Ð»ÑÑÑ Ð¾Ð¿ÑÐµÐ´ÐµÐ»ÐµÐ½Ð½ÑÑ Ð¿ÐµÑÑÐ¾Ð½Ð°Ð»ÑÐ½ÑÑ Ð¸Ð½ÑÐ¾ÑÐ¼Ð°ÑÐ¸Ñ Ð¸Â Ð´Ð°Ð½Ð½ÑÐµ ÑÑÑÐ°ÑÐµÐ³Ð¸ÑÐµÑÐºÐ¸Ð¼ Ð¿Ð°ÑÑÐ½ÐµÑÐ°Ð¼, ÐºÐ¾ÑÐ¾ÑÑÐµ ÑÐ°Ð±Ð¾ÑÐ°ÑÑ ÑÂ ÐÐ¾Ð¼Ð¿Ð°Ð½Ð¸ÐµÐ¹ Ð´Ð»Ñ Ð¿ÑÐµÐ´Ð¾ÑÑÐ°Ð²Ð»ÐµÐ½Ð¸Ñ Ð¿ÑÐ¾Ð´ÑÐºÑÐ¾Ð² Ð¸Â ÑÑÐ»ÑÐ³, Ð¸Ð»Ð¸ ÑÐµÐ¼ Ð¸Ð·Â Ð½Ð¸Ñ, ÐºÐ¾ÑÐ¾ÑÑÐµ Ð¿Ð¾Ð¼Ð¾Ð³Ð°ÑÑ ÐÐ¾Ð¼Ð¿Ð°Ð½Ð¸Ð¸ ÑÐµÐ°Ð»Ð¸Ð·Ð¾Ð²ÑÐ²Ð°ÑÑ Ð¿ÑÐ¾Ð´ÑÐºÑÑ Ð¸Â ÑÑÐ»ÑÐ³Ð¸ Ð¿Ð¾ÑÑÐµÐ±Ð¸ÑÐµÐ»ÑÐ¼. ÐÑÂ Ð¿ÑÐµÐ´Ð¾ÑÑÐ°Ð²Ð»ÑÐµÐ¼ ÑÑÐµÑÑÐ¸Ð¼ Ð»Ð¸ÑÐ°Ð¼ Ð¼Ð¸Ð½Ð¸Ð¼Ð°Ð»ÑÐ½ÑÐ¹ Ð¾Ð±ÑÐµÐ¼ Ð¿ÐµÑÑÐ¾Ð½Ð°Ð»ÑÐ½ÑÑ Ð´Ð°Ð½Ð½ÑÑ, Ð½ÐµÐ¾Ð±ÑÐ¾Ð´Ð¸Ð¼ÑÐ¹ ÑÐ¾Ð»ÑÐºÐ¾ Ð´Ð»Ñ Ð¾ÐºÐ°Ð·Ð°Ð½Ð¸Ñ ÑÑÐµÐ±ÑÐµÐ¼Ð¾Ð¹ ÑÑÐ»ÑÐ³Ð¸ Ð¸Ð»Ð¸ Ð¿ÑÐ¾Ð²ÐµÐ´ÐµÐ½Ð¸Ñ Ð½ÐµÐ¾Ð±ÑÐ¾Ð´Ð¸Ð¼Ð¾Ð¹ ÑÑÐ°Ð½Ð·Ð°ÐºÑÐ¸Ð¸.
+ÐÐµÑÑÐ¾Ð½Ð°Ð»ÑÐ½Ð°Ñ Ð¸Ð½ÑÐ¾ÑÐ¼Ð°ÑÐ¸Ñ Ð±ÑÐ´ÐµÑ Ð¿ÑÐµÐ´Ð¾ÑÑÐ°Ð²Ð»ÑÑÑÑÑ ÐÐ¾Ð¼Ð¿Ð°Ð½Ð¸ÐµÐ¹ ÑÐ¾Ð»ÑÐºÐ¾ Ð²Â ÑÐµÐ»ÑÑ Ð¾Ð±ÐµÑÐ¿ÐµÑÐµÐ½Ð¸Ñ Ð¿Ð¾ÑÑÐµÐ±Ð¸ÑÐµÐ»ÐµÐ¹ Ð¿ÑÐ¾Ð´ÑÐºÑÐ°Ð¼Ð¸ Ð¸Â ÑÑÐ»ÑÐ³Ð°Ð¼Ð¸, Ð°Â ÑÐ°ÐºÐ¶Ðµ Ð´Ð»Ñ ÑÐ»ÑÑÑÐµÐ½Ð¸Ñ ÑÑÐ¸Ñ Ð¿ÑÐ¾Ð´ÑÐºÑÐ¾Ð² Ð¸Â ÑÑÐ»ÑÐ³, ÑÐ²ÑÐ·Ð°Ð½Ð½ÑÑ ÑÂ Ð½Ð¸Ð¼Ð¸ ÐºÐ¾Ð¼Ð¼ÑÐ½Ð¸ÐºÐ°ÑÐ¸Ð¹. Ð¢Ð°ÐºÐ°Ñ Ð¸Ð½ÑÐ¾ÑÐ¼Ð°ÑÐ¸Ñ Ð½ÐµÂ Ð±ÑÐ´ÐµÑ Ð¿ÑÐµÐ´Ð¾ÑÑÐ°Ð²Ð»ÑÑÑÑÑ ÑÑÐµÑÑÐ¸Ð¼ Ð»Ð¸ÑÐ°Ð¼ Ð´Ð»Ñ Ð¸ÑÂ Ð¼Ð°ÑÐºÐµÑÐ¸Ð½Ð³Ð¾Ð²ÑÑ ÑÐµÐ»ÐµÐ¹.
+ÐÐ»Ñ Ð¸ÑÐ¿Ð¾Ð»ÑÐ·Ð¾Ð²Ð°Ð½Ð¸Ñ ÐÐ°ÑÐ¸Ñ Ð¿ÐµÑÑÐ¾Ð½Ð°Ð»ÑÐ½ÑÑ Ð´Ð°Ð½Ð½ÑÑ Ð´Ð»Ñ Ð»ÑÐ±Ð¾Ð¹ Ð¸Ð½Ð¾Ð¹ ÑÐµÐ»Ð¸ Ð¼ÑÂ Ð·Ð°Ð¿ÑÐ¾ÑÐ¸Ð¼ ÐÐ°ÑÐµ Ð¡Ð¾Ð³Ð»Ð°ÑÐ¸Ðµ Ð½Ð°Â Ð¾Ð±ÑÐ°Ð±Ð¾ÑÐºÑ ÐÐ°ÑÐ¸Ñ Ð¿ÐµÑÑÐ¾Ð½Ð°Ð»ÑÐ½ÑÑ Ð´Ð°Ð½Ð½ÑÑ
+ÐÐÐ¡Ð¢ÐÐÐ©ÐÐÐ Ð£Ð¡ÐÐ£Ð
+ÐÐ¾Ð¼Ð¿Ð°Ð½Ð¸Ñ Ð¿ÑÐµÐ´Ð¾ÑÑÐ°Ð²Ð»ÑÐµÑ Ð¿ÐµÑÑÐ¾Ð½Ð°Ð»ÑÐ½ÑÐµ Ð´Ð°Ð½Ð½ÑÐµÐ¸Ð½ÑÐ¾ÑÐ¼Ð°ÑÐ¸Ñ ÐÐ¾Ð¼Ð¿Ð°Ð½Ð¸ÑÐ¼, Ð¾ÐºÐ°Ð·ÑÐ²Ð°ÑÑÐ¸Ð¼ ÑÐ°ÐºÐ¸Ðµ ÑÑÐ»ÑÐ³Ð¸, ÐºÐ°Ðº Ð¾Ð±ÑÐ°Ð±Ð¾ÑÐºÐ° Ð¸Ð½ÑÐ¾ÑÐ¼Ð°ÑÐ¸Ð¸, Ð¿ÑÐµÐ´Ð¾ÑÑÐ°Ð²Ð»ÐµÐ½Ð¸Ðµ ÐºÑÐµÐ´Ð¸ÑÐ¾Ð², Ð¸ÑÐ¿Ð¾Ð»Ð½ÐµÐ½Ð¸Ðµ Ð·Ð°ÐºÐ°Ð·Ð¾Ð² Ð¿Ð¾ÑÑÐµÐ±Ð¸ÑÐµÐ»ÐµÐ¹, Ð´Ð¾ÑÑÐ°Ð²ÐºÐ°, Ð¸Ð½ÑÐµ Ð²Ð¸Ð´Ñ Ð¾Ð±ÑÐ»ÑÐ¶Ð¸Ð²Ð°Ð½Ð¸Ñ Ð¿Ð¾ÑÑÐµÐ±Ð¸ÑÐµÐ»ÐµÐ¹, Ð¾Ð¿ÑÐµÐ´ÐµÐ»ÐµÐ½Ð¸Ðµ Ð²Ð°ÑÐµÐ³Ð¾ Ð¸Ð½ÑÐµÑÐµÑÐ° ÐºÂ Ð½Ð°ÑÐ¸Ð¼ Ð¿ÑÐ¾Ð´ÑÐºÑÐ°Ð¼ Ð¸Â ÑÑÐ»ÑÐ³Ð°Ð¼, Ð¿ÑÐ¾Ð²ÐµÐ´ÐµÐ½Ð¸Ðµ Ð¾Ð¿ÑÐ¾ÑÐ¾Ð², Ð½Ð°Ð¿ÑÐ°Ð²Ð»ÐµÐ½Ð½ÑÑ Ð½Ð°Â Ð¸Ð·ÑÑÐµÐ½Ð¸Ðµ Ð½Ð°ÑÐ¸Ñ Ð¿Ð¾ÑÑÐµÐ±Ð¸ÑÐµÐ»ÐµÐ¹ Ð¸Ð»Ð¸ ÑÐ´Ð¾Ð²Ð»ÐµÑÐ²Ð¾ÑÐµÐ½Ð¸Ñ ÐºÐ°ÑÐµÑÑÐ²Ð¾Ð¼ ÑÐµÑÐ²Ð¸ÑÐ°. Ð¢Ð°ÐºÐ¸Ðµ ÐºÐ¾Ð¼Ð¿Ð°Ð½Ð¸Ð¸ Ð¾Ð±ÑÐ·ÑÑÑÑÑ Ð·Ð°ÑÐ¸ÑÐ°ÑÑ ÐÐ°ÑÑ Ð¸Ð½ÑÐ¾ÑÐ¼Ð°ÑÐ¸Ñ Ð½ÐµÐ·Ð°Ð²Ð¸ÑÐ¸Ð¼Ð¾ Ð¾ÑÂ ÑÑÑÐ°Ð½Ñ ÑÐ²Ð¾ÐµÐ³Ð¾ ÑÐ°ÑÐ¿Ð¾Ð»Ð¾Ð¶ÐµÐ½Ð¸Ñ.
+ÐÐÐ«Ð ÐÐÐ¦Ð
+ÐÐ¾Ð¼Ð¿Ð°Ð½Ð¸Ð¸ Ð¼Ð¾Ð¶ÐµÑ Ð±ÑÑÑ Ð½ÐµÐ¾Ð±ÑÐ¾Ð´Ð¸Ð¼Ð¾Â â Ð²Â ÑÐ¾Ð¾ÑÐ²ÐµÑÑÑÐ²Ð¸Ð¸ ÑÂ Ð·Ð°ÐºÐ¾Ð½Ð¾Ð¼, ÑÑÐ´ÐµÐ±Ð½ÑÐ¼ Ð¿Ð¾ÑÑÐ´ÐºÐ¾Ð¼, Ð²Â ÑÑÐ´ÐµÐ±Ð½Ð¾Ð¼ ÑÐ°Ð·Ð±Ð¸ÑÐ°ÑÐµÐ»ÑÑÑÐ²Ðµ Ð¸Ð¸Ð»Ð¸ Ð½Ð°Â Ð¾ÑÐ½Ð¾Ð²Ð°Ð½Ð¸Ð¸ Ð¿ÑÐ±Ð»Ð¸ÑÐ½ÑÑ Ð·Ð°Ð¿ÑÐ¾ÑÐ¾Ð² Ð¸Ð»Ð¸ Ð·Ð°Ð¿ÑÐ¾ÑÐ¾Ð² Ð¾ÑÂ Ð³Ð¾ÑÑÐ´Ð°ÑÑÑÐ²ÐµÐ½Ð½ÑÑ Ð¾ÑÐ³Ð°Ð½Ð¾Ð² Ð½Ð°Â ÑÐµÑÑÐ¸ÑÐ¾ÑÐ¸Ð¸ Ð¸Ð»Ð¸ Ð²Ð½Ðµ ÑÐµÑÑÐ¸ÑÐ¾ÑÐ¸Ð¸ ÑÑÑÐ°Ð½Ñ ÐÐ°ÑÐµÐ³Ð¾ Ð¿ÑÐµÐ±ÑÐ²Ð°Ð½Ð¸ÑÂ â ÑÐ°ÑÐºÑÑÑÑ ÐÐ°ÑÐ¸ Ð¿ÐµÑÑÐ¾Ð½Ð°Ð»ÑÐ½ÑÐµ Ð´Ð°Ð½Ð½ÑÐµ. ÐÑÂ ÑÐ°ÐºÐ¶Ðµ Ð¼Ð¾Ð¶ÐµÐ¼ ÑÐ°ÑÐºÑÑÐ²Ð°ÑÑ Ð¿ÐµÑÑÐ¾Ð½Ð°Ð»ÑÐ½ÑÐµ Ð´Ð°Ð½Ð½ÑÐµÐ¸Ð½ÑÐ¾ÑÐ¼Ð°ÑÐ¸Ñ Ð¾Â ÐÐ°Ñ, ÐµÑÐ»Ð¸ Ð¼ÑÂ Ð¾Ð¿ÑÐµÐ´ÐµÐ»Ð¸Ð¼, ÑÑÐ¾ ÑÐ°ÐºÐ¾Ðµ ÑÐ°ÑÐºÑÑÑÐ¸Ðµ Ð½ÐµÐ¾Ð±ÑÐ¾Ð´Ð¸Ð¼Ð¾ Ð¸Ð»Ð¸ ÑÐ¼ÐµÑÑÐ½Ð¾ Ð²Â ÑÐµÐ»ÑÑ Ð½Ð°ÑÐ¸Ð¾Ð½Ð°Ð»ÑÐ½Ð¾Ð¹ Ð±ÐµÐ·Ð¾Ð¿Ð°ÑÐ½Ð¾ÑÑÐ¸, Ð¿Ð¾Ð´Ð´ÐµÑÐ¶Ð°Ð½Ð¸Ñ Ð¿ÑÐ°Ð²Ð¾Ð¿Ð¾ÑÑÐ´ÐºÐ° Ð¸Ð»Ð¸ Ð¸Ð½ÑÑ Ð¾Ð±ÑÐµÑÑÐ²ÐµÐ½Ð½Ð¾ Ð²Ð°Ð¶Ð½ÑÑ ÑÐ»ÑÑÐ°ÑÑ.
+ÐÑÂ ÑÐ°ÐºÐ¶Ðµ Ð¼Ð¾Ð¶ÐµÐ¼ ÑÐ°ÑÐºÑÑÐ²Ð°ÑÑ Ð¿ÐµÑÑÐ¾Ð½Ð°Ð»ÑÐ½ÑÐµ Ð´Ð°Ð½Ð½ÑÐµÐ¸Ð½ÑÐ¾ÑÐ¼Ð°ÑÐ¸Ñ Ð¾Â ÐÐ°Ñ, ÐµÑÐ»Ð¸ Ð¼ÑÂ Ð¾Ð¿ÑÐµÐ´ÐµÐ»Ð¸Ð¼, ÑÑÐ¾ ÑÐ°ÑÐºÑÑÑÐ¸Ðµ Ð½ÐµÐ¾Ð±ÑÐ¾Ð´Ð¸Ð¼Ð¾ Ð´Ð»Ñ Ð¿ÑÐ¸Ð²ÐµÐ´ÐµÐ½Ð¸Ñ Ð²Â Ð¸ÑÐ¿Ð¾Ð»Ð½ÐµÐ½Ð¸Ðµ Ð½Ð°ÑÐ¸Ñ Ð¿Ð¾Ð»Ð¾Ð¶ÐµÐ½Ð¸Ð¹ Ð¸Â ÑÑÐ»Ð¾Ð²Ð¸Ð¹ Ð»Ð¸Ð±Ð¾ Ð´Ð»Ñ ÑÐµÐ»ÐµÐ¹ Ð·Ð°ÑÐ¸ÑÑ Ð½Ð°ÑÐµÐ¹ Ð´ÐµÑÑÐµÐ»ÑÐ½Ð¾ÑÑÐ¸ Ð¸Â Ð½Ð°ÑÐ¸Ñ Ð¿Ð¾Ð»ÑÐ·Ð¾Ð²Ð°ÑÐµÐ»ÐµÐ¹. ÐÐ¾Ð¿Ð¾Ð»Ð½Ð¸ÑÐµÐ»ÑÐ½Ð¾ Ð²Â ÑÐ»ÑÑÐ°Ðµ ÑÐµÐ¾ÑÐ³Ð°Ð½Ð¸Ð·Ð°ÑÐ¸Ð¸, ÑÐ»Ð¸ÑÐ½Ð¸Ñ Ð¸Ð»Ð¸ Ð¿ÑÐ¾Ð´Ð°Ð¶Ð¸ Ð¼ÑÂ Ð¼Ð¾Ð¶ÐµÐ¼ Ð¿ÐµÑÐµÐ´Ð°ÑÑ Ð»ÑÐ±ÑÑ Ð¸Ð»Ð¸ Ð²ÑÑ ÑÐ¾Ð±Ð¸ÑÐ°ÐµÐ¼ÑÑ Ð½Ð°Ð¼Ð¸ Ð¿ÐµÑÑÐ¾Ð½Ð°Ð»ÑÐ½ÑÑ Ð¸Ð½ÑÐ¾ÑÐ¼Ð°ÑÐ¸Ñ ÑÐ¾Ð¾ÑÐ²ÐµÑÑÑÐ²ÑÑÑÐµÐ¼Ñ ÑÑÐµÑÑÐµÐ¼Ñ Ð»Ð¸ÑÑ.
+V. Ð£Ð½Ð¸ÑÑÐ¾Ð¶ÐµÐ½Ð¸Ðµ Ð¿ÐµÑÑÐ¾Ð½Ð°Ð»ÑÐ½ÑÑ Ð´Ð°Ð½Ð½ÑÑ
+ÐÐµÑÑÐ¾Ð½Ð°Ð»ÑÐ½ÑÐµ Ð´Ð°Ð½Ð½ÑÐµ Ð¿Ð¾Ð»ÑÐ·Ð¾Ð²Ð°ÑÐµÐ»Ñ ÑÐ½Ð¸ÑÑÐ¾Ð¶Ð°ÑÑÑÑ Ð¿ÑÐ¸
+âÂ ÑÐ°Ð¼Ð¾ÑÑÐ¾ÑÑÐµÐ»ÑÐ½Ð¾Ð¼ ÑÐ´Ð°Ð»ÐµÐ½Ð¸Ð¸ ÐÐ¾Ð»ÑÐ·Ð¾Ð²Ð°ÑÐµÐ»ÐµÐ¼ Ð´Ð°Ð½Ð½ÑÑ ÑÐ¾Â ÑÐ²Ð¾ÐµÐ¹ Ð¿ÐµÑÑÐ¾Ð½Ð°Ð»ÑÐ½Ð¾Ð¹ ÑÑÑÐ°Ð½Ð¸ÑÑ ÑÂ Ð¸ÑÐ¿Ð¾Ð»ÑÐ·Ð¾Ð²Ð°Ð½Ð¸ÐµÐ¼ ÑÑÐ½ÐºÑÐ¸Ð¾Ð½Ð°Ð»ÑÐ½Ð¾Ð¹ Ð²Ð¾Ð·Ð¼Ð¾Ð¶Ð½Ð¾ÑÑÐ¸ Â«ÑÐ´Ð°Ð»Ð¸ÑÑ Ð°ÐºÐºÐ°ÑÐ½ÑÂ», Ð´Ð¾ÑÑÑÐ¿Ð½Ð¾Ð¹ ÐÐ¾Ð»ÑÐ·Ð¾Ð²Ð°ÑÐµÐ»Ñ Ð¿ÑÐ¸ Ð¿Ð¾Ð¼Ð¾ÑÐ¸ Ð½Ð°ÑÑÑÐ¾ÐµÐº Ð¿ÑÐ¾ÑÐ¸Ð»Ñ;âÂ ÑÐ´Ð°Ð»ÐµÐ½Ð¸Ð¸ ÐÐ¿ÐµÑÐ°ÑÐ¾ÑÐ¾Ð¼ Ð¸Ð½ÑÐ¾ÑÐ¼Ð°ÑÐ¸Ð¸, ÑÐ°Ð·Ð¼ÐµÑÐ°ÐµÐ¼Ð¾Ð¹ ÐÐ¾Ð»ÑÐ·Ð¾Ð²Ð°ÑÐµÐ»ÐµÐ¼, Ð°Â ÑÐ°ÐºÐ¶Ðµ Ð¿ÐµÑÑÐ¾Ð½Ð°Ð»ÑÐ½Ð¾Ð¹ ÑÑÑÐ°Ð½Ð¸ÑÑ ÐÐ¾Ð»ÑÐ·Ð¾Ð²Ð°ÑÐµÐ»Ñ Ð²Â ÑÐ»ÑÑÐ°ÑÑ, ÑÑÑÐ°Ð½Ð¾Ð²Ð»ÐµÐ½Ð½ÑÑ Ð´Ð¾Ð³Ð¾Ð²Ð¾ÑÐ¾Ð¼ ÐºÑÐ¿Ð»Ð¸ Ð¿ÑÐ¾Ð´Ð°Ð¶Ð¸ (Ð¾ÑÐµÑÑÐ°);âÂ Ð¿ÑÐ¸ Ð¾ÑÐ·ÑÐ²Ðµ ÑÑÐ±ÑÐµÐºÑÐ¾Ð¼ Ð¿ÐµÑÑÐ¾Ð½Ð°Ð»ÑÐ½ÑÑ Ð´Ð°Ð½Ð½ÑÑ ÑÐ¾Ð³Ð»Ð°ÑÐ¸Ñ Ð½Ð°Â Ð¾Ð±ÑÐ°Ð±Ð¾ÑÐºÑ Ð¿ÐµÑÑÐ¾Ð½Ð°Ð»ÑÐ½ÑÑ Ð´Ð°Ð½Ð½ÑÑ.
+ÐÐÐÐÐ¢ÐÐ¤ÐÐÐÐ¦ÐÐÐÐÐ«Ð Ð¤ÐÐÐÐ« (Ð¡OOKIES) ÐÂ ÐÐÐ«Ð Ð¢ÐÐ¥ÐÐÐÐÐÐÐ
+ÐÐµÐ±-ÑÐ°Ð¹Ñ, Ð¸Ð½ÑÐµÑÐ°ÐºÑÐ¸Ð²Ð½ÑÐµ ÑÑÐ»ÑÐ³Ð¸ Ð¸Â Ð¿ÑÐ¸Ð»Ð¾Ð¶ÐµÐ½Ð¸Ñ, ÑÐ¾Ð¾Ð±ÑÐµÐ½Ð¸Ñ ÑÐ»ÐµÐºÑÑÐ¾Ð½Ð½Ð¾Ð¹ Ð¿Ð¾ÑÑÑ Ð¸Â Ð»ÑÐ±ÑÐµ Ð¸Ð½ÑÐµ ÐºÐ¾Ð¼Ð¼ÑÐ½Ð¸ÐºÐ°ÑÐ¸Ð¸ Ð¾ÑÂ Ð»Ð¸ÑÐ° ÐÐ¾Ð¼Ð¿Ð°Ð½Ð¸Ð¸ Ð¼Ð¾Ð³ÑÑ Ð¸ÑÐ¿Ð¾Ð»ÑÐ·Ð¾Ð²Ð°ÑÑ Ð¸Ð´ÐµÐ½ÑÐ¸ÑÐ¸ÐºÐ°ÑÐ¸Ð¾Ð½Ð½ÑÐµ ÑÐ°Ð¹Ð»Ñ cookies Ð¸Â Ð¸Ð½ÑÐµ ÑÐµÑÐ½Ð¾Ð»Ð¾Ð³Ð¸Ð¸, ÑÐ°ÐºÐ¸Ðµ ÐºÐ°Ðº Ð¿Ð¸ÐºÑÐµÐ»ÑÐ½ÑÐµ ÑÑÐ»ÑÐºÐ¸ (pixel tags), Ð²ÐµÐ±-Ð¼Ð°ÑÐºÐ¸ (web beacons). Ð¢Ð°ÐºÐ¸Ðµ ÑÐµÑÐ½Ð¾Ð»Ð¾Ð³Ð¸Ð¸ Ð¿Ð¾Ð¼Ð¾Ð³Ð°ÑÑ Ð½Ð°Ð¼ Ð»ÑÑÑÐµ Ð¿Ð¾Ð½Ð¸Ð¼Ð°ÑÑ Ð¿Ð¾Ð²ÐµÐ´ÐµÐ½Ð¸Ðµ Ð¿Ð¾Ð»ÑÐ·Ð¾Ð²Ð°ÑÐµÐ»ÐµÐ¹, ÑÐ¾Ð¾Ð±ÑÐ°ÑÑ Ð½Ð°Ð¼, ÐºÐ°ÐºÐ¸Ðµ ÑÐ°Ð·Ð´ÐµÐ»Ñ Ð½Ð°ÑÐµÐ³Ð¾ ÑÐ°Ð¹ÑÐ° Ð±ÑÐ»Ð¸ Ð¿Ð¾ÑÐµÑÐµÐ½Ñ Ð¿Ð¾Ð»ÑÐ·Ð¾Ð²Ð°ÑÐµÐ»ÑÐ¼Ð¸, Ð¸Â Ð¸Ð·Ð¼ÐµÑÑÑÑ ÑÑÑÐµÐºÑÐ¸Ð²Ð½Ð¾ÑÑÑ ÑÐµÐºÐ»Ð°Ð¼Ñ Ð¸Â ÑÐµÑÐµÐ²ÑÑ Ð¿Ð¾Ð¸ÑÐºÐ¾Ð². ÐÑÂ ÑÐ°ÑÑÐ¼Ð°ÑÑÐ¸Ð²Ð°ÐµÐ¼ Ð¸Ð½ÑÐ¾ÑÐ¼Ð°ÑÐ¸Ñ, ÑÐ¾Ð±Ð¸ÑÐ°ÐµÐ¼ÑÑ ÑÐ°Ð¹Ð»Ð°Ð¼Ð¸ cookies Ð¸Â Ð¸Ð½ÑÐ¼Ð¸ ÑÐµÑÐ½Ð¾Ð»Ð¾Ð³Ð¸ÑÐ¼Ð¸ ÐºÐ°Ðº Ð¸Ð½ÑÐ¾ÑÐ¼Ð°ÑÐ¸Ñ, Ð½ÐµÂ ÑÐ²Ð»ÑÑÑÑÑÑÑ Ð¿ÐµÑÑÐ¾Ð½Ð°Ð»ÑÐ½Ð¾Ð¹.
+ÐÐ°ÑÐµÐ¹ ÑÐµÐ»ÑÑ Ð²Â ÑÐ°ÐºÐ¸Ñ ÑÐ»ÑÑÐ°ÑÑ ÑÐ²Ð»ÑÐµÑÑÑ Ð¾Ð±ÐµÑÐ¿ÐµÑÐµÐ½Ð¸Ðµ Ð±Ð¾Ð»ÐµÐµ ÑÐ´Ð¾Ð±Ð½Ð¾Ð³Ð¾ Ð¸Â Ð¿ÐµÑÑÐ¾Ð½Ð°Ð»ÑÐ½Ð¾Ð³Ð¾ Ð²Ð·Ð°Ð¸Ð¼Ð¾Ð´ÐµÐ¹ÑÑÐ²Ð¸Ñ ÑÂ ÐÐ¾Ð¼Ð¿Ð°Ð½Ð¸ÐµÐ¹. ÐÐ°Ð¿ÑÐ¸Ð¼ÐµÑ, Ð·Ð½Ð°Ñ ÐÐ°ÑÐµ Ð¸Ð¼Ñ, Ð¼ÑÂ Ð¼Ð¾Ð¶ÐµÐ¼ Ð¸ÑÐ¿Ð¾Ð»ÑÐ·Ð¾Ð²Ð°ÑÑ ÐµÐ³Ð¾ Ð²Â Ð½Ð°ÑÐ¸Ñ ÐºÐ¾Ð¼Ð¼ÑÐ½Ð¸ÐºÐ°ÑÐ¸ÑÑ. ÐÐ½Ð°Ñ, ÑÑÐ¾ ÐºÑÐ¾-Ð»Ð¸Ð±Ð¾, Ð¸ÑÐ¿Ð¾Ð»ÑÐ·ÑÑ ÐÐ°Ñ ÐºÐ¾Ð¼Ð¿ÑÑÑÐµÑ Ð¸Ð»Ð¸ ÑÑÑÑÐ¾Ð¹ÑÑÐ²Ð¾, Ð¿ÑÐ¸Ð¾Ð±ÑÐµÐ» Ð¾Ð¿ÑÐµÐ´ÐµÐ»ÑÐ½Ð½ÑÐ¹ Ð¿ÑÐ¾Ð´ÑÐºÑ Ð¸Ð»Ð¸ Ð²Ð¾ÑÐ¿Ð¾Ð»ÑÐ·Ð¾Ð²Ð°Ð»ÑÑ Ð¾Ð¿ÑÐµÐ´ÐµÐ»ÐµÐ½Ð½Ð¾Ð¹ ÑÑÐ»ÑÐ³Ð¾Ð¹, Ð¼ÑÂ Ð¼Ð¾Ð¶ÐµÐ¼ Ð¾Ð±ÐµÑÐ¿ÐµÑÐ¸Ð²Ð°ÑÑ Ð±Ð¾Ð»ÐµÐµ Ð¿Ð¾Ð»Ð½Ð¾Ðµ ÑÐ¾Ð¾ÑÐ²ÐµÑÑÑÐ²Ð¸Ðµ ÐÐ°ÑÐ¸Ð¼ Ð¸Ð½ÑÐµÑÐµÑÐ°Ð¼ ÑÐµÐºÐ»Ð°Ð¼Ð½ÑÑ ÑÐ¾Ð¾Ð±ÑÐµÐ½Ð¸Ð¹ Ð¸Â ÑÐ¾Ð¾Ð±ÑÐµÐ½Ð¸Ð¹ ÑÐ»ÐµÐºÑÑÐ¾Ð½Ð½Ð¾Ð¹ Ð¿Ð¾ÑÑÑ. ÐÂ ÐºÐ¾Ð½ÐµÑÐ½Ð¾Ð¼ Ð¸ÑÐ¾Ð³Ðµ Ð²ÑÐµ ÑÑÐ¸ Ð·Ð½Ð°Ð½Ð¸Ñ Ð¿Ð¾Ð¼Ð¾Ð³Ð°ÑÑ Ð½Ð°Ð¼ Ð¿ÑÐµÐ´Ð¾ÑÑÐ°Ð²Ð»ÑÑÑ ÐÐ°Ð¼ Ð¾Ð±ÑÐ»ÑÐ¶Ð¸Ð²Ð°Ð½Ð¸Ðµ Ð²ÑÑÑÐµÐ³Ð¾ ÐºÐ°ÑÐµÑÑÐ²Ð°.
+ÐÑÐ»Ð¸ Ð²ÑÂ Ð¼Ð¾Ð¶ÐµÑÐµ Ð¾ÑÐºÐ»ÑÑÐ¸ÑÑ cookies Ð²Â Ð½Ð°ÑÑÑÐ¾Ð¹ÐºÐ°Ñ Ð¸ÑÐ¿Ð¾Ð»ÑÐ·ÑÐµÐ¼Ð¾Ð³Ð¾ ÐÐ°Ð¼Ð¸ Ð²ÐµÐ±-Ð±ÑÐ°ÑÐ·ÐµÑÐ° Ð¸Ð»Ð¸ Ð¼Ð¾Ð±Ð¸Ð»ÑÐ½Ð¾Ð³Ð¾ ÑÑÑÑÐ¾Ð¹ÑÑÐ²Ð°. Ð¡Ð»ÐµÐ´ÑÐµÑ ÑÑÐµÑÑÑ, ÑÑÐ¾ Ð½ÐµÐºÐ¾ÑÐ¾ÑÑÐµ ÑÑÐ½ÐºÑÐ¸Ð¸ Ð²ÐµÐ±-ÑÐ°Ð¹ÑÐ° Ð¼Ð¾Ð³ÑÑ ÑÑÐ°ÑÑ Ð½ÐµÐ´Ð¾ÑÑÑÐ¿Ð½ÑÐ¼Ð¸ Ð¿Ð¾ÑÐ»Ðµ Ð¾ÑÐºÐ»ÑÑÐµÐ½Ð¸Ñ cookies.
+ÐÐ°Ðº Ð¸Â Ð²Â ÑÐ»ÑÑÐ°Ðµ Ð±Ð¾Ð»ÑÑÐ¸Ð½ÑÑÐ²Ð° Ð²ÐµÐ±-ÑÐ°Ð¹ÑÐ¾Ð², Ð¼ÑÂ ÑÐ¾Ð±Ð¸ÑÐ°ÐµÐ¼ Ð½ÐµÐºÐ¾ÑÐ¾ÑÑÑ Ð¸Ð½ÑÐ¾ÑÐ¼Ð°ÑÐ¸Ñ Ð°Ð²ÑÐ¾Ð¼Ð°ÑÐ¸ÑÐµÑÐºÐ¸ Ð¸Â ÑÑÐ°Ð½Ð¸Ð¼ ÐµÑÂ Ð²Â ÑÐ°Ð¹Ð»Ð°Ñ ÑÑÐ°ÑÐ¸ÑÑÐ¸ÐºÐ¸. Ð¢Ð°ÐºÐ°Ñ Ð¸Ð½ÑÐ¾ÑÐ¼Ð°ÑÐ¸Ñ Ð²ÐºÐ»ÑÑÐ°ÐµÑ Ð²Â ÑÐµÐ±Ñ Ð°Ð´ÑÐµÑ ÐÐ½ÑÐµÑÐ½ÐµÑ-Ð¿ÑÐ¾ÑÐ¾ÐºÐ¾Ð»Ð° (IP-Ð°Ð´ÑÐµÑ), ÑÐ¸Ð¿ Ð¸Â ÑÐ·ÑÐº Ð±ÑÐ°ÑÐ·ÐµÑÐ°, Ð¸Ð½ÑÐ¾ÑÐ¼Ð°ÑÐ¸Ñ Ð¾Â Ð¿Ð¾ÑÑÐ°Ð²ÑÐ¸ÐºÐµ ÐÐ½ÑÐµÑÐ½ÐµÑ-ÑÑÐ»ÑÐ³, ÑÑÑÐ°Ð½Ð¸ÑÑ Ð¾ÑÑÑÐ»ÐºÐ¸ Ð¸Â Ð²ÑÑÐ¾Ð´Ð°, ÑÐ²ÐµÐ´ÐµÐ½Ð¸Ñ Ð¾Ð±Â Ð¾Ð¿ÐµÑÐ°ÑÐ¸Ð¾Ð½Ð½Ð¾Ð¹ ÑÐ¸ÑÑÐµÐ¼Ðµ, Ð¾ÑÐ¼ÐµÑÐºÑ Ð´Ð°ÑÑ Ð¸Â Ð²ÑÐµÐ¼ÐµÐ½Ð¸, Ð°Â ÑÐ°ÐºÐ¶Ðµ ÑÐ²ÐµÐ´ÐµÐ½Ð¸Ñ Ð¾Â Ð¿Ð¾ÑÐµÑÐµÐ½Ð¸ÑÑ. ÐÑÂ Ð¸ÑÐ¿Ð¾Ð»ÑÐ·ÑÐµÐ¼ ÑÐ°ÐºÑÑ Ð¸Ð½ÑÐ¾ÑÐ¼Ð°ÑÐ¸Ñ Ð´Ð»Ñ Ð¿Ð¾Ð½Ð¸Ð¼Ð°Ð½Ð¸Ñ Ð¸Â Ð°Ð½Ð°Ð»Ð¸Ð·Ð° ÑÐµÐ½Ð´ÐµÐ½ÑÐ¸Ð¹, Ð°Ð´Ð¼Ð¸Ð½Ð¸ÑÑÑÐ¸ÑÐ¾Ð²Ð°Ð½Ð¸Ñ ÑÐ°Ð¹ÑÐ°, Ð¸Ð·ÑÑÐµÐ½Ð¸Ñ Ð¿Ð¾Ð²ÐµÐ´ÐµÐ½Ð¸Ñ Ð¿Ð¾Ð»ÑÐ·Ð¾Ð²Ð°ÑÐµÐ»ÐµÐ¹ Ð½Ð°Â ÑÐ°Ð¹ÑÐµ Ð¸Â ÑÐ±Ð¾ÑÐ° Ð´ÐµÐ¼Ð¾Ð³ÑÐ°ÑÐ¸ÑÐµÑÐºÐ¾Ð¹ Ð¸Ð½ÑÐ¾ÑÐ¼Ð°ÑÐ¸Ð¸ Ð¾Â Ð½Ð°ÑÐµÐ¼ Ð¾ÑÐ½Ð¾Ð²Ð½Ð¾Ð¼ ÐºÐ¾Ð½ÑÐ¸Ð½Ð³ÐµÐ½ÑÐµ Ð¿Ð¾Ð»ÑÐ·Ð¾Ð²Ð°ÑÐµÐ»ÐµÐ¹ Ð²Â ÑÐµÐ»Ð¾Ð¼. ÐÐ¾Ð¼Ð¿Ð°Ð½Ð¸Ñ Ð¼Ð¾Ð¶ÐµÑ Ð¸ÑÐ¿Ð¾Ð»ÑÐ·Ð¾Ð²Ð°ÑÑ ÑÐ°ÐºÑÑ Ð¸Ð½ÑÐ¾ÑÐ¼Ð°ÑÐ¸Ñ Ð²Â ÑÐ²Ð¾Ð¸Ñ Ð¼Ð°ÑÐºÐµÑÐ¸Ð½Ð³Ð¾Ð²ÑÑ ÑÐµÐ»ÑÑ.
+ÐÂ Ð½ÐµÐºÐ¾ÑÐ¾ÑÑÑ Ð½Ð°ÑÐ¸Ñ ÑÐ¾Ð¾Ð±ÑÐµÐ½Ð¸ÑÑ ÑÐ»ÐµÐºÑÑÐ¾Ð½Ð½Ð¾Ð¹ Ð¿Ð¾ÑÑÑ Ð¼ÑÂ Ð¸ÑÐ¿Ð¾Ð»ÑÐ·ÑÐµÐ¼ Ð¸Ð½ÑÐµÑÐ°ÐºÑÐ¸Ð²Ð½ÑÐµ ÑÑÑÐ»ÐºÐ¸ Ð½Ð°Â Ð¸Ð½ÑÐ¾ÑÐ¼Ð°ÑÐ¸Ñ, ÑÐ°Ð·Ð¼ÐµÑÑÐ½Ð½ÑÑ Ð½Ð°Â ÑÐ°Ð¹ÑÐµ ÐÐ¾Ð¼Ð¿Ð°Ð½Ð¸Ð¸. ÐÐ¾Ð³Ð´Ð° Ð¿Ð¾Ð»ÑÐ·Ð¾Ð²Ð°ÑÐµÐ»Ð¸ Ð¿ÑÐ¾ÑÐ¾Ð´ÑÑ Ð¿Ð¾Â ÑÐ°ÐºÐ¸Ð¼ ÑÑÑÐ»ÐºÐ°Ð¼, Ð¿ÑÐµÐ¶Ð´Ðµ ÑÐµÐ¼ Ð¾Ð½Ð¸ Ð¿Ð¾Ð¿Ð°Ð´Ð°ÑÑ Ð½Ð°Â ÑÑÑÐ°Ð½Ð¸ÑÑ Ð½Ð°Ð·Ð½Ð°ÑÐµÐ½Ð¸Ñ Ð½Ð°Â Ð½Ð°ÑÐµÐ¼ Ð²ÐµÐ±-ÑÐ°Ð¹ÑÐµ, Ð¸ÑÂ Ð·Ð°Ð¿ÑÐ¾ÑÑ Ð¿ÑÐ¾ÑÐ¾Ð´ÑÑ Ð¾ÑÐ´ÐµÐ»ÑÐ½ÑÑ ÑÐµÐ³Ð¸ÑÑÑÐ°ÑÐ¸Ñ. ÐÑÂ Ð¾ÑÑÐ»ÐµÐ¶Ð¸Ð²Ð°ÐµÐ¼ ÑÐ°ÐºÐ¸Ðµ Â«Ð¿ÑÐ¾ÑÐ¾Ð´Ð½ÑÐµÂ» Ð´Ð°Ð½Ð½ÑÐµ, Ð´Ð»Ñ ÑÐ¾Ð³Ð¾ ÑÑÐ¾Ð±Ñ Ð¿Ð¾Ð¼Ð¾ÑÑ Ð½Ð°Ð¼ Ð¾Ð¿ÑÐµÐ´ÐµÐ»Ð¸ÑÑ Ð¸Ð½ÑÐµÑÐµÑ ÐºÂ Ð¾ÑÐ´ÐµÐ»ÑÐ½ÑÐ¼ ÑÐµÐ¼Ð°Ð¼ Ð¸Â Ð¸Ð·Ð¼ÐµÑÐ¸ÑÑ ÑÑÑÐµÐºÑÐ¸Ð²Ð½Ð¾ÑÑÑ Ð½Ð°ÑÐ¸Ñ ÐºÐ¾Ð¼Ð¼ÑÐ½Ð¸ÐºÐ°ÑÐ¸Ð¹ ÑÂ Ð¿Ð¾ÑÑÐµÐ±Ð¸ÑÐµÐ»ÑÐ¼Ð¸. ÐÑÐ»Ð¸ ÐÑÂ Ð¿ÑÐµÐ´Ð¿Ð¾ÑÐ¸ÑÐ°ÐµÑÐµ, ÑÑÐ¾Ð±Ñ ÐÐ°ÑÐ¸ Ð¾Ð±ÑÐ°ÑÐµÐ½Ð¸Ñ Ð½ÐµÂ Ð¾ÑÑÐ»ÐµÐ¶Ð¸Ð²Ð°Ð»Ð¸ÑÑ Ð¿Ð¾Ð´Ð¾Ð±Ð½ÑÐ¼ Ð¾Ð±ÑÐ°Ð·Ð¾Ð¼, ÐÑÂ Ð½ÐµÂ Ð´Ð¾Ð»Ð¶Ð½Ñ Ð¿ÑÐ¾ÑÐ¾Ð´Ð¸ÑÑ Ð¿Ð¾Â ÑÐµÐºÑÑÐ¾Ð²ÑÐ¼ Ð¸Ð»Ð¸ Ð³ÑÐ°ÑÐ¸ÑÐµÑÐºÐ¸Ð¼ ÑÑÑÐ»ÐºÐ°Ð¼ Ð²Â ÑÐ¾Ð¾Ð±ÑÐµÐ½Ð¸ÑÑ ÑÐ»ÐµÐºÑÑÐ¾Ð½Ð½Ð¾Ð¹ Ð¿Ð¾ÑÑÑ.
+ÐÐ¸ÐºÑÐµÐ»ÑÐ½ÑÐµ ÑÑÐ»ÑÐºÐ¸ Ð¿Ð¾Ð·Ð²Ð¾Ð»ÑÑÑ Ð½Ð°Ð¼ Ð½Ð°Ð¿ÑÐ°Ð²Ð»ÑÑÑ ÑÐ¾Ð¾Ð±ÑÐµÐ½Ð¸Ñ ÑÐ»ÐµÐºÑÑÐ¾Ð½Ð½Ð¾Ð¹ Ð¿Ð¾ÑÑÑ Ð²Â ÑÐ¾ÑÐ¼Ð°ÑÐµ, ÑÐ¸ÑÐ°ÐµÐ¼Ð¾Ð¼ Ð¿Ð¾ÑÑÐµÐ±Ð¸ÑÐµÐ»ÑÐ¼Ð¸, Ð¸Â ÑÐ¾Ð¾Ð±ÑÐ°ÑÑ Ð½Ð°Ð¼, Ð±ÑÐ»Ð¸Â Ð»Ð¸ ÑÐ°ÐºÐ¸Ðµ ÑÐ¾Ð¾Ð±ÑÐµÐ½Ð¸Ñ Ð¿ÑÐ¾ÑÐ¸ÑÐ°Ð½Ñ. ÐÑÂ Ð¼Ð¾Ð¶ÐµÐ¼ Ð¸ÑÐ¿Ð¾Ð»ÑÐ·Ð¾Ð²Ð°ÑÑ ÑÐ°ÐºÑÑ Ð¸Ð½ÑÐ¾ÑÐ¼Ð°ÑÐ¸Ñ Ð´Ð»Ñ Ð¾Ð³ÑÐ°Ð½Ð¸ÑÐµÐ½Ð¸Ñ ÐºÐ¾Ð»Ð¸ÑÐµÑÑÐ²Ð° Ð½Ð°Ð¿ÑÐ°Ð²Ð»ÑÐµÐ¼ÑÑ Ð¿Ð¾ÑÑÐµÐ±Ð¸ÑÐµÐ»ÑÐ¼ ÑÐ¾Ð¾Ð±ÑÐµÐ½Ð¸Ð¹ Ð¸Ð»Ð¸ Ð¿ÑÐµÐºÑÐ°ÑÐµÐ½Ð¸Ñ Ð¸ÑÂ Ð½Ð°Ð¿ÑÐ°Ð²Ð»ÐµÐ½Ð¸Ñ.
+ÐÐ¾Ð´ÑÐ¾Ð±Ð½ÐµÐµ Ð¾Â cookies.
+VI. ÐÐ°ÑÐ¸ÑÐ° Ð¿ÐµÑÑÐ¾Ð½Ð°Ð»ÑÐ½ÑÑ Ð´Ð°Ð½Ð½ÑÑ
+ÐÐ¾Ð¼Ð¿Ð°Ð½Ð¸Ñ Ð¿ÑÐµÐ´Ð¿ÑÐ¸Ð½Ð¸Ð¼Ð°ÐµÑ Ð¼ÐµÑÑ Ð¿ÑÐµÐ´Ð¾ÑÑÐ¾ÑÐ¾Ð¶Ð½Ð¾ÑÑÐ¸Â â Ð²ÐºÐ»ÑÑÐ°Ñ Ð¿ÑÐ°Ð²Ð¾Ð²ÑÐµ, Ð¾ÑÐ³Ð°Ð½Ð¸Ð·Ð°ÑÐ¸Ð¾Ð½Ð½ÑÐµ, Ð°Ð´Ð¼Ð¸Ð½Ð¸ÑÑÑÐ°ÑÐ¸Ð²Ð½ÑÐµ, ÑÐµÑÐ½Ð¸ÑÐµÑÐºÐ¸Ðµ Ð¸Â ÑÐ¸Ð·Ð¸ÑÐµÑÐºÐ¸ÐµÂ â Ð´Ð»Ñ Ð¾Ð±ÐµÑÐ¿ÐµÑÐµÐ½Ð¸Ñ Ð·Ð°ÑÐ¸ÑÑ ÐÐ°ÑÐ¸Ñ Ð¿ÐµÑÑÐ¾Ð½Ð°Ð»ÑÐ½ÑÑ Ð´Ð°Ð½Ð½ÑÑ Ð²Â ÑÐ¾Ð¾ÑÐ²ÐµÑÑÑÐ²Ð¸Ð¸ ÑÐ¾Â ÑÑ. 19Â Ð¤ÐµÐ´ÐµÑÐ°Ð»ÑÐ½Ð¾Ð³Ð¾ Ð·Ð°ÐºÐ¾Ð½Ð° Ð¾ÑÂ 27.07.2006Â N 152-Ð¤Ð Â«ÐÂ Ð¿ÐµÑÑÐ¾Ð½Ð°Ð»ÑÐ½ÑÑ Ð´Ð°Ð½Ð½ÑÑÂ» Ð²Â ÑÐµÐ»ÑÑ Ð¾Ð±ÐµÑÐ¿ÐµÑÐµÐ½Ð¸Ñ Ð·Ð°ÑÐ¸ÑÑ Ð¿ÐµÑÑÐ¾Ð½Ð°Ð»ÑÐ½ÑÑ Ð´Ð°Ð½Ð½ÑÑ ÐÐ¾Ð»ÑÐ·Ð¾Ð²Ð°ÑÐµÐ»Ñ Ð¾ÑÂ Ð½ÐµÐ¿ÑÐ°Ð²Ð¾Ð¼ÐµÑÐ½Ð¾Ð³Ð¾ Ð¸Ð»Ð¸ ÑÐ»ÑÑÐ°Ð¹Ð½Ð¾Ð³Ð¾ Ð´Ð¾ÑÑÑÐ¿Ð° ÐºÂ Ð½Ð¸Ð¼, ÑÐ½Ð¸ÑÑÐ¾Ð¶ÐµÐ½Ð¸Ñ, Ð¸Ð·Ð¼ÐµÐ½ÐµÐ½Ð¸Ñ, Ð±Ð»Ð¾ÐºÐ¸ÑÐ¾Ð²Ð°Ð½Ð¸Ñ, ÐºÐ¾Ð¿Ð¸ÑÐ¾Ð²Ð°Ð½Ð¸Ñ, ÑÐ°ÑÐ¿ÑÐ¾ÑÑÑÐ°Ð½ÐµÐ½Ð¸Ñ, Ð°Â ÑÐ°ÐºÐ¶Ðµ Ð¾ÑÂ Ð¸Ð½ÑÑ Ð½ÐµÐ¿ÑÐ°Ð²Ð¾Ð¼ÐµÑÐ½ÑÑ Ð´ÐµÐ¹ÑÑÐ²Ð¸Ð¹ ÑÑÐµÑÑÐ¸Ñ Ð»Ð¸Ñ.
+ÐÐ¾Ð³Ð´Ð° ÐÑÂ Ð¸ÑÐ¿Ð¾Ð»ÑÐ·ÑÐµÑÐµ Ð½ÐµÐºÐ¾ÑÐ¾ÑÑÐµ Ð¿ÑÐ¾Ð´ÑÐºÑÑ, ÑÑÐ»ÑÐ³Ð¸ Ð¸Ð»Ð¸ Ð¿ÑÐ¸Ð»Ð¾Ð¶ÐµÐ½Ð¸Ñ ÐÐ¾Ð¼Ð¿Ð°Ð½Ð¸Ð¸ Ð¸Ð»Ð¸ ÑÐ°Ð·Ð¼ÐµÑÐ°ÐµÑÐµ Ð·Ð°Ð¿Ð¸ÑÐ¸ Ð½Ð°Â ÑÐ¾ÑÑÐ¼Ð°Ñ, Ð²Â ÑÐ°ÑÐ°Ñ Ð¸Ð»Ð¸ ÑÐ¾ÑÐ¸Ð°Ð»ÑÐ½ÑÑ ÑÐµÑÑÑ, Ð¿ÑÐµÐ´Ð¾ÑÑÐ°Ð²Ð»ÑÐµÐ¼ÑÐµ ÐÐ°Ð¼Ð¸ Ð¿ÐµÑÑÐ¾Ð½Ð°Ð»ÑÐ½ÑÐµ Ð´Ð°Ð½Ð½ÑÐµ Ð²Ð¸Ð´Ð½Ñ Ð´ÑÑÐ³Ð¸Ð¼ Ð¿Ð¾Ð»ÑÐ·Ð¾Ð²Ð°ÑÐµÐ»ÑÐ¼ Ð¸Â Ð¼Ð¾Ð³ÑÑ Ð±ÑÑÑ Ð¿ÑÐ¾ÑÐ¸ÑÐ°Ð½Ñ, ÑÐ¾Ð±ÑÐ°Ð½Ñ Ð¸Ð»Ð¸ Ð¸ÑÐ¿Ð¾Ð»ÑÐ·Ð¾Ð²Ð°Ð½Ñ Ð¸Ð¼Ð¸. ÐÑÂ Ð½ÐµÑÑÑÐµ Ð¾ÑÐ²ÐµÑÑÑÐ²ÐµÐ½Ð½Ð¾ÑÑÑ Ð·Ð°Â Ð¿ÐµÑÑÐ¾Ð½Ð°Ð»ÑÐ½ÑÐµ Ð´Ð°Ð½Ð½ÑÐµ, ÐºÐ¾ÑÐ¾ÑÑÐµÂ ÐÑ Ð¿ÑÐµÐ´Ð¿Ð¾ÑÐ¸ÑÐ°ÐµÑÐµ Ð¿ÑÐµÐ´Ð¾ÑÑÐ°Ð²Ð»ÑÑÑ, Ð²Â ÑÐ°ÐºÐ¸Ñ ÑÐ»ÑÑÐ°ÑÑ ÑÐ°Ð¼Ð¾ÑÑÐ¾ÑÑÐµÐ»ÑÐ½Ð¾. ÐÐ°Ð¿ÑÐ¸Ð¼ÐµÑ, ÐµÑÐ»Ð¸Â ÐÑ ÑÐºÐ°Ð·ÑÐ²Ð°ÐµÑÐµ ÑÐ²Ð¾Ñ Ð¸Ð¼Ñ Ð¸Â Ð°Ð´ÑÐµÑ ÑÐ»ÐµÐºÑÑÐ¾Ð½Ð½Ð¾Ð¹ Ð¿Ð¾ÑÑÑ Ð²Â Ð·Ð°Ð¿Ð¸ÑÐ¸ Ð½Ð°Â ÑÐ¾ÑÑÐ¼Ðµ, ÑÐ°ÐºÐ°Ñ Ð¸Ð½ÑÐ¾ÑÐ¼Ð°ÑÐ¸Ñ ÑÐ²Ð»ÑÐµÑÑÑ Ð¿ÑÐ±Ð»Ð¸ÑÐ½Ð¾Ð¹. ÐÐ¾Ð¶Ð°Ð»ÑÐ¹ÑÑÐ°, ÑÐ¾Ð±Ð»ÑÐ´Ð°Ð¹ÑÐµ Ð¼ÐµÑÑ Ð¿ÑÐµÐ´Ð¾ÑÑÐ¾ÑÐ¾Ð¶Ð½Ð¾ÑÑÐ¸ Ð¿ÑÐ¸ Ð¸ÑÐ¿Ð¾Ð»ÑÐ·Ð¾Ð²Ð°Ð½Ð¸Ð¸ ÑÐ°ÐºÐ¸Ñ ÑÑÐ½ÐºÑÐ¸Ð¹.
+Ð¦ÐÐÐÐ¡Ð¢ÐÐÐ¡Ð¢Ð¬ ÐÂ Ð¡ÐÐ¥Ð ÐÐÐÐÐÐ ÐÐÐ Ð¡ÐÐÐÐÐ¬ÐÐÐ ÐÐÐ¤ÐÐ ÐÐÐ¦ÐÐ
+ÐÐ·Ð°Ð¸Ð¼Ð¾Ð´ÐµÐ¹ÑÑÐ²ÑÑ ÑÂ ÐÐ¾Ð¼Ð¿Ð°Ð½Ð¸ÐµÐ¹, ÐÑÂ Ð¼Ð¾Ð¶ÐµÑÐµ Ð»ÐµÐ³ÐºÐ¾ Ð¿Ð¾Ð´Ð´ÐµÑÐ¶Ð¸Ð²Ð°ÑÑ ÑÐ²Ð¾Ð¸ Ð¿ÐµÑÑÐ¾Ð½Ð°Ð»ÑÐ½ÑÐµ Ð´Ð°Ð½Ð½ÑÐµ Ð¸Â Ð¸Ð½ÑÐ¾ÑÐ¼Ð°ÑÐ¸Ñ Ð²Â Ð°ÐºÑÑÐ°Ð»ÑÐ½Ð¾Ð¼ ÑÐ¾ÑÑÐ¾ÑÐ½Ð¸Ð¸. ÐÑÂ Ð±ÑÐ´ÐµÐ¼ ÑÑÐ°Ð½Ð¸ÑÑ ÐÐ°ÑÐ¸ Ð¿ÐµÑÑÐ¾Ð½Ð°Ð»ÑÐ½ÑÐµ Ð´Ð°Ð½Ð½ÑÐµ Ð¸Â Ð¸Ð½ÑÐ¾ÑÐ¼Ð°ÑÐ¸Ñ Ð²Â ÑÐµÑÐµÐ½Ð¸Ðµ ÑÑÐ¾ÐºÐ°, Ð½ÐµÐ¾Ð±ÑÐ¾Ð´Ð¸Ð¼Ð¾Ð³Ð¾ Ð´Ð»Ñ Ð²ÑÐ¿Ð¾Ð»Ð½ÐµÐ½Ð¸Ñ ÑÐµÐ»ÐµÐ¹, Ð¾Ð¿Ð¸ÑÑÐ²Ð°ÐµÐ¼ÑÑ Ð²Â Ð½Ð°ÑÑÐ¾ÑÑÐµÐ¹ ÐÐ¾Ð»Ð¸ÑÐ¸ÐºÐµ ÐÐ¾Ð½ÑÐ¸Ð´ÐµÐ½ÑÐ¸Ð°Ð»ÑÐ½Ð¾ÑÑÐ¸, Ð·Ð°Â Ð¸ÑÐºÐ»ÑÑÐµÐ½Ð¸ÐµÐ¼ ÑÐ»ÑÑÐ°ÐµÐ², ÐºÐ¾Ð³Ð´Ð° Ð±Ð¾Ð»ÐµÐµ Ð´Ð»Ð¸ÑÐµÐ»ÑÐ½ÑÐ¹ Ð¿ÐµÑÐ¸Ð¾Ð´ ÑÑÐ°Ð½ÐµÐ½Ð¸Ñ Ð´Ð°Ð½Ð½ÑÑ Ð¸Â Ð¸Ð½ÑÐ¾ÑÐ¼Ð°ÑÐ¸Ð¸ Ð½ÐµÐ¾Ð±ÑÐ¾Ð´Ð¸Ð¼ Ð²Â ÑÐ¾Ð¾ÑÐ²ÐµÑÑÑÐ²Ð¸Ð¸ ÑÂ Ð·Ð°ÐºÐ¾Ð½Ð¾Ð´Ð°ÑÐµÐ»ÑÑÑÐ²Ð¾Ð¼ Ð»Ð¸Ð±Ð¾ ÑÐ°Ð·ÑÐµÑÑÐ½Â Ð¸Ð¼.
+ÐÑÂ Ð½ÐµÂ ÑÐ¾Ð±Ð¸ÑÐ°ÐµÐ¼ Ð¿ÐµÑÑÐ¾Ð½Ð°Ð»ÑÐ½ÑÐµ Ð´Ð°Ð½Ð½ÑÐµ Ð¾Â Ð½ÐµÑÐ¾Ð²ÐµÑÑÐµÐ½Ð½Ð¾Ð»ÐµÑÐ½Ð¸Ñ. ÐÑÐ»Ð¸ Ð½Ð°Ð¼ ÑÑÐ°Ð½ÐµÑ Ð¸Ð·Ð²ÐµÑÑÐ½Ð¾ Ð¾Â ÑÐ¾Ð¼, ÑÑÐ¾ Ð¼ÑÂ Ð¿Ð¾Ð»ÑÑÐ¸Ð»Ð¸ Ð¿ÐµÑÑÐ¾Ð½Ð°Ð»ÑÐ½ÑÐµ Ð´Ð°Ð½Ð½ÑÐµ Ð¾Â Ð½ÐµÑÐ¾Ð²ÐµÑÑÐµÐ½Ð½Ð¾Ð»ÐµÑÐ½ÐµÐ¼, Ð¼ÑÂ Ð¿ÑÐµÐ´Ð¿ÑÐ¸Ð¼ÐµÐ¼ Ð¼ÐµÑÑ Ð´Ð»Ñ ÑÐ´Ð°Ð»ÐµÐ½Ð¸Ñ ÑÐ°ÐºÐ¾Ð¹ Ð¸Ð½ÑÐ¾ÑÐ¼Ð°ÑÐ¸Ð¸ Ð²Â Ð¼Ð°ÐºÑÐ¸Ð¼Ð°Ð»ÑÐ½Ð¾ ÐºÐ¾ÑÐ¾ÑÐºÐ¸Ð¹ ÑÑÐ¾Ðº.
+ÐÑÂ Ð½Ð°ÑÑÐ¾ÑÑÐµÐ»ÑÐ½Ð¾ ÑÐµÐºÐ¾Ð¼ÐµÐ½Ð´ÑÐµÐ¼ ÑÐ¾Ð´Ð¸ÑÐµÐ»ÑÐ¼ Ð¸Â Ð¸Ð½ÑÐ¼ Ð»Ð¸ÑÐ°Ð¼, Ð¿Ð¾Ð´ ÑÑÐ¸Ð¼ Ð¿ÑÐ¸ÑÐ¼Ð¾ÑÑÐ¾Ð¼ Ð½Ð°ÑÐ¾Ð´ÑÑÑÑ Ð½ÐµÑÐ¾Ð²ÐµÑÑÐµÐ½Ð½Ð¾Ð»ÐµÑÐ½Ð¸Ðµ (Ð·Ð°ÐºÐ¾Ð½Ð½ÑÐµ Ð¿ÑÐµÐ´ÑÑÐ°Ð²Ð¸ÑÐµÐ»Ð¸Â â ÑÐ¾Ð´Ð¸ÑÐµÐ»Ð¸, ÑÑÑÐ½Ð¾Ð²Ð¸ÑÐµÐ»Ð¸ Ð¸Ð»Ð¸ Ð¿Ð¾Ð¿ÐµÑÐ¸ÑÐµÐ»Ð¸), ÐºÐ¾Ð½ÑÑÐ¾Ð»Ð¸ÑÐ¾Ð²Ð°ÑÑ Ð¸ÑÐ¿Ð¾Ð»ÑÐ·Ð¾Ð²Ð°Ð½Ð¸Ðµ Ð½ÐµÑÐ¾Ð²ÐµÑÑÐµÐ½Ð½Ð¾Ð»ÐµÑÐ½Ð¸Ð¼Ð¸ Ð²ÐµÐ±-ÑÐ°Ð¹ÑÐ¾Ð².
+Ð¡Ð¢ÐÐ ÐÐÐÐÐ Ð¡ÐÐÐ¢Ð« ÐÂ Ð£Ð¡ÐÐ£ÐÐ
+ÐÐµÐ±-ÑÐ°Ð¹ÑÑ, Ð¿ÑÐ¾Ð´ÑÐºÑÑ, Ð¿ÑÐ¸Ð»Ð¾Ð¶ÐµÐ½Ð¸Ñ Ð¸Â ÑÑÐ»ÑÐ³Ð¸ ÐÐ¾Ð¼Ð¿Ð°Ð½Ð¸Ð¸ Ð¼Ð¾Ð³ÑÑ ÑÐ¾Ð´ÐµÑÐ¶Ð°ÑÑ ÑÑÑÐ»ÐºÐ¸ Ð½Ð°Â Ð²ÐµÐ±-ÑÐ°Ð¹ÑÑ, Ð¿ÑÐ¾Ð´ÑÐºÑÑ Ð¸Â ÑÑÐ»ÑÐ³Ð¸ ÑÑÐµÑÑÐ¸Ñ Ð»Ð¸Ñ. ÐÐ°ÑÐ¸ Ð¿ÑÐ¾Ð´ÑÐºÑÑ Ð¸Â ÑÑÐ»ÑÐ³Ð¸ Ð¼Ð¾Ð³ÑÑ ÑÐ°ÐºÐ¶Ðµ Ð¸ÑÐ¿Ð¾Ð»ÑÐ·Ð¾Ð²Ð°ÑÑ Ð¸Ð»Ð¸ Ð¿ÑÐµÐ´Ð»Ð°Ð³Ð°ÑÑ Ð¿ÑÐ¾Ð´ÑÐºÑÑ Ð¸Ð»Ð¸ ÑÑÐ»ÑÐ³Ð¸ ÑÑÐµÑÑÐ¸Ñ Ð»Ð¸Ñ. ÐÐµÑÑÐ¾Ð½Ð°Ð»ÑÐ½ÑÐµ Ð´Ð°Ð½Ð½ÑÐµ Ð¸Â Ð¸Ð½ÑÐ¾ÑÐ¼Ð°ÑÐ¸Ñ, ÑÐ¾Ð±Ð¸ÑÐ°ÐµÐ¼Ð°Ñ ÑÑÐµÑÑÐ¸Ð¼Ð¸ Ð»Ð¸ÑÐ°Ð¼Ð¸, ÐºÐ¾ÑÐ¾ÑÑÐµ Ð¼Ð¾Ð³ÑÑ Ð²ÐºÐ»ÑÑÐ°ÑÑ ÑÐ°ÐºÐ¸Ðµ ÑÐ²ÐµÐ´ÐµÐ½Ð¸Ñ, ÐºÐ°Ðº Ð´Ð°Ð½Ð½ÑÐµ Ð¼ÐµÑÑÐ¾Ð¿Ð¾Ð»Ð¾Ð¶ÐµÐ½Ð¸Ñ Ð¸Ð»Ð¸ ÐºÐ¾Ð½ÑÐ°ÐºÑÐ½Ð°Ñ Ð¸Ð½ÑÐ¾ÑÐ¼Ð°ÑÐ¸Ñ, ÑÐµÐ³ÑÐ»Ð¸ÑÑÐµÑÑÑ Ð¿ÑÐ°Ð²Ð¸Ð»Ð°Ð¼Ð¸ ÑÐ¾Ð±Ð»ÑÐ´ÐµÐ½Ð¸Ñ ÐºÐ¾Ð½ÑÐ¸Ð´ÐµÐ½ÑÐ¸Ð°Ð»ÑÐ½Ð¾ÑÑÐ¸ ÑÐ°ÐºÐ¸Ñ ÑÑÐµÑÑÐ¸Ñ Ð»Ð¸Ñ. ÐÑÂ Ð¿ÑÐ¸Ð·ÑÐ²Ð°ÐµÐ¼ ÐÐ°Ñ Ð¸Ð·ÑÑÐ°ÑÑ Ð¿ÑÐ°Ð²Ð¸Ð»Ð° ÑÐ¾Ð±Ð»ÑÐ´ÐµÐ½Ð¸Ñ ÐºÐ¾Ð½ÑÐ¸Ð´ÐµÐ½ÑÐ¸Ð°Ð»ÑÐ½Ð¾ÑÑÐ¸ ÑÐ°ÐºÐ¸Ñ ÑÑÐµÑÑÐ¸Ñ Ð»Ð¸Ñ.
+ÐÐ¿ÐµÑÐ°ÑÐ¾Ñ Ð½ÐµÂ Ð½ÐµÑÐµÑ Ð¾ÑÐ²ÐµÑÑÑÐ²ÐµÐ½Ð½Ð¾ÑÑÐ¸ Ð·Ð°Â Ð´ÐµÐ¹ÑÑÐ²Ð¸Ñ ÑÑÐµÑÑÐ¸Ñ Ð»Ð¸Ñ, Ð¿Ð¾Ð»ÑÑÐ¸Ð²ÑÐ¸Ñ Ð²Â ÑÐµÐ·ÑÐ»ÑÑÐ°ÑÐµ Ð¸ÑÐ¿Ð¾Ð»ÑÐ·Ð¾Ð²Ð°Ð½Ð¸Ñ ÐÐ½ÑÐµÑÐ½ÐµÑÐ° Ð¸Ð»Ð¸ Ð£ÑÐ»ÑÐ³ Ð¡Ð°Ð¹ÑÐ° Ð´Ð¾ÑÑÑÐ¿ ÐºÂ Ð¸Ð½ÑÐ¾ÑÐ¼Ð°ÑÐ¸Ð¸ Ð¾Â ÐÐ¾Ð»ÑÐ·Ð¾Ð²Ð°ÑÐµÐ»Ðµ Ð¸Â Ð·Ð°Â Ð¿Ð¾ÑÐ»ÐµÐ´ÑÑÐ²Ð¸Ñ Ð¸ÑÐ¿Ð¾Ð»ÑÐ·Ð¾Ð²Ð°Ð½Ð¸Ñ Ð´Ð°Ð½Ð½ÑÑ Ð¸Â Ð¸Ð½ÑÐ¾ÑÐ¼Ð°ÑÐ¸Ð¸, ÐºÐ¾ÑÐ¾ÑÑÐµ, Ð²Â ÑÐ¸Ð»Ñ Ð¿ÑÐ¸ÑÐ¾Ð´Ñ Ð¡Ð°Ð¹ÑÐ°, Ð´Ð¾ÑÑÑÐ¿Ð½Ñ Ð»ÑÐ±Ð¾Ð¼Ñ Ð¿Ð¾Ð»ÑÐ·Ð¾Ð²Ð°ÑÐµÐ»Ñ ÑÐµÑÐ¸ ÐÐ½ÑÐµÑÐ½ÐµÑ.
+Ð¡ÐÐÐÐ®ÐÐÐÐÐ ÐÐÐ¨ÐÐ ÐÐÐÐ¤ÐÐÐÐÐ¦ÐÐÐÐ¬ÐÐÐ¡Ð¢Ð ÐÐÂ Ð£Ð ÐÐÐÐ ÐÐÐÐÐÐÐÐ
+ÐÐ»Ñ ÑÐ¾Ð³Ð¾ ÑÑÐ¾Ð±Ñ ÑÐ±ÐµÐ´Ð¸ÑÑÑÑ, ÑÑÐ¾ ÐÐ°ÑÐ¸ Ð¿ÐµÑÑÐ¾Ð½Ð°Ð»ÑÐ½ÑÐµ Ð´Ð°Ð½Ð½ÑÐµ Ð½Ð°ÑÐ¾Ð´ÑÑÑÑ Ð²Â Ð±ÐµÐ·Ð¾Ð¿Ð°ÑÐ½Ð¾ÑÑÐ¸, Ð¼ÑÂ Ð´Ð¾Ð²Ð¾Ð´Ð¸Ð¼ Ð½Ð¾ÑÐ¼Ñ ÑÐ¾Ð±Ð»ÑÐ´ÐµÐ½Ð¸Ñ ÐºÐ¾Ð½ÑÐ¸Ð´ÐµÐ½ÑÐ¸Ð°Ð»ÑÐ½Ð¾ÑÑÐ¸ Ð¸Â Ð±ÐµÐ·Ð¾Ð¿Ð°ÑÐ½Ð¾ÑÑÐ¸ Ð´Ð¾Â ÑÐ°Ð±Ð¾ÑÐ½Ð¸ÐºÐ¾Ð² ÐÐ¾Ð¼Ð¿Ð°Ð½Ð¸Ð¸ Ð¸Â ÑÑÑÐ¾Ð³Ð¾ ÑÐ»ÐµÐ´Ð¸Ð¼ Ð·Ð°Â Ð¸ÑÐ¿Ð¾Ð»Ð½ÐµÐ½Ð¸ÐµÐ¼ Ð¼ÐµÑ ÑÐ¾Ð±Ð»ÑÐ´ÐµÐ½Ð¸Ñ ÐºÐ¾Ð½ÑÐ¸Ð´ÐµÐ½ÑÐ¸Ð°Ð»ÑÐ½Ð¾ÑÑÐ¸ Ð²Ð½ÑÑÑÐ¸ ÐÐ¾Ð¼Ð¿Ð°Ð½Ð¸Ð¸.
+ÐÐÐÐ ÐÐ¡Ð« ÐÐ¢ÐÐÐ¡ÐÐ¢ÐÐÐ¬ÐÐ ÐÐÐÐ¤ÐÐÐÐÐ¦ÐÐÐÐ¬ÐÐÐ¡Ð¢Ð
+ÐÑÐ»Ð¸ ÑÂ Ð²Ð°Ñ Ð²Ð¾Ð·Ð½Ð¸ÐºÐ½ÑÑ Ð²Ð¾Ð¿ÑÐ¾ÑÑ Ð²Â Ð¾ÑÐ½Ð¾ÑÐµÐ½Ð¸Ð¸ ÐÐ¾Ð»Ð¸ÑÐ¸ÐºÐ¸ ÐÐ¾Ð½ÑÐ¸Ð´ÐµÐ½ÑÐ¸Ð°Ð»ÑÐ½Ð¾ÑÑÐ¸ ÐÐ¾Ð¼Ð¿Ð°Ð½Ð¸Ð¸ Ð¸Ð»Ð¸ Ð¾Ð±ÑÐ°Ð±Ð¾ÑÐºÐ¸ Ð´Ð°Ð½Ð½ÑÑ ÐÐ¾Ð¼Ð¿Ð°Ð½Ð¸ÐµÐ¹, ÐÑÂ Ð¼Ð¾Ð¶ÐµÑÐµ ÑÐ²ÑÐ·Ð°ÑÑÑÑ ÑÂ Ð½Ð°Ð¼Ð¸ Ð¿Ð¾Â ÐºÐ¾Ð½ÑÐ°ÐºÑÐ°Ð¼ Ð´Ð»Ñ Ð¾Ð±ÑÐ°ÑÐ½Ð¾Ð¹ ÑÐ²ÑÐ·Ð¸.
+VII. ÐÐ±ÑÐ°ÑÐµÐ½Ð¸Ñ Ð¿Ð¾Ð»ÑÐ·Ð¾Ð²Ð°ÑÐµÐ»ÐµÐ¹
+ÐÂ Ð½Ð°ÑÑÐ¾ÑÑÐµÐ¹ ÐÐ¾Ð»Ð¸ÑÐ¸ÐºÐµ ÐºÐ¾Ð½ÑÐ¸Ð´ÐµÐ½ÑÐ¸Ð°Ð»ÑÐ½Ð¾ÑÑÐ¸ Ð¸Â Ð¾ÑÐ½Ð¾ÑÐµÐ½Ð¸ÑÐ¼ Ð¼ÐµÐ¶Ð´Ñ ÐÐ¾Ð»ÑÐ·Ð¾Ð²Ð°ÑÐµÐ»ÐµÐ¼ Ð¸Â ÐÐ¿ÐµÑÐ°ÑÐ¾ÑÐ¾Ð¼ Ð¿ÑÐ¸Ð¼ÐµÐ½ÑÐµÑÑÑ Ð´ÐµÐ¹ÑÑÐ²ÑÑÑÐµÐµ Ð·Ð°ÐºÐ¾Ð½Ð¾Ð´Ð°ÑÐµÐ»ÑÑÑÐ²Ð¾ Ð Ð¤.
+ÐÐ¾Ð»ÑÐ·Ð¾Ð²Ð°ÑÐµÐ»Ð¸ Ð²Ð¿ÑÐ°Ð²Ðµ Ð½Ð°Ð¿ÑÐ°Ð²Ð»ÑÑÑ ÐÐ¿ÐµÑÐ°ÑÐ¾ÑÑ ÑÐ²Ð¾Ð¸ Ð·Ð°Ð¿ÑÐ¾ÑÑ, Ð²Â ÑÐ¾Ð¼ ÑÐ¸ÑÐ»Ðµ Ð·Ð°Ð¿ÑÐ¾ÑÑ Ð¾ÑÐ½Ð¾ÑÐ¸ÑÐµÐ»ÑÐ½Ð¾ Ð¸ÑÐ¿Ð¾Ð»ÑÐ·Ð¾Ð²Ð°Ð½Ð¸Ñ Ð¸ÑÂ Ð¿ÐµÑÑÐ¾Ð½Ð°Ð»ÑÐ½ÑÑ Ð´Ð°Ð½Ð½ÑÑ, Ð½Ð°Ð¿ÑÐ°Ð²Ð»ÐµÐ½Ð¸Ñ Ð¾ÑÐ·ÑÐ²Ð° ÑÐ¾Ð³Ð»Ð°ÑÐ¸Ñ Ð½Ð°Â Ð¾Ð±ÑÐ°Ð±Ð¾ÑÐºÑ Ð¿ÐµÑÑÐ¾Ð½Ð°Ð»ÑÐ½ÑÑ Ð´Ð°Ð½Ð½ÑÑ Ð²Â Ð¿Ð¸ÑÑÐ¼ÐµÐ½Ð½Ð¾Ð¹ ÑÐ¾ÑÐ¼Ðµ Ð¿Ð¾Â Ð°Ð´ÑÐµÑÑ, ÑÐºÐ°Ð·Ð°Ð½Ð½Ð¾Ð¼Ñ ÑÐ°Ð·Ð´ÐµÐ»Ðµ ÐÐ±ÑÐ¸Ðµ Ð¿Ð¾Ð»Ð¾Ð¶ÐµÐ½Ð¸Ñ Ð½Ð°ÑÑÐ¾ÑÑÐµÐ³Ð¾ Ð¿Ð¾Ð»Ð¾Ð¶ÐµÐ½Ð¸Ñ, Ð¸Ð»Ð¸ Ð²Â ÑÐ¾ÑÐ¼Ðµ ÑÐ»ÐµÐºÑÑÐ¾Ð½Ð½Ð¾Ð³Ð¾ Ð´Ð¾ÐºÑÐ¼ÐµÐ½ÑÐ°, Ð¿Ð¾Ð´Ð¿Ð¸ÑÐ°Ð½Ð½Ð¾Ð³Ð¾ ÐºÐ²Ð°Ð»Ð¸ÑÐ¸ÑÐ¸ÑÐ¾Ð²Ð°Ð½Ð½Ð¾Ð¹ ÑÐ»ÐµÐºÑÑÐ¾Ð½Ð½Ð¾Ð¹ Ð¿Ð¾Ð´Ð¿Ð¸ÑÑÑ Ð²Â ÑÐ¾Ð¾ÑÐ²ÐµÑÑÑÐ²Ð¸Ð¸ ÑÂ Ð·Ð°ÐºÐ¾Ð½Ð¾Ð´Ð°ÑÐµÐ»ÑÑÑÐ²Ð¾Ð¼Â Ð Ð¤, Ð¸Â Ð¾ÑÐ¿ÑÐ°Ð²Ð»ÐµÐ½Ð½Ð¾Ð³Ð¾ Ð¿Ð¾Â ÑÑÐµÐ´ÑÑÐ²Ð°Ð¼ ÑÐ¾ÑÐ¼Ñ Ð¾Ð±ÑÐ°ÑÐ½Ð¾Ð¹ ÑÐ²ÑÐ·Ð¸.
+ÐÐ°Ð¿ÑÐ¾Ñ, Ð½Ð°Ð¿ÑÐ°Ð²Ð»ÑÐµÐ¼ÑÐ¹ ÐÐ¾Ð»ÑÐ·Ð¾Ð²Ð°ÑÐµÐ»ÐµÐ¼, Ð´Ð¾Ð»Ð¶ÐµÐ½ ÑÐ¾Ð¾ÑÐ²ÐµÑÑÑÐ²Ð¾Ð²Ð°ÑÑ ÑÑÐµÐ±Ð¾Ð²Ð°Ð½Ð¸ÑÐ¼, ÑÑÑÐ°Ð½Ð¾Ð²Ð»ÐµÐ½Ð½ÑÐ¼ ÐÑÐ°Ð²Ð¸Ð»Ð°Ð¼Ð¸ Ð¿Ð¾Ð´Ð°ÑÐ¸ Ð¾Ð±ÑÐ°ÑÐµÐ½Ð¸Ð¹ Ð²Â Ð¡Ð»ÑÐ¶Ð±Ñ ÑÐµÑÐ²Ð¸ÑÐ° Ð¸Â Ð¿Ð¾Ð´Ð´ÐµÑÐ¶ÐºÐ¸, Ð°Â Ð¸Ð¼ÐµÐ½Ð½Ð¾ ÑÐ¾Ð´ÐµÑÐ¶Ð°ÑÑ
+âÂ Ð½Ð¾Ð¼ÐµÑ Ð¾ÑÐ½Ð¾Ð²Ð½Ð¾Ð³Ð¾ Ð´Ð¾ÐºÑÐ¼ÐµÐ½ÑÐ°, ÑÐ´Ð¾ÑÑÐ¾Ð²ÐµÑÑÑÑÐµÐ³Ð¾ Ð»Ð¸ÑÐ½Ð¾ÑÑÑ Ð¿Ð¾Ð»ÑÐ·Ð¾Ð²Ð°ÑÐµÐ»Ñ Ð¸Ð»Ð¸ ÐµÐ³Ð¾ Ð¿ÑÐµÐ´ÑÑÐ°Ð²Ð¸ÑÐµÐ»Ñ;âÂ ÑÐ²ÐµÐ´ÐµÐ½Ð¸Ñ Ð¾Â Ð´Ð°ÑÐµ Ð²ÑÐ´Ð°ÑÐ¸ ÑÐºÐ°Ð·Ð°Ð½Ð½Ð¾Ð³Ð¾ Ð´Ð¾ÐºÑÐ¼ÐµÐ½ÑÐ° Ð¸Â Ð²ÑÐ´Ð°Ð²ÑÐµÐ¼ ÐµÐ³Ð¾ Ð¾ÑÐ³Ð°Ð½Ðµ;âÂ ÑÐ²ÐµÐ´ÐµÐ½Ð¸Ñ, Ð¿Ð¾Ð´ÑÐ²ÐµÑÐ¶Ð´Ð°ÑÑÐ¸Ðµ ÑÑÐ°ÑÑÐ¸Ðµ Ð¿Ð¾Ð»ÑÐ·Ð¾Ð²Ð°ÑÐµÐ»Ñ Ð²Â Ð¾ÑÐ½Ð¾ÑÐµÐ½Ð¸ÑÑ ÑÂ ÐÐ¿ÐµÑÐ°ÑÐ¾ÑÐ¾Ð¼ (Ð²Â ÑÐ°ÑÑÐ½Ð¾ÑÑÐ¸, Ð¿Ð¾ÑÑÐ´ÐºÐ¾Ð²ÑÐ¹ Ð½Ð¾Ð¼ÐµÑ idÂ Ð¿Ð¾Ð»ÑÐ·Ð¾Ð²Ð°ÑÐµÐ»Ñ Ð¸Ð»Ð¸ ÐºÐ¾ÑÐ¾ÑÐºÐ¾Ðµ (Ð¿Ð¾Ð´Ð´Ð¾Ð¼ÐµÐ½Ð½Ð¾Ðµ) Ð¸Ð¼Ñ, Ð·Ð°Ð¼ÐµÐ½ÑÑÑÐµÐµ Ð¿Ð¾ÑÑÐ´ÐºÐ¾Ð²ÑÐ¹ Ð½Ð¾Ð¼ÐµÑÂ id);âÂ Ð¿Ð¾Ð´Ð¿Ð¸ÑÑ ÐÐ¾Ð»ÑÐ·Ð¾Ð²Ð°ÑÐµÐ»Ñ Ð¸Ð»Ð¸ ÐµÐ³Ð¾ Ð¿ÑÐµÐ´ÑÑÐ°Ð²Ð¸ÑÐµÐ»Ñ;âÂ Ð°Ð´ÑÐµÑ ÑÐ»ÐµÐºÑÑÐ¾Ð½Ð½Ð¾Ð¹ Ð¿Ð¾ÑÑÑ;âÂ ÐºÐ¾Ð½ÑÐ°ÐºÑÐ½ÑÐ¹ ÑÐµÐ»ÐµÑÐ¾Ð½.
+ÐÐ¿ÐµÑÐ°ÑÐ¾Ñ Ð¾Ð±ÑÐ·ÑÐµÑÑÑ ÑÐ°ÑÑÐ¼Ð¾ÑÑÐµÑÑ Ð¸Â Ð½Ð°Ð¿ÑÐ°Ð²Ð¸ÑÑ Ð¾ÑÐ²ÐµÑ Ð½Ð°Â Ð¿Ð¾ÑÑÑÐ¿Ð¸Ð²ÑÐ¸Ð¹ Ð·Ð°Ð¿ÑÐ¾Ñ ÐÐ¾Ð»ÑÐ·Ð¾Ð²Ð°ÑÐµÐ»Ñ Ð²Â ÑÐµÑÐµÐ½Ð¸Ðµ 30Â Ð´Ð½ÐµÐ¹ ÑÂ Ð¼Ð¾Ð¼ÐµÐ½ÑÐ° Ð¿Ð¾ÑÑÑÐ¿Ð»ÐµÐ½Ð¸Ñ Ð¾Ð±ÑÐ°ÑÐµÐ½Ð¸Ñ.
+ÐÐ Ð£ÐÐÐ
+ÐÐ¾Â Ð²ÑÐµÐ¼ Ð¾ÑÑÐ°Ð»ÑÐ½Ð¾Ð¼, ÑÑÐ¾ Ð½ÐµÂ Ð¾ÑÑÐ°Ð¶ÐµÐ½Ð¾ Ð½Ð°Ð¿ÑÑÐ¼ÑÑ Ð²Â ÐÐ¾Ð»Ð¸ÑÐ¸ÐºÐµ ÐÐ¾Ð½ÑÐ¸Ð´ÐµÐ½ÑÐ¸Ð°Ð»ÑÐ½Ð¾ÑÑÐ¸, ÐÐ¾Ð¼Ð¿Ð°Ð½Ð¸Ñ Ð¾Ð±ÑÐ·ÑÐµÑÑÑ ÑÑÐºÐ¾Ð²Ð¾Ð´ÑÑÐ²Ð¾Ð²Ð°ÑÑÑÑ Ð½Ð¾ÑÐ¼Ð°Ð¼Ð¸ Ð¸Â Ð¿Ð¾Ð»Ð¾Ð¶ÐµÐ½Ð¸ÑÐ¼Ð¸ Ð¤ÐµÐ´ÐµÑÐ°Ð»ÑÐ½Ð¾Ð³Ð¾ Ð·Ð°ÐºÐ¾Ð½Ð° Ð¾ÑÂ 27.07.2006Â N 152-Ð¤Ð Â«ÐÂ Ð¿ÐµÑÑÐ¾Ð½Ð°Ð»ÑÐ½ÑÑ Ð´Ð°Ð½Ð½ÑÑÂ»
+ÐÐ¾ÑÐµÑÐ¸ÑÐµÐ»Ñ ÑÐ°Ð¹ÑÐ° ÐÐ¾Ð¼Ð¿Ð°Ð½Ð¸Ð¸, Ð¿ÑÐµÐ´Ð¾ÑÑÐ°Ð²Ð»ÑÑÑÐ¸Ð¹ ÑÐ²Ð¾Ð¸ Ð¿ÐµÑÑÐ¾Ð½Ð°Ð»ÑÐ½ÑÐµ Ð´Ð°Ð½Ð½ÑÐµ Ð¸Â Ð¸Ð½ÑÐ¾ÑÐ¼Ð°ÑÐ¸Ñ, ÑÐµÐ¼ ÑÐ°Ð¼ÑÐ¼ ÑÐ¾Ð³Ð»Ð°ÑÐ°ÐµÑÑÑ ÑÂ Ð¿Ð¾Ð»Ð¾Ð¶ÐµÐ½Ð¸ÑÐ¼Ð¸ Ð´Ð°Ð½Ð½Ð¾Ð¹ ÐÐ¾Ð»Ð¸ÑÐ¸ÐºÐ¸ ÐÐ¾Ð½ÑÐ¸Ð´ÐµÐ½ÑÐ¸Ð°Ð»ÑÐ½Ð¾ÑÑÐ¸.
+ÐÐ¾Ð¼Ð¿Ð°Ð½Ð¸Ñ Ð¾ÑÑÐ°Ð²Ð»ÑÐµÑ Ð·Ð°Â ÑÐ¾Ð±Ð¾Ð¹ Ð¿ÑÐ°Ð²Ð¾ Ð²Ð½Ð¾ÑÐ¸ÑÑ Ð»ÑÐ±ÑÐµ Ð¸Ð·Ð¼ÐµÐ½ÐµÐ½Ð¸Ñ Ð²Â ÐÐ¾Ð»Ð¸ÑÐ¸ÐºÑ Ð²Â Ð»ÑÐ±Ð¾Ðµ Ð²ÑÐµÐ¼Ñ Ð¿Ð¾Â ÑÐ²Ð¾ÐµÐ¼Ñ ÑÑÐ¼Ð¾ÑÑÐµÐ½Ð¸Ñ ÑÂ ÑÐµÐ»ÑÑ Ð´Ð°Ð»ÑÐ½ÐµÐ¹ÑÐµÐ³Ð¾ ÑÐ¾Ð²ÐµÑÑÐµÐ½ÑÑÐ²Ð¾Ð²Ð°Ð½Ð¸Ñ ÑÐ¸ÑÑÐµÐ¼Ñ Ð·Ð°ÑÐ¸ÑÑ Ð¾ÑÂ Ð½ÐµÑÐ°Ð½ÐºÑÐ¸Ð¾Ð½Ð¸ÑÐ¾Ð²Ð°Ð½Ð½Ð¾Ð³Ð¾ Ð´Ð¾ÑÑÑÐ¿Ð° ÐºÂ ÑÐ¾Ð¾Ð±ÑÐ°ÐµÐ¼ÑÐ¼ ÐÐ¾Ð»ÑÐ·Ð¾Ð²Ð°ÑÐµÐ»ÑÐ¼Ð¸ Ð¿ÐµÑÑÐ¾Ð½Ð°Ð»ÑÐ½ÑÐ¼ Ð´Ð°Ð½Ð½ÑÐ¼ Ð±ÐµÐ· ÑÐ¾Ð³Ð»Ð°ÑÐ¸Ñ ÐÐ¾Ð»ÑÐ·Ð¾Ð²Ð°ÑÐµÐ»Ñ. ÐÐ¾Ð³Ð´Ð° Ð¼ÑÂ Ð²Ð½Ð¾ÑÐ¸Ð¼ ÑÑÑÐµÑÑÐ²ÐµÐ½Ð½ÑÐµ Ð¸Ð·Ð¼ÐµÐ½ÐµÐ½Ð¸Ñ Ð²Â ÐÐ¾Ð»Ð¸ÑÐ¸ÐºÑ ÐÐ¾Ð½ÑÐ¸Ð´ÐµÐ½ÑÐ¸Ð°Ð»ÑÐ½Ð¾ÑÑÐ¸, Ð½Ð°Â Ð½Ð°ÑÐµÐ¼ ÑÐ°Ð¹ÑÐµ ÑÐ°Ð·Ð¼ÐµÑÐ°ÐµÑÑÑ ÑÐ¾Ð¾ÑÐ²ÐµÑÑÑÐ²ÑÑÑÐµÐµ ÑÐ²ÐµÐ´Ð¾Ð¼Ð»ÐµÐ½Ð¸Ðµ Ð²Ð¼ÐµÑÑÐµ ÑÂ Ð¾Ð±Ð½Ð¾Ð²Ð»ÑÐ½Ð½Ð¾Ð¹ Ð²ÐµÑÑÐ¸ÐµÐ¹ ÐÐ¾Ð»Ð¸ÑÐ¸ÐºÐ¸ ÐÐ¾Ð½ÑÐ¸Ð´ÐµÐ½ÑÐ¸Ð°Ð»ÑÐ½Ð¾ÑÑÐ¸.
+ÐÐµÐ¹ÑÑÐ²Ð¸Ðµ Ð½Ð°ÑÑÐ¾ÑÑÐµÐ¹ ÐÐ¾Ð»Ð¸ÑÐ¸ÐºÐ¸ Ð½ÐµÂ ÑÐ°ÑÐ¿ÑÐ¾ÑÑÑÐ°Ð½ÑÐµÑÑÑ Ð½Ð°Â Ð´ÐµÐ¹ÑÑÐ²Ð¸Ñ Ð¸Â Ð¸Ð½ÑÐµÑÐ½ÐµÑ-ÑÐµÑÑÑÑÐ¾Ð² ÑÑÐµÑÑÐ¸Ñ Ð»Ð¸Ñ.
+ÐÐÐ Â«Ð¢ÐµÑÐ½Ð¾Ð¼Ð°ÑÐºÑÂ»
+div
+div
+div
+div
+div
+
+script data-cfasync=false src=cdn-cgiscripts5c5dd728cloudflare-staticemail-decode.min.jsscriptscript type=textjavascript async
+    (function (d, w, c) {
+        (w[c] = w[c]  []).push(function () {
+            try {
+                w.yaCounter44478286 = new Ya.Metrika2({
+                    id 44478286,
+                    clickmap true,
+                    trackLinks true,
+                    accurateTrackBounce true,
+                    webvisor true,
+                    trackHash true,
+                    triggerEvent true
+                });
+            } catch (e) {
+            }
+        });
+
+        var n = d.getElementsByTagName('script')[0],
+            s = d.createElement('script'),
+            f = function () {
+                n.parentNode.insertBefore(s, n);
+            };
+        s.type = 'textjavascript';
+        s.async = true;
+        s.src = 'httpsmc.yandex.rumetrikatag.js';
+
+        if (w.opera == '[object Opera]') {
+            d.addEventListener('DOMContentLoaded', f, false);
+        } else {
+            f();
+        }
+    })(document, window, 'yandex_metrika_callbacks2');
+script
+noscript
+    divimg src=httpsmc.yandex.ruwatch44478286 style=positionabsolute; left-9999px; alt=div
+noscript
+script type=textjavascript
+    (function (e, t) {
+        var n = e.amplitude  { _q [], _iq {} };
+        var r = t.createElement('script');
+        r.type = 'textjavascript';
+        r.async = true;
+        r.src = 'httpscdn.amplitude.comlibsamplitude-4.4.0-min.gz.js';
+        r.onload = function () {
+            if (e.amplitude.runQueuedFunctions) {
+                e.amplitude.runQueuedFunctions();
+            } else {
+                console.log('[Amplitude] Error could not load SDK');
+            }
+        };
+        var i = t.getElementsByTagName('script')[0];
+        i.parentNode.insertBefore(r, i);
+
+        function s (e, t) {
+            e.prototype[t] = function () {
+                this._q.push([t].concat(Array.prototype.slice.call(arguments, 0)));
+                return this;
+            };
+        }
+
+        var o = function () {
+            this._q = [];
+            return this;
+        };
+        var a = ['add', 'append', 'clearAll', 'prepend', 'set', 'setOnce', 'unset'];
+
+        for (var u = 0; u  a.length; u++) {s(o, a[u]);}
+        n.Identify = o;
+        var c = function () {
+            this._q = [];
+
+            return this;
+        };
+        var l = ['setProductId', 'setQuantity', 'setPrice', 'setRevenueType', 'setEventProperties'];
+
+        for (var p = 0; p  l.length; p++) {s(c, l[p]);}
+        n.Revenue = c;
+        var d = ['init', 'logEvent', 'logRevenue', 'setUserId', 'setUserProperties', 'setOptOut', 'setVersionName', 'setDomain', 'setDeviceId', 'setGlobalUserProperties', 'identify', 'clearUserProperties', 'setGroup', 'logRevenueV2', 'regenerateDeviceId', 'logEventWithTimestamp', 'logEventWithGroups', 'setSessionId', 'resetSessionId'];
+
+        function v (e) {
+            function t (t) {
+                e[t] = function () {
+                    e._q.push([t].concat(Array.prototype.slice.call(arguments, 0)));
+                };
+            }
+
+            for (var n = 0; n  d.length; n++) {t(d[n]);}
+        }
+
+        v(n);
+        n.getInstance = function (e) {
+            e = (!e  e.length === 0  '$default_instance'  e).toLowerCase();
+
+            if (!n._iq.hasOwnProperty(e)) {
+                n._iq[e] = { _q [] };
+                v(n._iq[e]);
+            }
+            return n._iq[e];
+        };
+        e.amplitude = n;
+    })(window, document);
+
+    amplitude.getInstance().init('cdcba208e65d355b68bd8f7ac50e5c32', null, {
+         optional configuration options
+            saveEvents true,
+        includeUtm true,
+        includeReferrer true,
+            trackingOptions {
+              city false,
+              ip_address false
+            }
+    });
+script
+script
+    (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r]  function () {
+            (i[r].q = i[r].q  []).push(arguments);
+        }, i[r].l = 1  new Date();
+        a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m);
+    })(window, document, 'script', 'httpswww.google-analytics.comanalytics.js', 'ga');
+
+    ga('create', 'UA-97900333-2', 'auto');
+    ga('send', 'pageview');
+script
+
+script type=textjavascript async
+    window.$zopim  (function (d, s) {
+        var z = $zopim = function (c) {
+            z._.push(c);
+        }, $ = z.s =
+            d.createElement(s), e = d.getElementsByTagName(s)[0];
+        z.set = function (o) {
+            z.set._.push(o);
+        };
+        z._ = [];
+        z.set._ = [];
+        $.async = true;
+        $.setAttribute('charset', 'utf-8');
+        $.src = 'httpsv2.zopim.com4yOS5ncRHWQxnotiU7KE6rFlfOLN0BG7';
+        z.t = +new Date;
+        $.type = 'textjavascript';
+        e.parentNode.insertBefore($, e);
+    })(document, 'script');
+script
+script src=jspetmap.jsv=1634040952script
+script src=www.google.comrecaptchaapi.jshl=ru&amp;render=explicit&amp;onload=recaptchaOnloadCallback async deferscript
+script src=assets112b979jquery.jsv=1631545440script
+script src=assetse8fb5053yii.jsv=1631545440script
+script src=httpsunpkg.comleaflet@1.7.1distleaflet.jsscript
+script src=httpsunpkg.comleaflet-geosearch@3.3.2distgeosearch.umd.jsscript
+script src=jsgeocoderNominatim.jsv=1634233324script
+script src=httpsunpkg.comleaflet.markercluster@1.3.0distleaflet.markercluster.jsscript
+script src=assetse8fb5053yii.validation.jsv=1631545440script
+script src=assetse8fb5053yii.activeForm.jsv=1631545440script
+script src=assetsc905444fjquery.pjax.jsv=1631545462script
+script src=assets97a0d9e4popper.min.jsv=1631545440script
+script src=assets2f9b551ejsbootstrap.jsv=1631545440script
+script src=jsscript.jsv=1632313704script
+script src=jspluginsowlowl.carousel.min.jsv=1624897402script
+script src=httpswww.gstatic.comfirebasejs5.7.0firebase.jsscript
+script src=jsfirebase.jsv=1635144339script
+script src=jspluginslightbox.min.jsv=1624897402script
+script src=assetsfafd698ajsnavbar.jsv=1631545440script
+scriptfunction recaptchaOnloadCallback() {
+    use strict;
+    jQuery(.g-recaptcha).each(function () {
+        const reCaptcha = jQuery(this);
+        if (reCaptcha.data(recaptcha-client-id) === undefined) {
+            const recaptchaClientId = grecaptcha.render(reCaptcha.attr(id), {
+                callback function (response) {
+                    if (reCaptcha.data(form-id) !== ) {
+                        jQuery(# + reCaptcha.data(input-id), # + reCaptcha.data(form-id)).val(response)
+                            .trigger(change);
+                    } else {
+                        jQuery(# + reCaptcha.data(input-id)).val(response).trigger(change);
+                    }
+
+                    if (reCaptcha.attr(data-callback)) {
+                        eval(( + reCaptcha.attr(data-callback) + )(response));
+                    }
+                },
+                expired-callback function () {
+                    if (reCaptcha.data(form-id) !== ) {
+                        jQuery(# + reCaptcha.data(input-id), # + reCaptcha.data(form-id)).val();
+                    } else {
+                        jQuery(# + reCaptcha.data(input-id)).val();
+                    }
+
+                    if (reCaptcha.attr(data-expired-callback)) {
+                        eval(( + reCaptcha.attr(data-expired-callback) + )());
+                    }
+                },
+            });
+            reCaptcha.data(recaptcha-client-id, recaptchaClientId);
+        }
+    });
+}script
+scriptjQuery(function ($) {
+jQuery('#commentViewForm').yiiActiveForm([{idaddcommentform-name,namename,container.field-addcommentform-name,input#addcommentform-name,error.error,validatefunction (attribute, value, messages, deferred, $form) {yii.validation.required(value, messages, {messageÐÐµÐ¾Ð±ÑÐ¾Ð´Ð¸Ð¼Ð¾ Ð·Ð°Ð¿Ð¾Ð»Ð½Ð¸ÑÑ Â«NameÂ».});yii.validation.string(value, messages, {messageÐÐ½Ð°ÑÐµÐ½Ð¸Ðµ Â«NameÂ» Ð´Ð¾Ð»Ð¶Ð½Ð¾ Ð±ÑÑÑ ÑÑÑÐ¾ÐºÐ¾Ð¹.,min3,tooShortÐÐ½Ð°ÑÐµÐ½Ð¸Ðµ Â«NameÂ» Ð´Ð¾Ð»Ð¶Ð½Ð¾ ÑÐ¾Ð´ÐµÑÐ¶Ð°ÑÑ Ð¼Ð¸Ð½Ð¸Ð¼ÑÐ¼ 3 ÑÐ¸Ð¼Ð²Ð¾Ð»Ð°.,skipOnEmpty1});}},{idaddcommentform-comment,namecomment,container.field-addcommentform-comment,input#addcommentform-comment,error.error,validatefunction (attribute, value, messages, deferred, $form) {yii.validation.required(value, messages, {messageÐÐµÐ¾Ð±ÑÐ¾Ð´Ð¸Ð¼Ð¾ Ð·Ð°Ð¿Ð¾Ð»Ð½Ð¸ÑÑ Â«CommentÂ».});yii.validation.string(value, messages, {messageÐÐ½Ð°ÑÐµÐ½Ð¸Ðµ Â«CommentÂ» Ð´Ð¾Ð»Ð¶Ð½Ð¾ Ð±ÑÑÑ ÑÑÑÐ¾ÐºÐ¾Ð¹.,min3,tooShortÐÐ½Ð°ÑÐµÐ½Ð¸Ðµ Â«CommentÂ» Ð´Ð¾Ð»Ð¶Ð½Ð¾ ÑÐ¾Ð´ÐµÑÐ¶Ð°ÑÑ Ð¼Ð¸Ð½Ð¸Ð¼ÑÐ¼ 3 ÑÐ¸Ð¼Ð²Ð¾Ð»Ð°.,skipOnEmpty1});}},{idaddcommentform-recaptcha,namereCaptcha,container.field-addcommentform-recaptcha,input#addcommentform-recaptcha,error.error,validatefunction (attribute, value, messages, deferred, $form) {if (!value) {
+     messages.push(ÐÐ¾Ð´ÑÐ²ÐµÑÐ´Ð¸ÑÐµ ÑÑÐ¾ Ð²Ñ Ð½Ðµ Ð±Ð¾Ñ);
+}}}], []);
+jQuery(document).pjax(#commentPjax a, {pushtrue,replacefalse,timeout0,scrollTofalse,container#commentPjax});
+jQuery(document).off(submit, #commentPjax form[data-pjax]).on(submit, #commentPjax form[data-pjax], function (event) {jQuery.pjax.submit(event, {pushtrue,replacefalse,timeout0,scrollTofalse,container#commentPjax});});
+    let owl = $('.owl-carousel').owlCarousel({
+        nav false,
+        slideBy 3,
+        responsiveClass true,
+        responsive {
+          0 {
+            items 1
+          },
+          600 {
+            items 2
+          },
+          1000 {
+            items 3
+          }
+        },
+        nestedItemSelector 'ui-carousel-item'
+    });
+
+    $('.ui-carousel-next-button').click(function() {
+        owl.trigger('next.owl.carousel');
+    });
+    $('.ui-carousel-prev-button').click(function() {
+        owl.trigger('prev.owl.carousel');
+    });
+    
+    $(a[href='#top']).click(function() {
+      $(html, body).animate({ scrollTop 0 }, slow);
+      return false;
+    });
+
+jQuery('#form-registration').yiiActiveForm([{idfastsignupform-username,nameusername,container.field-fastsignupform-username,input#fastsignupform-username,error.error,validatefunction (attribute, value, messages, deferred, $form) {value = yii.validation.trim($form, attribute, [], value);yii.validation.required(value, messages, {messageÐÐµÐ¾Ð±ÑÐ¾Ð´Ð¸Ð¼Ð¾ Ð·Ð°Ð¿Ð¾Ð»Ð½Ð¸ÑÑ Â«UsernameÂ».});yii.validation.required(value, messages, {messageÐÐµÐ¾Ð±ÑÐ¾Ð´Ð¸Ð¼Ð¾ Ð·Ð°Ð¿Ð¾Ð»Ð½Ð¸ÑÑ Â«UsernameÂ».});yii.validation.string(value, messages, {messageÐÐ½Ð°ÑÐµÐ½Ð¸Ðµ Â«UsernameÂ» Ð´Ð¾Ð»Ð¶Ð½Ð¾ Ð±ÑÑÑ ÑÑÑÐ¾ÐºÐ¾Ð¹.,min2,tooShortÐÐ½Ð°ÑÐµÐ½Ð¸Ðµ Â«UsernameÂ» Ð´Ð¾Ð»Ð¶Ð½Ð¾ ÑÐ¾Ð´ÐµÑÐ¶Ð°ÑÑ Ð¼Ð¸Ð½Ð¸Ð¼ÑÐ¼ 2 ÑÐ¸Ð¼Ð²Ð¾Ð»Ð°.,max255,tooLongÐÐ½Ð°ÑÐµÐ½Ð¸Ðµ Â«UsernameÂ» Ð´Ð¾Ð»Ð¶Ð½Ð¾ ÑÐ¾Ð´ÐµÑÐ¶Ð°ÑÑ Ð¼Ð°ÐºÑÐ¸Ð¼ÑÐ¼ 255 ÑÐ¸Ð¼Ð²Ð¾Ð»Ð¾Ð².,skipOnEmpty1});}},{idfastsignupform-email,nameemail,container.field-fastsignupform-email,input#fastsignupform-email,error.error,validatefunction (attribute, value, messages, deferred, $form) {value = yii.validation.trim($form, attribute, [], value);yii.validation.required(value, messages, {messageÐÐµÐ¾Ð±ÑÐ¾Ð´Ð¸Ð¼Ð¾ Ð·Ð°Ð¿Ð¾Ð»Ð½Ð¸ÑÑ Â«EmailÂ».});yii.validation.email(value, messages, {pattern^[a-zA-Z0-9!#$%&'+=^_`{}~-]+(.[a-zA-Z0-9!#$%&'+=^_`{}~-]+)@([a-zA-Z0-9]([a-zA-Z0-9-][a-zA-Z0-9]).)+[a-zA-Z0-9]([a-zA-Z0-9-][a-zA-Z0-9])$,fullPattern^[^@][a-zA-Z0-9!#$%&'+=^_`{}~-]+(.[a-zA-Z0-9!#$%&'+=^_`{}~-]+)@([a-zA-Z0-9]([a-zA-Z0-9-][a-zA-Z0-9]).)+[a-zA-Z0-9]([a-zA-Z0-9-][a-zA-Z0-9])$,allowNamefalse,messageÐÐ½Ð°ÑÐµÐ½Ð¸Ðµ Â«EmailÂ» Ð½Ðµ ÑÐ²Ð»ÑÐµÑÑÑ Ð¿ÑÐ°Ð²Ð¸Ð»ÑÐ½ÑÐ¼ email Ð°Ð´ÑÐµÑÐ¾Ð¼.,enableIDNfalse,skipOnEmpty1});yii.validation.string(value, messages, {messageÐÐ½Ð°ÑÐµÐ½Ð¸Ðµ Â«EmailÂ» Ð´Ð¾Ð»Ð¶Ð½Ð¾ Ð±ÑÑÑ ÑÑÑÐ¾ÐºÐ¾Ð¹.,max255,tooLongÐÐ½Ð°ÑÐµÐ½Ð¸Ðµ Â«EmailÂ» Ð´Ð¾Ð»Ð¶Ð½Ð¾ ÑÐ¾Ð´ÐµÑÐ¶Ð°ÑÑ Ð¼Ð°ÐºÑÐ¸Ð¼ÑÐ¼ 255 ÑÐ¸Ð¼Ð²Ð¾Ð»Ð¾Ð².,skipOnEmpty1});}}], []);
+jQuery('#form-login').yiiActiveForm([{idloginform-goback,namegoBack,container.field-loginform-goback,input#loginform-goback,error.error,validatefunction (attribute, value, messages, deferred, $form) {yii.validation.number(value, messages, {pattern^[+-]d+$,messageÐÐ½Ð°ÑÐµÐ½Ð¸Ðµ Â«Go BackÂ» Ð´Ð¾Ð»Ð¶Ð½Ð¾ Ð±ÑÑÑ ÑÐµÐ»ÑÐ¼ ÑÐ¸ÑÐ»Ð¾Ð¼.,skipOnEmpty1});}},{idloginform-email,nameemail,container.field-loginform-email,input#loginform-email,error.error,validatefunction (attribute, value, messages, deferred, $form) {yii.validation.required(value, messages, {messageÐÐµÐ¾Ð±ÑÐ¾Ð´Ð¸Ð¼Ð¾ Ð·Ð°Ð¿Ð¾Ð»Ð½Ð¸ÑÑ Â«EmailÂ».});}},{idloginform-password,namepassword,container.field-loginform-password,input#loginform-password,error.error,validatefunction (attribute, value, messages, deferred, $form) {yii.validation.required(value, messages, {messageÐÐµÐ¾Ð±ÑÐ¾Ð´Ð¸Ð¼Ð¾ Ð·Ð°Ð¿Ð¾Ð»Ð½Ð¸ÑÑ Â«PasswordÂ».});}}], []);
+jQuery('#modalLoginSignup').modal({showfalse});
+jQuery('#modalComplain').modal({showfalse});
+jQuery('#modalPolicy').modal({showfalse});
+});script
+scriptjQuery(window).on('load', function () {
+    $(document).on('click','#showPhoneBtn',function(e) {
+      e.preventDefault();
+      let thisa = this;
+      $.ajax({    
+        type 'get',
+        url 'petshow-phone494610',
+        dataType 'json',
+        success function(msg){
+            if (msg.status == 'success') {
+                $(thisa).replaceWith(msg.html);
+            } else {
+                console.log(msg);
+            }
+        }
+      });
+    });
+zoomVar = 11;
+  initMap({
+    lat 52.54243307,
+    lng 85.28085709
+  }, 'ÑÐ»Ð¸ÑÐ° ÐÐ»ÐµÐºÑÐ°Ð½Ð´ÑÐ° ÐÑÑÐºÐ¸Ð½Ð°, 152, ÐÐ¸Ð¹ÑÐº');
+$(#sendComplainFormBtn).on('click',function() {
+    $(#complainForm .error).remove();
+    if($(#complainMes).val().length3){
+      $(#complainMes).after('div class=errorÐ¡Ð¾Ð¾Ð±ÑÐ¸ÑÐµ Ð¿Ð¾Ð´ÑÐ¾Ð±Ð½Ð¾ÑÑÐ¸div'); 
+    } else {
+      $.ajax({    
+        type $(#complainForm).attr('method'),
+        url $(#complainForm).attr('action'),
+        data $(#complainForm).serialize(),
+        dataType 'json',
+        success function(msg){
+            if (msg.status == 'success') {
+                $(#sendComplainFormBtn).remove();
+                $(.modal-header h3).html(msg.title);
+                $(#complainForm).html(msg.text);
+            } else {
+                console.log(msg);
+            }
+        }
+      });
+  }
+})
+$(document).on('submit',#form-registration,function(e) {
+    e.preventDefault();    
+    $.ajax({    
+        type $(#form-registration).attr('method'),
+        url $(#form-registration).attr('action'),
+        data $(#form-registration).serialize(),
+        dataType 'json',
+        success function(msg){
+            if (msg.status == 'success') {
+                location.href = msg.location;
+            } 
+            if (msg.status == 'error') {
+                for (var key in msg.errors) {
+                  $(.field-fastsignupform-+key+ .error).html(msg.errors[key][0]);
+                }
+            } 
+        }
+    });
+});
+$(document).on('click','#showRegFieldset',function(e) {
+  e.preventDefault();
+  $(#signupFieldset).show();
+  $(#loginFieldset).hide();
+});
+$(document).on('click','#showLogFieldset',function(e) {
+  e.preventDefault();
+  $(#signupFieldset).hide();
+  $(#loginFieldset).show();
+});
+$(#sendComplainFormBtn).on('click',function() {
+    $(#complainForm .error).remove();
+    if($(#complainMes).val().length3){
+      $(#complainMes).after('div class=errorÐ¡Ð¾Ð¾Ð±ÑÐ¸ÑÐµ Ð¿Ð¾Ð´ÑÐ¾Ð±Ð½Ð¾ÑÑÐ¸div'); 
+    } else {
+      $.ajax({    
+        type $(#complainForm).attr('method'),
+        url $(#complainForm).attr('action'),
+        data $(#complainForm).serialize(),
+        dataType 'json',
+        success function(msg){
+            if (msg.status == 'success') {
+                $(#sendComplainFormBtn).remove();
+                $(.modal-header h3).html(msg.title);
+                $(#complainForm).html(msg.text);
+            } else {
+                console.log(msg);
+            }
+        }
+      });
+  }
+})
+});scriptscript defer src=httpsstatic.cloudflareinsights.combeacon.min.js data-cf-beacon='{rayId6a95cf2e0d354c26,token9014c09324db4844a9e1bc18beb1870e,version2021.10.0,si100}'script
+body
+html

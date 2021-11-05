@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "CrawlerPet911": {
+      "commandName": "Project",
+      "commandLineArgs": "range 494002 494014 -d testDb"
+    }
+  }
+}

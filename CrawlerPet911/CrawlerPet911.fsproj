@@ -6,7 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Include="RangeDetection.fs" />
+    <Compile Include="Utils.fs" />
     <Compile Include="cardParserPet911.fs" />
     <Compile Include="CrawlerPet911.fs" />
     <Compile Include="Program.fs" />
