@@ -8,6 +8,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		.drone.yml = .drone.yml
 		data\petCard.json = data\petCard.json
 		data\petCard_rf492825.html.dump = data\petCard_rf492825.html.dump
+		petCard_rf494618.html.dump = petCard_rf494618.html.dump
 		data\petCard_rl476712.html.dump = data\petCard_rl476712.html.dump
 		data\petCard_rl476712_lost_is_found.html.dump = data\petCard_rl476712_lost_is_found.html.dump
 		data\petCards.json = data\petCards.json
@@ -19,6 +20,19 @@ EndProject
 Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "CrawlerLib", "CrawlerLib\CrawlerLib.fsproj", "{9721717B-9B62-4E37-8177-4234FCDD3BC7}"
 EndProject
 Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "Tests", "Tests\Tests.fsproj", "{AA48B1FF-67F4-4A73-9ABF-E2188C1304CF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "data", "data", "{D649B448-1E02-4247-8C3F-F049BB4AC846}"
+	ProjectSection(SolutionItems) = preProject
+		data\petCard.json = data\petCard.json
+		data\petCard_rf492825.html.dump = data\petCard_rf492825.html.dump
+		data\petCard_rf494610_no_author.html.dump = data\petCard_rf494610_no_author.html.dump
+		data\petCard_rf494611_no_photo.html.dump = data\petCard_rf494611_no_photo.html.dump
+		data\petCard_rf494618_no_sex.html.dump = data\petCard_rf494618_no_sex.html.dump
+		data\petCard_rl476712.html.dump = data\petCard_rl476712.html.dump
+		data\petCard_rl476712_lost_is_found.html.dump = data\petCard_rl476712_lost_is_found.html.dump
+		data\petCards.json = data\petCards.json
+		data\searchResults.html.dump = data\searchResults.html.dump
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,6 +55,9 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{D649B448-1E02-4247-8C3F-F049BB4AC846} = {8EA5244F-5C71-4F46-91D7-CF87DCFA4562}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {04EBE8DC-9306-48BB-9523-230EB38B96C8}

@@ -48,6 +48,14 @@ let ``Extract photo URLs`` () =
     }
 
 [<Fact>]
+let ``Card with no photos`` () =
+    async {
+        let! doc = loadAndParseHtmlTestFile "petCard_rf494611_no_photo.html.dump"
+        let parseRes = pet911.getPhotoUrls doc
+        Assert.Equal(0, extractSuccessful(parseRes).Length)        
+    }
+
+[<Fact>]
 let ``Extract event time``() =
     async {
         let! doc = loadAndParseHtmlTestFile "petCard_rl476712.html.dump"
@@ -60,7 +68,7 @@ let ``Extract author name``() =
     async {
         let! doc = loadAndParseHtmlTestFile "petCard_rl476712.html.dump"
         let authorRes = pet911.getAuthorName(doc) 
-        Assert.Equal("Анастасия",extractSuccessful(authorRes))
+        Assert.Equal(Some("Анастасия"),extractSuccessful(authorRes))
     }
 
 [<Fact>]
@@ -68,7 +76,7 @@ let ``Extract author name for lost card that is found``() =
     async {
         let! doc = loadAndParseHtmlTestFile "petCard_rl476712_lost_is_found.html.dump"
         let authorRes = pet911.getAuthorName(doc) 
-        Assert.True(hasFailed(authorRes))
+        Assert.Equal(None,extractSuccessful(authorRes))
     }
 
 [<Fact>]
@@ -93,6 +101,23 @@ let ``Extract animal sex``() =
         let! doc = loadAndParseHtmlTestFile "petCard_rl476712.html.dump"
         let sexRes = pet911.getAnimalSex(doc) 
         Assert.Equal(Sex.male, extractSuccessful(sexRes))
+    }
+
+[<Fact>]
+let ``Animal sex unknown``() =
+    async {
+        let! doc = loadAndParseHtmlTestFile "petCard_rf494618_no_sex.html.dump"
+        let sexRes = pet911.getAnimalSex(doc) 
+        Assert.Equal(Sex.unknown, extractSuccessful(sexRes))
+    }
+
+[<Fact>]
+let ``No author``() =
+    async {
+        let! doc = loadAndParseHtmlTestFile "petCard_rf494610_no_author.html.dump"
+        let authorName = pet911.getAuthorName(doc) 
+        Assert.False(hasFailed(authorName))
+        Assert.Equal(None,extractSuccessful(authorName))
     }
 
 [<Fact>]

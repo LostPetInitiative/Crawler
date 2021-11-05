@@ -14,6 +14,8 @@ open System.Threading
 
 let userAgent = "KashtankaTestRunner/0.0.1"
 
+let traceInfo = Tracing.traceInfo "Tests"
+
 let sem = new SemaphoreSlim(1)
 let mutable cache:Map<string,Downloader.DownloadResult> = Map.empty
 let cachedFetch (fetch: string -> Async<Downloader.DownloadResult>) =
@@ -23,13 +25,13 @@ let cachedFetch (fetch: string -> Async<Downloader.DownloadResult>) =
                 match Map.tryFind url cache with
                 |   Some res ->
                     sem.Release() |> ignore
-                    System.Diagnostics.Trace.TraceInformation(sprintf "cache hit: %s" url)
+                    sprintf "cache hit: %s" url |> traceInfo
                     return res
                 |   None ->
                     let! fetched = fetch url
-                    System.Diagnostics.Trace.TraceInformation(sprintf "downloaded: %s" url)
+                    sprintf "downloaded: %s" url |> traceInfo
                     cache <- Map.add url fetched cache
-                    System.Diagnostics.Trace.TraceInformation(sprintf "cache size: %d" cache.Count)
+                    sprintf "cache size: %d" cache.Count |> traceInfo
                     sem.Release() |> ignore
                     return fetched
 
@@ -60,10 +62,12 @@ type Pet911RealCrawling() =
                 url= "https://pet911.ru/upload/Pet_thumb_162560784360e4cea36deb30.11666472.jpeg"
             }
             let! agent =
-                constructPet911ImageProcessor tempDir downloadResource (fun _ -> ())
+                constructPet911ImageProcessor tempDir downloadResource
 
-            agent.Enqueue(descr);
+            let! _ = agent.Process(descr);
+            sprintf "shutting down" |> traceInfo
             do! agent.Shutdown()
+            sprintf "shut down" |> traceInfo
 
             Assert.True(File.Exists(Path.Combine(tempDir,"rl476712","162560784360e4cea36deb30.11666472.jpeg")))
         }
@@ -75,14 +79,11 @@ type Pet911RealCrawling() =
                 ID = "rf476712/162560784360e4cea36deb30.00000000.jpeg"
                 url= "https://pet911.ru/upload/Pet_thumb_162560784360e4cea36deb30.00000000.jpeg"
             }
-
-            let mutable result:Result<ResourceProcessResult<unit>,string> = Error("not set")
             
-
             let! agent =
-                constructPet911ImageProcessor tempDir downloadResource (fun r -> result <- snd r)
+                constructPet911ImageProcessor tempDir downloadResource
 
-            agent.Enqueue(descr);
+            let! result = agent.Process(descr);
             do! agent.Shutdown()
 
             match result with
@@ -101,13 +102,10 @@ type Pet911RealCrawling() =
                 url= "https://pet911.ru/upload/Pet_thumb_162560784360e4cea36deb30.00000000.jpeg"
             }
 
-            let mutable result:Result<ResourceProcessResult<unit>,string> = Error("not set")
-            
-
             let! agent =
-                constructPet911ImageProcessor tempDir downloadResource (fun r -> result <- snd r)
+                constructPet911ImageProcessor tempDir downloadResource
 
-            agent.Enqueue(descr);
+            let! result = agent.Process(descr);
             do! agent.Shutdown()
 
             match result with
@@ -131,13 +129,10 @@ type Pet911RealCrawling() =
                 url= "https://pet911.ru/upload/Pet_thumb_162560784360e4cea36deb30.00000000.jpeg"
             }
 
-            let mutable result:Result<ResourceProcessResult<unit>,string> = Error("not set")
-            
-
             let! agent =
-                constructPet911ImageProcessor tempDir downloadResource (fun r -> result <- snd r)
+                constructPet911ImageProcessor tempDir downloadResource
 
-            agent.Enqueue(descr);
+            let! _ = agent.Process(descr);
             do! agent.Shutdown()
 
             Assert.False(File.Exists(Path.Combine(tempDir,"rl476712","162560784360e4cea36deb30.11666472.jpeg")))
@@ -151,9 +146,9 @@ type Pet911RealCrawling() =
                 url= "https://pet911.ru/upload/Pet_thumb_162560784360e4cea36deb30.11666472.jpeg"
             }
             let! agent =
-                constructPet911ImageProcessor tempDir downloadResource (fun _ -> ())
+                constructPet911ImageProcessor tempDir downloadResource
 
-            agent.Enqueue(descr);
+            let! _ = agent.Process(descr);
             do! agent.Shutdown()
 
             let! mime = File.ReadAllTextAsync(Path.Combine(tempDir,"rl476712","162560784360e4cea36deb30.11666472.jpeg.mime")) |> Async.AwaitTask
@@ -168,15 +163,13 @@ type Pet911RealCrawling() =
                 url= "https://pet911.ru/upload/Pet_thumb_162560784360e4cea36deb30.11666472.jpeg"
             }
 
-            let mutable check = false
-
             let! agent =
-                constructPet911ImageProcessor tempDir downloadResource (fun (_,res) -> check <- not(hasFailed res))
+                constructPet911ImageProcessor tempDir downloadResource
 
-            agent.Enqueue(descr);
+            let! result = agent.Process(descr);
             do! agent.Shutdown()
 
-            Assert.True(check)
+            Assert.False(hasFailed(result))
         }
 
     [<Fact>]
@@ -187,17 +180,17 @@ type Pet911RealCrawling() =
                 url= "https://pet911.ru/%D0%9C%D0%BE%D1%81%D0%BA%D0%B2%D0%B0/%D0%BF%D1%80%D0%BE%D0%BF%D0%B0%D0%BB%D0%B0/%D0%BA%D0%BE%D1%88%D0%BA%D0%B0/rl476712"
             }
 
-            let mutable result:Result<ResourceProcessResult<PetCard>,string> = Error("not set")
-
             let! agent =
-                constructPet911CardProcessor tempDir downloadResource (fun r -> result <- snd r)
+                constructPet911CardProcessor tempDir downloadResource
 
-            agent.Enqueue(descr);
+            let! result = agent.Process(descr);
             do! agent.Shutdown()
             
-            Assert.True(hasFailed(result))
+            Assert.False(hasFailed(result), "fetch is supposed to succeed")
 
-            Assert.True(File.Exists(Path.Combine(tempDir,"rl476712",CrawlerPet911.cardFilename)))
+            let path = Path.Combine(tempDir,"rl476712",cardFilename)
+
+            Assert.True(File.Exists(path),sprintf "File %s does not exist" path)
         }
 
     [<Fact>]
@@ -208,12 +201,10 @@ type Pet911RealCrawling() =
                 url= "https://pet911.ru/%D0%9D%D0%B8%D0%B6%D0%BD%D0%B8%D0%B9-%D0%9D%D0%BE%D0%B2%D0%B3%D0%BE%D1%80%D0%BE%D0%B4/%D0%BD%D0%B0%D0%B9%D0%B4%D0%B5%D0%BD%D0%B0/%D1%81%D0%BE%D0%B1%D0%B0%D0%BA%D0%B0/rf492825"
             }
 
-            let mutable result:Result<ResourceProcessResult<PetCard>,string> = Error("not set")
-
             let! agent =
-                constructPet911CardProcessor tempDir downloadResource (fun r -> result <- snd r)
+                constructPet911CardProcessor tempDir downloadResource
 
-            agent.Enqueue(descr);
+            let! result = agent.Process(descr);
             do! agent.Shutdown()
             
             match result with
@@ -224,7 +215,7 @@ type Pet911RealCrawling() =
                 |   Processed card ->
                     Assert.Equal("rf492825", card.id)
                     Assert.Equal(Species.dog, card.animal)
-                    Assert.Equal("Екатерина",card.author.name)
+                    Assert.Equal(Some("Екатерина"),card.author.name)
                     Assert.Equal("Вернягово, городской округ Бор, Нижегородская область, Приволжский федеральный округ, 606485, Россия",card.address)
                     Assert.Equal("Нижний Новгород и область! 12 августа на борской трассе неподалеку от поворота к деревне Вернягово найдена рыжая собака (взрослый кобель) в коричневом кожаном ошейнике без адресника. Продолжаем поиск хозяев! Если не найдутся прежние, готовы отдать в новые заботливые ручки. В идеале в частный дом, т.к. пёс не привыкший к содержанию в квартире. Пёсель добрый, контактный, любит ласку. Также дружелюбен к другим собакам, если те сами не проявляют агрессию. Активный, словно шило в попе. Любит поиграть с мячиком, побегать с палкой, погрызть игрушку. Тел. 89101015049".Replace("\n"," ").Replace("\r",""),card.description.Replace("\n"," ").Replace("\r",""))
                     Assert.Equal(Some(56.28750000), card.latitude)
@@ -245,12 +236,10 @@ type Pet911RealCrawling() =
                 url= "https://pet911.ru/%D0%9D%D0%B8%D0%B6%D0%BD%D0%B8%D0%B9-%D0%9D%D0%BE%D0%B2%D0%B3%D0%BE%D1%80%D0%BE%D0%B4/%D0%BD%D0%B0%D0%B9%D0%B4%D0%B5%D0%BD%D0%B0/%D1%81%D0%BE%D0%B1%D0%B0%D0%BA%D0%B0/rl492825"
             }
 
-            let mutable result:Result<ResourceProcessResult<PetCard>,string> = Error("not set")
-
             let! agent =
-                constructPet911CardProcessor tempDir downloadResource (fun r -> result <- snd r)
+                constructPet911CardProcessor tempDir downloadResource
 
-            agent.Enqueue(descr);
+            let! result = agent.Process(descr);
             do! agent.Shutdown()
             
             match result with
@@ -270,12 +259,10 @@ type Pet911RealCrawling() =
                 url= "https://pet911.ru/%D0%9D%D0%B8%D0%B6%D0%BD%D0%B8%D0%B9-%D0%9D%D0%BE%D0%B2%D0%B3%D0%BE%D1%80%D0%BE%D0%B4/%D0%BD%D0%B0%D0%B9%D0%B4%D0%B5%D0%BD%D0%B0/%D1%81%D0%BE%D0%B1%D0%B0%D0%BA%D0%B0/rl492825"
             }
 
-            let mutable result:Result<ResourceProcessResult<PetCard>,string> = Error("not set")
-
             let! agent =
-                constructPet911CardProcessor tempDir downloadResource (fun r -> result <- snd r)
+                constructPet911CardProcessor tempDir downloadResource
 
-            agent.Enqueue(descr);
+            let! result = agent.Process(descr);
             do! agent.Shutdown()
             
             match result with

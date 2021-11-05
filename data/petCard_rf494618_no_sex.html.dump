@@ -1,0 +1,1121 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta id="vp" name="viewport" content="width=device-width, initial-scale=1">
+<meta name="csrf-param" content="_csrf-newfront">
+<meta name="csrf-token" content="6zvw0dAXXhofjwDOuIGaIrmTxfFQQqxihtxqTViNhbqBS4qypHIOXki9RZTS68l60emPgScLyBP_7iMBbO7sjQ==">
+<title>Найдена собака, Хабаровск, Pet911 - Всероссийская система поиска и возврата животных.</title>
+<meta name="description" content="Нашли собаку по адресу улица Уборевича, 47, Хабаровск  – размещайте объявления на Pet911 – объявления о пропаже собак и кошек рядом с Вами, найдём потеряшек вместе.">
+<meta name="keywords" content="найдена собака Хабаровск">
+<meta property="og:url" content="https://pet911.ru/%D0%A5%D0%B0%D0%B1%D0%B0%D1%80%D0%BE%D0%B2%D1%81%D0%BA/найдена/собака/rf494618">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Найдена собака, Хабаровск, Pet911 - Всероссийская система поиска и возврата животных.">
+<meta property="og:description" content="">
+<meta property="og:image" content="/upload/Pet_16360994996184e5ab5898c4.17391167.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Найдена собака, Хабаровск, Pet911 - Всероссийская система поиска и возврата животных.">
+<meta name="twitter:description" content="">
+<meta name="twitter:image" content="/upload/Pet_16360994996184e5ab5898c4.17391167.jpg">
+<meta property="og:url" content="http://pet911.ru/%D0%A5%D0%B0%D0%B1%D0%B0%D1%80%D0%BE%D0%B2%D1%81%D0%BA/%D0%BD%D0%B0%D0%B9%D0%B4%D0%B5%D0%BD%D0%B0/%D1%81%D0%BE%D0%B1%D0%B0%D0%BA%D0%B0/rf494618">
+<meta property="og:image" content="http://pet911.ru/img/logo.png">
+<meta name="twitter:image" content="http://pet911.ru/img/logo.png">
+<link href="https://pet911.ru/%D0%A5%D0%B0%D0%B1%D0%B0%D1%80%D0%BE%D0%B2%D1%81%D0%BA/%D0%BD%D0%B0%D0%B9%D0%B4%D0%B5%D0%BD%D0%B0/%D1%81%D0%BE%D0%B1%D0%B0%D0%BA%D0%B0/rf494618" rel="canonical">
+<link href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" rel="stylesheet" media="print" onload="this.media=&#039;all&#039;">
+<link href="https://unpkg.com/leaflet-geosearch@3.0.0/dist/geosearch.css" rel="stylesheet" media="print" onload="this.media=&#039;all&#039;">
+<link href="https://unpkg.com/leaflet.markercluster@1.3.0/dist/MarkerCluster.css" rel="stylesheet" media="print" onload="this.media=&#039;all&#039;">
+<link href="https://unpkg.com/leaflet.markercluster@1.3.0/dist/MarkerCluster.Default.css" rel="stylesheet" media="print" onload="this.media=&#039;all&#039;">
+<link href="/assets/b65b97e3/css/style.min.css?v=1631545441" rel="stylesheet">
+<link href="/assets/2f9b551e/css/bootstrap.css?v=1631545440" rel="stylesheet">
+<link href="/css/font-awesome.min.css?v=1624897402" rel="stylesheet" media="print" onload="this.media=&#039;all&#039;">
+<link href="/css/nova.css?v=1629366360" rel="stylesheet">
+<link href="/css/new.css?v=1635844909" rel="stylesheet">
+<link href="/js/plugins/owl/owl.carousel.min.css?v=1624897402" rel="stylesheet">
+<link href="/js/plugins/owl/owl.theme.default.min.css?v=1624897402" rel="stylesheet">
+<link href="/css/lightbox.min.css?v=1624897402" rel="stylesheet"> <script>
+        var mapUrl = 'https://tile.openstreetmap.org/{z}/{x}/{y}.png';
+    </script>
+</head>
+<body>
+<div id="header" class="fixed-top ">
+<div class="container">
+<nav class="navbar navbar-expand-lg navbar-dark">
+<a class="navbar-brand" href="/">
+Pet911.ru </a>
+<div class="search-by-art">
+<form id="searchFrm">
+<input name="art" type="text" placeholder="Номер объявления" class="">
+<i class="fa fa-search"></i>
+</form>
+</div>
+<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+<span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse" id="navbar">
+<ul class="navbar-nav ml-auto">
+<li class="nav-item ">
+<a class="nav-link color-red" href="/form-add/first-step">
+Создать объявление </a>
+</li>
+<li class="nav-item ">
+<a class="nav-link" href="/catalog">
+Картотека </a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="/stat/chip">
+Чипирование </a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="/stat/blog">
+Блог </a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="/success-stories">
+Отзывы </a>
+</li>
+<li class="nav-item dropdown">
+<a class="nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+Помощь </a>
+<div aria-labelledby="navbarDropdown" class="dropdown-menu text-right text-lg-left">
+<a class="dropdown-item" href="/faq">
+Вопросы и ответы </a>
+<div class="dropdown-divider"></div>
+<a class="dropdown-item" href="/post/poleznye-sovety">
+Полезные советы </a><a class="dropdown-item" href="/post/platnye-uslugi">
+Платные услуги </a><a class="dropdown-item" href="/post/osteregajtes-mosennikov">
+Остерегайтесь мошенников </a>
+</div>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="/landing-for-volunteer">
+Стать волонтером </a>
+</li>
+<li class="nav-item ">
+<a class="nav-link" href="/login">
+Войти </a>
+</li>
+</ul>
+</div>
+</nav>
+</div>
+</div>
+<main role="main">
+<div class="widget widget-stat with-bg">
+<h5 class="font-second">
+Объявлений за сутки: <b>138</b>, за неделю: <b>730</b>. Найдено всего: <b>44843</b>. </h5>
+</div>
+<div class="container" id="breadcrumb">
+<ul class=""><li class='breadcrumb-item'><a class="menuitem-link" href="/"><span class="menuitem-text">Главная</span></a></li><li class='breadcrumb-item'><a href="/catalog">Объявления</a></li><li class='breadcrumb-item'><a href="/catalog/naydennye-sobaki-khabarovsk">Объявления о найденных собаках в Хабаровске</a></li><li class="breadcrumb-item active" aria-current="page"><span class='menuitem-text'>Найдена Собака</span></li></ul> </div>
+<code></code>
+<section id="view-pet">
+<div class="section-container container">
+<h1 class="section-title">
+Найдена собака, Хабаровск </h1>
+<div class="grid">
+<div class="row">
+<div class="col-sm-12">
+<div class="only-mobile">
+<div class="p-animal">
+Собака </div>
+<div class="p-art">
+<span class="label">
+Номер </span>
+<span class="text">
+rf494618 </span>
+</div>
+<div class="p-date">
+<b>Добавлено:</b>
+пт, 05.11.2021 </div>
+<div class="p-date">
+<b>Дата находки:</b>
+пт, 05.11.2021 </div>
+</div>
+</div>
+<div class="col-md-5 col-sm-12 order-md-1">
+<div class="grid-1">
+<a data-lightbox="pet" href="/upload/Pet_16360994996184e5ab5898c4.17391167.jpg">
+<img src="/cdn-cgi/image/quality=65,f=auto//upload/Pet_thumb_16360994996184e5ab5898c4.17391167.jpg">
+</a>
+<div class="photos">
+<div class="row">
+<div class="col-4">
+<a data-lightbox="pet" href="/upload/Pet_16360995346184e5cebffc451.64883206.jpg">
+<div class="photo" style="background-image: url(/cdn-cgi/image/quality=65,f=auto//upload/Pet_thumb_16360995346184e5cebffc451.64883206.jpg)"></div>
+</a>
+</div>
+</div>
+</div>
+</div>
+<noindex>
+<div class="grid-1 only-desktop">
+<div class="soc">
+<h5 class="s-title">Пожалуйста поделитесь информацией с друзьями</h5>
+<p class="s-info">Пост в соцсетях на <span>37%</span> процентов повышает вероятность успешного завершения поисков</p>
+<ul class="s-icons"><li><a href="http://www.facebook.com/sharer.php?u=https%3A%2F%2Fpet911.ru%2F%25D0%25A5%25D0%25B0%25D0%25B1%25D0%25B0%25D1%2580%25D0%25BE%25D0%25B2%25D1%2581%25D0%25BA%2F%D0%BD%D0%B0%D0%B9%D0%B4%D0%B5%D0%BD%D0%B0%2F%D1%81%D0%BE%D0%B1%D0%B0%D0%BA%D0%B0%2Frf494618" rel="noopener" target="_blank"><fa><i class="fa fa-facebook"></i></fa></a></li><li><a href="http://vk.com/share.php?url=https%3A%2F%2Fpet911.ru%2F%25D0%25A5%25D0%25B0%25D0%25B1%25D0%25B0%25D1%2580%25D0%25BE%25D0%25B2%25D1%2581%25D0%25BA%2F%D0%BD%D0%B0%D0%B9%D0%B4%D0%B5%D0%BD%D0%B0%2F%D1%81%D0%BE%D0%B1%D0%B0%D0%BA%D0%B0%2Frf494618&amp;title=%D0%9D%D0%B0%D0%B9%D0%B4%D0%B5%D0%BD%D0%B0+%D1%81%D0%BE%D0%B1%D0%B0%D0%BA%D0%B0%2C+%D0%A5%D0%B0%D0%B1%D0%B0%D1%80%D0%BE%D0%B2%D1%81%D0%BA%2C+Pet911+-+%D0%92%D1%81%D0%B5%D1%80%D0%BE%D1%81%D1%81%D0%B8%D0%B9%D1%81%D0%BA%D0%B0%D1%8F+%D1%81%D0%B8%D1%81%D1%82%D0%B5%D0%BC%D0%B0+%D0%BF%D0%BE%D0%B8%D1%81%D0%BA%D0%B0+%D0%B8+%D0%B2%D0%BE%D0%B7%D0%B2%D1%80%D0%B0%D1%82%D0%B0+%D0%B6%D0%B8%D0%B2%D0%BE%D1%82%D0%BD%D1%8B%D1%85.&amp;description=&amp;image=%2Fupload%2FPet_16360994996184e5ab5898c4.17391167.jpg" rel="noopener" target="_blank"><fa><i class="fa fa-vk"></i></fa></a></li><li><a href="http://twitter.com/share?url=https%3A%2F%2Fpet911.ru%2F%25D0%25A5%25D0%25B0%25D0%25B1%25D0%25B0%25D1%2580%25D0%25BE%25D0%25B2%25D1%2581%25D0%25BA%2F%D0%BD%D0%B0%D0%B9%D0%B4%D0%B5%D0%BD%D0%B0%2F%D1%81%D0%BE%D0%B1%D0%B0%D0%BA%D0%B0%2Frf494618&amp;text=" rel="noopener" target="_blank"><fa><i class="fa fa-twitter"></i></fa></a></li><li><a href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;su=%D0%9D%D0%B0%D0%B9%D0%B4%D0%B5%D0%BD%D0%B0+%D1%81%D0%BE%D0%B1%D0%B0%D0%BA%D0%B0%2C+%D0%A5%D0%B0%D0%B1%D0%B0%D1%80%D0%BE%D0%B2%D1%81%D0%BA%2C+Pet911+-+%D0%92%D1%81%D0%B5%D1%80%D0%BE%D1%81%D1%81%D0%B8%D0%B9%D1%81%D0%BA%D0%B0%D1%8F+%D1%81%D0%B8%D1%81%D1%82%D0%B5%D0%BC%D0%B0+%D0%BF%D0%BE%D0%B8%D1%81%D0%BA%D0%B0+%D0%B8+%D0%B2%D0%BE%D0%B7%D0%B2%D1%80%D0%B0%D1%82%D0%B0+%D0%B6%D0%B8%D0%B2%D0%BE%D1%82%D0%BD%D1%8B%D1%85.&amp;body=+-+https%3A%2F%2Fpet911.ru%2F%25D0%25A5%25D0%25B0%25D0%25B1%25D0%25B0%25D1%2580%25D0%25BE%25D0%25B2%25D1%2581%25D0%25BA%2F%D0%BD%D0%B0%D0%B9%D0%B4%D0%B5%D0%BD%D0%B0%2F%D1%81%D0%BE%D0%B1%D0%B0%D0%BA%D0%B0%2Frf494618" rel="noopener" target="_blank"><fa><i class="fa fa-envelope"></i></fa></a></li><li><a href="https://connect.ok.ru/offer?url=https%3A%2F%2Fpet911.ru%2F%25D0%25A5%25D0%25B0%25D0%25B1%25D0%25B0%25D1%2580%25D0%25BE%25D0%25B2%25D1%2581%25D0%25BA%2F%D0%BD%D0%B0%D0%B9%D0%B4%D0%B5%D0%BD%D0%B0%2F%D1%81%D0%BE%D0%B1%D0%B0%D0%BA%D0%B0%2Frf494618&amp;title=%D0%9D%D0%B0%D0%B9%D0%B4%D0%B5%D0%BD%D0%B0+%D1%81%D0%BE%D0%B1%D0%B0%D0%BA%D0%B0%2C+%D0%A5%D0%B0%D0%B1%D0%B0%D1%80%D0%BE%D0%B2%D1%81%D0%BA%2C+Pet911+-+%D0%92%D1%81%D0%B5%D1%80%D0%BE%D1%81%D1%81%D0%B8%D0%B9%D1%81%D0%BA%D0%B0%D1%8F+%D1%81%D0%B8%D1%81%D1%82%D0%B5%D0%BC%D0%B0+%D0%BF%D0%BE%D0%B8%D1%81%D0%BA%D0%B0+%D0%B8+%D0%B2%D0%BE%D0%B7%D0%B2%D1%80%D0%B0%D1%82%D0%B0+%D0%B6%D0%B8%D0%B2%D0%BE%D1%82%D0%BD%D1%8B%D1%85.&amp;description=&amp;imageUrl=%2Fupload%2FPet_16360994996184e5ab5898c4.17391167.jpg" rel="noopener" target="_blank"><fa><i class="fa fa-odnoklassniki"></i></fa></a></li></ul> </div>
+<div class="print only-desktop">
+<fa><i class="fa fa-print"></i></fa>
+<a href="javascript:void(0)" id="print_listing" onclick="window.print()">Распечатать объявление о находке</a>
+</div>
+</div>
+</noindex>
+</div>
+<div class="col-md-7 col-sm-12 order-md-2">
+<div class="grid-2">
+<div class="row">
+<div class="col-md-7 col-sm-12">
+<div class="left">
+<div class="only-desktop">
+ <div class="p-animal">
+Собака <span>6132.7 км</span>
+</div>
+<div class="p-date">
+Добавлено:
+пт, 05.11.2021 </div>
+<div class="p-date">
+Дата находки:
+пт, 05.11.2021 </div>
+</div>
+</div>
+</div>
+<div class="col-md-5 col-sm-12">
+<div class="right">
+<div class="p-art only-desktop">
+<span class="label">
+Номер:
+</span>
+<span class="text">
+rf494618 </span>
+</div>
+</div>
+</div>
+<div class="col-md-12 complain-desktop">
+<div class="complain">
+<a class="complain-link" href="javascript:void(0)" data-toggle="modal" data-target="#modalComplain">
+<i class="fa fa-exclamation-triangle"></i>
+<span>Пожаловаться</span>
+</a>
+<div class="complain-hover">Сообщить о проблеме</div>
+</div>
+</div>
+</div>
+</div>
+<div class="grid-2">
+<div class="down">
+<div class="p-author">
+<span class="label">
+<i class="fa fa-user"></i>
+Имя нашедшего:
+</span>
+<span class="text">
+Елена </span>
+</div>
+<div class="p-phone">
+<span class="label">
+<i class="fa fa-phone"></i>
+Телефон:
+</span>
+<a class="p-show-phone btn btn-green" href="javascript:void(0)" data-toggle="modal" data-target="#modalLoginSignup">
+Показать телефон </a>
+</div>
+<div class="p-address">
+<span class="label">
+ <i class="fa fa-map-marker"></i>
+Адрес:
+</span>
+<span class="text">
+улица Уборевича, 47, Хабаровск </span>
+</div>
+</div>
+<div id="map" style="height: 220px;"></div>
+<div class="p-description">
+Найдена белая собака средних размеров, в шлейке маскировочной расцветки, на пересечении переулка Клары Цеткин и улицы Уборевича, в частном секторе. </div>
+</div>
+<div class="grid-1 only-mobile">
+<noindex>
+<div class="soc">
+<h5 class="s-title">Пожалуйста поделитесь информацией с друзьями</h5>
+<p class="s-info">Пост в соцсетях на <span>37%</span> процентов повышает вероятность успешного завершения поисков</p>
+<ul class="s-icons"><li><a href="http://www.facebook.com/sharer.php?u=http%3A%2F%2Fpet911.ru%2F%25D0%25A5%25D0%25B0%25D0%25B1%25D0%25B0%25D1%2580%25D0%25BE%25D0%25B2%25D1%2581%25D0%25BA%2F%25D0%25BD%25D0%25B0%25D0%25B9%25D0%25B4%25D0%25B5%25D0%25BD%25D0%25B0%2F%25D1%2581%25D0%25BE%25D0%25B1%25D0%25B0%25D0%25BA%25D0%25B0%2Frf494618" rel="noopener" target="_blank"><fa><i class="fa fa-facebook"></i></fa></a></li><li><a href="http://vk.com/share.php?url=http%3A%2F%2Fpet911.ru%2F%25D0%25A5%25D0%25B0%25D0%25B1%25D0%25B0%25D1%2580%25D0%25BE%25D0%25B2%25D1%2581%25D0%25BA%2F%25D0%25BD%25D0%25B0%25D0%25B9%25D0%25B4%25D0%25B5%25D0%25BD%25D0%25B0%2F%25D1%2581%25D0%25BE%25D0%25B1%25D0%25B0%25D0%25BA%25D0%25B0%2Frf494618&amp;title=%D0%9D%D0%B0%D0%B9%D0%B4%D0%B5%D0%BD%D0%B0+%D1%81%D0%BE%D0%B1%D0%B0%D0%BA%D0%B0%2C+%D0%A5%D0%B0%D0%B1%D0%B0%D1%80%D0%BE%D0%B2%D1%81%D0%BA%2C+Pet911+-+%D0%92%D1%81%D0%B5%D1%80%D0%BE%D1%81%D1%81%D0%B8%D0%B9%D1%81%D0%BA%D0%B0%D1%8F+%D1%81%D0%B8%D1%81%D1%82%D0%B5%D0%BC%D0%B0+%D0%BF%D0%BE%D0%B8%D1%81%D0%BA%D0%B0+%D0%B8+%D0%B2%D0%BE%D0%B7%D0%B2%D1%80%D0%B0%D1%82%D0%B0+%D0%B6%D0%B8%D0%B2%D0%BE%D1%82%D0%BD%D1%8B%D1%85.&amp;description=&amp;image=%2Fupload%2FPet_16360994996184e5ab5898c4.17391167.jpg" rel="noopener" target="_blank"><fa><i class="fa fa-vk"></i></fa></a></li><li><a href="http://twitter.com/share?url=http%3A%2F%2Fpet911.ru%2F%25D0%25A5%25D0%25B0%25D0%25B1%25D0%25B0%25D1%2580%25D0%25BE%25D0%25B2%25D1%2581%25D0%25BA%2F%25D0%25BD%25D0%25B0%25D0%25B9%25D0%25B4%25D0%25B5%25D0%25BD%25D0%25B0%2F%25D1%2581%25D0%25BE%25D0%25B1%25D0%25B0%25D0%25BA%25D0%25B0%2Frf494618&amp;text=" rel="noopener" target="_blank"><fa><i class="fa fa-twitter"></i></fa></a></li><li><a href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;su=%D0%9D%D0%B0%D0%B9%D0%B4%D0%B5%D0%BD%D0%B0+%D1%81%D0%BE%D0%B1%D0%B0%D0%BA%D0%B0%2C+%D0%A5%D0%B0%D0%B1%D0%B0%D1%80%D0%BE%D0%B2%D1%81%D0%BA%2C+Pet911+-+%D0%92%D1%81%D0%B5%D1%80%D0%BE%D1%81%D1%81%D0%B8%D0%B9%D1%81%D0%BA%D0%B0%D1%8F+%D1%81%D0%B8%D1%81%D1%82%D0%B5%D0%BC%D0%B0+%D0%BF%D0%BE%D0%B8%D1%81%D0%BA%D0%B0+%D0%B8+%D0%B2%D0%BE%D0%B7%D0%B2%D1%80%D0%B0%D1%82%D0%B0+%D0%B6%D0%B8%D0%B2%D0%BE%D1%82%D0%BD%D1%8B%D1%85.&amp;body=+-+http%3A%2F%2Fpet911.ru%2F%25D0%25A5%25D0%25B0%25D0%25B1%25D0%25B0%25D1%2580%25D0%25BE%25D0%25B2%25D1%2581%25D0%25BA%2F%25D0%25BD%25D0%25B0%25D0%25B9%25D0%25B4%25D0%25B5%25D0%25BD%25D0%25B0%2F%25D1%2581%25D0%25BE%25D0%25B1%25D0%25B0%25D0%25BA%25D0%25B0%2Frf494618" rel="noopener" target="_blank"><fa><i class="fa fa-envelope"></i></fa></a></li><li><a href="https://connect.ok.ru/offer?url=http%3A%2F%2Fpet911.ru%2F%25D0%25A5%25D0%25B0%25D0%25B1%25D0%25B0%25D1%2580%25D0%25BE%25D0%25B2%25D1%2581%25D0%25BA%2F%25D0%25BD%25D0%25B0%25D0%25B9%25D0%25B4%25D0%25B5%25D0%25BD%25D0%25B0%2F%25D1%2581%25D0%25BE%25D0%25B1%25D0%25B0%25D0%25BA%25D0%25B0%2Frf494618&amp;title=%D0%9D%D0%B0%D0%B9%D0%B4%D0%B5%D0%BD%D0%B0+%D1%81%D0%BE%D0%B1%D0%B0%D0%BA%D0%B0%2C+%D0%A5%D0%B0%D0%B1%D0%B0%D1%80%D0%BE%D0%B2%D1%81%D0%BA%2C+Pet911+-+%D0%92%D1%81%D0%B5%D1%80%D0%BE%D1%81%D1%81%D0%B8%D0%B9%D1%81%D0%BA%D0%B0%D1%8F+%D1%81%D0%B8%D1%81%D1%82%D0%B5%D0%BC%D0%B0+%D0%BF%D0%BE%D0%B8%D1%81%D0%BA%D0%B0+%D0%B8+%D0%B2%D0%BE%D0%B7%D0%B2%D1%80%D0%B0%D1%82%D0%B0+%D0%B6%D0%B8%D0%B2%D0%BE%D1%82%D0%BD%D1%8B%D1%85.&amp;description=&amp;imageUrl=%2Fupload%2FPet_16360994996184e5ab5898c4.17391167.jpg" rel="noopener" target="_blank"><fa><i class="fa fa-odnoklassniki"></i></fa></a></li></ul> </div>
+<div class="print only-desktop">
+<fa><i class="fa fa-print"></i></fa>
+<a href="javascript:void(0)" id="print_listing" onclick="window.print()">Распечатать объявление о находке</a>
+</div>
+</noindex>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="comments">
+<div class="section-container container">
+<h2 class="section-title">Комментарии</h2>
+<div id="commentPjax" data-pjax-container="" data-pjax-push-state data-pjax-timeout="0"> <form id="commentViewForm" action="/%D0%A5%D0%B0%D0%B1%D0%B0%D1%80%D0%BE%D0%B2%D1%81%D0%BA/%D0%BD%D0%B0%D0%B9%D0%B4%D0%B5%D0%BD%D0%B0/%D1%81%D0%BE%D0%B1%D0%B0%D0%BA%D0%B0/rf494618" method="post">
+<input type="hidden" name="_csrf-newfront" value="6zvw0dAXXhofjwDOuIGaIrmTxfFQQqxihtxqTViNhbqBS4qypHIOXki9RZTS68l60emPgScLyBP_7iMBbO7sjQ=="> <div class="row">
+<div class="col-lg-4 col-md-6 col-12">
+<div class="form-item custom-input comment-name field-addcommentform-name required">
+<input type="text" id="addcommentform-name" class="form-control" name="AddCommentForm[name]" placeholder="Ваше имя" aria-required="true"><div class="error"></div>
+</div> </div>
+<div class="col-12">
+<div class="form-item comment-text field-addcommentform-comment required">
+<textarea id="addcommentform-comment" class="form-control" name="AddCommentForm[comment]" placeholder="Ваш комментарий" aria-required="true"></textarea><div class="error"></div>
+</div> </div>
+<div class="col-12">
+<div class="row justify-content-end">
+<div class="col-lg-8 col-md-6">
+<div class="form-group field-addcommentform-recaptcha">
+<input type="hidden" id="addcommentform-recaptcha" class="form-control" name="AddCommentForm[reCaptcha]"><div id="addcommentform-recaptcha-recaptcha-commentViewForm" class="g-recaptcha" data-sitekey="6Lemis4cAAAAADfcgs5_cfbF2bSFYpWSncAZbMT8" data-input-id="addcommentform-recaptcha" data-form-id="commentViewForm"></div>
+<div class="error"></div>
+</div> </div>
+<div class="col-lg-4 col-md-6 col-12">
+<button class="btn btn-green" type="submit">
+Добавить </button>
+</div>
+</div>
+</div>
+</div>
+</form>
+<div class="comments-list">
+<div data-key="337572"><div class="comment">
+<div class="comment-author">Всероссийская система поиска животных Pet911</div>
+<div class="comment-date">(пятница, 11:14)</div>
+<div class="comment-text">Объявление rf494618 размещено в группе ВКонтакте <a href="https://vk.com/pet911khabarovsk?w=wall-176415948_1387%2Fall" target="_blank">Хабаровск | Pet911 пропала найдена собака кошка</a></div>
+</div></div> </div>
+<nav aria-label="Page navigation" class="m-auto mt20">
+</nav>
+</div> </div>
+</section>
+<section id="similar-pets">
+<div class="section-container container">
+<h2 class="section-title">Похожие найденные питомцы</h2>
+<div class="s-pets d-none d-lg-block">
+<div class="row">
+<div class="col-lg-4">
+<a class="s-pet d-block" target="_blank" href="/%D0%A5%D0%B0%D0%B1%D0%B0%D1%80%D0%BE%D0%B2%D1%81%D0%BA/найдена/собака/rf494381">
+<div class="img" style="background-image: url('/cdn-cgi/image/quality=65,f=auto//upload/Pet_thumb_1635935862618266768580b9.33924003.jpg');"></div>
+<div class="info">
+<div class="p-date">
+Добавлено: ср, 03.11.2021 </div>
+<div class="p-date">
+Дата находки: ср, 03.11.2021 </div>
+<div class="p-sex">
+<span class="label">Пол:</span>
+<span class="text">Неизвестно</span>
+</div>
+<div class="p-address">
+<fa><i class="fa fa-map-marker"></i></fa>
+<span class="text">улица Фрунзе, 11, Хабаровск</span>
+</div>
+</div>
+</a>
+</div>
+<div class="col-lg-4">
+<a class="s-pet d-block" target="_blank" href="/%D0%A5%D0%B0%D0%B1%D0%B0%D1%80%D0%BE%D0%B2%D1%81%D0%BA/найдена/собака/rf493798">
+<div class="img" style="background-image: url('/cdn-cgi/image/quality=65,f=auto//upload/Pet_thumb_1635587519617d15bfd51a85.62092674.jpeg');"></div>
+<div class="info">
+<div class="p-date">
+Добавлено: сб, 30.10.2021 </div>
+<div class="p-date">
+Дата находки: пт, 29.10.2021 </div>
+<div class="p-sex">
+<span class="label">Пол:</span>
+<span class="text">М</span>
+</div>
+<div class="p-address">
+<fa><i class="fa fa-map-marker"></i></fa>
+<span class="text">25, Океанская улица, Железнодорожный район, Хабаровск, городской округ Хабаровск, Хабаровский край, Дальневосточный федеральный округ, 680014, Россия</span>
+</div>
+</div>
+</a>
+</div>
+<div class="col-lg-4">
+<a class="s-pet d-block" target="_blank" href="/%D0%A5%D0%B0%D0%B1%D0%B0%D1%80%D0%BE%D0%B2%D1%81%D0%BA/найдена/собака/rf492520">
+<div class="img" style="background-image: url('/cdn-cgi/image/quality=65,f=auto//upload/Pet_thumb_16347351836170144f39f744.88845167.jpeg');"></div>
+<div class="info">
+<div class="p-date">
+Добавлено: ср, 20.10.2021 </div>
+<div class="p-date">
+Дата находки: вт, 19.10.2021 </div>
+<div class="p-sex">
+<span class="label">Пол:</span>
+<span class="text">Ж</span>
+</div>
+<div class="p-address">
+<fa><i class="fa fa-map-marker"></i></fa>
+<span class="text">улица Шеронова, 2 к4, Хабаровск</span>
+</div>
+</div>
+</a>
+</div>
+</div>
+</div>
+<div class="s-pets d-block d-lg-none">
+<div class="ui-carousel ui-widget ui-widget-content ui-corner-all owl-carousel">
+<div class="ui-carousel-header ui-widget-header ui-corner-all">
+<span class="ui-carousel-header-title"></span>
+<span class="ui-carousel-button ui-carousel-next-button fa fa-arrow-circle-right"></span>
+<span class="ui-carousel-button ui-carousel-prev-button fa fa-arrow-circle-left ui-state-disabled"></span>
+</div>
+<div class="ui-carousel-viewport">
+<div class="ui-carousel-items">
+<div class="ui-carousel-item ui-widget-content ui-corner-all">
+<div class="s-pets">
+<a class="s-pet d-block" href="/%D0%A5%D0%B0%D0%B1%D0%B0%D1%80%D0%BE%D0%B2%D1%81%D0%BA/найдена/собака/rf494381">
+<div class="img" style="background-image: url('/cdn-cgi/image/quality=65,f=auto//upload/Pet_thumb_1635935862618266768580b9.33924003.jpg');"></div>
+<div class="info">
+<div class="p-date">
+Добавлено: ср, 03.11.2021 </div>
+<div class="p-date">
+Дата находки: ср, 03.11.2021 </div>
+<div class="p-sex">
+<span class="label">Пол:</span>
+<span class="text">Неизвестно</span>
+</div>
+<div class="p-address">
+<fa><i class="fa fa-map-marker"></i></fa>
+<span class="text">улица Фрунзе, 11, Хабаровск</span>
+</div>
+</div>
+</a>
+</div>
+</div>
+<div class="ui-carousel-item ui-widget-content ui-corner-all">
+<div class="s-pets">
+<a class="s-pet d-block" href="/%D0%A5%D0%B0%D0%B1%D0%B0%D1%80%D0%BE%D0%B2%D1%81%D0%BA/найдена/собака/rf493798">
+<div class="img" style="background-image: url('/cdn-cgi/image/quality=65,f=auto//upload/Pet_thumb_1635587519617d15bfd51a85.62092674.jpeg');"></div>
+<div class="info">
+<div class="p-date">
+Добавлено: пт, 29.10.2021 </div>
+<div class="p-date">
+Дата находки: пт, 29.10.2021 </div>
+<div class="p-sex">
+<span class="label">Пол:</span>
+<span class="text">М</span>
+</div>
+<div class="p-address">
+<fa><i class="fa fa-map-marker"></i></fa>
+<span class="text">25, Океанская улица, Железнодорожный район, Хабаровск, городской округ Хабаровск, Хабаровский край, Дальневосточный федеральный округ, 680014, Россия</span>
+</div>
+</div>
+</a>
+</div>
+</div>
+<div class="ui-carousel-item ui-widget-content ui-corner-all">
+<div class="s-pets">
+<a class="s-pet d-block" href="/%D0%A5%D0%B0%D0%B1%D0%B0%D1%80%D0%BE%D0%B2%D1%81%D0%BA/найдена/собака/rf492520">
+<div class="img" style="background-image: url('/cdn-cgi/image/quality=65,f=auto//upload/Pet_thumb_16347351836170144f39f744.88845167.jpeg');"></div>
+<div class="info">
+<div class="p-date">
+Добавлено: вт, 19.10.2021 </div>
+<div class="p-date">
+Дата находки: вт, 19.10.2021 </div>
+<div class="p-sex">
+<span class="label">Пол:</span>
+<span class="text">Ж</span>
+</div>
+<div class="p-address">
+<fa><i class="fa fa-map-marker"></i></fa>
+<span class="text">улица Шеронова, 2 к4, Хабаровск</span>
+</div>
+</div>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section><noindex>
+<section id="you-volunteer" class="">
+<div class="section-container container">
+<h2 class="section-title">Станьте частью всероссийской сети волонтеров Pet911</h2>
+<p class="section-subtitle">Любите животных? Внесите свой вклад в поиск пропавших питомцев!</p>
+<div class="row">
+<div class="col-lg col-md-12 d-none d-md-block">
+<div class="photos">
+<div class="photo photo-1">
+<div class="overlay">
+<span></span>
+<p>Нас уже более 100 000 человек</p>
+</div>
+</div>
+<div class="photo photo-2">
+<div class="overlay">
+<p>Каждый день нас на 50 больше</p>
+<span></span>
+</div>
+</div>
+</div>
+</div>
+<div class="col-lg col-md-12">
+<div class="text">
+<p>Каждый день в России пропадает около 300 питомцев. Из них потом находится меньше половины. Мы хотим это изменить. И Вы можете нам в этом помочь.</p>
+<p>Просто зарегистрируйтесь в системе и получайте сообщения о пропавших питомцах в Вашем районе. Вы можете встретить их по дороге на работу, в магазин, или просто гуляя в парке.</p>
+<p>Сообщите об этом - и мы вместе изменим этот мир к лучшему, помогая питомцам и их хозяевам найти друг друга.</p>
+</div>
+</div>
+<div class="col-12">
+<p class="info">
+Все, что от Вас нужно - всего лишь адрес электронной почты <i class="fa fa-envelope-o"></i> и большое любящее сердце <i class="fa fa-heart-o"></i> </p>
+</div>
+<div class="col-12">
+<div class="row justify-content-center">
+<div class="col-lg-5 col-md-8 col-10">
+<div class="text-center">
+<a class="btn btn-green" href="/landing-for-volunteer#block-3">
+Присоединиться </a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section></noindex>
+<div id="modalLoginSignup" class="fade modal" role="dialog" tabindex="-1">
+<div class="modal-dialog  modal-dialog-centered">
+<div class="modal-content">
+<div class="modal-header">
+<button type="button" class="close" data-dismiss="modal" aria-hidden="true" aria-label="Close">&times;</button>
+</div>
+<div class="modal-body">
+<div class="row">
+<div class="col-12">
+<p>Для просмотра телефона необходимо зарегистрироваться. Это быстро, бесплатно и откроет Вам новые функции!</p>
+<fieldset id="signupFieldset">
+<legend>Регистрация</legend>
+<form id="form-registration" action="/site/fast-sign-up" method="post" autocomplete="off">
+<input type="hidden" name="_csrf-newfront" value="6zvw0dAXXhofjwDOuIGaIrmTxfFQQqxihtxqTViNhbqBS4qypHIOXki9RZTS68l60emPgScLyBP_7iMBbO7sjQ==">
+<div class="form-item custom-input">
+<div class=" field-fastsignupform-username required">
+<fa><i class="fa fa-user"></i></fa><input type="text" id="fastsignupform-username" class="" name="FastSignupForm[username]" placeholder="Имя" aria-required="true"><div class="error"></div>
+</div> </div>
+<div class="form-item custom-input">
+<div class=" field-fastsignupform-email required">
+<fa><i class="fa fa-envelope"></i></fa><input type="text" id="fastsignupform-email" class="" name="FastSignupForm[email]" placeholder="Е-mail" aria-required="true"><div class="error"></div>
+</div> </div>
+<div class="form-item mb10">
+<label class="custom-checkbox">
+<input name="FastSignupForm[volunteer]" value="1" type="checkbox" class="">
+<span></span>
+Я помогаю в поисках </label>
+</div>
+<div class="form-item mb10">
+<label class="custom-checkbox">
+<input name="FastSignupForm[type_seeker]" value="1" type="checkbox" class="">
+<span></span>
+Я потерял питомца </label>
+</div>
+<div class="form-item mb10">
+<label class="custom-checkbox">
+<input name="FastSignupForm[type_found]" value="1" type="checkbox" class="">
+<span></span>
+Я нашел питомца </label>
+</div>
+<button type="submit" class="btn btn-green">Зарегистрироваться</button>
+</form> <small class="small-link">
+Если Вы уже зарегистрированы в системе: <a href="#" id="showLogFieldset">
+Вход </a>
+</small>
+</fieldset>
+<fieldset id="loginFieldset" style="display: none;">
+<legend>
+Вход </legend>
+<form id="form-login" action="/login" method="post">
+<input type="hidden" name="_csrf-newfront" value="6zvw0dAXXhofjwDOuIGaIrmTxfFQQqxihtxqTViNhbqBS4qypHIOXki9RZTS68l60emPgScLyBP_7iMBbO7sjQ==">
+<div class=" field-loginform-goback">
+<input type="hidden" id="loginform-goback" class="form-control" name="LoginForm[goBack]" value="1">
+<div class="error"></div>
+</div>
+<div class="form-item custom-input">
+<div class=" field-loginform-email required">
+<fa><i class="fa fa-user"></i></fa><input type="text" id="loginform-email" class="" name="LoginForm[email]" placeholder="E-mail или телефон" aria-required="true"><div class="error"></div>
+</div> </div>
+<div class="form-item custom-input">
+<div class=" field-loginform-password required">
+<fa><i class="fa fa-key"></i></fa><input type="password" id="loginform-password" class="" name="LoginForm[password]" placeholder="Пароль" aria-required="true"><div class="error"></div>
+</div> </div>
+<button type="submit" class="btn btn-green">Войти</button>
+</form> <small class="small-link">
+<a href="#" id="showRegFieldset">
+Регистрация </a>
+</small>
+</fieldset>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="modalComplain" class="fade modal" role="dialog" tabindex="-1">
+<div class="modal-dialog modal-lg modal-dialog-centered">
+<div class="modal-content">
+<div class="modal-header">
+<h3 class="modal-title">Сообщите о проблеме</h3>
+<button type="button" class="close" data-dismiss="modal" aria-hidden="true" aria-label="Close">&times;</button>
+</div>
+<div class="modal-body">
+<div>
+<form id="complainForm" class="complain-form" action="/pet/send-complain" method="post">
+<input type="hidden" name="_csrf-newfront" value="6zvw0dAXXhofjwDOuIGaIrmTxfFQQqxihtxqTViNhbqBS4qypHIOXki9RZTS68l60emPgScLyBP_7iMBbO7sjQ=="> <input type="hidden" name="petID" value="494618">
+<div class="form-item custom-input">
+<select name="reason" class="" style="width: 100%;">
+<option disabled="" value="">Выберите причину</option>
+<option>Спам</option>
+<option>Объявление задублировано</option>
+<option>Этот питомец не терялся</option>
+<option>Есть подходящий найденный (потерянный)</option>
+<option>Уже найден</option>
+<option>Другое</option>
+</select>
+</div>
+<div class="form-item">
+<textarea id="complainMes" required name="mes" placeholder="Сообщите подробности"></textarea>
+</div>
+</form></div>
+</div>
+<div class="modal-footer">
+<div class="col-6 "><button type="button" id="sendComplainFormBtn" class="btn btn-green">Отправить</button></div>
+<div class="col-6 "><button type="button" class="btn" data-dismiss="modal">Закрыть</button></div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<div id="footer">
+<div class="footer-container">
+<div class="row">
+<div class="col-lg-4 left">
+<ul>
+<li>
+<a href="/login">
+Вход в личный кабинет </a>
+</li>
+<li>
+<a href="/form-add/first-step">
+Создать объявление </a>
+</li>
+<li>
+<a href="/catalog">
+Картотека питомцев </a>
+</li>
+<li>
+<a href="/cities">
+Пропавшие и найденные животные России </a>
+</li>
+<li>
+<a href="/animals">
+Пропавшие и найденные животные России по породам </a>
+</li>
+<li>
+<a href="/contact">
+Контакты </a>
+</li>
+<li>
+<a href="#" data-target="#modalPolicy" data-toggle="modal">
+Политика конфиденциальности </a>
+</li>
+</ul>
+</div>
+<div class="col-lg-4 center">
+<div class="row">
+<div class="col-lg-12 col-md-6 col-sm-12">
+<ul class="tel">
+<li>
+8-800-3500-610 </li>
+<li>
+Ответим на Ваш звонок в ПН-ПТ с 9:00 до 18:00 (МСК) </li>
+<li>
+Все опции подключаются своевременно, независимо от дня недели </li>
+</ul>
+</div>
+<div class="col-lg-12 col-md-6 col-sm-12">
+<ul class="email">
+<li>
+<a href="/cdn-cgi/l/email-protection#0861666e6748786d7c313939267a7d">
+<span class="__cf_email__" data-cfemail="a2cbccc4cde2d2c7d69b93938cd0d7">[email&#160;protected]</span> </a>
+</li>
+<li><a href="/donate">Поддержать проект</a></li>
+<li><a href="/stat/advert">Реклама на Pet911</a></li>
+<li><a href="/stat/blog">Блог</a></li>
+<li><a href="/stat/press">СМИ о нас</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="col-lg-4 right">
+<div class="row">
+<div class="col-lg-12 col-md-6 col-sm-12">
+<ul class="soc text-lg-right text-center">
+<li>Расскажите о нас друзьям:</li>
+<li>
+<ul class="s-icons"><li><a href="http://www.facebook.com/sharer.php?u=http%3A%2F%2Fpet911.ru%2F%25D0%25A5%25D0%25B0%25D0%25B1%25D0%25B0%25D1%2580%25D0%25BE%25D0%25B2%25D1%2581%25D0%25BA%2F%25D0%25BD%25D0%25B0%25D0%25B9%25D0%25B4%25D0%25B5%25D0%25BD%25D0%25B0%2F%25D1%2581%25D0%25BE%25D0%25B1%25D0%25B0%25D0%25BA%25D0%25B0%2Frf494618" rel="noopener" target="_blank"><fa><i class="fa fa-facebook"></i></fa></a></li><li><a href="http://vk.com/share.php?url=http%3A%2F%2Fpet911.ru%2F%25D0%25A5%25D0%25B0%25D0%25B1%25D0%25B0%25D1%2580%25D0%25BE%25D0%25B2%25D1%2581%25D0%25BA%2F%25D0%25BD%25D0%25B0%25D0%25B9%25D0%25B4%25D0%25B5%25D0%25BD%25D0%25B0%2F%25D1%2581%25D0%25BE%25D0%25B1%25D0%25B0%25D0%25BA%25D0%25B0%2Frf494618&amp;title=%D0%9D%D0%B0%D0%B9%D0%B4%D0%B5%D0%BD%D0%B0+%D1%81%D0%BE%D0%B1%D0%B0%D0%BA%D0%B0%2C+%D0%A5%D0%B0%D0%B1%D0%B0%D1%80%D0%BE%D0%B2%D1%81%D0%BA%2C+Pet911+-+%D0%92%D1%81%D0%B5%D1%80%D0%BE%D1%81%D1%81%D0%B8%D0%B9%D1%81%D0%BA%D0%B0%D1%8F+%D1%81%D0%B8%D1%81%D1%82%D0%B5%D0%BC%D0%B0+%D0%BF%D0%BE%D0%B8%D1%81%D0%BA%D0%B0+%D0%B8+%D0%B2%D0%BE%D0%B7%D0%B2%D1%80%D0%B0%D1%82%D0%B0+%D0%B6%D0%B8%D0%B2%D0%BE%D1%82%D0%BD%D1%8B%D1%85.&amp;description=&amp;image=http%3A%2F%2Fpet911.ru%2Fimg%2Flogo.png" rel="noopener" target="_blank"><fa><i class="fa fa-vk"></i></fa></a></li><li><a href="http://twitter.com/share?url=http%3A%2F%2Fpet911.ru%2F%25D0%25A5%25D0%25B0%25D0%25B1%25D0%25B0%25D1%2580%25D0%25BE%25D0%25B2%25D1%2581%25D0%25BA%2F%25D0%25BD%25D0%25B0%25D0%25B9%25D0%25B4%25D0%25B5%25D0%25BD%25D0%25B0%2F%25D1%2581%25D0%25BE%25D0%25B1%25D0%25B0%25D0%25BA%25D0%25B0%2Frf494618&amp;text=" rel="noopener" target="_blank"><fa><i class="fa fa-twitter"></i></fa></a></li><li><a href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;su=%D0%9D%D0%B0%D0%B9%D0%B4%D0%B5%D0%BD%D0%B0+%D1%81%D0%BE%D0%B1%D0%B0%D0%BA%D0%B0%2C+%D0%A5%D0%B0%D0%B1%D0%B0%D1%80%D0%BE%D0%B2%D1%81%D0%BA%2C+Pet911+-+%D0%92%D1%81%D0%B5%D1%80%D0%BE%D1%81%D1%81%D0%B8%D0%B9%D1%81%D0%BA%D0%B0%D1%8F+%D1%81%D0%B8%D1%81%D1%82%D0%B5%D0%BC%D0%B0+%D0%BF%D0%BE%D0%B8%D1%81%D0%BA%D0%B0+%D0%B8+%D0%B2%D0%BE%D0%B7%D0%B2%D1%80%D0%B0%D1%82%D0%B0+%D0%B6%D0%B8%D0%B2%D0%BE%D1%82%D0%BD%D1%8B%D1%85.&amp;body=+-+http%3A%2F%2Fpet911.ru%2F%25D0%25A5%25D0%25B0%25D0%25B1%25D0%25B0%25D1%2580%25D0%25BE%25D0%25B2%25D1%2581%25D0%25BA%2F%25D0%25BD%25D0%25B0%25D0%25B9%25D0%25B4%25D0%25B5%25D0%25BD%25D0%25B0%2F%25D1%2581%25D0%25BE%25D0%25B1%25D0%25B0%25D0%25BA%25D0%25B0%2Frf494618" rel="noopener" target="_blank"><fa><i class="fa fa-envelope"></i></fa></a></li><li><a href="https://connect.ok.ru/offer?url=http%3A%2F%2Fpet911.ru%2F%25D0%25A5%25D0%25B0%25D0%25B1%25D0%25B0%25D1%2580%25D0%25BE%25D0%25B2%25D1%2581%25D0%25BA%2F%25D0%25BD%25D0%25B0%25D0%25B9%25D0%25B4%25D0%25B5%25D0%25BD%25D0%25B0%2F%25D1%2581%25D0%25BE%25D0%25B1%25D0%25B0%25D0%25BA%25D0%25B0%2Frf494618&amp;title=%D0%9D%D0%B0%D0%B9%D0%B4%D0%B5%D0%BD%D0%B0+%D1%81%D0%BE%D0%B1%D0%B0%D0%BA%D0%B0%2C+%D0%A5%D0%B0%D0%B1%D0%B0%D1%80%D0%BE%D0%B2%D1%81%D0%BA%2C+Pet911+-+%D0%92%D1%81%D0%B5%D1%80%D0%BE%D1%81%D1%81%D0%B8%D0%B9%D1%81%D0%BA%D0%B0%D1%8F+%D1%81%D0%B8%D1%81%D1%82%D0%B5%D0%BC%D0%B0+%D0%BF%D0%BE%D0%B8%D1%81%D0%BA%D0%B0+%D0%B8+%D0%B2%D0%BE%D0%B7%D0%B2%D1%80%D0%B0%D1%82%D0%B0+%D0%B6%D0%B8%D0%B2%D0%BE%D1%82%D0%BD%D1%8B%D1%85.&amp;description=&amp;imageUrl=http%3A%2F%2Fpet911.ru%2Fimg%2Flogo.png" rel="noopener" target="_blank"><fa><i class="fa fa-odnoklassniki"></i></fa></a></li></ul> </li>
+</ul>
+</div>
+<div class="col-lg-12 col-md-6 col-sm-12">
+<ul class="logo text-lg-right text-center">
+<li><a href="/">Pet911.ru</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="col-lg-12 down">
+<div class="row">
+<div class="col-lg-10">
+<p class="text-lg-left">
+Копирование и публичное воспроизведение материалов и оформления сайта допускается только с письменного разрешения. </p>
+</div>
+<div class="col-lg-2">
+<p class="text-lg-right">
+Все права защищены. </p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="modalPolicy" class="fade modal" role="dialog" tabindex="-1">
+<div class="modal-dialog modal-lg modal-dialog-centered">
+<div class="modal-content">
+<div class="modal-header">
+Политика конфиденциальности
+<button type="button" class="close" data-dismiss="modal" aria-hidden="true" aria-label="Close">&times;</button>
+</div>
+<div class="modal-body">
+<div class="ui-dialog-content ui-widget-content ppolicy">
+I. Общие положения
+Настоящие Положение о политике конфиденциальности (далее — Положение) является официальным документом ООО «Техномаркт», расположенного по адресу: 125367, Москва, проезд Врачебный, д 10 (далее — «Компания»/ «Оператор»), и определяет порядок обработки и защиты информации о физических лицах (далее — Пользователи), пользующихся сервисами, информацией, услугами, программами (в т.ч. программами лояльности) и продуктами интернет-магазина, расположенного на доменном имени www.pet911.ru (далее — Сайт).
+Соблюдение конфиденциальности важно для Компании, ведь целью данной Политики конфиденциальности является обеспечение защиты прав и свобод человека и гражданина при обработке его персональных данных, в том числе защиты прав на неприкосновенность частной жизни, личную и семейную тайну, от несанкционированного доступа и разглашения.
+Мы разработали Политику Конфиденциальности, которая описывает, как мы осуществляем обработку персональных данных — любые действия (операции) или совокупность действий (операций), совершаемых с использованием средств автоматизации или без использования таких средств с персональными данными, включая сбор, запись, систематизацию, накопление, хранение, уточнение (обновление, изменение), извлечение, использование, передачу (распространение, предоставление, доступ), обезличивание, блокирование, удаление, уничтожение персональных данных.
+Отношения, связанные с обработкой персональных данных и информации о пользователях Сайта, регулируются настоящим Положением, иными официальными документами Оператора и действующим законодательством РФ
+Обработка персональных данных осуществляется нами на законной и справедливой основе, действуя разумно и добросовестно и на основе принципов:
+— законности целей и способов обработки персональных данных;?— добросовестности;?— соответствия целей обработки персональных данных целям, заранее определенным и заявленным при сборе персональных данных, а также полномочиям Компании;?— соответствия объема и характера обрабатываемых персональных данных, способов обработки персональных данных целям обработки персональных данных
+Настоящая Политика Конфиденциальности регулирует любой вид обработки персональных данных и информации личного характера (любой информации, позволяющей установить личность, и любой иной информации, связанной с этим) о физических лицах, которые являются потребителями продукции или услуг Компании.
+Настоящая Политика распространяется на обработку личных, персональных данных, собранных любыми средствами, как активными, так и пассивными, как через Интернет, так и без его использования, от лиц, находящихся в любой точке мира.
+II. Сбор персональных данных
+Целью обработки персональных данных является выполнения обязательств Оператора перед Пользователями в отношении использования Сайта и его сервисов.
+Обработка персональных данных пользователей осуществляется с согласия субъекта персональных данных на обработку его персональных данных.
+Под персональными данными понимается любая информация, относящаяся к прямо или косвенно определенному или определяемому физическому лицу (субъекту персональных данных) и которая может быть использована для идентификации определенного лица либо связи с ним.
+Мы можем запросить у Вас персональные данные в любой момент, когда Вы связываетесь с Компанией. Компания может использовать такие данные в соответствии с настоящей Политикой Конфиденциальности. Она также может совмещать такую информацию с иной информацией для целей предоставления и улучшения своих продуктов, услуг, информационного наполнения (контента) и коммуникаций.
+Ниже приведены некоторые примеры типов персональных данных, которые Компания может собирать, и как мы можем использовать такую информацию.
+КАКИЕ ПЕРСОНАЛЬНЫЕ ДАННЫЕ МЫ СОБИРАЕМ
+Мы можем собирать различные данные/информацию, включая:
+— имя и фамилию,?— почтовый адрес;?— номер телефона;?— адрес электронной почты;?— информацию о банковских картах (ФИО, № карты).
+Персональные данные могут также включать в себя дополнительно предоставляемые Пользователями по запросу Оператора в целях исполнения Оператором обязательств перед Пользователями, вытекающих из договора на оказание услуг. Оператор вправе, в частности, запросить у Пользователя копию документа, удостоверяющего личность, либо иного документа, содержащего имя, фамилию, фотографию Пользователя, а также иные дополнительные данные, которые, по усмотрению Оператора, будут являться необходимыми и достаточными для идентификации такого Пользователя и позволят исключить злоупотребления и нарушения прав третьих лиц.
+Когда Вы привлекаете к нашим мероприятиям и активностям других лиц или приглашаете их к коммуникациям с нами, Компания может собирать предоставляемые Вами персональные данных об этих лицах, такую как: имя, фамилия, дата рождения, почтовый адрес, адрес электронной почты и номер телефона.
+При обработке персональных данных нами обеспечивается точность персональных данных, их достаточность, а в необходимых случаях и актуальность по отношению к целям обработки персональных данных.
+III. Хранение и использование персональных данных
+Персональные данные Пользователей хранятся исключительно на электронных носителях и обрабатываются с использованием автоматизированных систем, за исключением случаев, когда неавтоматизированная обработка персональных данных необходима в связи с исполнением требований законодательства.
+КАК МЫ ИСПОЛЬЗУЕМ ВАШУ ПЕРСОНАЛЬНУЮ ИНФОРМАЦИЮ
+Собираемые нами персональные данные позволяют направлять Вам уведомления о новых продуктах, специальных предложениях и различных событиях. Они также помогает нам улучшать наши услуги, контент и коммуникации. Если Вы не желаете быть включенным в наш список рассылки, Вы можете в любое время отказаться от рассылки путём информирования нас по указанным контактам для обратной связи, а также внесения изменений в настройках вашего профиля на сайте.
+Время от времени мы можем использовать Ваши персональные данные для отправки важных уведомлений, содержащих информацию об изменениях наших положений, условий и политик, а также подтверждающих размещенные Вами заказы и совершенные покупки. Поскольку такая информация важна для Ваших взаимоотношений с Компанией, Вы не можете отказаться от получения таких сообщений.
+Мы также можем использовать персональную информацию для внутренних целей, таких как: проведение аудита, анализ данных и различных исследований в целях улучшения продуктов и услуг Компании, а также взаимодействие с потребителями.
+Если Вы принимаете участие в розыгрыше призов, конкурсе или похожем стимулирующем мероприятии, мы сохраняем за собой право использовать предоставляемые Вами персональные данные для управления такими программами.
+СБОР И ИСПОЛЬЗОВАНИЕ ИНФОРМАЦИИ, НЕ ЯВЛЯЮЩЕЙСЯ ПЕРСОНАЛЬНОЙ
+Мы также собираем персональные данные, не являющиеся персональными ? данные, не позволяющие прямо ассоциировать их с каким-либо определённым лицом. Мы можем собирать, использовать, передавать и раскрывать информацию, не являющуюся персональной, для любых целей. Ниже приведены примеры информации, не являющейся персональной, которую мы собираем, и как мы можем её использовать:
+Мы можем собирать персональные данные, такие как: сведения о роде занятий, языке, почтовом индексе, уникальном идентификаторе устройства, местоположении и временной зоне, в которой используется тот или иной продукт, для того чтобы лучше понимать поведение потребителей и улучшать наши продукты, услуги и коммуникации.
+Мы можем также собирать персональные данные/информацию о том, чем интересуется пользователь на нашем веб-сайте при использовании других наших продуктов и сервисов. Такие персональные данные/информация собирается и используется для того, чтобы помочь нам предоставлять более полезную информацию нашим покупателям и для понимания того, какие элементы нашего сайта, продуктов и услуг наиболее интересны. Для целей настоящей Политики Конфиденциальности совокупные данные рассматриваются как данные/информация, не являющиеся персональными.
+Если мы совмещаем информацию, не являющуюся персональной, с персональной информацией, такая совокупная информация будет рассматриваться как персональная информация, пока такая информация будет являться совмещённой.
+IV. Передача персональных данных
+Персональные данные Пользователей не передаются каким-либо третьим лицам, за исключением случаев, прямо предусмотренных настоящими Правилами.
+Обработка персональных данных Пользователя осуществляется без ограничения срока, любым законным способом, в том числе в информационных системах персональных данных с использованием средств автоматизации или без использования таких средств
+Пользователь соглашается с тем, что Оператор вправе передавать персональные данные третьим лицам, в частности, курьерским службам, организациями почтовой связи, операторам электросвязи и т.д., исключительно для целей, указанных в разделе «Сбор персональных данных» настоящей Политики конфиденциальности
+При указании пользователя или при наличии согласия пользователя возможна передача персональных данных Пользователя третьим лицам-контрагентам Оператора с условием принятия такими контрагентами обязательств по обеспечению конфиденциальности полученной информации, в частности, при использовании приложений.
+Приложения, используемые Пользователями на Сайте, размещаются и поддерживаются третьими лицами (разработчиками), которые действуют независимо от Оператора и не выступают от имени или по поручению Оператора. Пользователи обязаны самостоятельно ознакомиться с правилами оказания услуг и политикой защиты персональных данных таких третьих лиц (разработчиков) до начала использования соответствующих приложений.
+Персональные данные Пользователя могут быть переданы по запросам уполномоченных органов государственной власти РФ только по основаниям и в порядке, установленным законодательством РФ.
+Оператор осуществляет блокирование персональных данных, относящихся к соответствующему Пользователю, с момента обращения или запроса Пользователя или его законного представителя либо уполномоченного органа по защите прав субъектов персональных данных на период проверки, в случае выявления недостоверных персональных данных или неправомерных действий.
+РАСКРЫТИЕ ИНФОРМАЦИИ ТРЕТЬИМ ЛИЦАМ
+В некоторых случаях Компания может предоставлять определенную персональную информацию и данные стратегическим партнерам, которые работают с Компанией для предоставления продуктов и услуг, или тем из них, которые помогают Компании реализовывать продукты и услуги потребителям. Мы предоставляем третьим лицам минимальный объем персональных данных, необходимый только для оказания требуемой услуги или проведения необходимой транзакции.
+Персональная информация будет предоставляться Компанией только в целях обеспечения потребителей продуктами и услугами, а также для улучшения этих продуктов и услуг, связанных с ними коммуникаций. Такая информация не будет предоставляться третьим лицам для их маркетинговых целей.
+Для использования Ваших персональных данных для любой иной цели мы запросим Ваше Согласие на обработку Ваших персональных данных
+ПОСТАВЩИКИ УСЛУГ
+Компания предоставляет персональные данные/информацию Компаниям, оказывающим такие услуги, как: обработка информации, предоставление кредитов, исполнение заказов потребителей, доставка, иные виды обслуживания потребителей, определение вашего интереса к нашим продуктам и услугам, проведение опросов, направленных на изучение наших потребителей или удовлетворения качеством сервиса. Такие компании обязуются защищать Вашу информацию независимо от страны своего расположения.
+ИНЫЕ ЛИЦА
+Компании может быть необходимо — в соответствии с законом, судебным порядком, в судебном разбирательстве и/или на основании публичных запросов или запросов от государственных органов на территории или вне территории страны Вашего пребывания — раскрыть Ваши персональные данные. Мы также можем раскрывать персональные данные/информацию о Вас, если мы определим, что такое раскрытие необходимо или уместно в целях национальной безопасности, поддержания правопорядка или иных общественно важных случаях.
+Мы также можем раскрывать персональные данные/информацию о Вас, если мы определим, что раскрытие необходимо для приведения в исполнение наших положений и условий либо для целей защиты нашей деятельности и наших пользователей. Дополнительно в случае реорганизации, слияния или продажи мы можем передать любую или всю собираемую нами персональную информацию соответствующему третьему лицу.
+V. Уничтожение персональных данных
+Персональные данные пользователя уничтожаются при:
+— самостоятельном удалении Пользователем данных со своей персональной страницы с использованием функциональной возможности «удалить аккаунт», доступной Пользователю при помощи настроек профиля;?— удалении Оператором информации, размещаемой Пользователем, а также персональной страницы Пользователя в случаях, установленных договором купли продажи (оферта);?— при отзыве субъектом персональных данных согласия на обработку персональных данных.
+ИДЕНТИФИКАЦИОННЫЕ ФАЙЛЫ (СOOKIES) И ИНЫЕ ТЕХНОЛОГИИ
+Веб-сайт, интерактивные услуги и приложения, сообщения электронной почты и любые иные коммуникации от лица Компании могут использовать идентификационные файлы cookies и иные технологии, такие как: пиксельные ярлыки (pixel tags), веб-маяки (web beacons). Такие технологии помогают нам лучше понимать поведение пользователей, сообщают нам, какие разделы нашего сайта были посещены пользователями, и измеряют эффективность рекламы и сетевых поисков. Мы рассматриваем информацию, собираемую файлами cookies и иными технологиями как информацию, не являющуюся персональной.
+Нашей целью в таких случаях является обеспечение более удобного и персонального взаимодействия с Компанией. Например, зная Ваше имя, мы можем использовать его в наших коммуникациях. Зная, что кто-либо, используя Ваш компьютер или устройство, приобрел определённый продукт или воспользовался определенной услугой, мы можем обеспечивать более полное соответствие Вашим интересам рекламных сообщений и сообщений электронной почты. В конечном итоге все эти знания помогают нам предоставлять Вам обслуживание высшего качества.
+Если вы можете отключить cookies в настройках используемого Вами веб-браузера или мобильного устройства. Следует учесть, что некоторые функции веб-сайта могут стать недоступными после отключения cookies.
+Как и в случае большинства веб-сайтов, мы собираем некоторую информацию автоматически и храним её в файлах статистики. Такая информация включает в себя адрес Интернет-протокола (IP-адрес), тип и язык браузера, информацию о поставщике Интернет-услуг, страницы отсылки и выхода, сведения об операционной системе, отметку даты и времени, а также сведения о посещениях. Мы используем такую информацию для понимания и анализа тенденций, администрирования сайта, изучения поведения пользователей на сайте и сбора демографической информации о нашем основном контингенте пользователей в целом. Компания может использовать такую информацию в своих маркетинговых целях.
+В некоторых наших сообщениях электронной почты мы используем интерактивные ссылки на информацию, размещённую на сайте Компании. Когда пользователи проходят по таким ссылкам, прежде чем они попадают на страницу назначения на нашем веб-сайте, их запросы проходят отдельную регистрацию. Мы отслеживаем такие «проходные» данные, для того чтобы помочь нам определить интерес к отдельным темам и измерить эффективность наших коммуникаций с потребителями. Если Вы предпочитаете, чтобы Ваши обращения не отслеживались подобным образом, Вы не должны проходить по текстовым или графическим ссылкам в сообщениях электронной почты.
+Пиксельные ярлыки позволяют нам направлять сообщения электронной почты в формате, читаемом потребителями, и сообщают нам, были ли такие сообщения прочитаны. Мы можем использовать такую информацию для ограничения количества направляемых потребителям сообщений или прекращения их направления.
+Подробнее о cookies.
+VI. Защита персональных данных
+Компания предпринимает меры предосторожности — включая правовые, организационные, административные, технические и физические — для обеспечения защиты Ваших персональных данных в соответствии со ст. 19 Федерального закона от 27.07.2006 N 152-ФЗ «О персональных данных» в целях обеспечения защиты персональных данных Пользователя от неправомерного или случайного доступа к ним, уничтожения, изменения, блокирования, копирования, распространения, а также от иных неправомерных действий третьих лиц.
+Когда Вы используете некоторые продукты, услуги или приложения Компании или размещаете записи на форумах, в чатах или социальных сетях, предоставляемые Вами персональные данные видны другим пользователям и могут быть прочитаны, собраны или использованы ими. Вы несёте ответственность за персональные данные, которые Вы предпочитаете предоставлять, в таких случаях самостоятельно. Например, если Вы указываете своё имя и адрес электронной почты в записи на форуме, такая информация является публичной. Пожалуйста, соблюдайте меры предосторожности при использовании таких функций.
+ЦЕЛОСТНОСТЬ И СОХРАНЕНИЕ ПЕРСОНАЛЬНОЙ ИНФОРМАЦИИ
+Взаимодействуя с Компанией, Вы можете легко поддерживать свои персональные данные и информацию в актуальном состоянии. Мы будем хранить Ваши персональные данные и информацию в течение срока, необходимого для выполнения целей, описываемых в настоящей Политике Конфиденциальности, за исключением случаев, когда более длительный период хранения данных и информации необходим в соответствии с законодательством либо разрешён им.
+Мы не собираем персональные данные о несовершеннолетних. Если нам станет известно о том, что мы получили персональные данные о несовершеннолетнем, мы предпримем меры для удаления такой информации в максимально короткий срок.
+Мы настоятельно рекомендуем родителям и иным лицам, под чьим присмотром находятся несовершеннолетние (законные представители — родители, усыновители или попечители), контролировать использование несовершеннолетними веб-сайтов.
+СТОРОННИЕ САЙТЫ И УСЛУГИ
+Веб-сайты, продукты, приложения и услуги Компании могут содержать ссылки на веб-сайты, продукты и услуги третьих лиц. Наши продукты и услуги могут также использовать или предлагать продукты или услуги третьих лиц. Персональные данные и информация, собираемая третьими лицами, которые могут включать такие сведения, как данные местоположения или контактная информация, регулируется правилами соблюдения конфиденциальности таких третьих лиц. Мы призываем Вас изучать правила соблюдения конфиденциальности таких третьих лиц.
+Оператор не несет ответственности за действия третьих лиц, получивших в результате использования Интернета или Услуг Сайта доступ к информации о Пользователе и за последствия использования данных и информации, которые, в силу природы Сайта, доступны любому пользователю сети Интернет.
+СОБЛЮДЕНИЕ ВАШЕЙ КОНФИДЕНЦИАЛЬНОСТИ НА УРОВНЕ КОМПАНИИ
+Для того чтобы убедиться, что Ваши персональные данные находятся в безопасности, мы доводим нормы соблюдения конфиденциальности и безопасности до работников Компании и строго следим за исполнением мер соблюдения конфиденциальности внутри Компании.
+ВОПРОСЫ ОТНОСИТЕЛЬНО КОНФИДЕНЦИАЛЬНОСТИ
+Если у вас возникнут вопросы в отношении Политики Конфиденциальности Компании или обработки данных Компанией, Вы можете связаться с нами по контактам для обратной связи.
+VII. Обращения пользователей
+К настоящей Политике конфиденциальности и отношениям между Пользователем и Оператором применяется действующее законодательство РФ.
+Пользователи вправе направлять Оператору свои запросы, в том числе запросы относительно использования их персональных данных, направления отзыва согласия на обработку персональных данных в письменной форме по адресу, указанному разделе Общие положения настоящего положения, или в форме электронного документа, подписанного квалифицированной электронной подписью в соответствии с законодательством РФ, и отправленного по средствам формы обратной связи.
+Запрос, направляемый Пользователем, должен соответствовать требованиям, установленным Правилами подачи обращений в Службу сервиса и поддержки, а именно содержать:
+— номер основного документа, удостоверяющего личность пользователя или его представителя;?— сведения о дате выдачи указанного документа и выдавшем его органе;?— сведения, подтверждающие участие пользователя в отношениях с Оператором (в частности, порядковый номер id пользователя или короткое (поддоменное) имя, заменяющее порядковый номер id);?— подпись Пользователя или его представителя;?— адрес электронной почты;?— контактный телефон.
+Оператор обязуется рассмотреть и направить ответ на поступивший запрос Пользователя в течение 30 дней с момента поступления обращения.
+ДРУГОЕ
+Во всем остальном, что не отражено напрямую в Политике Конфиденциальности, Компания обязуется руководствоваться нормами и положениями Федерального закона от 27.07.2006 N 152-ФЗ «О персональных данных»
+Посетитель сайта Компании, предоставляющий свои персональные данные и информацию, тем самым соглашается с положениями данной Политики Конфиденциальности.
+Компания оставляет за собой право вносить любые изменения в Политику в любое время по своему усмотрению с целью дальнейшего совершенствования системы защиты от несанкционированного доступа к сообщаемым Пользователями персональным данным без согласия Пользователя. Когда мы вносим существенные изменения в Политику Конфиденциальности, на нашем сайте размещается соответствующее уведомление вместе с обновлённой версией Политики Конфиденциальности.
+Действие настоящей Политики не распространяется на действия и интернет-ресурсов третьих лиц.
+ООО «Техномаркт»
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script type="text/javascript" async>
+    (function (d, w, c) {
+        (w[c] = w[c] || []).push(function () {
+            try {
+                w.yaCounter44478286 = new Ya.Metrika2({
+                    id: 44478286,
+                    clickmap: true,
+                    trackLinks: true,
+                    accurateTrackBounce: true,
+                    webvisor: true,
+                    trackHash: true,
+                    triggerEvent: true
+                });
+            } catch (e) {
+            }
+        });
+
+        var n = d.getElementsByTagName('script')[0],
+            s = d.createElement('script'),
+            f = function () {
+                n.parentNode.insertBefore(s, n);
+            };
+        s.type = 'text/javascript';
+        s.async = true;
+        s.src = 'https://mc.yandex.ru/metrika/tag.js';
+
+        if (w.opera == '[object Opera]') {
+            d.addEventListener('DOMContentLoaded', f, false);
+        } else {
+            f();
+        }
+    })(document, window, 'yandex_metrika_callbacks2');
+</script>
+<noscript>
+    <div><img src="https://mc.yandex.ru/watch/44478286" style="position:absolute; left:-9999px;" alt=""/></div>
+</noscript>
+<script type="text/javascript">
+    (function (e, t) {
+        var n = e.amplitude || { _q: [], _iq: {} };
+        var r = t.createElement('script');
+        r.type = 'text/javascript';
+        r.async = true;
+        r.src = 'https://cdn.amplitude.com/libs/amplitude-4.4.0-min.gz.js';
+        r.onload = function () {
+            if (e.amplitude.runQueuedFunctions) {
+                e.amplitude.runQueuedFunctions();
+            } else {
+                console.log('[Amplitude] Error: could not load SDK');
+            }
+        };
+        var i = t.getElementsByTagName('script')[0];
+        i.parentNode.insertBefore(r, i);
+
+        function s (e, t) {
+            e.prototype[t] = function () {
+                this._q.push([t].concat(Array.prototype.slice.call(arguments, 0)));
+                return this;
+            };
+        }
+
+        var o = function () {
+            this._q = [];
+            return this;
+        };
+        var a = ['add', 'append', 'clearAll', 'prepend', 'set', 'setOnce', 'unset'];
+
+        for (var u = 0; u < a.length; u++) {s(o, a[u]);}
+        n.Identify = o;
+        var c = function () {
+            this._q = [];
+
+            return this;
+        };
+        var l = ['setProductId', 'setQuantity', 'setPrice', 'setRevenueType', 'setEventProperties'];
+
+        for (var p = 0; p < l.length; p++) {s(c, l[p]);}
+        n.Revenue = c;
+        var d = ['init', 'logEvent', 'logRevenue', 'setUserId', 'setUserProperties', 'setOptOut', 'setVersionName', 'setDomain', 'setDeviceId', 'setGlobalUserProperties', 'identify', 'clearUserProperties', 'setGroup', 'logRevenueV2', 'regenerateDeviceId', 'logEventWithTimestamp', 'logEventWithGroups', 'setSessionId', 'resetSessionId'];
+
+        function v (e) {
+            function t (t) {
+                e[t] = function () {
+                    e._q.push([t].concat(Array.prototype.slice.call(arguments, 0)));
+                };
+            }
+
+            for (var n = 0; n < d.length; n++) {t(d[n]);}
+        }
+
+        v(n);
+        n.getInstance = function (e) {
+            e = (!e || e.length === 0 ? '$default_instance' : e).toLowerCase();
+
+            if (!n._iq.hasOwnProperty(e)) {
+                n._iq[e] = { _q: [] };
+                v(n._iq[e]);
+            }
+            return n._iq[e];
+        };
+        e.amplitude = n;
+    })(window, document);
+
+    amplitude.getInstance().init('cdcba208e65d355b68bd8f7ac50e5c32', null, {
+        // optional configuration options
+//            saveEvents: true,
+        includeUtm: true,
+        includeReferrer: true,
+//            trackingOptions: {
+//              city: false,
+//              ip_address: false
+//            }
+    });
+</script>
+<script>
+    (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function () {
+            (i[r].q = i[r].q || []).push(arguments);
+        }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m);
+    })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+    ga('create', 'UA-97900333-2', 'auto');
+    ga('send', 'pageview');
+</script>
+
+<script type="text/javascript" async>
+    window.$zopim || (function (d, s) {
+        var z = $zopim = function (c) {
+            z._.push(c);
+        }, $ = z.s =
+            d.createElement(s), e = d.getElementsByTagName(s)[0];
+        z.set = function (o) {
+            z.set._.push(o);
+        };
+        z._ = [];
+        z.set._ = [];
+        $.async = true;
+        $.setAttribute('charset', 'utf-8');
+        $.src = 'https://v2.zopim.com/?4yOS5ncRHWQxnotiU7KE6rFlfOLN0BG7';
+        z.t = +new Date;
+        $.type = 'text/javascript';
+        e.parentNode.insertBefore($, e);
+    })(document, 'script');
+</script>
+<script src="/js/pet/map.js?v=1634040952"></script>
+<script src="//www.google.com/recaptcha/api.js?hl=ru&amp;render=explicit&amp;onload=recaptchaOnloadCallback" async defer></script>
+<script src="/assets/112b979/jquery.js?v=1631545440"></script>
+<script src="/assets/e8fb5053/yii.js?v=1631545440"></script>
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+<script src="https://unpkg.com/leaflet-geosearch@3.3.2/dist/geosearch.umd.js"></script>
+<script src="/js/geocoderNominatim.js?v=1634233324"></script>
+<script src="https://unpkg.com/leaflet.markercluster@1.3.0/dist/leaflet.markercluster.js"></script>
+<script src="/assets/e8fb5053/yii.validation.js?v=1631545440"></script>
+<script src="/assets/e8fb5053/yii.activeForm.js?v=1631545440"></script>
+<script src="/assets/c905444f/jquery.pjax.js?v=1631545462"></script>
+<script src="/assets/97a0d9e4/popper.min.js?v=1631545440"></script>
+<script src="/assets/2f9b551e/js/bootstrap.js?v=1631545440"></script>
+<script src="/js/script.js?v=1632313704"></script>
+<script src="/js/plugins/owl/owl.carousel.min.js?v=1624897402"></script>
+<script src="https://www.gstatic.com/firebasejs/5.7.0/firebase.js"></script>
+<script src="/js/firebase.js?v=1635144339"></script>
+<script src="/js/plugins/lightbox.min.js?v=1624897402"></script>
+<script src="/assets/fafd698a/js/navbar.js?v=1631545440"></script>
+<script>function recaptchaOnloadCallback() {
+    "use strict";
+    jQuery(".g-recaptcha").each(function () {
+        const reCaptcha = jQuery(this);
+        if (reCaptcha.data("recaptcha-client-id") === undefined) {
+            const recaptchaClientId = grecaptcha.render(reCaptcha.attr("id"), {
+                "callback": function (response) {
+                    if (reCaptcha.data("form-id") !== "") {
+                        jQuery("#" + reCaptcha.data("input-id"), "#" + reCaptcha.data("form-id")).val(response)
+                            .trigger("change");
+                    } else {
+                        jQuery("#" + reCaptcha.data("input-id")).val(response).trigger("change");
+                    }
+
+                    if (reCaptcha.attr("data-callback")) {
+                        eval("(" + reCaptcha.attr("data-callback") + ")(response)");
+                    }
+                },
+                "expired-callback": function () {
+                    if (reCaptcha.data("form-id") !== "") {
+                        jQuery("#" + reCaptcha.data("input-id"), "#" + reCaptcha.data("form-id")).val("");
+                    } else {
+                        jQuery("#" + reCaptcha.data("input-id")).val("");
+                    }
+
+                    if (reCaptcha.attr("data-expired-callback")) {
+                        eval("(" + reCaptcha.attr("data-expired-callback") + ")()");
+                    }
+                },
+            });
+            reCaptcha.data("recaptcha-client-id", recaptchaClientId);
+        }
+    });
+}</script>
+<script>jQuery(function ($) {
+jQuery('#commentViewForm').yiiActiveForm([{"id":"addcommentform-name","name":"name","container":".field-addcommentform-name","input":"#addcommentform-name","error":".error","validate":function (attribute, value, messages, deferred, $form) {yii.validation.required(value, messages, {"message":"Необходимо заполнить «Name»."});yii.validation.string(value, messages, {"message":"Значение «Name» должно быть строкой.","min":3,"tooShort":"Значение «Name» должно содержать минимум 3 символа.","skipOnEmpty":1});}},{"id":"addcommentform-comment","name":"comment","container":".field-addcommentform-comment","input":"#addcommentform-comment","error":".error","validate":function (attribute, value, messages, deferred, $form) {yii.validation.required(value, messages, {"message":"Необходимо заполнить «Comment»."});yii.validation.string(value, messages, {"message":"Значение «Comment» должно быть строкой.","min":3,"tooShort":"Значение «Comment» должно содержать минимум 3 символа.","skipOnEmpty":1});}},{"id":"addcommentform-recaptcha","name":"reCaptcha","container":".field-addcommentform-recaptcha","input":"#addcommentform-recaptcha","error":".error","validate":function (attribute, value, messages, deferred, $form) {if (!value) {
+     messages.push("Подтвердите что вы не бот");
+}}}], []);
+jQuery(document).pjax("#commentPjax a", {"push":true,"replace":false,"timeout":0,"scrollTo":false,"container":"#commentPjax"});
+jQuery(document).off("submit", "#commentPjax form[data-pjax]").on("submit", "#commentPjax form[data-pjax]", function (event) {jQuery.pjax.submit(event, {"push":true,"replace":false,"timeout":0,"scrollTo":false,"container":"#commentPjax"});});
+    let owl = $('.owl-carousel').owlCarousel({
+        nav: false,
+        slideBy: 3,
+        responsiveClass: true,
+        responsive: {
+          0: {
+            items: 1
+          },
+          600: {
+            items: 2
+          },
+          1000: {
+            items: 3
+          }
+        },
+        nestedItemSelector: 'ui-carousel-item'
+    });
+
+    $('.ui-carousel-next-button').click(function() {
+        owl.trigger('next.owl.carousel');
+    });
+    $('.ui-carousel-prev-button').click(function() {
+        owl.trigger('prev.owl.carousel');
+    });
+    
+    $("a[href='#top']").click(function() {
+      $("html, body").animate({ scrollTop: 0 }, "slow");
+      return false;
+    });
+
+jQuery('#form-registration').yiiActiveForm([{"id":"fastsignupform-username","name":"username","container":".field-fastsignupform-username","input":"#fastsignupform-username","error":".error","validate":function (attribute, value, messages, deferred, $form) {value = yii.validation.trim($form, attribute, [], value);yii.validation.required(value, messages, {"message":"Необходимо заполнить «Username»."});yii.validation.required(value, messages, {"message":"Необходимо заполнить «Username»."});yii.validation.string(value, messages, {"message":"Значение «Username» должно быть строкой.","min":2,"tooShort":"Значение «Username» должно содержать минимум 2 символа.","max":255,"tooLong":"Значение «Username» должно содержать максимум 255 символов.","skipOnEmpty":1});}},{"id":"fastsignupform-email","name":"email","container":".field-fastsignupform-email","input":"#fastsignupform-email","error":".error","validate":function (attribute, value, messages, deferred, $form) {value = yii.validation.trim($form, attribute, [], value);yii.validation.required(value, messages, {"message":"Необходимо заполнить «Email»."});yii.validation.email(value, messages, {"pattern":/^[a-zA-Z0-9!#$%&'*+\/=?^_`{|}~-]+(?:\.[a-zA-Z0-9!#$%&'*+\/=?^_`{|}~-]+)*@(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?\.)+[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$/,"fullPattern":/^[^@]*<[a-zA-Z0-9!#$%&'*+\/=?^_`{|}~-]+(?:\.[a-zA-Z0-9!#$%&'*+\/=?^_`{|}~-]+)*@(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?\.)+[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?>$/,"allowName":false,"message":"Значение «Email» не является правильным email адресом.","enableIDN":false,"skipOnEmpty":1});yii.validation.string(value, messages, {"message":"Значение «Email» должно быть строкой.","max":255,"tooLong":"Значение «Email» должно содержать максимум 255 символов.","skipOnEmpty":1});}}], []);
+jQuery('#form-login').yiiActiveForm([{"id":"loginform-goback","name":"goBack","container":".field-loginform-goback","input":"#loginform-goback","error":".error","validate":function (attribute, value, messages, deferred, $form) {yii.validation.number(value, messages, {"pattern":/^[+-]?\d+$/,"message":"Значение «Go Back» должно быть целым числом.","skipOnEmpty":1});}},{"id":"loginform-email","name":"email","container":".field-loginform-email","input":"#loginform-email","error":".error","validate":function (attribute, value, messages, deferred, $form) {yii.validation.required(value, messages, {"message":"Необходимо заполнить «Email»."});}},{"id":"loginform-password","name":"password","container":".field-loginform-password","input":"#loginform-password","error":".error","validate":function (attribute, value, messages, deferred, $form) {yii.validation.required(value, messages, {"message":"Необходимо заполнить «Password»."});}}], []);
+jQuery('#modalLoginSignup').modal({"show":false});
+jQuery('#modalComplain').modal({"show":false});
+jQuery('#modalPolicy').modal({"show":false});
+});</script>
+<script>jQuery(window).on('load', function () {
+    $(document).on('click','#showPhoneBtn',function(e) {
+      e.preventDefault();
+      let thisa = this;
+      $.ajax({    
+        type: 'get',
+        url: '/pet/show-phone/494618',
+        dataType: 'json',
+        success: function(msg){
+            if (msg.status == 'success') {
+                $(thisa).replaceWith(msg.html);
+            } else {
+                console.log(msg);
+            }
+        }
+      });
+    });
+zoomVar = 11;
+  initMap({
+    lat: 48.53221370,
+    lng: 135.02429666
+  }, 'улица Уборевича, 47, Хабаровск');
+//$("#sendComplainFormBtn").on('click',function() {
+//    $("#complainForm .error").remove();
+//    if($("#complainMes").val().length<3){
+//      $("#complainMes").after('<div class="error">Сообщите подробности</div>'); 
+//    } else {
+//      $.ajax({    
+//        type: $("#complainForm").attr('method'),
+//        url: $("#complainForm").attr('action'),
+//        data: $("#complainForm").serialize(),
+//        dataType: 'json',
+//        success: function(msg){
+//            if (msg.status == 'success') {
+//                $("#sendComplainFormBtn").remove();
+//                $(".modal-header h3").html(msg.title);
+//                $("#complainForm").html(msg.text);
+//            } else {
+//                console.log(msg);
+//            }
+//        }
+//      });
+//  }
+//})
+$(document).on('submit',"#form-registration",function(e) {
+    e.preventDefault();    
+    $.ajax({    
+        type: $("#form-registration").attr('method'),
+        url: $("#form-registration").attr('action'),
+        data: $("#form-registration").serialize(),
+        dataType: 'json',
+        success: function(msg){
+            if (msg.status == 'success') {
+                location.href = msg.location;
+            } 
+            if (msg.status == 'error') {
+                for (var key in msg.errors) {
+                  $(".field-fastsignupform-"+key+" .error").html(msg.errors[key][0]);
+                }
+            } 
+        }
+    });
+});
+$(document).on('click','#showRegFieldset',function(e) {
+  e.preventDefault();
+  $("#signupFieldset").show();
+  $("#loginFieldset").hide();
+});
+$(document).on('click','#showLogFieldset',function(e) {
+  e.preventDefault();
+  $("#signupFieldset").hide();
+  $("#loginFieldset").show();
+});
+$("#sendComplainFormBtn").on('click',function() {
+    $("#complainForm .error").remove();
+    if($("#complainMes").val().length<3){
+      $("#complainMes").after('<div class="error">Сообщите подробности</div>'); 
+    } else {
+      $.ajax({    
+        type: $("#complainForm").attr('method'),
+        url: $("#complainForm").attr('action'),
+        data: $("#complainForm").serialize(),
+        dataType: 'json',
+        success: function(msg){
+            if (msg.status == 'success') {
+                $("#sendComplainFormBtn").remove();
+                $(".modal-header h3").html(msg.title);
+                $("#complainForm").html(msg.text);
+            } else {
+                console.log(msg);
+            }
+        }
+      });
+  }
+})
+});</script><script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"rayId":"6a959e3cab0d423c","token":"9014c09324db4844a9e1bc18beb1870e","version":"2021.10.0","si":100}'></script>
+</body>
+</html>

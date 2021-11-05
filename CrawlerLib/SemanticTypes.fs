@@ -12,7 +12,7 @@ type EventType =
     |   found = 2
 
 type Author = {
-    name: string
+    name: string option
     phone: string option
     email: string option
 }

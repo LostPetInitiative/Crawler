@@ -55,23 +55,44 @@ let httpDownload (userAgent:string) (timeoutMs:int) (url:string) =
                 let headers = [
                     HttpRequestHeaders.UserAgent userAgent;
                     ]
-                let! response = Http.AsyncRequest(url,
-                                                    headers = headers,
-                                                    httpMethod = "GET", silentHttpErrors = true,
-                                                    timeout = timeoutMs)
-                match response.StatusCode with
-                |   HttpStatusCodes.OK ->
-                    let content:DownloadedFile =
-                        match response.Body with
-                        |   HttpResponseBody.Text text -> Text text
-                        |   HttpResponseBody.Binary bin -> Binary bin
-                    let contentType = Map.tryFind HttpResponseHeaders.ContentType response.Headers
-                    return Ok(Downloaded(content,contentType))
-                |   HttpStatusCodes.NotFound ->
-                    return Ok(Absent)
-                |   _ ->
-                    let errMsg = sprintf "Got not successful HTTP code: %d. %O" response.StatusCode response.Body
-                    return Error errMsg
+                let rec followRedirectionsFetch curUrl redirectsLeft =
+                    async {
+                        if redirectsLeft = 0 then return Error(sprintf "Too many redirects for url %s" url)
+                        else
+                            let! response = Http.AsyncRequest(curUrl,
+                                                                headers = headers,
+                                                                httpMethod = "GET", silentHttpErrors = true,
+                                                                timeout = timeoutMs,
+                                                                customizeHttpRequest = fun r -> r.MaximumAutomaticRedirections <- 5; r)                                                    
+                            // for some reason auto redirection following does not work.
+                            match response.StatusCode with
+                            |   HttpStatusCodes.Found                            
+                            |   HttpStatusCodes.PermanentRedirect
+                            |   HttpStatusCodes.TemporaryRedirect ->
+                                match response.Headers.TryGetValue(HttpResponseHeaders.Location) with
+                                |   true, location ->
+                                    sprintf "handling redirect to %s" location |> traceWarning 
+                                    return! followRedirectionsFetch location (redirectsLeft - 1)
+                                |   false, _ -> return Error ("Got redirect http response code, but without location header")
+                            |   _ -> return Ok response
+                    }
+                        
+                match! followRedirectionsFetch url 5 with
+                |   Error er -> return Error er
+                |   Ok response ->
+                    match response.StatusCode with
+                    |   HttpStatusCodes.OK ->
+                        let content:DownloadedFile =
+                            match response.Body with
+                            |   HttpResponseBody.Text text -> Text text
+                            |   HttpResponseBody.Binary bin -> Binary bin
+                        let contentType = Map.tryFind HttpResponseHeaders.ContentType response.Headers
+                        return Ok(Downloaded(content,contentType))
+                    |   HttpStatusCodes.NotFound ->
+                        return Ok(Absent)
+                    |   _ ->
+                        let errMsg = sprintf "Got not successful HTTP code: %d. %O" response.StatusCode response.Body
+                        return Error errMsg
             with
             |   we ->
                 let errMsg = we.ToString()
@@ -86,7 +107,7 @@ type DownloaderSettings = {
 }
 
 let defaultDownloaderSettings: DownloaderSettings = {
-    delayUnitMs = 10;
+    delayUnitMs = 100;
     maxPermittedDelayMs = 180000;
 }
 
@@ -113,12 +134,13 @@ type Agent(concurrentDownloads:int, settings:DownloaderSettings, fetch: (string 
                     semaphore.Release() |> ignore
                     match downloadRes with
                     |   Error(errMsg) ->
-                        let delayMs = fibonacciArray.[max retryIdx (fibonacciArray.Length-1)] * settings.delayUnitMs
+                        let delayMs = fibonacciArray.[min retryIdx (fibonacciArray.Length-1)] * settings.delayUnitMs
                         if delayMs <= settings.maxPermittedDelayMs then
-                            traceWarning (sprintf "Downloaded \"%s\" failed. Attempt #%d. Retry after %.3f sec" url (retryIdx+1) ((float)delayMs*0.001))
+                            traceWarning (sprintf "Downloaded \"%s\" failed with \"%s\". Attempt #%d. Retry after %.3f sec" url errMsg (retryIdx+1) ((float)delayMs*0.001))
                             do! Async.Sleep delayMs
                             inbox.Post(DoDownloadAttempt(url,retryIdx+1,resultChannel))
                         else
+                            traceError (sprintf "Download \"%s\" failed with \"%s\". Next attempt delay %d is more than permitted %d" url errMsg delayMs settings.maxPermittedDelayMs)
                             inbox.Post(DownloadFinished(Error(errMsg),resultChannel))
                     |   Ok(lookup) ->
                         match lookup with
