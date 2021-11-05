@@ -7,7 +7,7 @@
 
   <ItemGroup>
     <Compile Include="Utils.fs" />
-    <Compile Include="cardParserPet911.fs" />
+    <Compile Include="ParserPet911.fs" />
     <Compile Include="CrawlerPet911.fs" />
     <Compile Include="Program.fs" />
   </ItemGroup>
