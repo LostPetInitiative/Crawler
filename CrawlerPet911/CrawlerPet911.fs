@@ -20,7 +20,7 @@ let missingImagesFilename = "missingImages.txt"
 
 let missingCardsFilename = "missingCards.txt"
 
-let constructPet911ImageProcessor baseDir download reportProcessed =
+let constructPet911ImageProcessor baseDir download =
     async {
         let! missingImagesTracker = createFileBackedMissingResourceTracker(Path.Combine(baseDir,missingImagesFilename))
         let parseID (id:string) =
@@ -50,8 +50,10 @@ let constructPet911ImageProcessor baseDir download reportProcessed =
             |   Some(cardId, photoId) ->
                 match lookupRes with
                 |   Absent ->
+                    sprintf "Storing info that photo \"%s\" of card \"%s\" does not exist at remote side." photoId cardId |> traceInfo
                     missingImagesTracker.Add descriptor.ID
                 |   Downloaded file ->
+                    sprintf "Saving photo \"%s\" for card \"%s\" to disk." photoId cardId |> traceInfo
                     Directory.CreateDirectory(Path.Combine(baseDir, cardId)) |> ignore
                     saveLocalFile file (Path.Combine(baseDir, cardId, photoId))
             |   None ->
@@ -60,7 +62,8 @@ let constructPet911ImageProcessor baseDir download reportProcessed =
         let processResource (file:Downloader.DownloadedFileWithMime) =
             async {
                 match! Images.validateImage (fst file) with
-                |   true -> return Ok()
+                |   true ->                    
+                    return Ok()
                 |   false -> return Error("Resource is not a valid image")
             }
         
@@ -68,14 +71,13 @@ let constructPet911ImageProcessor baseDir download reportProcessed =
             tryGetLocal = tryGetLocal
             saveLocal = saveLocal
             download = download
-            processResource = processResource
-            reportProcessed = reportProcessed
+            processDownloaded = processResource
             }
         let agent = new Agent<unit>(callbacks)
         return agent
     }
 
-let constructPet911CardProcessor baseDir download reportProcessed =
+let constructPet911CardProcessor baseDir download =
     async {
         let! missingCardsTracker = createFileBackedMissingResourceTracker(Path.Combine(baseDir,missingCardsFilename))
         let tryGetLocal (descriptor:RemoteResourseDescriptor) =
@@ -169,9 +171,32 @@ let constructPet911CardProcessor baseDir download reportProcessed =
             tryGetLocal = tryGetLocal
             saveLocal = saveLocal
             download = download
-            processResource = processResource
-            reportProcessed = reportProcessed
+            processDownloaded = processResource
             }
         let agent = new Agent<PetCard>(callbacks)
         return agent
     }
+
+let constructCrawler baseDir download  = 
+    async {        
+        let! imageProcessor = constructPet911ImageProcessor baseDir download
+        let! cardProcessor = constructPet911CardProcessor baseDir download
+
+        let processImage descriptor = async { let! fullResult = imageProcessor.Process descriptor in return Result.map (fun _ -> ()) fullResult}
+
+        let photosForCardCrawler = PhotosForCardCrawler.Agent(processImage)
+        
+        let processCard cardDescriptor =
+            async {
+                match! cardProcessor.Process cardDescriptor with
+                |   Error er -> return Error (sprintf "Failed to process card %s: %s" cardDescriptor.ID er)
+                |   Ok processedResource ->
+                    match processedResource with
+                    |   Missing -> return Ok()
+                    |   Processed card ->                        
+                        return! photosForCardCrawler.AwaitAllPhotos card.id card.photos                        
+            }
+
+        return processCard
+    }
+    

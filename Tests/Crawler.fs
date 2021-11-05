@@ -1,26 +1,21 @@
 ﻿module Crawlers.PhotosForCard
 
-open System
-open System.IO
 open Xunit
 
 open Kashtanka
-open Kashtanka.Common
 open Kashtanka.Crawler
-open Kashtanka.SemanticTypes
-
-open Kashtanka.CrawlerPet911
-open System.Threading
-
 
 [<Fact>]
 let ``photo fetch callbacks called`` () =
     async {
         let mutable processedPhotos: List<string> = List.empty
 
-        let processPhoto (descriptor:RemoteResourseDescriptor) processedCallback = 
-            processedPhotos <-  descriptor.ID::processedPhotos
-            processedCallback descriptor.ID (Ok())
+        let lockObj = obj()
+
+        let processPhoto (descriptor:RemoteResourseDescriptor) =
+            lock lockObj (fun () ->
+                processedPhotos <- descriptor.ID::processedPhotos)
+            async {return Ok()}
 
         let agent = PhotosForCardCrawler.Agent(processPhoto)
         match! agent.AwaitAllPhotos "card1" [ {ID="1";url="url1"}; {ID="2";url="url2"} ] with
@@ -37,8 +32,8 @@ let ``photo fetch callbacks called`` () =
 [<Fact>]
 let ``First failure reported`` () =
     async {
-        let processPhoto (descriptor:RemoteResourseDescriptor) processedCallback = 
-            processedCallback descriptor.ID (if descriptor.ID = "2" then Error("predefined failure") else Ok())
+        let processPhoto (descriptor:RemoteResourseDescriptor) = 
+            async {if descriptor.ID = "2" then return Error("predefined failure") else return Ok()}
 
         let agent = PhotosForCardCrawler.Agent(processPhoto)
         match! agent.AwaitAllPhotos "card1" [ {ID="1";url="url1"}; {ID="2";url="url2"} ] with

@@ -17,7 +17,7 @@ type private AgentState = {
 
 /// Maintains the list of photo retrieval jobs for each cards. Notifies when all of the photos for a card are processed
 /// processPhoto: card -> process:(photoID -> result)
-type Agent<'T>(processPhoto: RemoteResourseDescriptor -> (string -> Result<unit,string> -> unit) -> unit) =
+type Agent<'T>(processPhoto: RemoteResourseDescriptor -> Async<Result<unit,string>>) =
     let mbProcessor = MailboxProcessor<Msg>.Start(fun inbox ->
         let rec messageLoop (state:AgentState) = async {
             let! nextState = async {
@@ -28,10 +28,13 @@ type Agent<'T>(processPhoto: RemoteResourseDescriptor -> (string -> Result<unit,
                             shuttingDown = Some channel
                     }
                 |   ProcessCard(cardID, photos, readyChannel) ->
-                    let photoProcessedCallback photoID result =
-                        inbox.Post(PhotoProcessed (photoID,result))
-                    photos |> Seq.iter (fun x -> processPhoto x photoProcessedCallback)
-                    
+                    let processPhotoAndRegisterCompletion photo =
+                        async {
+                            let! result = processPhoto photo
+                            inbox.Post(PhotoProcessed (photo.ID,result))
+                        } |> Async.Start
+                    photos |> Seq.iter processPhotoAndRegisterCompletion
+
                     return {
                         state with
                             ongoingJobs = Map.add cardID (Set.map (fun x -> x.ID) photos, readyChannel) state.ongoingJobs
