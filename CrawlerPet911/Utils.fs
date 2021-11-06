@@ -45,8 +45,8 @@ let cardToPipelineJSON (card:PetCard) =
 
     let sex =
         match card.sex with
-        |   Sex.male -> Some 2
-        |   Sex.female -> Some 3
+        |   Sex.male -> Some "2"
+        |   Sex.female -> Some "3"
         |   _ -> None
     if sex.IsSome then
         pet.Add("sex", JValue(sex.Value))
@@ -54,17 +54,17 @@ let cardToPipelineJSON (card:PetCard) =
     pet.Add("address", JValue(card.address))
 
     if card.latitude.IsSome then
-        pet.Add("latitude",JValue(card.latitude.Value))
+        pet.Add("latitude",JValue(sprintf "%f" card.latitude.Value))
 
     if card.longitude.IsSome then
-        pet.Add("longitude",JValue(card.longitude.Value))
+        pet.Add("longitude",JValue(sprintf "%f" card.longitude.Value))
 
-    pet.Add("date",JValue(card.date.ToString("yyyy-MM-ddTHH:mm:ssK"))) // python date format %Y-%m-%dT%H:%M:%SZ
+    pet.Add("date",JValue(sprintf "%d" (int (card.date - DateTime.UnixEpoch).TotalSeconds)))
 
     let eventType =
         match card.``type`` with
-        |   EventType.found -> Some 2
-        |   EventType.lost -> Some 1
+        |   EventType.found -> Some "2"
+        |   EventType.lost -> Some "1"
         |   _ -> None
     if eventType.IsSome then
         pet.Add("type",JValue(eventType.Value))
