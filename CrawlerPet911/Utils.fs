@@ -88,6 +88,7 @@ let cardToPipelineJSON (card:PetCard) =
         res.Add("id",JValue(baseName))
         res
     card.photos |> Seq.iter (fun x -> photos.Add(descriptorToPhoto x))
+    pet.Add("photos",photos)
 
     let res = JObject()
     res.Add("pet",pet)
