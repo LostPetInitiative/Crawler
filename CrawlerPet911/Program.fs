@@ -1,7 +1,7 @@
 ﻿open Argu
 
 open Kashtanka
-open Kashtanka.CrawlerPet911
+open Kashtanka.pet911.Crawler
 open Kashtanka.Crawler
 open Kashtanka.pet911.Utils
 open Kashtanka.Common

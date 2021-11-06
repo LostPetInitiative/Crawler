@@ -1,4 +1,4 @@
-﻿module Kashtanka.Parsers.pet911
+﻿module Kashtanka.pet911.Parsers
 
 open HtmlAgilityPack
 open Kashtanka.SemanticTypes
@@ -47,14 +47,14 @@ let getPhotoUrls (htmlDoc:HtmlDocument) : Result<string[], string> =
 let getEventTimeUTC (htmlDoc:HtmlDocument) : Result<System.DateTime, string> =
     let dateNodes = htmlDoc.DocumentNode.SelectNodes("//section[@id='view-pet']//div[@class='only-mobile']/div[@class='p-date']")
     if dateNodes = null then
-        Error "Can't find event time elemet"
+        Error "Can't find event time element"
     elif dateNodes.Count <> 2 then
         Error(sprintf "Expected 2 date elements, found %d" dateNodes.Count)
     else
         let eventDateNode = dateNodes |> Seq.filter (fun x -> x.InnerText.ToLowerInvariant().Contains("дата")) |> Seq.exactlyOne
         let text = eventDateNode.InnerText.ToLower().Trim()
         let dateText = text.Substring(text.Length - 10)
-        let couldParse, date = System.DateTime.TryParseExact(dateText,"dd.MM.yyyy",System.Globalization.CultureInfo.InvariantCulture, System.Globalization.DateTimeStyles.None)
+        let couldParse, date = System.DateTime.TryParseExact(dateText,"dd.MM.yyyy",System.Globalization.CultureInfo.InvariantCulture, System.Globalization.DateTimeStyles.AssumeUniversal ||| System.Globalization.DateTimeStyles.AdjustToUniversal)
         if couldParse then
             Ok date
         else
