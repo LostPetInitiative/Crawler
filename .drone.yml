@@ -4,9 +4,23 @@ type: kubernetes
 name: default
 
 steps:
-- name: build
+- name: build crawler
   image: mcr.microsoft.com/dotnet/sdk:3.1
   commands:
   - dotnet restore
   - dotnet build
   - dotnet test
+  - dotnet build -c Release
+  - dotnet publish -c Release
+- name: build & push docker image
+  when:
+    event:
+    - tag
+  image: plugins/docker
+  settings:
+    username:
+      from_secret: docker_username
+    password:
+      from_secret: docker_password
+    auto_tag: true
+    repo: lostpetinitiative/crawler-pet911ru-agent
