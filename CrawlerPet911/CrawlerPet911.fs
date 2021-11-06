@@ -1,11 +1,13 @@
-﻿module Kashtanka.CrawlerPet911
+﻿module Kashtanka.pet911.Crawler
 
+open Kashtanka
 open Downloader
 open Crawler
+open Utils
 open SemanticTypes
 open MissingResourceTracker
 open FileCollector
-open Parsers.pet911
+open Parsers
 open System.IO
 open HtmlAgilityPack
 
@@ -23,15 +25,9 @@ let missingCardsFilename = "missingCards.txt"
 let constructPet911ImageProcessor baseDir download =
     async {
         let! missingImagesTracker = createFileBackedMissingResourceTracker(Path.Combine(baseDir,missingImagesFilename))
-        let parseID (id:string) =
-            // ID = cardID/photoID.ext
-            let parts = id.Split([|'/'|])
-            match parts with
-            | [| cardId; photoId |] -> Some(cardId,photoId)
-            |   _ -> None
         let tryGetLocal (descriptor:RemoteResourseDescriptor) =
             async {
-                match parseID descriptor.ID with
+                match parsePhotoId descriptor.ID with
                 |   Some(cardId,photoId) ->
                     match! missingImagesTracker.Check descriptor.ID with
                     |   Error e -> return Error(sprintf "Error during local absence check: %s" e)
@@ -46,7 +42,7 @@ let constructPet911ImageProcessor baseDir download =
                 |   None -> return Error(sprintf "Invalid photo id \"%s\"" descriptor.ID)
             }
         let saveLocal (descriptor:RemoteResourseDescriptor, lookupRes:RemoteResourseLookup) =            
-            match parseID descriptor.ID with
+            match parsePhotoId descriptor.ID with
             |   Some(cardId, photoId) ->
                 match lookupRes with
                 |   Absent ->
@@ -196,6 +192,14 @@ let constructCrawler baseDir download  =
                     |   Processed card ->
                         sprintf "Card %s parsed successfully" cardDescriptor.ID |> traceInfo
                         let! res = photosForCardCrawler.AwaitAllPhotos card.id card.photos                        
+                        
+                        // dumping json
+                        let pipelineJsonPath = System.IO.Path.Combine(baseDir, cardDescriptor.ID, "card.json")
+                        do! System.IO.File.WriteAllTextAsync(pipelineJsonPath, cardToPipelineJSON(card).ToString()) |> Async.AwaitTask
+
+                        let wholeJsonPath = System.IO.Path.Combine(baseDir, cardDescriptor.ID, "cardFull.json")
+                        do! System.IO.File.WriteAllTextAsync(wholeJsonPath, Newtonsoft.Json.Linq.JObject.FromObject(card).ToString()) |> Async.AwaitTask
+
                         sprintf "Card %s (and its %d photos) are processed" card.id card.photos.Length |> traceInfo
                         return res
             }

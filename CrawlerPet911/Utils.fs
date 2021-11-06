@@ -1,6 +1,8 @@
 ﻿module Kashtanka.pet911.Utils
 
 open Kashtanka.Crawler
+open Kashtanka.SemanticTypes
+open Newtonsoft.Json.Linq
 
 let cardIDsFromRange firstCard lastCard =
     seq {
@@ -17,3 +19,76 @@ let cardIDtoDescriptor cardID : RemoteResourseDescriptor =
         ID = cardID;
         url = cardIDToURL cardID
     }
+
+/// ID = [cardID]/[photoID.ext]
+let parsePhotoId (id:string) =
+    let parts = id.Split([|'/'|])
+    match parts with
+    | [| cardId; photoId |] -> Some(cardId,photoId)
+    |   _ -> None
+
+
+let cardToPipelineJSON (card:PetCard) =
+    let pet = new JObject()
+
+    pet.Add("art",JValue(card.id))
+    
+    let species =
+        match card.animal with
+        |   Species.dog -> Some 1
+        |   Species.cat -> Some 2
+        |   _ -> None
+    if species.IsSome then
+        pet.Add("animal", JValue(species.Value))
+
+    let sex =
+        match card.sex with
+        |   Sex.male -> Some 2
+        |   Sex.female -> Some 3
+        |   _ -> None
+    if sex.IsSome then
+        pet.Add("sex", JValue(sex.Value))
+
+    pet.Add("address", JValue(card.address))
+
+    if card.latitude.IsSome then
+        pet.Add("latitude",JValue(card.latitude.Value))
+
+    if card.longitude.IsSome then
+        pet.Add("longitude",JValue(card.longitude.Value))
+
+    pet.Add("date",JValue(card.date.ToString("yyyy-MM-ddTHH:mm:ssK"))) // python date format %Y-%m-%dT%H:%M:%SZ
+
+    let eventType =
+        match card.``type`` with
+        |   EventType.found -> Some 2
+        |   EventType.lost -> Some 1
+        |   _ -> None
+    if eventType.IsSome then
+        pet.Add("type",JValue(eventType.Value))
+
+    pet.Add("description", JValue(card.description))
+
+    let author = JObject()
+    if card.author.name.IsSome then
+        author.Add("username",JValue(card.author.name.Value))
+    if card.author.phone.IsSome then
+        author.Add("phone",JValue(card.author.phone.Value))
+    if card.author.email.IsSome then
+        author.Add("email",JValue(card.author.email.Value))
+    pet.Add("author", author);
+
+    let photos = JArray()
+    let descriptorToPhoto (descriptor:RemoteResourseDescriptor) =
+        let res = JObject()
+        let filenameWithExt = snd (parsePhotoId descriptor.ID).Value
+        let baseName = System.IO.Path.GetFileNameWithoutExtension(filenameWithExt)
+        res.Add("id",JValue(baseName))
+        res
+    card.photos |> Seq.iter (fun x -> photos.Add(descriptorToPhoto x))
+
+    let res = JObject()
+    res.Add("pet",pet)
+    res
+
+    

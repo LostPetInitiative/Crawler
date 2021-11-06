@@ -9,7 +9,7 @@ open Kashtanka.Common
 open Kashtanka.Crawler
 open Kashtanka.SemanticTypes
 
-open Kashtanka.CrawlerPet911
+open Kashtanka.pet911.Crawler
 open System.Threading
 
 let userAgent = "KashtankaTestRunner/0.0.1"

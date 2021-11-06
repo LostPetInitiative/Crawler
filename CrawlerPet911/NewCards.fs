@@ -26,7 +26,7 @@ let getNewCards (latestToCheck: RemoteResourseDescriptor option) (download: Remo
                         let text = downloadedFileToText (fst downloaded)
                         let doc = new HtmlAgilityPack.HtmlDocument()
                         doc.LoadHtml(text)
-                        Parsers.pet911.getCatalogCards doc 
+                        pet911.Parsers.getCatalogCards doc 
             let! lookups = descriptors |> Seq.map download |> Async.Parallel
             let descriptors = lookups |> Seq.map lookupResultToIds
             match Common.allResults descriptors with
