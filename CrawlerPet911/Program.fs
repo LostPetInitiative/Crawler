@@ -72,6 +72,7 @@ let main argv =
                     let latest =
                         System.IO.Directory.EnumerateDirectories(dbDir)
                         |> Seq.map (fun x -> System.IO.Path.GetRelativePath(dbDir,x))
+                        |> Seq.filter (fun x -> x.StartsWith("rl") || x.StartsWith("rf"))
                         |> Seq.sortByDescending (fun x -> System.Int32.Parse(x.Substring(2)))
                         |> Seq.map cardIDtoDescriptor
                         |> Seq.tryHead
