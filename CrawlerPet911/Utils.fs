@@ -37,8 +37,8 @@ let cardToPipelineJSON (card:PetCard) =
     
     let species =
         match card.animal with
-        |   Species.dog -> Some 1
-        |   Species.cat -> Some 2
+        |   Species.dog -> Some "1"
+        |   Species.cat -> Some "2"
         |   _ -> None
     if species.IsSome then
         pet.Add("animal", JValue(species.Value))
