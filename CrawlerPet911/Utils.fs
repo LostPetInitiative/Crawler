@@ -3,6 +3,8 @@
 open Kashtanka.Crawler
 open Kashtanka.SemanticTypes
 open Newtonsoft.Json.Linq
+open FSharp.Data
+open System
 
 let cardIDsFromRange firstCard lastCard =
     seq {
@@ -91,4 +93,27 @@ let cardToPipelineJSON (card:PetCard) =
     res.Add("pet",pet)
     res
 
-    
+let pingPipeline (newIds:string seq) =
+    async {
+        let jsonBody = sprintf """{ "cardIds": [%s] }""" (String.Join(',', newIds |> Seq.map (fun x -> sprintf "\"%s\"" x)))
+        try
+            let! pingResult =
+                Http.AsyncRequest(
+                    "http://127.0.0.1:5001/",
+                    headers = [
+                                HttpRequestHeaders.ContentType HttpContentTypes.Json;
+                                // HttpRequestHeaders.Accept HttpContentTypes.Json;
+                                // HttpRequestHeaders.UserAgent agentName;
+                                // HttpRequestHeaders.Origin urlPrefix
+                                ],
+                    httpMethod = "POST",
+                    body = TextRequest jsonBody, silentHttpErrors = true, timeout = 10000)
+            match pingResult.StatusCode with
+            |   201 ->
+                return Ok()
+            |   code ->
+                return Error(sprintf "Failed to notify processing pipeline. Http code %d" code)                    
+        with
+            |   :? System.Net.WebException as ex->
+                return Error(sprintf "Failed to notify processing pipeline: %A" ex)
+    }
