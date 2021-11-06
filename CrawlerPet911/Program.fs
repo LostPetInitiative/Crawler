@@ -15,13 +15,13 @@ let traceInfo msg = Tracing.traceInfo moduleName msg
 type CLIArgs = 
     |   [<AltCommandLine("-d") ; Mandatory>]Dir of path:string
     |   [<CliPrefix(CliPrefix.None)>]Range of firstCardID:int * lastCardID:int
-    |   [<CliPrefix(CliPrefix.None)>]NewCards of checkIntervalSet:int
+    |   [<CliPrefix(CliPrefix.None)>]NewCards of checkIntervalSet:int * pingPipeline: bool
     interface IArgParserTemplate with
         member x.Usage =
             match x with
             |   Dir _ -> "Directory of the stored data"
             |   Range _ -> "Process a fixed specified range of cards (first,last)"
-            |   NewCards _ -> "Detect and download new cards loop (intervals in seconds between checks)"
+            |   NewCards _ -> "Detect and download new cards loop (intervals in seconds between checks) (boolean: whether to notify processing pipeline with POST HTTP requests)"
 
 let userAgent = "KashtankaCrawler/2.0.0-alpha"
 
@@ -66,7 +66,7 @@ let main argv =
                         traceInfo "All jobs are complete"
                         return 0
                 elif parsed.Contains NewCards then
-                    let checkIntervalSec = parsed.GetResult NewCards
+                    let checkIntervalSec,pingPipelineEnabled = parsed.GetResult NewCards
                     let failedLogPath = System.IO.Path.Combine(dbDir,"failedCards.log")
                     sprintf "Entering new cards monitoring mode. Poll interval: %d sec" checkIntervalSec |> traceInfo
                     let latest =
@@ -96,6 +96,7 @@ let main argv =
                                         sprintf "Detected %d new cards: %A" cardIds.Count (Set.map (fun x -> x.ID) cardIds) |> traceInfo
                                         let cardsIdsArray = Array.ofSeq cardIds
                                         let! results =  cardsIdsArray |> Seq.map crawler |> Async.Parallel
+
                                         // dumping failed results to disk
                                         let failed =
                                             let mapper idx r =
@@ -111,7 +112,7 @@ let main argv =
                                         if Array.isEmpty failedIDs then
                                             do! System.IO.File.AppendAllLinesAsync(failedLogPath,failedIDs) |> Async.AwaitTask
                                         
-                                        let newLatest = 
+                                        let successfulNewCard =
                                             let mapper idx r =
                                                 match r with
                                                 |   Error _ -> None
@@ -121,6 +122,18 @@ let main argv =
                                             |> Seq.choose id
                                             |> Seq.sortByDescending snd
                                             |> Seq.map fst
+                                            |> Seq.toArray
+
+                                        // pinging pipeline
+                                        if pingPipelineEnabled && successfulNewCard.Length>0 then
+                                            match! pingPipeline (successfulNewCard |> Seq.map (fun x -> x.ID)) with
+                                            |   Error er ->
+                                                sprintf "Failed to ping pipeline: %s" er |> traceError
+                                                exit 4
+                                            |   Ok() -> traceInfo "Successfully notified processing pipeline" 
+
+                                        let newLatest = 
+                                            successfulNewCard
                                             |> Seq.tryHead
                                         match newLatest with
                                         |   None -> return latestKnown
