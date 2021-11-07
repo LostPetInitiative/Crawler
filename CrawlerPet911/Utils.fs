@@ -39,7 +39,7 @@ let cardToPipelineJSON (card:PetCard) =
         match card.animal with
         |   Species.dog -> Some "1"
         |   Species.cat -> Some "2"
-        |   _ -> None
+        |   _ -> Some "0"
     if species.IsSome then
         pet.Add("animal", JValue(species.Value))
 
@@ -47,11 +47,11 @@ let cardToPipelineJSON (card:PetCard) =
         match card.sex with
         |   Sex.male -> Some "2"
         |   Sex.female -> Some "3"
-        |   _ -> None
+        |   _ -> Some "0"
     if sex.IsSome then
         pet.Add("sex", JValue(sex.Value))
 
-    pet.Add("address", JValue(card.address))
+    pet.Add("address", JValue(if String.IsNullOrEmpty(card.address) then "" else card.address))
 
     if card.latitude.IsSome then
         pet.Add("latitude",JValue(sprintf "%f" card.latitude.Value))
@@ -74,6 +74,8 @@ let cardToPipelineJSON (card:PetCard) =
     let author = JObject()
     if card.author.name.IsSome then
         author.Add("username",JValue(card.author.name.Value))
+    else
+        author.Add("username",JValue(""))
     if card.author.phone.IsSome then
         author.Add("phone",JValue(card.author.phone.Value))
     if card.author.email.IsSome then
