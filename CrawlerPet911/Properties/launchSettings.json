@@ -2,7 +2,7 @@
   "profiles": {
     "CrawlerPet911": {
       "commandName": "Project",
-      "commandLineArgs": "range 494002 494014 -d testDb"
+      "commandLineArgs": "-d testDb newcards 60 False"
     }
   }
 }

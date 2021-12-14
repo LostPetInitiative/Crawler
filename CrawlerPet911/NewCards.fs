@@ -10,7 +10,7 @@ let urlsToQueryBase = [|
     "https://pet911.ru/catalog?PetsSearch[animal]=1&PetsSearch[type]=2";
 |]
 
-let getNewCards (latestToCheck: RemoteResourseDescriptor option) (download: RemoteResourseDescriptor -> Async<Result<RemoteResourseLookup,string>>) =
+let getNewCards (knownToLookFor: Set<int> option) (download: RemoteResourseDescriptor -> Async<Result<RemoteResourseLookup,string>>) =
     let getPageCardsDescriptors pageNum = 
         async {
             let descriptors =
@@ -36,12 +36,12 @@ let getNewCards (latestToCheck: RemoteResourseDescriptor option) (download: Remo
         }
         
     async {
-        match latestToCheck with
+        match knownToLookFor with
         |   None ->
             // we return single card with largest
             let! descriptorsRes = getPageCardsDescriptors 1
             return descriptorsRes |> Result.map (fun x -> x |> Seq.sortByDescending (fun x -> System.Int32.Parse(x.ID.Substring(2))) |> Seq.head |> Set.singleton)
-        |   Some latest ->
+        |   Some known ->
             // looking the catalog until we find what we already have
             let rec findLatest curPage accumulated =
                 async {
@@ -50,7 +50,7 @@ let getNewCards (latestToCheck: RemoteResourseDescriptor option) (download: Remo
                     |   Ok descSeq ->
                         let descSet = Set.ofSeq descSeq
                         let newSet = Seq.fold (fun s desc -> Set.add desc s) accumulated descSet
-                        if Set.contains latest.ID (Set.map (fun x -> x.ID) descSet) then
+                        if not(Set.isEmpty (Set.intersect known (Set.map (fun x -> System.Int32.Parse(x.ID.Substring(2))) descSet))) then
                             // found returning everything including current page
                             return Ok(newSet)
                         else
