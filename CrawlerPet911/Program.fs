@@ -15,7 +15,7 @@ let traceInfo msg = Tracing.traceInfo moduleName msg
 type CLIArgs = 
     |   [<AltCommandLine("-d") ; Mandatory>]Dir of path:string
     |   [<CliPrefix(CliPrefix.None)>]Range of firstCardID:int * lastCardID:int
-    |   [<CliPrefix(CliPrefix.None)>]NewCards of checkIntervalSet:int * pingPipeline: bool
+    |   [<CliPrefix(CliPrefix.None)>]NewCards of checkIntervalSec:int * pingPipeline: bool
     interface IArgParserTemplate with
         member x.Usage =
             match x with
@@ -69,31 +69,31 @@ let main argv =
                     let checkIntervalSec,pingPipelineEnabled = parsed.GetResult NewCards
                     let failedLogPath = System.IO.Path.Combine(dbDir,"failedCards.log")
                     sprintf "Entering new cards monitoring mode. Poll interval: %d sec" checkIntervalSec |> traceInfo
-                    let latest =
+                    let initialKnownIds =
                         System.IO.Directory.EnumerateDirectories(dbDir)
                         |> Seq.map (fun x -> System.IO.Path.GetRelativePath(dbDir,x))
                         |> Seq.filter (fun x -> x.StartsWith("rl") || x.StartsWith("rf"))
-                        |> Seq.sortByDescending (fun x -> System.Int32.Parse(x.Substring(2)))
-                        |> Seq.map cardIDtoDescriptor
-                        |> Seq.tryHead
-                    let rec loop latestKnown =
-                        sprintf "Latest known card: %A" latestKnown |> traceInfo
+                        |> Seq.map (fun x -> System.Int32.Parse(x.Substring(2)))
+                        |> Seq.truncate 50 // not more than 50 latest ads. A way to workaround paid and deleted ads
+                        |> Array.ofSeq
+                    let rec loop arg =
+                        let maxKnownOpt, knownSet = arg
                         async {
-                            let! latestKnown2 =
+                            let! nextIterArg =
                                 async {
-                                    match! NewCards.getNewCards latestKnown downloadResource with
+                                    match! NewCards.getNewCards knownSet downloadResource with
                                     |   Error er ->
                                         sprintf "Error while detecting new cards: %s" er |> traceError
-                                        return latestKnown
+                                        return arg
                                 
                                     |   Ok cardIdsAll ->
                                         let cardIds = 
-                                            match latestKnown with
+                                            match maxKnownOpt with
                                             |   None -> cardIdsAll
-                                            |   Some latestKnownCard ->
-                                                let latestNum = System.Int32.Parse(latestKnownCard.ID.Substring(2))
+                                            |   Some maxKnown ->
+                                                sprintf "Latest known card: %d" maxKnown |> traceInfo
                                                 cardIdsAll
-                                                |> Set.filter (fun x -> System.Int32.Parse(x.ID.Substring(2)) > latestNum)
+                                                |> Set.filter (fun x -> System.Int32.Parse(x.ID.Substring(2)) > maxKnown) // more recent than max known
                                         sprintf "Detected %d new cards: %A" cardIds.Count (Set.map (fun x -> x.ID) cardIds) |> traceInfo
                                         let cardsIdsArray = Array.ofSeq cardIds
                                         let! results =  cardsIdsArray |> Seq.map crawler |> Async.Parallel
@@ -113,7 +113,7 @@ let main argv =
                                         if Array.isEmpty failedIDs then
                                             do! System.IO.File.AppendAllLinesAsync(failedLogPath,failedIDs) |> Async.AwaitTask
                                         
-                                        let successfulNewCard =
+                                        let successfulNewCards =
                                             let mapper idx r =
                                                 match r with
                                                 |   Error _ -> None
@@ -122,30 +122,32 @@ let main argv =
                                             |> Seq.mapi mapper
                                             |> Seq.choose id
                                             |> Seq.sortByDescending snd
-                                            |> Seq.map fst
                                             |> Seq.toArray
+                                        let successfulNewCardsIds = Array.map fst successfulNewCards
+                                        let successfulNewCardsNums = Array.map snd successfulNewCards
+
 
                                         // pinging pipeline
-                                        if pingPipelineEnabled && successfulNewCard.Length>0 then
-                                            match! pingPipeline (successfulNewCard |> Seq.map (fun x -> x.ID)) with
+                                        if pingPipelineEnabled && successfulNewCardsIds.Length>0 then
+                                            match! pingPipeline (successfulNewCardsIds |> Seq.map (fun x -> x.ID)) with
                                             |   Error er ->
                                                 sprintf "Failed to ping pipeline: %s" er |> traceError
                                                 exit 4
                                             |   Ok() -> traceInfo "Successfully notified processing pipeline" 
 
-                                        let newLatest = 
-                                            successfulNewCard
-                                            |> Seq.tryHead
-                                        match newLatest with
-                                        |   None -> return latestKnown
-                                        |   Some l -> return Some l
+                                        let newKnownSet =
+                                            successfulNewCardsNums
+                                            |> Array.fold (fun s newCard -> Set.add newCard s) (Option.defaultValue (Set.empty) knownSet)
+                                            
+                                        return (Array.tryHead successfulNewCardsNums, if Set.isEmpty newKnownSet then None else Some(newKnownSet))
                                     }
                             sprintf "Sleeping %d seconds..." checkIntervalSec |> traceInfo
                             do! Async.Sleep (System.TimeSpan.FromSeconds (float checkIntervalSec))
-                            return! loop latestKnown2
-
+                            return! loop nextIterArg
                         }
-                    do! loop latest
+                    do! loop (
+                        Array.tryHead initialKnownIds, // max id
+                        if initialKnownIds.Length = 0 then None else Some(Set.ofArray initialKnownIds))
                     return 0 // unreachable
                 else     
                     sprintf "Subcommand missing.\n%s" usage |> traceError
