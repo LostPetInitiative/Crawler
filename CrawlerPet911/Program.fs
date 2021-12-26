@@ -76,8 +76,8 @@ let main argv =
                         |> Seq.map (fun x -> System.IO.Path.GetRelativePath(dbDir,x))
                         |> Seq.filter (fun x -> x.StartsWith("rl") || x.StartsWith("rf"))
                         |> Seq.map (fun x -> System.Int32.Parse(x.Substring(2)))
-                        |> Seq.truncate maxKnownSetCount // not more than 50 latest ads. A way to workaround paid and deleted ads
                         |> Seq.sortDescending
+                        |> Seq.truncate maxKnownSetCount // not more than 50 latest ads. A way to workaround paid and deleted ads
                         |> Array.ofSeq
                     printfn "Already known cards: %A" initialKnownIds
                     let rec loop arg =
