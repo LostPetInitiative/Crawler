@@ -11,6 +11,8 @@ let traceError msg = Tracing.traceError moduleName msg
 let traceWarning msg = Tracing.traceWarning moduleName msg
 let traceInfo msg = Tracing.traceInfo moduleName msg
 
+/// How many recent IDs to track
+let maxKnownSetCount = 50
 
 type CLIArgs = 
     |   [<AltCommandLine("-d") ; Mandatory>]Dir of path:string
@@ -74,8 +76,10 @@ let main argv =
                         |> Seq.map (fun x -> System.IO.Path.GetRelativePath(dbDir,x))
                         |> Seq.filter (fun x -> x.StartsWith("rl") || x.StartsWith("rf"))
                         |> Seq.map (fun x -> System.Int32.Parse(x.Substring(2)))
-                        |> Seq.truncate 50 // not more than 50 latest ads. A way to workaround paid and deleted ads
+                        |> Seq.truncate maxKnownSetCount // not more than 50 latest ads. A way to workaround paid and deleted ads
+                        |> Seq.sortDescending
                         |> Array.ofSeq
+                    printfn "Already known cards: %A" initialKnownIds
                     let rec loop arg =
                         let maxKnownOpt, knownSet = arg
                         async {
@@ -124,7 +128,7 @@ let main argv =
                                             |> Seq.sortByDescending snd
                                             |> Seq.toArray
                                         let successfulNewCardsIds = Array.map fst successfulNewCards
-                                        let successfulNewCardsNums = Array.map snd successfulNewCards
+                                        let successfulNewCardsNums = Array.map snd successfulNewCards |> Array.sortDescending
 
 
                                         // pinging pipeline
@@ -138,6 +142,10 @@ let main argv =
                                         let newKnownSet =
                                             successfulNewCardsNums
                                             |> Array.fold (fun s newCard -> Set.add newCard s) (Option.defaultValue (Set.empty) knownSet)
+                                            |> Set.toSeq
+                                            |> Seq.sortDescending
+                                            |> Seq.truncate maxKnownSetCount
+                                            |> Set.ofSeq
                                             
                                         return (Array.tryHead successfulNewCardsNums, if Set.isEmpty newKnownSet then None else Some(newKnownSet))
                                     }
