@@ -79,7 +79,7 @@ let main argv =
                         |> Seq.sortDescending
                         |> Seq.truncate maxKnownSetCount // not more than 50 latest ads. A way to workaround paid and deleted ads
                         |> Array.ofSeq
-                    printfn "Already known cards: %A" initialKnownIds
+                    sprintf "Already known cards: %A" initialKnownIds |> traceInfo
                     let rec loop arg =
                         let maxKnownOpt, knownSet = arg
                         async {
@@ -93,7 +93,9 @@ let main argv =
                                     |   Ok cardIdsAll ->
                                         let cardIds = 
                                             match maxKnownOpt with
-                                            |   None -> cardIdsAll
+                                            |   None -> 
+                                                sprintf "max aquired card num is unknown. Considering all of the fetched IDs as new." |> traceInfo
+                                                cardIdsAll
                                             |   Some maxKnown ->
                                                 sprintf "Latest known card: %d" maxKnown |> traceInfo
                                                 cardIdsAll
@@ -130,6 +132,12 @@ let main argv =
                                         let successfulNewCardsIds = Array.map fst successfulNewCards
                                         let successfulNewCardsNums = Array.map snd successfulNewCards |> Array.sortDescending
 
+                                        let newMaxKnownOpt =
+                                            if Array.isEmpty successfulNewCardsNums then
+                                                maxKnownOpt
+                                            else
+                                                Array.tryHead successfulNewCardsNums
+                                        sprintf "new max known id is %A" newMaxKnownOpt |> traceInfo
 
                                         // pinging pipeline
                                         if pingPipelineEnabled && successfulNewCardsIds.Length>0 then
@@ -147,7 +155,7 @@ let main argv =
                                             |> Seq.truncate maxKnownSetCount
                                             |> Set.ofSeq
                                             
-                                        return (Array.tryHead successfulNewCardsNums, if Set.isEmpty newKnownSet then None else Some(newKnownSet))
+                                        return (newMaxKnownOpt, if Set.isEmpty newKnownSet then None else Some(newKnownSet))
                                     }
                             sprintf "Sleeping %d seconds..." checkIntervalSec |> traceInfo
                             do! Async.Sleep (System.TimeSpan.FromSeconds (float checkIntervalSec))
