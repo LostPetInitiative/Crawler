@@ -79,7 +79,7 @@ let getAuthorMessage (htmlDoc:HtmlDocument) : Result<string,string> =
         Ok(messageNodes.[0].InnerText.Trim())
 
 let getEventAddress (htmlDoc:HtmlDocument) : Result<string, string> =
-    let addressNodes = htmlDoc.DocumentNode.SelectNodes("//section[@id='view-pet']//div[@class='p-address']/span[@class='text']")
+    let addressNodes = htmlDoc.DocumentNode.SelectNodes("//div[@class='card']//div[contains(@class,'card-map__address')]")
     if addressNodes = null then
         Error "Can't find address element"
     elif addressNodes.Count <> 1 then
@@ -102,25 +102,20 @@ let getAnimalSex (htmlDoc:HtmlDocument) : Result<Sex, string> =
         sex
 
 let getEventType (htmlDoc:HtmlDocument) : Result<EventType, string> =
-    let dateNodes = htmlDoc.DocumentNode.SelectNodes("//section[@id='view-pet']//div[@class='only-mobile']/div[@class='p-date']")
-    if dateNodes = null then
-        Error "Can't find event date element"
-    elif dateNodes.Count <> 2 then
-        Error(sprintf "Expected 2 date elements, found %d" dateNodes.Count)
+    let headingNodes = htmlDoc.DocumentNode.SelectNodes("//div[@class='card']//div[@class='card__title']/h1");
+    if headingNodes = null then
+        Error "Can't find heading node"
+    elif headingNodes = null || headingNodes.Count <> 1 then Error(sprintf "Found %d heading tags instead of 1" headingNodes.Count)
     else
-        let eventDateNode = dateNodes |> Seq.filter (fun x -> x.InnerText.ToLowerInvariant().Contains("дата")) |> Seq.exactlyOne
-        let text = eventDateNode.InnerText.ToLower().Trim()
-        if text.Contains("пропажи") then
-            Ok EventType.lost
-        else
-            if text.Contains("находки") then
-                Ok EventType.found
-            else
-                Error (sprintf "Could not find event type keyword: \"%s\"" text)
+        let node = headingNodes.[0]
+        let text = node.InnerText.Trim().ToLowerInvariant()
+        if text.Contains("пропала") then Ok(EventType.lost)
+        else if text.Contains("найдена") then Ok(EventType.found)
+        else Error(sprintf "Unknown heading str \"%s\"" text)
 
 let getEventCoords (htmlDoc:string) : Result<float*float, string> =
     match htmlDoc with
-    | Kashtanka.Common.InterpretedMatch @"initMap\s*\(\s*\{\s*lat\s*:\s*([\d\.]+)\s*,\s*lng\s*:\s*([\d\.]+)\s*\}" [_; latGrp; lonGrp] ->
+    | Kashtanka.Common.InterpretedMatch @"initMap\s*\((.|\n)*\{\s*lat\s*:\s*(?'lat'[\d\.]+)\s*,\s*lng\s*:\s*(?'lon'[\d\.]+)\s*\}" [_;_;latGrp; lonGrp] ->
         match System.Double.TryParse(latGrp.Value),System.Double.TryParse(lonGrp.Value) with
         |   (true,lat),(true,lon) ->
             Ok(lat,lon) 

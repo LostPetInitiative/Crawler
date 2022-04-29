@@ -102,12 +102,12 @@ let ``Extract author message``() =
         Assert.Equal("Нашли на улице, лежал с раненной лапой. Есть ошейник.", extractSuccessful(messageRes))
     }
 
-[<Fact(Skip="Needs update to match new website structure")>]
+[<Fact>]
 let ``Extract event address``() =
     async {
-        let! doc = loadAndParseHtmlTestFile "petCard_rl476712.html.dump"
+        let! doc = loadAndParseHtmlTestFile "petCard_rl518787.html.dump"
         let messageRes = getEventAddress(doc) 
-        Assert.Equal("11 к1, Чусовская улица, район Гольяново, Москва, Центральный федеральный округ, 107207, Россия", extractSuccessful(messageRes))
+        Assert.Equal("улица Брянский Пост, 6 с1А, Москва", extractSuccessful(messageRes))
     }
 
 [<Fact>]
@@ -135,23 +135,31 @@ let ``No author``() =
         Assert.Equal(None,extractSuccessful(authorName))
     }
 
-[<Fact(Skip="Needs update to match new website structure")>]
-let ``Extract event type``() =
+[<Fact>]
+let ``Extract event type - loss``() =
     async {
-        let! doc = loadAndParseHtmlTestFile "petCard_rl476712.html.dump"
+        let! doc = loadAndParseHtmlTestFile "petCard_rl518787.html.dump"
         let eventTypeRes = getEventType(doc) 
         Assert.Equal(EventType.lost, extractSuccessful(eventTypeRes))
     }
 
-[<Fact(Skip="Needs update to match new website structure")>]
+[<Fact>]
+let ``Extract event type - find``() =
+    async {
+        let! doc = loadAndParseHtmlTestFile "petCard_rf518209.html.dump"
+        let eventTypeRes = getEventType(doc) 
+        Assert.Equal(EventType.found, extractSuccessful(eventTypeRes))
+    }
+
+[<Fact>]
 let ``Extract event coords``() =
     async {
-        let! text = IO.File.ReadAllTextAsync(Path.Combine(dataDir,"petCard_rl476712.html.dump")) |> Async.AwaitTask
+        let! text = IO.File.ReadAllTextAsync(Path.Combine(dataDir,"petCard_rl518787.html.dump")) |> Async.AwaitTask
         match getEventCoords(text) with
         |   Error er -> Assert.False(true,"failed to extract coords")
         |   Ok(lat,lon) ->
-            Assert.Equal(55.81373210,lat, 10)
-            Assert.Equal(37.81203200,lon, 10)
+            Assert.Equal(55.77292439,lat, 10)
+            Assert.Equal(37.55103469,lon, 10)
     }
 
 [<Fact(Skip="Needs update to match new website structure")>]
