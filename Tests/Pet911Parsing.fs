@@ -9,7 +9,7 @@ open Kashtanka.pet911.Parsers
 open HtmlAgilityPack
 open Kashtanka.SemanticTypes
 
-let dataDir = "../../../../data"
+let dataDir = "../../../../data/2022/"
 
 let loadAndParseHtmlTestFile filename =
     async {
@@ -66,9 +66,9 @@ let ``Extract event time``() =
 [<Fact>]
 let ``Extract author name``() =
     async {
-        let! doc = loadAndParseHtmlTestFile "petCard_rl476712.html.dump"
+        let! doc = loadAndParseHtmlTestFile "petCard_rf518209.html.dump"
         let authorRes = getAuthorName(doc) 
-        Assert.Equal(Some("Анастасия"),extractSuccessful(authorRes))
+        Assert.Equal(Some("Максим"),extractSuccessful(authorRes))
     }
 
 [<Fact>]
@@ -82,9 +82,9 @@ let ``Extract author name for lost card that is found``() =
 [<Fact>]
 let ``Extract author message``() =
     async {
-        let! doc = loadAndParseHtmlTestFile "petCard_rl476712.html.dump"
+        let! doc = loadAndParseHtmlTestFile "petCard_rf518209.html.dump"
         let messageRes = getAuthorMessage(doc) 
-        Assert.Equal("Сломанных хвостик на конце в двух местах, вислоухий, крупные передние лапы, оранжевые глаза, пугливый, жмётся к земле, был в голубом ошейнике от блох", extractSuccessful(messageRes))
+        Assert.Equal("Нашли на улице, лежал с раненной лапой. Есть ошейник.", extractSuccessful(messageRes))
     }
 
 [<Fact>]
@@ -98,7 +98,7 @@ let ``Extract event address``() =
 [<Fact>]
 let ``Extract animal sex``() =
     async {
-        let! doc = loadAndParseHtmlTestFile "petCard_rl476712.html.dump"
+        let! doc = loadAndParseHtmlTestFile "petCard_rf518209.html.dump"
         let sexRes = getAnimalSex(doc) 
         Assert.Equal(Sex.male, extractSuccessful(sexRes))
     }

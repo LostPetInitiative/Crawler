@@ -61,7 +61,7 @@ let getEventTimeUTC (htmlDoc:HtmlDocument) : Result<System.DateTime, string> =
             Error "Could not parse event date"
 
 let getAuthorName (htmlDoc:HtmlDocument) : Result<string option,string> =
-    let authorNodes = htmlDoc.DocumentNode.SelectNodes("//section[@id='view-pet']//div[@class='p-author']/span[@class='text']")
+    let authorNodes = htmlDoc.DocumentNode.SelectNodes("//div[@class='card']//div[@class='card-information']/div[@class='card-info'][div='Имя хозяина']/div[@class='card-info__value']")
     if authorNodes = null then
         Ok None
     elif authorNodes.Count <> 1 then
@@ -70,7 +70,7 @@ let getAuthorName (htmlDoc:HtmlDocument) : Result<string option,string> =
         Ok(Some(authorNodes.[0].InnerText.Trim()))
 
 let getAuthorMessage (htmlDoc:HtmlDocument) : Result<string,string> =
-    let messageNodes = htmlDoc.DocumentNode.SelectNodes("//section[@id='view-pet']//div[@class='p-description']")
+    let messageNodes = htmlDoc.DocumentNode.SelectNodes("//div[@class='card']//div[@class='card__content']//div[contains(@class, 'card__descr')]/p")
     if messageNodes = null then
         Error "Can't find message element"
     elif messageNodes.Count <> 1 then
@@ -88,7 +88,7 @@ let getEventAddress (htmlDoc:HtmlDocument) : Result<string, string> =
         Ok(addressNodes.[0].InnerText.Trim())
 
 let getAnimalSex (htmlDoc:HtmlDocument) : Result<Sex, string> =
-    let sexNodes = htmlDoc.DocumentNode.SelectNodes("//section[@id='view-pet']//div[@class='p-sex']/span[@class='text']")
+    let sexNodes = htmlDoc.DocumentNode.SelectNodes("//div[@class='card']//div[@class='card-information']/div[@class='card-info'][div='Пол питомца']/div[@class='card-info__value']")
     if sexNodes = null then
         Ok Sex.unknown
     elif sexNodes.Count <> 1 then
@@ -96,8 +96,8 @@ let getAnimalSex (htmlDoc:HtmlDocument) : Result<Sex, string> =
     else
         let sex =
             match sexNodes.[0].InnerText.Trim().ToLowerInvariant() with
-            |   "м" -> Ok Sex.male
-            |   "ж" -> Ok Sex.female
+            |   "мужской" -> Ok Sex.male
+            |   "женский" -> Ok Sex.female
             |   s -> Error (sprintf "Unexpected sex value %s" s)
         sex
 

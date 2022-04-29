@@ -5,22 +5,11 @@ name: default
 
 steps:
 - name: build & test
-  image: mcr.microsoft.com/dotnet/sdk:3.1
+  image: mcr.microsoft.com/dotnet/sdk:6.0
   commands:
   - dotnet build
   - dotnet test
-- name: build release
-  when:
-    event:
-    - tag
-  image: mcr.microsoft.com/dotnet/sdk:3.1
-  commands:
-  - dotnet build -c Release CrawlerPet911
-  - dotnet publish -c Release CrawlerPet911
 - name: build & push docker image
-  when:
-    event:
-    - tag
   image: plugins/docker
   settings:
     username:
@@ -29,3 +18,4 @@ steps:
       from_secret: docker_password
     auto_tag: true
     repo: lostpetinitiative/crawler-pet911ru-agent
+    force_tag: true
