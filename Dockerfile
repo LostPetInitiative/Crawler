@@ -3,8 +3,7 @@ WORKDIR /app
 
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
-COPY CrawlerLib .
-COPY CrawlerPet911 .
+COPY . .
 RUN dotnet build -c Release "CrawlerPet911/CrawlerPet911.fsproj" -o /app/build
 
 FROM build AS publish
@@ -12,6 +11,7 @@ RUN dotnet publish "CrawlerPet911/CrawlerPet911.fsproj" -c Release -o /app/publi
 
 
 FROM base AS final
+VOLUME /db
 WORKDIR /app
 COPY --from=publish /app/publish .
 

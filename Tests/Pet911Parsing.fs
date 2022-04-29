@@ -19,38 +19,53 @@ let loadAndParseHtmlTestFile filename =
         return doc
     }
 
-[<Fact(Skip="Needs update to match new website structure")>]
+[<Fact>]
 let ``Extract card id`` () =
     async {
-        let! doc = loadAndParseHtmlTestFile "petCard_rl476712.html.dump"
+        let! doc = loadAndParseHtmlTestFile "petCard_rf518209.html.dump"
         let parseRes = getCardId doc
-        Assert.Equal("rl476712",extractSuccessful(parseRes))
+        Assert.Equal("rf518209",extractSuccessful(parseRes))
     }
 
-[<Fact(Skip="Needs update to match new website structure")>]
+[<Fact>]
 let ``Extract cat species`` () =
     async {
-        let! doc = loadAndParseHtmlTestFile "petCard_rl476712.html.dump"
+        let! doc = loadAndParseHtmlTestFile "petCard_rl518787.html.dump"
         let parseRes = getAnimalSpecies doc
         Assert.Equal(Species.cat, extractSuccessful(parseRes))
     }
 
-[<Fact(Skip="Needs update to match new website structure")>]
-let ``Extract photo URLs`` () =
+[<Fact>]
+let ``Extract dog species`` () =
     async {
-        let! doc = loadAndParseHtmlTestFile "petCard_rl476712.html.dump"
-        let parseRes = getPhotoUrls doc
-        Assert.Equal(4, extractSuccessful(parseRes).Length)
-        Assert.Contains("https://pet911.ru/upload/Pet_thumb_162560784360e4cea36deb30.11666472.jpeg",extractSuccessful(parseRes))
-        Assert.Contains("https://pet911.ru/upload/Pet_thumb_162560784360e4cea3b97075.01962179.jpeg",extractSuccessful(parseRes))
-        Assert.Contains("https://pet911.ru/upload/Pet_thumb_162560784460e4cea4185588.03311919.jpeg",extractSuccessful(parseRes))
-        Assert.Contains("https://pet911.ru/upload/Pet_thumb_162560784460e4cea4998d43.72303042.jpeg",extractSuccessful(parseRes))
+        let! doc = loadAndParseHtmlTestFile "petCard_rf518209.html.dump"
+        let parseRes = getAnimalSpecies doc
+        Assert.Equal(Species.dog, extractSuccessful(parseRes))
     }
 
-[<Fact(Skip="Needs update to match new website structure")>]
+
+[<Fact>]
+let ``Extract photo URLs`` () =
+    async {
+        let! doc = loadAndParseHtmlTestFile "petCard_rl518787.html.dump"
+        let parseRes = getPhotoUrls doc
+        Assert.Equal(7, extractSuccessful(parseRes).Length)
+        Assert.Contains("https://cdn.pet911.ru/thumb_Pet_165095355762678d5570db96.27027701.webp",extractSuccessful(parseRes))
+        Assert.Contains("https://cdn.pet911.ru/thumb_Pet_165095340062678cb83dea18.58046461.webp",extractSuccessful(parseRes))
+        Assert.Contains("https://cdn.pet911.ru/thumb_Pet_165095343462678cda7583a1.69548470.webp",extractSuccessful(parseRes))
+        Assert.Contains("https://cdn.pet911.ru/thumb_Pet_165095351562678d2bb44ab4.37666840.webp",extractSuccessful(parseRes))
+        Assert.Contains("https://cdn.pet911.ru/thumb_Pet_165095351662678d2c27d440.01200981.webp",extractSuccessful(parseRes))
+        Assert.Contains("https://cdn.pet911.ru/thumb_Pet_165095355562678d53ce94c6.03768364.webp",extractSuccessful(parseRes))
+        Assert.Contains("https://cdn.pet911.ru/thumb_Pet_165095355662678d54a27803.69782174.webp",extractSuccessful(parseRes))
+        
+
+        
+    }
+
+[<Fact>]
 let ``Card with no photos`` () =
     async {
-        let! doc = loadAndParseHtmlTestFile "petCard_rf494611_no_photo.html.dump"
+        let! doc = loadAndParseHtmlTestFile "petCard_rl518678_no_photos.html.dump"
         let parseRes = getPhotoUrls doc
         Assert.Equal(0, extractSuccessful(parseRes).Length)        
     }
@@ -71,10 +86,10 @@ let ``Extract author name``() =
         Assert.Equal(Some("Максим"),extractSuccessful(authorRes))
     }
 
-[<Fact(Skip="Needs update to match new website structure")>]
+[<Fact>]
 let ``Extract author name for lost card that is found``() =
     async {
-        let! doc = loadAndParseHtmlTestFile "petCard_rl476712_lost_is_found.html.dump"
+        let! doc = loadAndParseHtmlTestFile "petCard_rl518948_lost_is_found.html.dump"
         let authorRes = getAuthorName(doc) 
         Assert.Equal(None,extractSuccessful(authorRes))
     }

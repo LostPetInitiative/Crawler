@@ -5,10 +5,10 @@ open Kashtanka.SemanticTypes
 open Kashtanka.Crawler
 
 let hostUrl = "https://pet911.ru"
-let photoUrlPrefix = sprintf "%s/upload/Pet_thumb_" hostUrl
+let photoUrlPrefix = "https://cdn.pet911.ru/"
 
 let getCardId (htmlDoc:HtmlDocument) : Result<string,string> =        
-    let idNodes = htmlDoc.DocumentNode.SelectNodes("//div[@class='p-art']/span[@class='text']");
+    let idNodes = htmlDoc.DocumentNode.SelectNodes("//div[@class='card']//div[@class='card-information']/div[@class='card-info'][div='Номер объявления']/div[@class='card-info__value']");
     if idNodes = null then
         Error("Can't find cardID element")
     elif idNodes.Count <> 1 then Error(sprintf "Found %d cardID instead of 1" idNodes.Count)
@@ -18,31 +18,31 @@ let getCardId (htmlDoc:HtmlDocument) : Result<string,string> =
 
 
 let getAnimalSpecies (htmlDoc:HtmlDocument) : Result<Species,string> =
-    let speciesNodes = htmlDoc.DocumentNode.SelectNodes("//div[@class='only-mobile']/div[@class='p-animal']");
+    let speciesNodes = htmlDoc.DocumentNode.SelectNodes("//div[@class='card']//div[@class='card__title']/h1");
     if speciesNodes = null then
         Error "Can't find species node"
     elif speciesNodes = null || speciesNodes.Count <> 1 then Error(sprintf "Found %d species tags instead of 1" speciesNodes.Count)
     else
         let node = speciesNodes.[0]
-        match node.InnerText.Trim().ToLowerInvariant() with
-        |   "кошка" -> Ok(Species.cat)
-        |   "собака" -> Ok(Species.dog)
-        |   speciesStr -> Error(sprintf "Unknown species \"%s\"" speciesStr)
+        let text = node.InnerText.Trim().ToLowerInvariant()
+        if text.Contains("кошка") then Ok(Species.cat)
+        else if text.Contains("собака") then Ok(Species.dog)
+        else Error(sprintf "Unknown species str \"%s\"" text)
 
 let getPhotoUrls (htmlDoc:HtmlDocument) : Result<string[], string> =
-    let photoNodes = htmlDoc.DocumentNode.SelectNodes("//a[@data-lightbox='pet']")
+    let photoNodes = htmlDoc.DocumentNode.SelectNodes("//div[@class='card']//div[@class='swiper-wrapper']//a[contains(@class,'js-card-slide')]/img")
     if photoNodes = null then
-        Error ("Can't find photo elements")
+        Ok(Array.empty)
     else
         let hrefs =
             photoNodes
-            |> Seq.map (fun node -> node.Attributes.["href"].Value)
-            |> Seq.filter (fun x -> not(x.StartsWith("/img/no_photo"))) // missing photo stub
+            |> Seq.map (fun node -> node.Attributes.["src"].Value)
+            |> Seq.filter (fun x -> not(x.StartsWith("https://pet911.ru/img/no-photo/"))) // missing photo stub
             |> Array.ofSeq
-        if hrefs |> Seq.forall (fun (href:string) -> href.StartsWith("/upload/Pet_")) then
-            Ok(hrefs |> Array.map (fun href -> sprintf "%s%s" photoUrlPrefix (href.Substring("/upload/Pet_".Length))))
+        if hrefs |> Seq.forall (fun (href:string) -> href.StartsWith("https://cdn.pet911.ru/")) then
+            Ok(hrefs)
         else
-            Error(sprintf "One of the photo URLs is unexpected: %s" (hrefs |> Seq.find (fun x -> not(x.StartsWith("/upload/Pet_")))))
+            Error(sprintf "One of the photo URLs is unexpected: %s" (hrefs |> Seq.find (fun x -> not(x.StartsWith("https://cdn.pet911.ru/")))))
 
 let getEventTimeUTC (htmlDoc:HtmlDocument) : Result<System.DateTime, string> =
     let dateNodes = htmlDoc.DocumentNode.SelectNodes("//section[@id='view-pet']//div[@class='only-mobile']/div[@class='p-date']")

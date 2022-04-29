@@ -5,6 +5,7 @@ VisualStudioVersion = 17.1.32414.318
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{8EA5244F-5C71-4F46-91D7-CF87DCFA4562}"
 	ProjectSection(SolutionItems) = preProject
+		.dockerignore = .dockerignore
 		.drone.yml = .drone.yml
 		Dockerfile = Dockerfile
 	EndProjectSection
