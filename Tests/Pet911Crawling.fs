@@ -54,7 +54,7 @@ type Pet911RealCrawling() =
             Directory.Delete(tempDir,true)
             
 
-    [<Fact>]
+    [<Fact(Skip="Needs update to match new website structure")>]
     member _.``Acquiring photo file created`` () =
         async {
             let descr:RemoteResourseDescriptor = {
@@ -72,7 +72,7 @@ type Pet911RealCrawling() =
             Assert.True(File.Exists(Path.Combine(tempDir,"rl476712","162560784360e4cea36deb30.11666472.jpeg")))
         }
 
-    [<Fact>]
+    [<Fact(Skip="Needs update to match new website structure")>]
     member _.``Acquiring inexistent photo is reported`` () =
         async {
             let descr:RemoteResourseDescriptor = {
@@ -94,7 +94,7 @@ type Pet911RealCrawling() =
                 |   Processed _ -> Assert.True(false, "supposed to get Missing result")
         }
 
-    [<Fact>]
+    [<Fact(Skip="Needs update to match new website structure")>]
     member _.``Inexistent photo info persists`` () =
         async {
             let descr:RemoteResourseDescriptor = {
@@ -121,7 +121,7 @@ type Pet911RealCrawling() =
                 |   Processed _ -> Assert.True(false, "supposed to get Missing result")
         }
 
-    [<Fact>]
+    [<Fact(Skip="Needs update to match new website structure")>]
     member _.``Acquiring inexistent photo does not create file`` () =
         async {
             let descr:RemoteResourseDescriptor = {
@@ -138,7 +138,7 @@ type Pet911RealCrawling() =
             Assert.False(File.Exists(Path.Combine(tempDir,"rl476712","162560784360e4cea36deb30.11666472.jpeg")))
         }
 
-    [<Fact>]
+    [<Fact(Skip="Needs update to match new website structure")>]
     member _.``Photo mime is written`` () =
         async {
             let descr:RemoteResourseDescriptor = {
@@ -155,7 +155,7 @@ type Pet911RealCrawling() =
             Assert.Equal("image/jpeg",mime)
         }
 
-    [<Fact>]
+    [<Fact(Skip="Needs update to match new website structure")>]
     member _.``Photo is checked`` () =
         async {
             let descr:RemoteResourseDescriptor = {
@@ -172,7 +172,7 @@ type Pet911RealCrawling() =
             Assert.False(hasFailed(result))
         }
 
-    [<Fact>]
+    [<Fact(Skip="Needs update to match new website structure")>]
     member _.``Card is saved`` () =
         async {
             let descr:RemoteResourseDescriptor = {
@@ -193,7 +193,7 @@ type Pet911RealCrawling() =
             Assert.True(File.Exists(path),sprintf "File %s does not exist" path)
         }
 
-    [<Fact>]
+    [<Fact(Skip="Needs update to match new website structure")>]
     member _.``Card semantics extracted`` () =
         async {
             let descr:RemoteResourseDescriptor = {
@@ -228,7 +228,7 @@ type Pet911RealCrawling() =
                     Assert.Contains({url="https://pet911.ru/upload/Pet_thumb_163492941061730b0281fd52.90613683.jpeg";ID="rf492825/163492941061730b0281fd52.90613683.jpeg"},card.photos)
         }
 
-    [<Fact>]
+    [<Fact(Skip="Needs update to match new website structure")>]
     member _.``Missing card reported`` () =
         async {
             let descr:RemoteResourseDescriptor = {
@@ -251,7 +251,7 @@ type Pet911RealCrawling() =
                     Assert.True(false, "Card is present while supposed to be missing")
         }
 
-    [<Fact>]
+    [<Fact(Skip="Needs update to match new website structure")>]
     member _.``Missing card info persisted`` () =
         async {
             let descr:RemoteResourseDescriptor = {
