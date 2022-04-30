@@ -1,0 +1,919 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta id="vp" name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+<meta name="csrf-param" content="_csrf-newfront">
+<meta name="csrf-token" content="sm2QtTFFCa5Z4KcgeVwzQnKzt_bGH6nheTbq6IpCLoTwIcL3UC1c6S-4l20rDFEmIezmsqd5-41OG4CB43Bo1A==">
+<title>Найдена собака, Хабаровск, Pet911 - Всероссийская система поиска и возврата животных.</title>
+<meta name="description" content="Нашли собаку по адресу улица Уборевича, 47, Хабаровск  – размещайте объявления на Pet911 – объявления о пропаже собак и кошек рядом с Вами, найдём потеряшек вместе.">
+<meta name="keywords" content="найдена собака Хабаровск">
+<meta property="og:url" content="https://pet911.ru/Хабаровск/найдена/собака/rf494618">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Найдена собака, Хабаровск, Pet911 - Всероссийская система поиска и возврата животных.">
+<meta property="og:description" content="Нашли собаку по адресу улица Уборевича, 47, Хабаровск  – размещайте объявления на Pet911 – объявления о пропаже собак и кошек рядом с Вами, найдём потеряшек вместе.">
+<meta property="og:image" content="https://cdn.pet911.ru/Pet_16360994996184e5ab5898c4.17391167.webp">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Найдена собака, Хабаровск, Pet911 - Всероссийская система поиска и возврата животных.">
+<meta name="twitter:description" content="Нашли собаку по адресу улица Уборевича, 47, Хабаровск  – размещайте объявления на Pet911 – объявления о пропаже собак и кошек рядом с Вами, найдём потеряшек вместе.">
+<meta name="twitter:image" content="https://cdn.pet911.ru/Pet_16360994996184e5ab5898c4.17391167.webp">
+<meta property="og:url" content="http://pet911.ru/%D0%A5%D0%B0%D0%B1%D0%B0%D1%80%D0%BE%D0%B2%D1%81%D0%BA/%D0%BD%D0%B0%D0%B9%D0%B4%D0%B5%D0%BD%D0%B0/%D1%81%D0%BE%D0%B1%D0%B0%D0%BA%D0%B0/rf494618">
+<meta property="og:description" content="">
+<meta property="og:image" content="http://pet911.ru/img/logo.svg">
+<meta name="twitter:description" content="">
+<meta name="twitter:image" content="http://pet911.ru/img/logo.svg">
+<link href="https://pet911.ru/%D0%A5%D0%B0%D0%B1%D0%B0%D1%80%D0%BE%D0%B2%D1%81%D0%BA/%D0%BD%D0%B0%D0%B9%D0%B4%D0%B5%D0%BD%D0%B0/%D1%81%D0%BE%D0%B1%D0%B0%D0%BA%D0%B0/rf494618" rel="canonical">
+<link href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" rel="stylesheet" media="print" onload="this.media=&#039;all&#039;">
+<link href="https://unpkg.com/leaflet-geosearch@3.0.0/dist/geosearch.css" rel="stylesheet" media="print" onload="this.media=&#039;all&#039;">
+<link href="https://unpkg.com/leaflet.markercluster@1.3.0/dist/MarkerCluster.css" rel="stylesheet" media="print" onload="this.media=&#039;all&#039;">
+<link href="https://unpkg.com/leaflet.markercluster@1.3.0/dist/MarkerCluster.Default.css" rel="stylesheet" media="print" onload="this.media=&#039;all&#039;">
+<link href="/assets/9827e0b5/css/style.min.css?v=1650910441" rel="stylesheet">
+<link href="/css/app.min.css?v=1651065752" rel="stylesheet">
+<link href="/css/dop.css?v=1651063600" rel="stylesheet">
+<script src="/js/libs.min.js?v=1650980299"></script> <link rel="icon" href="/img/favicon.svg">
+<script>
+        var mapUrl = 'https://tile.openstreetmap.org/{z}/{x}/{y}.png';
+        var nominatimCountryCode = 'ru';
+        var nominatimLang = 'ru';
+    </script>
+</head>
+<body>
+<div class="card">
+<div class="page-header card-top d-flex align-items-center d-md-none">
+<div class="page-header__inner card-top__nav d-flex align-items-center justify-content-between">
+<a href="javascript:history.back();" class="link link-icon card-top__back">
+<img src="/img/icons/icon-arrow-left-accent.svg" alt="alt" class="link__icon">
+<div class="link__title">Назад</div>
+</a>
+<div class="card-top__controls d-flex align-items-center">
+<button type="button" class="card-top__wishlist addFav" data-pid="494618">
+<img src="/img/icons/icon-wishlist-accent.svg" alt="alt" class="card-top__wishlist-icon">
+</button>
+<button type="button" class="card-top__share js-popup-btn" data-popup=".js-share494618">
+<img src="/img/icons/icon-share-accent.svg" alt="alt" class="card-top__share-icon">
+</button>
+</div>
+</div>
+</div>
+<div class="card-slider">
+<div class="card-slider__bg d-none d-md-block">
+<img src="https://cdn.pet911.ru/thumb_Pet_16360994996184e5ab5898c4.17391167.webp" alt="alt" class="img-crop">
+</div>
+<div class="card-slider__container">
+<div class="card-slider__inner">
+<div class="card-slider__carousel swiper-container js-card-slider">
+<div class="swiper-wrapper">
+<div class="swiper-slide">
+<a href="https://cdn.pet911.ru/Pet_16360994996184e5ab5898c4.17391167.webp" class="card-slider__slide js-card-slide">
+<img src="https://cdn.pet911.ru/thumb_Pet_16360994996184e5ab5898c4.17391167.webp" alt="alt" class="img-crop">
+</a>
+</div>
+<div class="swiper-slide">
+<a href="https://cdn.pet911.ru/Pet_16360995346184e5cebffc451.64883206.webp" class="card-slider__slide js-card-slide">
+<img src="https://cdn.pet911.ru/thumb_Pet_16360995346184e5cebffc451.64883206.webp" alt="alt" class="img-crop">
+</a>
+</div>
+</div>
+<div class="card-slider__pagination js-card-slider-pagination"></div>
+</div>
+</div>
+<button class="d-none d-md-block slider-btn slider__prev js-card-slider-prev">
+<img src="/img/icons/icon-arrow-left-round-dark.svg" alt="Назад" class="slider-btn__icon">
+</button>
+<button class="d-none d-md-block slider-btn slider__next js-card-slider-next">
+<img src="/img/icons/icon-arrow-right-round-dark.svg" alt="Вперед" class="slider-btn__icon">
+</button>
+<div class="card-top__controls d-none d-md-flex align-items-center">
+<button class="card-top__wishlist addFav" data-pid="494618">
+<img src="/img/icons/icon-wishlist-white.svg" alt="alt" class="card-top__wishlist-icon">
+</button>
+<button class="card-top__share js-popup-btn" data-popup=".js-share494618">
+<img src="/img/icons/icon-share-white.svg" alt="alt" class="card-top__share-icon">
+</button>
+</div>
+</div>
+</div>
+<div class="container">
+<div class="card__inner">
+<div class="card__content">
+<div class="card__title">
+<h1>Найдена собака, Хабаровск</h1>
+</div>
+<div class="d-md-none card-address">
+<div class="card-address__info">улица Уборевича, 47, Хабаровск</div>
+<button class="link link-accent card-address__link js-popup-btn" data-popup=".js-address">Показать на карте</button>
+</div>
+<div class="text text-lt card__descr content">
+<p>Найдена белая собака средних размеров, в шлейке маскировочной расцветки, на пересечении переулка Клары Цеткин и улицы Уборевича, в частном секторе.</p>
+</div>
+</div>
+<div class="card-row d-flex flex-column flex-md-row justify-content-between align-items-md-end">
+<div class="card__buttons order-1 order-md-2 d-flex flex-wrap">
+<a href="/login" class="btn btn-fill-accent-lt card__show-number">
+Показать номер хозяина </a>
+</div>
+<div class="order-2 order-md-1 card-share">
+<div class="card-share__title">
+<h4>Поделиться</h4>
+</div>
+<div class="share-links">
+<a class="share-link" href="https://www.facebook.com/sharer.php?u=https%3A%2F%2Fpet911.ru%2F%D0%A5%D0%B0%D0%B1%D0%B0%D1%80%D0%BE%D0%B2%D1%81%D0%BA%2F%D0%BD%D0%B0%D0%B9%D0%B4%D0%B5%D0%BD%D0%B0%2F%D1%81%D0%BE%D0%B1%D0%B0%D0%BA%D0%B0%2Frf494618" rel="noopener" target="_blank"><img src="/img/icons/share/icon-fb.svg" alt="FB" class="share-link__icon"></a><a class="share-link" href="https://vk.com/share.php?url=https%3A%2F%2Fpet911.ru%2F%D0%A5%D0%B0%D0%B1%D0%B0%D1%80%D0%BE%D0%B2%D1%81%D0%BA%2F%D0%BD%D0%B0%D0%B9%D0%B4%D0%B5%D0%BD%D0%B0%2F%D1%81%D0%BE%D0%B1%D0%B0%D0%BA%D0%B0%2Frf494618&amp;title=%D0%9D%D0%B0%D0%B9%D0%B4%D0%B5%D0%BD%D0%B0+%D1%81%D0%BE%D0%B1%D0%B0%D0%BA%D0%B0%2C+%D0%A5%D0%B0%D0%B1%D0%B0%D1%80%D0%BE%D0%B2%D1%81%D0%BA%2C+Pet911+-+%D0%92%D1%81%D0%B5%D1%80%D0%BE%D1%81%D1%81%D0%B8%D0%B9%D1%81%D0%BA%D0%B0%D1%8F+%D1%81%D0%B8%D1%81%D1%82%D0%B5%D0%BC%D0%B0+%D0%BF%D0%BE%D0%B8%D1%81%D0%BA%D0%B0+%D0%B8+%D0%B2%D0%BE%D0%B7%D0%B2%D1%80%D0%B0%D1%82%D0%B0+%D0%B6%D0%B8%D0%B2%D0%BE%D1%82%D0%BD%D1%8B%D1%85.&amp;image=https%3A%2F%2Fcdn.pet911.ru%2FPet_16360994996184e5ab5898c4.17391167.webp" rel="noopener" target="_blank"><img src="/img/icons/share/icon-vk.svg" alt="VK" class="share-link__icon"></a><a class="share-link" href="https://twitter.com/share?url=https%3A%2F%2Fpet911.ru%2F%D0%A5%D0%B0%D0%B1%D0%B0%D1%80%D0%BE%D0%B2%D1%81%D0%BA%2F%D0%BD%D0%B0%D0%B9%D0%B4%D0%B5%D0%BD%D0%B0%2F%D1%81%D0%BE%D0%B1%D0%B0%D0%BA%D0%B0%2Frf494618&amp;text=%D0%9D%D0%B0%D1%88%D0%BB%D0%B8+%D1%81%D0%BE%D0%B1%D0%B0%D0%BA%D1%83+%D0%BF%D0%BE+%D0%B0%D0%B4%D1%80%D0%B5%D1%81%D1%83+%D1%83%D0%BB%D0%B8%D1%86%D0%B0+%D0%A3%D0%B1%D0%BE%D1%80%D0%B5%D0%B2%D0%B8%D1%87%D0%B0%2C+47%2C+%D0%A5%D0%B0%D0%B1%D0%B0%D1%80%D0%BE%D0%B2%D1%81%D0%BA++%E2%80%93+%D1%80%D0%B0%D0%B7%D0%BC%D0%B5%D1%89%D0%B0%D0%B9%D1%82%D0%B5+%D0%BE%D0%B1%D1%8A%D1%8F%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F+%D0%BD%D0%B0+Pet911+%E2%80%93+%D0%BE%D0%B1%D1%8A%D1%8F%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F+%D0%BE+%D0%BF%D1%80%D0%BE%D0%BF%D0%B0%D0%B6%D0%B5+%D1%81%D0%BE%D0%B1%D0%B0%D0%BA+%D0%B8+%D0%BA%D0%BE%D1%88%D0%B5%D0%BA+%D1%80%D1%8F%D0%B4%D0%BE%D0%BC+%D1%81+%D0%92%D0%B0%D0%BC%D0%B8%2C+%D0%BD%D0%B0%D0%B9%D0%B4%D1%91%D0%BC+%D0%BF%D0%BE%D1%82%D0%B5%D1%80%D1%8F%D1%88%D0%B5%D0%BA+%D0%B2%D0%BC%D0%B5%D1%81%D1%82%D0%B5." rel="noopener" target="_blank"><img src="/img/icons/share/icon-tw.svg" alt="TW" class="share-link__icon"></a><a class="share-link" href="https://connect.ok.ru/offer?url=https%3A%2F%2Fpet911.ru%2F%D0%A5%D0%B0%D0%B1%D0%B0%D1%80%D0%BE%D0%B2%D1%81%D0%BA%2F%D0%BD%D0%B0%D0%B9%D0%B4%D0%B5%D0%BD%D0%B0%2F%D1%81%D0%BE%D0%B1%D0%B0%D0%BA%D0%B0%2Frf494618&amp;title=%D0%9D%D0%B0%D0%B9%D0%B4%D0%B5%D0%BD%D0%B0+%D1%81%D0%BE%D0%B1%D0%B0%D0%BA%D0%B0%2C+%D0%A5%D0%B0%D0%B1%D0%B0%D1%80%D0%BE%D0%B2%D1%81%D0%BA%2C+Pet911+-+%D0%92%D1%81%D0%B5%D1%80%D0%BE%D1%81%D1%81%D0%B8%D0%B9%D1%81%D0%BA%D0%B0%D1%8F+%D1%81%D0%B8%D1%81%D1%82%D0%B5%D0%BC%D0%B0+%D0%BF%D0%BE%D0%B8%D1%81%D0%BA%D0%B0+%D0%B8+%D0%B2%D0%BE%D0%B7%D0%B2%D1%80%D0%B0%D1%82%D0%B0+%D0%B6%D0%B8%D0%B2%D0%BE%D1%82%D0%BD%D1%8B%D1%85.&amp;description=%D0%9D%D0%B0%D1%88%D0%BB%D0%B8+%D1%81%D0%BE%D0%B1%D0%B0%D0%BA%D1%83+%D0%BF%D0%BE+%D0%B0%D0%B4%D1%80%D0%B5%D1%81%D1%83+%D1%83%D0%BB%D0%B8%D1%86%D0%B0+%D0%A3%D0%B1%D0%BE%D1%80%D0%B5%D0%B2%D0%B8%D1%87%D0%B0%2C+47%2C+%D0%A5%D0%B0%D0%B1%D0%B0%D1%80%D0%BE%D0%B2%D1%81%D0%BA++%E2%80%93+%D1%80%D0%B0%D0%B7%D0%BC%D0%B5%D1%89%D0%B0%D0%B9%D1%82%D0%B5+%D0%BE%D0%B1%D1%8A%D1%8F%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F+%D0%BD%D0%B0+Pet911+%E2%80%93+%D0%BE%D0%B1%D1%8A%D1%8F%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F+%D0%BE+%D0%BF%D1%80%D0%BE%D0%BF%D0%B0%D0%B6%D0%B5+%D1%81%D0%BE%D0%B1%D0%B0%D0%BA+%D0%B8+%D0%BA%D0%BE%D1%88%D0%B5%D0%BA+%D1%80%D1%8F%D0%B4%D0%BE%D0%BC+%D1%81+%D0%92%D0%B0%D0%BC%D0%B8%2C+%D0%BD%D0%B0%D0%B9%D0%B4%D1%91%D0%BC+%D0%BF%D0%BE%D1%82%D0%B5%D1%80%D1%8F%D1%88%D0%B5%D0%BA+%D0%B2%D0%BC%D0%B5%D1%81%D1%82%D0%B5.&amp;imageUrl=https%3A%2F%2Fcdn.pet911.ru%2FPet_16360994996184e5ab5898c4.17391167.webp" rel="noopener" target="_blank"><img src="/img/icons/share/icon-ok.svg" alt="OK" class="share-link__icon"></a> </div>
+</div>
+</div>
+<div class="d-none d-md-block card-map">
+<div class="card-map__inner img-crop" id="map-single-pc"></div>
+<div class="card-map__info">
+<div class="md-font card-map__address">улица Уборевича, 47, Хабаровск</div>
+<button class="link link-icon link-accent card-map__link" data-alerttitle="Адрес скопирован!">
+<img src="/img/icons/icon-copy-accent.svg" alt="Копировать" class="link__icon">
+<span class="re-font link__title">Копировать</span>
+</button>
+</div>
+</div>
+<div class="card-information">
+<div class="card-info">
+<div class="gray-dk-color card-info__title">Номер объявления</div>
+<div class="card-info__value">rf494618</div>
+</div>
+<div class="card-info">
+<div class="gray-dk-color card-info__title">Добавлено</div>
+<div class="card-info__value">пт, 05.11.2021</div>
+</div>
+<div class="card-info">
+<div class="gray-dk-color card-info__title">
+Найден(а) </div>
+<div class="card-info__value">пт, 05.11.2021</div>
+</div>
+<div class="card-info">
+<div class="gray-dk-color card-info__title">Имя хозяина</div>
+<div class="card-info__value">Елена</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<section class="section pets">
+<div class="container">
+<div class="section__title">
+<h2>Похожие найденные собаки</h2>
+</div>
+<div class="slider stories__wrapper">
+<div class="swiper-container slider__wrapper js-pets-slider">
+<div class="swiper-wrapper">
+<div class="swiper-slide">
+<a href="/%D0%A5%D0%B0%D0%B1%D0%B0%D1%80%D0%BE%D0%B2%D1%81%D0%BA/найдена/собака/rf519062" class="pets-item">
+<div class="pets-item__thumb">
+<img src="https://cdn.pet911.ru/thumb_16511059646269e0ac720ba2.45996996_.webp" class="img-crop">
+</div>
+<div class="pets-item__content">
+<div class="pets-item__title">
+<h3>Найдена собака, Ленинградская улица, 46,...</h3>
+</div>
+<div class="text pets-item__excerpt">Возле магазина Коробок на Ленинградской увидела собаку, взгляд потерян...</div>
+<div class="gray-dk-color pets-item__date">28.04.2022</div>
+</div>
+</a>
+</div>
+<div class="swiper-slide">
+<a href="/%D0%A5%D0%B0%D0%B1%D0%B0%D1%80%D0%BE%D0%B2%D1%81%D0%BA/найдена/собака/rf517755" class="pets-item">
+<div class="pets-item__thumb">
+<img src="https://cdn.pet911.ru/thumb_Pet_1650420328625f6a6831f813.75880129.webp" class="img-crop">
+</div>
+<div class="pets-item__content">
+<div class="pets-item__title">
+<h3>Найдена собака, 96А, улица Морозова Павл...</h3>
+</div>
+<div class="text pets-item__excerpt">Собачка находится П.Морозова 96А</div>
+<div class="gray-dk-color pets-item__date">19.04.2022</div>
+</div>
+</a>
+</div>
+<div class="swiper-slide">
+<a href="/%D0%A5%D0%B0%D0%B1%D0%B0%D1%80%D0%BE%D0%B2%D1%81%D0%BA/найдена/собака/rf517638" class="pets-item">
+<div class="pets-item__thumb">
+<img src="https://cdn.pet911.ru/thumb_Pet_1650361198625e836ec665681.09491714.webp" class="img-crop">
+</div>
+<div class="pets-item__content">
+<div class="pets-item__title">
+<h3>Найдена собака, Краснореченский переулок...</h3>
+</div>
+<div class="text pets-item__excerpt">Найден старый кобелек. 89242018108</div>
+<div class="gray-dk-color pets-item__date">19.04.2022</div>
+</div>
+</a>
+</div>
+<div class="swiper-slide">
+<a href="/%D0%A5%D0%B0%D0%B1%D0%B0%D1%80%D0%BE%D0%B2%D1%81%D0%BA/найдена/собака/rf517551" class="pets-item">
+<div class="pets-item__thumb">
+<img src="https://cdn.pet911.ru/thumb_Pet_1650349515625e55cb3fba07.70060101.webp" class="img-crop">
+</div>
+<div class="pets-item__content">
+<div class="pets-item__title">
+<h3>Найдена собака, Завод "Амуркабель", Инду...</h3>
+</div>
+<div class="text pets-item__excerpt">Собакен лежит возле автобусной остановки. Очень грустные глаза. Неужел...</div>
+<div class="gray-dk-color pets-item__date">19.04.2022</div>
+</div>
+</a>
+</div>
+<div class="swiper-slide">
+<a href="/%D0%A5%D0%B0%D0%B1%D0%B0%D1%80%D0%BE%D0%B2%D1%81%D0%BA/найдена/собака/rf516494" class="pets-item">
+<div class="pets-item__thumb">
+<img src="https://cdn.pet911.ru/thumb_Pet_1649838515625689b3c025d5.03876989.webp" class="img-crop">
+</div>
+<div class="pets-item__content">
+<div class="pets-item__title">
+<h3>Найдена собака, Сунгарийская улица, 46,...</h3>
+</div>
+<div class="text pets-item__excerpt">Бегает собака в р-не пятой площадки. Свободно подходит к людям и заход...</div>
+<div class="gray-dk-color pets-item__date">12.04.2022</div>
+</div>
+</a>
+</div>
+<div class="swiper-slide">
+<a href="/%D0%A5%D0%B0%D0%B1%D0%B0%D1%80%D0%BE%D0%B2%D1%81%D0%BA/найдена/собака/rf516141" class="pets-item">
+<div class="pets-item__thumb">
+<img src="https://cdn.pet911.ru/thumb_Pet_164967531962540c37b09410.46334754.webp" class="img-crop">
+</div>
+<div class="pets-item__content">
+<div class="pets-item__title">
+<h3>Найдена собака, Иртышский проезд, 15, Ха...</h3>
+</div>
+<div class="text pets-item__excerpt">Здравствуйте, помогите пожалуйста, собака уже неделю возле дома сидит...</div>
+<div class="gray-dk-color pets-item__date">04.04.2022</div>
+</div>
+</a>
+</div>
+<div class="swiper-slide">
+<a href="/%D0%A5%D0%B0%D0%B1%D0%B0%D1%80%D0%BE%D0%B2%D1%81%D0%BA/найдена/собака/rf515575" class="pets-item">
+<div class="pets-item__thumb">
+<img src="https://cdn.pet911.ru/thumb_Pet_1649485527625126d7233e10.51937642.webp" class="img-crop">
+</div>
+<div class="pets-item__content">
+<div class="pets-item__title">
+<h3>Найдена собака, улица Пушкина, 52, Хабар...</h3>
+</div>
+<div class="text pets-item__excerpt">в районе 38 школы появилась собачка, темно коричневый окрас, грудка и...</div>
+<div class="gray-dk-color pets-item__date">05.04.2022</div>
+</div>
+</a>
+</div>
+<div class="swiper-slide">
+<a href="/%D0%A5%D0%B0%D0%B1%D0%B0%D1%80%D0%BE%D0%B2%D1%81%D0%BA/найдена/собака/rf515285" class="pets-item">
+<div class="pets-item__thumb">
+<img src="https://cdn.pet911.ru/thumb_Pet_1649324106624eb04a7ca3551.11932456.webp" class="img-crop">
+</div>
+<div class="pets-item__content">
+<div class="pets-item__title">
+<h3>Найдена собака, улица Муравьёва-Амурског...</h3>
+</div>
+<div class="text pets-item__excerpt">7 апреля в 18:30 в районе набережной г.Хабаровска обнаружен хаски. Име...</div>
+<div class="gray-dk-color pets-item__date">07.04.2022</div>
+</div>
+</a>
+</div>
+</div>
+</div>
+<button class="d-none d-xl-block slider-btn slider__prev js-pets-slider-prev">
+<img src="/img/icons/icon-arrow-left-round-dark.svg" alt="Назад" class="slider-btn__icon">
+</button>
+<button class="d-none d-xl-block slider-btn slider__next js-pets-slider-next">
+<img src="/img/icons/icon-arrow-right-round-dark.svg" alt="Вперед" class="slider-btn__icon">
+</button>
+</div>
+</div>
+</section>
+<div id="commentPjax" data-pjax-container="" data-pjax-push-state data-pjax-timeout="0"><section class="section comments">
+<div class="container">
+<div class="section__title">
+<h2>Комментариев 1</h2>
+</div>
+</div>
+<div class="comments-form js-sticky-element">
+<div class="container">
+<div class="comments-form__inner js-popup-btn" data-popup=".js-comment">
+<label class="input comments-form__field">
+<input type="text" class="input__field" readonly name="comment" placeholder="Ваш комментарий..." />
+</label>
+<button class="comments-form__submit">Отпр.</button>
+</div>
+</div>
+</div>
+<div class="container">
+<div class="comments__items">
+<div id="w0" class="list-view"><div data-key="337572"><div class="comments-item ">
+<div class="md-font comments-item__name">Всероссийская система поиска животных Pet911</div>
+<div class="text-lt comments-item__text">Объявление rf494618 размещено в группе ВКонтакте <a href="https://vk.com/pet911khabarovsk?w=wall-176415948_1387%2Fall" target="_blank">Хабаровск | Pet911 пропала найдена собака кошка</a></div>
+<div class="gray-dk-color comments-item__date"> 05 ноября 2021</div>
+</div></div>
+</div> </div>
+<button class="btn btn-icon btn-transparent-accent comments__btn js-popup-btn" data-popup=".js-problem">
+<img src="/img/icons/icon-alert-accent.svg" alt="alt" class="btn__icon">
+<span class="md-font btn__title">Пожаловаться</span>
+</button>
+</div>
+</section>
+<div class="popup popup-middle share popup-comment js-comment js-popup">
+<div class="popup__overlay overlay js-popup-close"></div>
+<div class="popup__container d-flex flex-column">
+<form id="commentViewForm" class="share__wrapper" action="/%D0%A5%D0%B0%D0%B1%D0%B0%D1%80%D0%BE%D0%B2%D1%81%D0%BA/%D0%BD%D0%B0%D0%B9%D0%B4%D0%B5%D0%BD%D0%B0/%D1%81%D0%BE%D0%B1%D0%B0%D0%BA%D0%B0/rf494618" method="post">
+<input type="hidden" name="_csrf-newfront" value="sm2QtTFFCa5Z4KcgeVwzQnKzt_bGH6nheTbq6IpCLoTwIcL3UC1c6S-4l20rDFEmIezmsqd5-41OG4CB43Bo1A=="> <div class="share__title">
+<h3>Оставить комментарий</h3>
+</div>
+<label class="input popup-comment__field field-addcommentform-comment required">
+<textarea id="addcommentform-comment" class="textarea textarea-small input__field" name="AddCommentForm[comment]" placeholder="Ваш комментарий..." aria-required="true"></textarea><span class="input__notice"></span>
+</label>
+<label class="input popup-comment__field field-addcommentform-name required">
+<input type="text" id="addcommentform-name" class="input__field" name="AddCommentForm[name]" placeholder="Ваше имя" aria-required="true"><span class="input__notice"></span>
+</label>
+<label class="switcher new-ad__switcher field-addcommentform-terms required">
+<input type="hidden" name="AddCommentForm[terms]" value="0"><input type="checkbox" id="addcommentform-terms" class="switcher__old" name="AddCommentForm[terms]" value="1" checked hidden aria-required="true">
+<span class="switcher__custom"></span>
+<span class="switcher-title">
+<span class="switcher-title__main">Согласен с <a href="/privacy-policy" target="_blank">политикой конфиденциальности</a></span>
+<span class="switcher__notice"></span>
+</span>
+</label>
+<div class="popup__btns">
+<button class="btn btn-fill-accent share__close">Отправить</button>
+<button type="button" class="btn btn-transparent-red share__back-mt js-popup-close">Закрыть</button>
+</div>
+</form> </div>
+</div>
+</div>
+<div class="popup popup-middle share js-problem js-popup">
+<div class="popup__overlay overlay js-popup-close"></div>
+<div class="popup__container d-flex flex-column">
+<div class="share__wrapper">
+<form id="complainForm" class="complain-form" action="/pet/send-complain" method="post">
+<input type="hidden" name="_csrf-newfront" value="sm2QtTFFCa5Z4KcgeVwzQnKzt_bGH6nheTbq6IpCLoTwIcL3UC1c6S-4l20rDFEmIezmsqd5-41OG4CB43Bo1A=="> <input type="hidden" name="petID" value="494618">
+<div class="share__title">
+<h3>Сообщите о проблеме</h3>
+</div>
+<div class="share__descr"></div>
+<div class="new-ad-fields">
+<div class="new-ad-block">
+<label class="input new-ad-block__input">
+<select name="reason" class="input__field select">
+<option disabled selected>Укажите тему проблемы</option>
+<option value="1">Спам</option>
+<option value="2">Объявление задублировано</option>
+<option value="3">Этот питомец не терялся</option>
+<option value="4">Есть подходящий найденный (потерянный)</option>
+<option value="5">Уже найден</option>
+<option value="6">Другое</option>
+</select>
+</label>
+<label class="input new-ad-block__input">
+<textarea id="complainMes" name="mes" placeholder="Описание..." class="input__field textarea textarea-middle"></textarea>
+</label>
+</div>
+</div>
+<div class="popup__buttons">
+<button type="button" id="sendComplainFormBtn" class="btn btn-fill-accent map-address__btn">Отправить</button>
+<button type="button" class="btn btn-transparent-red share__close-offset js-popup-close">Закрыть</button>
+</div>
+</form> </div>
+</div>
+</div>
+<div class="popup popup-middle share js-share494618 js-popup">
+<div class="popup__overlay overlay js-popup-close"></div>
+<div class="popup__container d-flex flex-column">
+<div class="share__wrapper">
+<div class="share__title">
+ <h3>Поделиться</h3>
+</div>
+<div class="text share__descr">Расскажите об этом объявлении своим друзьям и родным</div>
+<div class="share-block__blocks">
+<div class="share-block">
+<button class="share-block__item copyBtnLink js-popup-btn" data-popup=".js-copy" data-link="https://pet911.ru/Хабаровск/найдена/собака/rf494618">
+<div class="share-block__title">Копировать ссылку</div>
+<img src="/img/icons/icon-copy.svg" alt="alt" class="share-block__icon">
+</button>
+</div>
+<div class="share-block">
+<a class="share-block__item" href="https://www.facebook.com/sharer.php?u=https%3A%2F%2Fpet911.ru%2F%D0%A5%D0%B0%D0%B1%D0%B0%D1%80%D0%BE%D0%B2%D1%81%D0%BA%2F%D0%BD%D0%B0%D0%B9%D0%B4%D0%B5%D0%BD%D0%B0%2F%D1%81%D0%BE%D0%B1%D0%B0%D0%BA%D0%B0%2Frf494618" rel="noopener" target="_blank"><div class="share-block__title">Facebook</div>
+<img src="/img/icons/icon-fb.svg" alt="alt" class="share-block__icon"></a><a class="share-block__item" href="https://vk.com/share.php?url=https%3A%2F%2Fpet911.ru%2F%D0%A5%D0%B0%D0%B1%D0%B0%D1%80%D0%BE%D0%B2%D1%81%D0%BA%2F%D0%BD%D0%B0%D0%B9%D0%B4%D0%B5%D0%BD%D0%B0%2F%D1%81%D0%BE%D0%B1%D0%B0%D0%BA%D0%B0%2Frf494618&amp;title=%D0%9D%D0%B0%D0%B9%D0%B4%D0%B5%D0%BD%D0%B0+%D1%81%D0%BE%D0%B1%D0%B0%D0%BA%D0%B0%2C+%D0%A5%D0%B0%D0%B1%D0%B0%D1%80%D0%BE%D0%B2%D1%81%D0%BA%2C+Pet911+-+%D0%92%D1%81%D0%B5%D1%80%D0%BE%D1%81%D1%81%D0%B8%D0%B9%D1%81%D0%BA%D0%B0%D1%8F+%D1%81%D0%B8%D1%81%D1%82%D0%B5%D0%BC%D0%B0+%D0%BF%D0%BE%D0%B8%D1%81%D0%BA%D0%B0+%D0%B8+%D0%B2%D0%BE%D0%B7%D0%B2%D1%80%D0%B0%D1%82%D0%B0+%D0%B6%D0%B8%D0%B2%D0%BE%D1%82%D0%BD%D1%8B%D1%85.&amp;image=https%3A%2F%2Fcdn.pet911.ru%2FPet_16360994996184e5ab5898c4.17391167.webp" rel="noopener" target="_blank"><div class="share-block__title">Вконтакте</div>
+<img src="/img/icons/icon-vk.svg" alt="alt" class="share-block__icon"></a><a class="share-block__item" href="https://twitter.com/share?url=https%3A%2F%2Fpet911.ru%2F%D0%A5%D0%B0%D0%B1%D0%B0%D1%80%D0%BE%D0%B2%D1%81%D0%BA%2F%D0%BD%D0%B0%D0%B9%D0%B4%D0%B5%D0%BD%D0%B0%2F%D1%81%D0%BE%D0%B1%D0%B0%D0%BA%D0%B0%2Frf494618&amp;text=%D0%9D%D0%B0%D1%88%D0%BB%D0%B8+%D1%81%D0%BE%D0%B1%D0%B0%D0%BA%D1%83+%D0%BF%D0%BE+%D0%B0%D0%B4%D1%80%D0%B5%D1%81%D1%83+%D1%83%D0%BB%D0%B8%D1%86%D0%B0+%D0%A3%D0%B1%D0%BE%D1%80%D0%B5%D0%B2%D0%B8%D1%87%D0%B0%2C+47%2C+%D0%A5%D0%B0%D0%B1%D0%B0%D1%80%D0%BE%D0%B2%D1%81%D0%BA++%E2%80%93+%D1%80%D0%B0%D0%B7%D0%BC%D0%B5%D1%89%D0%B0%D0%B9%D1%82%D0%B5+%D0%BE%D0%B1%D1%8A%D1%8F%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F+%D0%BD%D0%B0+Pet911+%E2%80%93+%D0%BE%D0%B1%D1%8A%D1%8F%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F+%D0%BE+%D0%BF%D1%80%D0%BE%D0%BF%D0%B0%D0%B6%D0%B5+%D1%81%D0%BE%D0%B1%D0%B0%D0%BA+%D0%B8+%D0%BA%D0%BE%D1%88%D0%B5%D0%BA+%D1%80%D1%8F%D0%B4%D0%BE%D0%BC+%D1%81+%D0%92%D0%B0%D0%BC%D0%B8%2C+%D0%BD%D0%B0%D0%B9%D0%B4%D1%91%D0%BC+%D0%BF%D0%BE%D1%82%D0%B5%D1%80%D1%8F%D1%88%D0%B5%D0%BA+%D0%B2%D0%BC%D0%B5%D1%81%D1%82%D0%B5." rel="noopener" target="_blank"><div class="share-block__title">Twitter</div>
+<img src="/img/icons/icon-tw.svg" alt="alt" class="share-block__icon"></a><a class="share-block__item" href="https://connect.ok.ru/offer?url=https%3A%2F%2Fpet911.ru%2F%D0%A5%D0%B0%D0%B1%D0%B0%D1%80%D0%BE%D0%B2%D1%81%D0%BA%2F%D0%BD%D0%B0%D0%B9%D0%B4%D0%B5%D0%BD%D0%B0%2F%D1%81%D0%BE%D0%B1%D0%B0%D0%BA%D0%B0%2Frf494618&amp;title=%D0%9D%D0%B0%D0%B9%D0%B4%D0%B5%D0%BD%D0%B0+%D1%81%D0%BE%D0%B1%D0%B0%D0%BA%D0%B0%2C+%D0%A5%D0%B0%D0%B1%D0%B0%D1%80%D0%BE%D0%B2%D1%81%D0%BA%2C+Pet911+-+%D0%92%D1%81%D0%B5%D1%80%D0%BE%D1%81%D1%81%D0%B8%D0%B9%D1%81%D0%BA%D0%B0%D1%8F+%D1%81%D0%B8%D1%81%D1%82%D0%B5%D0%BC%D0%B0+%D0%BF%D0%BE%D0%B8%D1%81%D0%BA%D0%B0+%D0%B8+%D0%B2%D0%BE%D0%B7%D0%B2%D1%80%D0%B0%D1%82%D0%B0+%D0%B6%D0%B8%D0%B2%D0%BE%D1%82%D0%BD%D1%8B%D1%85.&amp;description=%D0%9D%D0%B0%D1%88%D0%BB%D0%B8+%D1%81%D0%BE%D0%B1%D0%B0%D0%BA%D1%83+%D0%BF%D0%BE+%D0%B0%D0%B4%D1%80%D0%B5%D1%81%D1%83+%D1%83%D0%BB%D0%B8%D1%86%D0%B0+%D0%A3%D0%B1%D0%BE%D1%80%D0%B5%D0%B2%D0%B8%D1%87%D0%B0%2C+47%2C+%D0%A5%D0%B0%D0%B1%D0%B0%D1%80%D0%BE%D0%B2%D1%81%D0%BA++%E2%80%93+%D1%80%D0%B0%D0%B7%D0%BC%D0%B5%D1%89%D0%B0%D0%B9%D1%82%D0%B5+%D0%BE%D0%B1%D1%8A%D1%8F%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F+%D0%BD%D0%B0+Pet911+%E2%80%93+%D0%BE%D0%B1%D1%8A%D1%8F%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F+%D0%BE+%D0%BF%D1%80%D0%BE%D0%BF%D0%B0%D0%B6%D0%B5+%D1%81%D0%BE%D0%B1%D0%B0%D0%BA+%D0%B8+%D0%BA%D0%BE%D1%88%D0%B5%D0%BA+%D1%80%D1%8F%D0%B4%D0%BE%D0%BC+%D1%81+%D0%92%D0%B0%D0%BC%D0%B8%2C+%D0%BD%D0%B0%D0%B9%D0%B4%D1%91%D0%BC+%D0%BF%D0%BE%D1%82%D0%B5%D1%80%D1%8F%D1%88%D0%B5%D0%BA+%D0%B2%D0%BC%D0%B5%D1%81%D1%82%D0%B5.&amp;imageUrl=https%3A%2F%2Fcdn.pet911.ru%2FPet_16360994996184e5ab5898c4.17391167.webp" rel="noopener" target="_blank"><div class="share-block__title">Одноклассники</div>
+<img src="/img/icons/icon-ok.svg" alt="alt" class="share-block__icon"></a> </div>
+</div>
+<div class="popup__buttons">
+<button class="btn btn-transparent-red share__close js-popup-close">Закрыть</button>
+</div>
+</div>
+</div>
+</div>
+<div class="popup popup-middle share js-copy js-popup">
+<div class="popup__overlay overlay js-popup-close"></div>
+<div class="popup__container d-flex flex-column">
+<div class="share__wrapper">
+<div class="text share__descr">Ссылка на объявление скопирована</div>
+<div class="popup__buttons">
+<button class="btn btn-transparent-red share__close js-popup-close">Закрыть</button>
+</div>
+</div>
+</div>
+</div>
+<div class="popup popup-middle map js-address js-popup">
+<div class="page-header map-top d-flex align-items-center">
+<div class="page-header__inner map-top__nav d-flex align-items-center justify-content-between">
+<button class="link link-icon map-top__back js-popup-close">
+<img src="/img/icons/icon-arrow-left-accent.svg" alt="alt" class="link__icon">
+<div class="link__title">Назад</div>
+</button>
+</div>
+</div>
+<div class="map__container" id="map-single"></div>
+<div class="popup__container d-flex flex-column">
+<div class="map-address">
+<div class="map-address__info">
+<h3>улица Уборевича, 47, Хабаровск</h3>
+</div>
+<button class="btn btn-fill-accent-lt map-address__btn copyAddrMob" data-alerttitle="Адрес скопирован!">
+<img src="/img/icons/icon-copy-accent-dark.svg" alt="alt" class="btn__icon">
+<span class="btn__title">Копировать</span>
+</button>
+</div>
+</div>
+</div> <header class="navigation ">
+<div class="d-none d-xl-block navigation-menu-overlay js-toggle-menu"></div>
+<div class="navigation-menu">
+<div class="navigation-menu__top d-flex align-items-center justify-content-between">
+<a href="/" class="navigation-menu__logo">
+<img src="/img/logo.svg" alt="Pet911.ru" class="logo__img">
+</a>
+<button class="navigation-menu__close js-toggle-menu">
+<img src="/img/icons/icon-close-big-dark.svg" alt="Закрыть">
+</button>
+</div>
+<div class="navigation-menu__inner">
+<a href="/" class="link link-dark navigation-menu__item">Главная</a>
+<a href="/catalog" class="link link-dark navigation-menu__item">Каталог</a>
+<a href="/faq" class="link link-dark navigation-menu__item">Вопросы-ответы</a>
+<a href="/post/platnye-uslugi" class="link link-dark navigation-menu__item">Платные услуги</a>
+<a href="/post/poleznye-sovety" class="link link-dark navigation-menu__item">Полезные советы</a>
+<a href="/contact" class="link link-dark navigation-menu__item">Контакты</a>
+<a href="/landing-for-volunteer#block-3" class="link link-dark navigation-menu__item">Станьте волонтёром</a>
+</div>
+</div>
+<div class="d-none d-md-block navigation-main">
+<div class="container">
+<div class="row align-items-center g-0 justify-content-between">
+<div class="col-md-auto">
+<div class="navigation-main__left d-flex align-items-center">
+<button class="d-none d-xl-flex sandwich navigation__sandwich js-toggle-menu">
+<span class="sandwich__inner"></span>
+</button>
+<a href="/" class="logo navigation__logo">
+<img src="/img/logo-icon.svg" alt="Pet" class="logo__img">
+<img src="/img/logo-text.svg" alt="911" class="d-none d-xl-block logo__text">
+</a>
+<div class="navigation-support js-list-item">
+<div class="navigation-support__title js-list-item-control">Помощь</div>
+<div class="navigation-support__links js-list-item-content">
+<a class="link link-dark navigation-support__link" href="/faq">
+Вопросы и ответы </a>
+<a class="link link-dark navigation-support__link" href="/post/poleznye-sovety">
+Полезные советы </a>
+<a class="link link-dark navigation-support__link" href="/post/platnye-uslugi">
+Платные услуги </a>
+<a class="link link-dark navigation-support__link" href="/post/osteregajtes-mosennikov">
+Остерегайтесь мошенников </a>
+</div>
+</div>
+<div class="navigation__nav d-none d-xl-flex">
+<ul>
+<li><a href="/catalog">Каталог</a></li>
+</ul>
+</div>
+<form id="searchFrm" class="navigation-search js-nav-search" action="/catalog" method="get" data-pjax="1" autocomplete="off"> <label class="input navigation-search__input">
+<input type="text" id="petssearch-address" class="input__field input__field-second navigation-search__field js-nav-search-field" name="PetsSearch[address]" placeholder="Адрес или номер объявления">
+<div class="help-block"></div>
+</label>
+<button class="navigation-search__btn">
+<img src="/img/icons/icon-search-dark.svg" alt="Найти" class="navigation-search__icon">
+</button>
+<button type="button" class="navigation-search__remove js-nav-search-clear">
+<img src="/img/icons/icon-cross-dark.svg" alt="Удалить" class="navigation-search__icon">
+</button>
+</form> </div>
+</div>
+<div class="col-md-auto">
+<div class="navigation-main__right d-flex align-items-center">
+<a href="/new-ad" class="btn btn-fill-gold-lt navigation__btn">Создать объявление</a>
+<div class="navigation-personal d-flex align-items-center">
+<a href="/login" class="navigation-account js-list-item">
+Войти </a>
+</div>
+<button class="d-xl-none sandwich navigation__sandwich js-toggle-menu">
+<span class="sandwich__inner"></span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="navigation__inner d-flex d-md-none align-items-center justify-content-between">
+<nav class="navigation__links d-flex align-items-center justify-content-evenly">
+<a href="/new-ad" class="navigation-item navigation-item-create active">
+<div class="navigation-item__icon"></div>
+<div class="navigation-item__title">Создать</div>
+</a>
+<a href="/catalog" class="navigation-item navigation-item-catalog">
+<div class="navigation-item__icon"></div>
+<div class="navigation-item__title">Каталог</div>
+</a>
+<button type="button" class="navigation-item navigation-item-menu js-toggle-menu" tabindex="3">
+<div class="navigation-item__icon"></div>
+<div class="navigation-item__title">Меню</div>
+</button>
+<a href="/login" class="navigation-item navigation-item-profile">
+<div class="navigation-item__icon"></div>
+<div class="navigation-item__title">Вход</div>
+</a>
+</nav>
+</div>
+</header>
+<footer class="footer">
+<div class="container">
+<div class="footer__blocks">
+<div class="footer-block">
+<div class="footer-block__title">Pet911</div>
+<div class="footer-nav">
+<ul>
+<li><a href="/new-ad">Разместите объявление</a></li>
+<li><a href="/post/platnye-uslugi">Платные услуги</a></li>
+<li><a href="/post/poleznye-sovety">Полезные советы</a></li>
+<li><a href="/success-stories">Отзывы</a></li>
+<li><a href="/faq">Вопросы-ответы</a></li>
+<li><a href="/contact">Контакты</a></li>
+</ul>
+</div>
+</div>
+<div class="footer-block">
+<div class="footer-block__title">Ускорьте поиск питомца</div>
+<div class="footer-nav">
+<ul>
+<li><a href="#">Распространите объявление в социальных сетях</a></li>
+<li><a href="#">Оповестите клиники и приюты</a></li>
+<li><a href="#">Сообщите волонтёрам о пропаже</a></li>
+<li><a href="#">Оповестите жителей района</a></li>
+<li><a href="#">Создайте премиум-объявление</a></li>
+<li><a href="#">Получайте уведомления о похожих питомцах</a></li>
+</ul>
+</div>
+</div>
+<div class="footer-block">
+<div class="footer-block__title">Помощь</div>
+<div class="footer-nav">
+<ul>
+<li><a href="/landing-for-volunteer#block-3">Станьте волонтёром</a></li>
+<li><a href="/donate">Поддержите проект</a></li>
+</ul>
+</div>
+</div>
+<div class="footer-block footer-block-big">
+<div class="footer-contacts d-flex justify-content-between align-items-start align-items-md-end">
+<div></div>
+<div class="social footer-social">
+<a class="social-item" href="https://vk.com/share.php?url=http%3A%2F%2Fpet911.ru%2F%25D0%25A5%25D0%25B0%25D0%25B1%25D0%25B0%25D1%2580%25D0%25BE%25D0%25B2%25D1%2581%25D0%25BA%2F%25D0%25BD%25D0%25B0%25D0%25B9%25D0%25B4%25D0%25B5%25D0%25BD%25D0%25B0%2F%25D1%2581%25D0%25BE%25D0%25B1%25D0%25B0%25D0%25BA%25D0%25B0%2Frf494618&amp;title=%D0%9D%D0%B0%D0%B9%D0%B4%D0%B5%D0%BD%D0%B0+%D1%81%D0%BE%D0%B1%D0%B0%D0%BA%D0%B0%2C+%D0%A5%D0%B0%D0%B1%D0%B0%D1%80%D0%BE%D0%B2%D1%81%D0%BA%2C+Pet911+-+%D0%92%D1%81%D0%B5%D1%80%D0%BE%D1%81%D1%81%D0%B8%D0%B9%D1%81%D0%BA%D0%B0%D1%8F+%D1%81%D0%B8%D1%81%D1%82%D0%B5%D0%BC%D0%B0+%D0%BF%D0%BE%D0%B8%D1%81%D0%BA%D0%B0+%D0%B8+%D0%B2%D0%BE%D0%B7%D0%B2%D1%80%D0%B0%D1%82%D0%B0+%D0%B6%D0%B8%D0%B2%D0%BE%D1%82%D0%BD%D1%8B%D1%85.&amp;image=http%3A%2F%2Fpet911.ru%2Fimg%2Flogo.svg" rel="noopener" target="_blank"><svg width="19" height="19" viewBox="0 0 19 19" xmlns="http://www.w3.org/2000/svg" class="social-item__icon">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M1.33559 1.33559C0 2.67119 0 4.82078 0 9.12V9.88C0 14.1792 0 16.3288 1.33559 17.6644C2.67119 19 4.82078 19 9.12 19H9.88C14.1792 19 16.3288 19 17.6644 17.6644C19 16.3288 19 14.1792 19 9.88V9.12C19 4.82078 19 2.67119 17.6644 1.33559C16.3288 0 14.1792 0 9.88 0H9.12C4.82078 0 2.67119 0 1.33559 1.33559ZM3.2063 5.77921C3.30921 10.7192 5.77921 13.688 10.1096 13.688H10.3551V10.8617C11.9463 11.02 13.1496 12.1838 13.6325 13.688H15.8809C15.2634 11.4396 13.6404 10.1967 12.627 9.72171C13.6404 9.13587 15.0654 7.71087 15.4058 5.77921H13.3633C12.9199 7.34671 11.6059 8.77171 10.3551 8.90629V5.77921H8.3125V11.2575C7.04583 10.9409 5.44671 9.40504 5.37546 5.77921H3.2063Z" />
+</svg></a><a class="social-item" href="https://connect.ok.ru/offer?url=http%3A%2F%2Fpet911.ru%2F%25D0%25A5%25D0%25B0%25D0%25B1%25D0%25B0%25D1%2580%25D0%25BE%25D0%25B2%25D1%2581%25D0%25BA%2F%25D0%25BD%25D0%25B0%25D0%25B9%25D0%25B4%25D0%25B5%25D0%25BD%25D0%25B0%2F%25D1%2581%25D0%25BE%25D0%25B1%25D0%25B0%25D0%25BA%25D0%25B0%2Frf494618&amp;title=%D0%9D%D0%B0%D0%B9%D0%B4%D0%B5%D0%BD%D0%B0+%D1%81%D0%BE%D0%B1%D0%B0%D0%BA%D0%B0%2C+%D0%A5%D0%B0%D0%B1%D0%B0%D1%80%D0%BE%D0%B2%D1%81%D0%BA%2C+Pet911+-+%D0%92%D1%81%D0%B5%D1%80%D0%BE%D1%81%D1%81%D0%B8%D0%B9%D1%81%D0%BA%D0%B0%D1%8F+%D1%81%D0%B8%D1%81%D1%82%D0%B5%D0%BC%D0%B0+%D0%BF%D0%BE%D0%B8%D1%81%D0%BA%D0%B0+%D0%B8+%D0%B2%D0%BE%D0%B7%D0%B2%D1%80%D0%B0%D1%82%D0%B0+%D0%B6%D0%B8%D0%B2%D0%BE%D1%82%D0%BD%D1%8B%D1%85.&amp;description=&amp;imageUrl=http%3A%2F%2Fpet911.ru%2Fimg%2Flogo.svg" rel="noopener" target="_blank"><svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" class="social-item__icon">
+<path d="M3.93415 10.7342C3.42331 11.7384 4.00331 12.2184 5.32665 13.0384C6.45165 13.7334 8.00581 13.9875 9.00415 14.0892C8.59498 14.4825 10.47 12.6792 5.06998 17.8734C3.92498 18.9709 5.76831 20.7317 6.91248 19.6575L10.01 16.67C11.1958 17.8109 12.3325 18.9042 13.1075 19.6617C14.2525 20.74 16.095 18.9942 14.9625 17.8775C14.8775 17.7967 10.765 13.8517 11.0158 14.0934C12.0266 13.9917 13.5575 13.7225 14.6691 13.0425L14.6683 13.0417C15.9916 12.2175 16.5716 11.7384 16.0683 10.7342C15.7641 10.1642 14.9441 9.68753 13.8525 10.5117C13.8525 10.5117 12.3783 11.6409 10.0008 11.6409C7.62248 11.6409 6.14915 10.5117 6.14915 10.5117C5.05831 9.68337 4.23498 10.1642 3.93415 10.7342Z" fill="black" />
+<path d="M9.99911 10.1183C12.8974 10.1183 15.2641 7.85333 15.2641 5.065C15.2641 2.265 12.8974 0 9.99911 0C7.09994 0 4.73328 2.265 4.73328 5.065C4.73328 7.85333 7.09994 10.1183 9.99911 10.1183ZM9.99911 2.56583C11.4233 2.56583 12.5849 3.68333 12.5849 5.065C12.5849 6.435 11.4233 7.5525 9.99911 7.5525C8.57494 7.5525 7.41328 6.435 7.41328 5.065C7.41244 3.6825 8.57411 2.56583 9.99911 2.56583Z" />
+</svg></a><a class="social-item" href="https://www.facebook.com/sharer.php?u=http%3A%2F%2Fpet911.ru%2F%25D0%25A5%25D0%25B0%25D0%25B1%25D0%25B0%25D1%2580%25D0%25BE%25D0%25B2%25D1%2581%25D0%25BA%2F%25D0%25BD%25D0%25B0%25D0%25B9%25D0%25B4%25D0%25B5%25D0%25BD%25D0%25B0%2F%25D1%2581%25D0%25BE%25D0%25B1%25D0%25B0%25D0%25BA%25D0%25B0%2Frf494618" rel="noopener" target="_blank"><svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" class="social-item__icon">
+<path d="M13.3308 3.32083H15.1566V0.140833C14.8416 0.0975 13.7583 0 12.4967 0C9.86415 0 8.06082 1.65583 8.06082 4.69917V7.5H5.15582V11.055H8.06082V20H11.6225V11.0558H14.41L14.8525 7.50083H11.6217V5.05167C11.6225 4.02417 11.8992 3.32083 13.3308 3.32083Z" />
+</svg></a><a class="social-item" href="https://twitter.com/share?url=http%3A%2F%2Fpet911.ru%2F%25D0%25A5%25D0%25B0%25D0%25B1%25D0%25B0%25D1%2580%25D0%25BE%25D0%25B2%25D1%2581%25D0%25BA%2F%25D0%25BD%25D0%25B0%25D0%25B9%25D0%25B4%25D0%25B5%25D0%25BD%25D0%25B0%2F%25D1%2581%25D0%25BE%25D0%25B1%25D0%25B0%25D0%25BA%25D0%25B0%2Frf494618&amp;text=" rel="noopener" target="_blank"><svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" class="social-item__icon">
+<path d="M17.945 5.9275C18.7583 5.35 19.4425 4.62917 20 3.79917V3.79833C19.2558 4.12417 18.4642 4.34083 17.6375 4.44583C18.4875 3.93833 19.1367 3.14083 19.4417 2.18C18.6492 2.6525 17.7742 2.98583 16.8417 3.1725C16.0892 2.37083 15.0167 1.875 13.8467 1.875C11.5767 1.875 9.74917 3.7175 9.74917 5.97583C9.74917 6.30083 9.77667 6.61333 9.84417 6.91083C6.43583 6.74417 3.41917 5.11083 1.3925 2.62167C1.03917 3.23583 0.830833 3.93833 0.830833 4.69417C0.830833 6.11417 1.56167 7.3725 2.6525 8.10167C1.99333 8.08917 1.3475 7.8975 0.8 7.59667V7.64167C0.8 9.63417 2.22083 11.2892 4.085 11.6708C3.75083 11.7625 3.3875 11.8058 3.01 11.8058C2.7475 11.8058 2.4825 11.7908 2.23417 11.7358C2.765 13.3592 4.27333 14.5533 6.065 14.5925C4.67 15.6833 2.89833 16.3408 0.980833 16.3408C0.645 16.3408 0.3225 16.3258 0 16.285C1.81667 17.4558 3.96833 18.125 6.29 18.125C13.5258 18.125 18.2417 12.0883 17.945 5.9275Z" />
+</svg></a> </div>
+</div>
+</div>
+</div>
+</div>
+<div class="footer-bottom">
+<div class="container">
+<div class="footer-bottom__links">
+<a href="/cities" class="footer-bottom__link">Пропавшие и найденные животные России</a>
+<a href="/animals" class="footer-bottom__link">Пропавшие и найденные животные России по породам</a>
+<a href="/privacy-policy" class="footer-bottom__link">Политика конфиденциальности</a>
+<a href="/terms" class="footer-bottom__link">Условия пользования</a>
+</div>
+</div>
+</div>
+</footer>
+
+<script type="text/javascript" async>
+    (function (d, w, c) {
+        (w[c] = w[c] || []).push(function () {
+            try {
+                w.yaCounter44478286 = new Ya.Metrika2({
+                    id: 44478286,
+                    clickmap: true,
+                    trackLinks: true,
+                    accurateTrackBounce: true,
+                    webvisor: true,
+                    trackHash: true,
+                    triggerEvent: true
+                });
+            } catch (e) {
+            }
+        });
+
+        var n = d.getElementsByTagName('script')[0],
+            s = d.createElement('script'),
+            f = function () {
+                n.parentNode.insertBefore(s, n);
+            };
+        s.type = 'text/javascript';
+        s.async = true;
+        s.src = 'https://mc.yandex.ru/metrika/tag.js';
+
+        if (w.opera == '[object Opera]') {
+            d.addEventListener('DOMContentLoaded', f, false);
+        } else {
+            f();
+        }
+    })(document, window, 'yandex_metrika_callbacks2');
+</script>
+<noscript>
+    <div><img src="https://mc.yandex.ru/watch/44478286" style="position:absolute; left:-9999px;" alt=""/></div>
+</noscript>
+<script type="text/javascript">
+    (function (e, t) {
+        var n = e.amplitude || { _q: [], _iq: {} };
+        var r = t.createElement('script');
+        r.type = 'text/javascript';
+        r.async = true;
+        r.src = 'https://cdn.amplitude.com/libs/amplitude-4.4.0-min.gz.js';
+        r.onload = function () {
+            if (e.amplitude.runQueuedFunctions) {
+                e.amplitude.runQueuedFunctions();
+            } else {
+                console.log('[Amplitude] Error: could not load SDK');
+            }
+        };
+        var i = t.getElementsByTagName('script')[0];
+        i.parentNode.insertBefore(r, i);
+
+        function s (e, t) {
+            e.prototype[t] = function () {
+                this._q.push([t].concat(Array.prototype.slice.call(arguments, 0)));
+                return this;
+            };
+        }
+
+        var o = function () {
+            this._q = [];
+            return this;
+        };
+        var a = ['add', 'append', 'clearAll', 'prepend', 'set', 'setOnce', 'unset'];
+
+        for (var u = 0; u < a.length; u++) {s(o, a[u]);}
+        n.Identify = o;
+        var c = function () {
+            this._q = [];
+
+            return this;
+        };
+        var l = ['setProductId', 'setQuantity', 'setPrice', 'setRevenueType', 'setEventProperties'];
+
+        for (var p = 0; p < l.length; p++) {s(c, l[p]);}
+        n.Revenue = c;
+        var d = ['init', 'logEvent', 'logRevenue', 'setUserId', 'setUserProperties', 'setOptOut', 'setVersionName', 'setDomain', 'setDeviceId', 'setGlobalUserProperties', 'identify', 'clearUserProperties', 'setGroup', 'logRevenueV2', 'regenerateDeviceId', 'logEventWithTimestamp', 'logEventWithGroups', 'setSessionId', 'resetSessionId'];
+
+        function v (e) {
+            function t (t) {
+                e[t] = function () {
+                    e._q.push([t].concat(Array.prototype.slice.call(arguments, 0)));
+                };
+            }
+
+            for (var n = 0; n < d.length; n++) {t(d[n]);}
+        }
+
+        v(n);
+        n.getInstance = function (e) {
+            e = (!e || e.length === 0 ? '$default_instance' : e).toLowerCase();
+
+            if (!n._iq.hasOwnProperty(e)) {
+                n._iq[e] = { _q: [] };
+                v(n._iq[e]);
+            }
+            return n._iq[e];
+        };
+        e.amplitude = n;
+    })(window, document);
+
+    amplitude.getInstance().init('cdcba208e65d355b68bd8f7ac50e5c32', null, {
+        // optional configuration options
+//            saveEvents: true,
+        includeUtm: true,
+        includeReferrer: true,
+//            trackingOptions: {
+//              city: false,
+//              ip_address: false
+//            }
+    });
+</script>
+<script>
+    (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function () {
+            (i[r].q = i[r].q || []).push(arguments);
+        }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m);
+    })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+    ga('create', 'UA-97900333-2', 'auto');
+    ga('send', 'pageview');
+</script>
+<script src="/assets/637661d5/yii.js?v=1650910441"></script>
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+<script src="https://unpkg.com/leaflet-geosearch@3.3.2/dist/geosearch.umd.js"></script>
+<script src="/js/geocoderNominatim.js?v=1650980299"></script>
+<script src="/js/plugins/jquery.autocomplete.min.js?v=1650980299"></script>
+<script src="https://unpkg.com/leaflet.markercluster@1.3.0/dist/leaflet.markercluster.js"></script>
+<script src="/assets/637661d5/yii.validation.js?v=1650910441"></script>
+<script src="/assets/637661d5/yii.activeForm.js?v=1650910441"></script>
+<script src="/assets/9e8c47fc/jquery.pjax.js?v=1650910451"></script>
+<script src="https://unpkg.com/@tarekraafat/autocomplete.js@10.2.7/dist/autoComplete.min.js"></script>
+<script src="/js/plugins/headroom.js?v=1650980299"></script>
+<script src="/js/common.js?v=1650980299"></script>
+<script src="https://www.gstatic.com/firebasejs/5.7.0/firebase.js"></script>
+<script src="/js/firebase.js?v=1650980299"></script>
+<script src="/js/custom.js?v=1650980299"></script>
+<script>jQuery(function ($) {
+    let map;
+    let zoomVar = 14;
+    let provider;
+    let marker;
+    
+    $(document).ready(function () {
+        initMap(
+            'map-single-pc',
+            {
+                lat: 48.53221370,
+                lng: 135.02429666
+            }
+        );
+        initMap(
+            'map-single',
+            {
+                lat: 48.53221370,
+                lng: 135.02429666
+            }
+        );
+    });
+        
+    function initMap(mapTagId, coords) {
+        map = L.map(mapTagId,{
+            scrollWheelZoom: false
+        }).setView(coords, zoomVar);
+        map.zoomControl.setPosition('topright');
+        
+        L.tileLayer(mapUrl, {
+            maxZoom: 18,
+            attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+        }).addTo(map);
+        
+        provider = new GeoSearch.OpenStreetMapProvider();
+        
+        marker = L.marker(coords,{
+            icon: iconSimple, 
+            draggable: true
+        }).addTo(map);
+        
+        return map;
+    }
+    
+    $("#sendComplainFormBtn").on('click',function() {
+        $("#complainForm .input__notice").remove();
+        $("#complainMes").parent().removeClass('has-error');
+        if($("#complainMes").val().length<3){
+            $("#complainMes").parent().addClass('has-error');
+            $("#complainMes").after('<span class="input__notice">Сообщите подробности</span>'); 
+        } else {
+          $.ajax({    
+            type: $("#complainForm").attr('method'),
+            url: $("#complainForm").attr('action'),
+            data: $("#complainForm").serialize(),
+            dataType: 'json',
+            success: function(msg){
+                if (msg.status == 'success') {
+                    $(".js-popup-close").click();
+                    $("#complainMes").val('');
+                    $('body').append(msg.alert);
+                    fadeoutAlert();
+                } else {
+                    console.log(msg);
+                }
+            }
+          });
+      }
+    });
+    
+    $(document).one('click','#showPhoneBtn',function(e) {
+      e.preventDefault();
+      let thisa = this;
+      $.ajax({    
+        type: 'get',
+        url: '/pet/show-phone/494618',
+        dataType: 'json',
+        success: function(msg){
+            if (msg.status == 'success') {
+                let el = $(".share__phone-title");
+                el.html(msg.html);
+                el.parent().attr('href','tel:'+msg.html);
+            } else {
+                console.log(msg);
+            }
+        }
+      });
+    });
+jQuery('#commentViewForm').yiiActiveForm([{"id":"addcommentform-comment","name":"comment","container":".field-addcommentform-comment","input":"#addcommentform-comment","error":".input__notice","validate":function (attribute, value, messages, deferred, $form) {yii.validation.required(value, messages, {"message":"Необходимо заполнить «Комментарий»."});yii.validation.string(value, messages, {"message":"Значение «Комментарий» должно быть строкой.","min":3,"tooShort":"Значение «Комментарий» должно содержать минимум 3 символа.","skipOnEmpty":1});}},{"id":"addcommentform-name","name":"name","container":".field-addcommentform-name","input":"#addcommentform-name","error":".input__notice","validate":function (attribute, value, messages, deferred, $form) {yii.validation.required(value, messages, {"message":"Необходимо заполнить «Имя»."});yii.validation.string(value, messages, {"message":"Значение «Имя» должно быть строкой.","min":3,"tooShort":"Значение «Имя» должно содержать минимум 3 символа.","skipOnEmpty":1});}},{"id":"addcommentform-terms","name":"terms","container":".field-addcommentform-terms","input":"#addcommentform-terms","error":".switcher__notice","validate":function (attribute, value, messages, deferred, $form) {yii.validation.required(value, messages, {"message":"Вы должны согласиться с политикой конфиденциальности","requiredValue":1});}}], []);
+jQuery(document).pjax("#commentPjax a", {"push":true,"replace":false,"timeout":0,"scrollTo":false,"container":"#commentPjax"});
+jQuery(document).off("submit", "#commentPjax form[data-pjax]").on("submit", "#commentPjax form[data-pjax]", function (event) {jQuery.pjax.submit(event, {"push":true,"replace":false,"timeout":0,"scrollTo":false,"container":"#commentPjax"});});
+const autoCompleteJS = new autoComplete({
+  selector: "#petssearch-address",
+  debounce: 300,
+  threshold: 2,
+  wrapper: false,
+  searchEngine: (query, record) => {
+    return record;
+  },
+  data: {
+    src: async (q) => {
+      try {
+        let source = await fetch("/ajax/check-pet?art="+q);
+        let data = await source.json();
+        if (data.status == 'success') {
+            return data.data;            
+        } else {
+            source = await fetch("https://nominatim.openstreetmap.org/search?format=jsonv2&addressdetails=1&countrycodes=ru&accept-language=ru&q="+q);
+        }
+        return await source.json();
+      } catch (error) {
+        return error;
+      }
+    },
+    keys: ["title","address"],
+    cache: false,
+    filter: (list) => {
+      // Filter duplicates
+      if (list.length > 0 && list[0].key == 'title') {
+          return list;
+      }
+      
+      const filteredResults = Array.from(
+        new Set(list.map((value) => Nominatin.getFormattedAddress(value.value)))
+      ).map((searchedVal) => {
+        return list.find((value) => Nominatin.getFormattedAddress(value.value) === searchedVal);
+      });
+
+      return filteredResults;      
+    },
+  },
+  resultsList: {
+    maxResults: 15,
+    tabSelect: true,
+    tag: 'div',
+    class: 'navigation-results js-nav-search-results',
+    destination: '#searchFrm .js-nav-search-clear'
+  },
+  resultItem: {
+    element: (item, data) => {
+      if (data.value.addr) {
+          $(item).replaceWith(`
+          <a href="`+data.value.url+`" class="navigation-result">
+              <div class="navigation-result__address">`+data.value.title+`</div>
+              <span class="navigation-result__descr">`+data.value.addr+`</span>
+          </a>`);
+      }else if (data.value.place_id) {
+          var addr = Nominatin.getFormattedAddress(data.value);
+          var city = Nominatin.getCity(data.value);
+          $(item).replaceWith(`
+          <a href="/catalog?petcity=`+city+`&PetsSearch[latitude]=`+data.value.lat+`&PetsSearch[longitude]=`+data.value.lon+`&PetsSearch[radius]=5&PetsSearch[address]=`+addr+`" class="navigation-result">
+              <div class="navigation-result__address">`+addr+`</div>
+          </a>`);
+      }
+    },
+    highlight: true
+  },
+  events: {
+    input: {
+      focus: () => {
+        if (autoCompleteJS.input.value.length) autoCompleteJS.start();
+      }
+    }
+  }
+});
+jQuery('#searchFrm').yiiActiveForm([], []);
+});</script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/v652eace1692a40cfa3763df669d7439c1639079717194" integrity="sha512-Gi7xpJR8tSkrpF7aordPZQlW2DLtzUlZcumS8dMQjwDHEnw9I7ZLyiOj/6tZStRBGtGgN6ceN6cMH8z7etPGlw==" data-cf-beacon='{"rayId":"7040114b5a189752","version":"2021.12.0","r":1,"token":"9014c09324db4844a9e1bc18beb1870e","si":100}' crossorigin="anonymous"></script>
+</body>
+</html>

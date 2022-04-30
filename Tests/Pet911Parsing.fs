@@ -70,12 +70,12 @@ let ``Card with no photos`` () =
         Assert.Equal(0, extractSuccessful(parseRes).Length)        
     }
 
-[<Fact(Skip="Needs update to match new website structure")>]
+[<Fact>]
 let ``Extract event time``() =
     async {
-        let! doc = loadAndParseHtmlTestFile "petCard_rl476712.html.dump"
+        let! doc = loadAndParseHtmlTestFile "petCard_rf518209.html.dump"
         let parseRes = getEventTimeUTC(doc) 
-        Assert.Equal(System.DateTime(2021,6,26),extractSuccessful(parseRes))
+        Assert.Equal(System.DateTime(2022,4,22),extractSuccessful(parseRes))
     }
 
 [<Fact>]
@@ -118,7 +118,7 @@ let ``Extract animal sex``() =
         Assert.Equal(Sex.male, extractSuccessful(sexRes))
     }
 
-[<Fact(Skip="Needs update to match new website structure")>]
+[<Fact>]
 let ``Animal sex unknown``() =
     async {
         let! doc = loadAndParseHtmlTestFile "petCard_rf494618_no_sex.html.dump"
@@ -126,7 +126,7 @@ let ``Animal sex unknown``() =
         Assert.Equal(Sex.unknown, extractSuccessful(sexRes))
     }
 
-[<Fact(Skip="Needs update to match new website structure")>]
+[<Fact>]
 let ``No author``() =
     async {
         let! doc = loadAndParseHtmlTestFile "petCard_rf494610_no_author.html.dump"
@@ -162,7 +162,7 @@ let ``Extract event coords``() =
             Assert.Equal(37.55103469,lon, 10)
     }
 
-[<Fact(Skip="Needs update to match new website structure")>]
+[<Fact>]
 let ``Extract cards from catalog``() =
     async {
         let! doc = loadAndParseHtmlTestFile("catalog.html.dump")
@@ -170,5 +170,5 @@ let ``Extract cards from catalog``() =
         |   Error er -> Assert.True(false,sprintf "Failed to get cards from catalog: %s" er)
         |   Ok(cards) ->
             Assert.Equal(20, cards.Length)
-            Assert.True(cards |> Seq.exists (fun x -> x.ID="rf494635" && x.url="https://pet911.ru/%D0%A2%D0%B2%D0%B5%D1%80%D1%8C/найдена/собака/rf494635"))
+            Assert.True(cards |> Seq.exists (fun x -> x.ID="rf468348" && x.url="https://pet911.ru/%D0%9C%D0%BE%D1%81%D0%BA%D0%B2%D0%B0/найдена/собака/rf468348"))
     }

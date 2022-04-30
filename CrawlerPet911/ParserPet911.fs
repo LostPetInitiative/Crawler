@@ -45,13 +45,13 @@ let getPhotoUrls (htmlDoc:HtmlDocument) : Result<string[], string> =
             Error(sprintf "One of the photo URLs is unexpected: %s" (hrefs |> Seq.find (fun x -> not(x.StartsWith("https://cdn.pet911.ru/")))))
 
 let getEventTimeUTC (htmlDoc:HtmlDocument) : Result<System.DateTime, string> =
-    let dateNodes = htmlDoc.DocumentNode.SelectNodes("//section[@id='view-pet']//div[@class='only-mobile']/div[@class='p-date']")
+    let dateNodes = htmlDoc.DocumentNode.SelectNodes(@"//div[@class='card']//div[@class='card-information']/div[@class='card-info'][contains(div,'Найден') or contains(div,'Пропал')]/div[@class='card-info__value']")
     if dateNodes = null then
         Error "Can't find event time element"
-    elif dateNodes.Count <> 2 then
-        Error(sprintf "Expected 2 date elements, found %d" dateNodes.Count)
+    elif dateNodes.Count <> 1 then
+        Error(sprintf "Expected 1 date elements, found %d" dateNodes.Count) //rf518209 Найден(а)
     else
-        let eventDateNode = dateNodes |> Seq.filter (fun x -> x.InnerText.ToLowerInvariant().Contains("дата")) |> Seq.exactlyOne
+        let eventDateNode = dateNodes |> Seq.exactlyOne
         let text = eventDateNode.InnerText.ToLower().Trim()
         let dateText = text.Substring(text.Length - 10)
         let couldParse, date = System.DateTime.TryParseExact(dateText,"dd.MM.yyyy",System.Globalization.CultureInfo.InvariantCulture, System.Globalization.DateTimeStyles.AssumeUniversal ||| System.Globalization.DateTimeStyles.AdjustToUniversal)
@@ -123,7 +123,7 @@ let getEventCoords (htmlDoc:string) : Result<float*float, string> =
     | _ ->  Error "Regex did not find the lat/lon"
 
 let getCatalogCards (htmlDoc:HtmlDocument) : Result<RemoteResourseDescriptor[],string> = 
-    let cardRefNodes = htmlDoc.DocumentNode.SelectNodes("//a[@class='btn btn-green']")
+    let cardRefNodes = htmlDoc.DocumentNode.SelectNodes("//div[contains(@class,'catalog-item')]//a[@class='catalog-item__thumb']")
     let idFromUrl (url:string) =
         let idx = url.LastIndexOf('/')
         url.Substring(idx+1)
