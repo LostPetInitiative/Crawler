@@ -25,7 +25,7 @@ type CLIArgs =
             |   Range _ -> "Process a fixed specified range of cards (first,last)"
             |   NewCards _ -> "Detect and download new cards loop (intervals in seconds between checks) (boolean: whether to notify processing pipeline with POST HTTP requests)"
 
-let userAgent = "KashtankaCrawler/2.0.0-alpha"
+let userAgent = "KashtankaCrawler/3.0.0-alpha"
 
 [<EntryPoint>]
 let main argv =

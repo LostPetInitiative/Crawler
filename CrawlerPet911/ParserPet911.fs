@@ -5,7 +5,6 @@ open Kashtanka.SemanticTypes
 open Kashtanka.Crawler
 
 let hostUrl = "https://pet911.ru"
-let photoUrlPrefix = "https://cdn.pet911.ru/thumb_Pet_"
 
 let getCardId (htmlDoc:HtmlDocument) : Result<string,string> =        
     let idNodes = htmlDoc.DocumentNode.SelectNodes("//div[@class='card']//div[@class='card-information']/div[@class='card-info'][div='Номер объявления']/div[@class='card-info__value']");
