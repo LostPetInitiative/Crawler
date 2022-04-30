@@ -3,6 +3,12 @@
 open SixLabors.ImageSharp
 open System.IO
 
+let moduleName = "ImageProcessing"
+let traceError msg = Tracing.traceError moduleName msg
+let traceWarning msg = Tracing.traceWarning moduleName msg
+let traceInfo msg = Tracing.traceInfo moduleName msg
+
+
 let validateImage (image:Downloader.DownloadedFile) = async {
     match image with
     |   Downloader.Text _ -> return false
@@ -12,7 +18,9 @@ let validateImage (image:Downloader.DownloadedFile) = async {
             use! image = (Image.LoadAsync(memStream)) |> Async.AwaitTask
             return true
         with
-        |   _ -> return false
+        |   ex ->
+            sprintf "Failed to validate image: %O" ex |> traceWarning
+            return false
 }
 
 let mimeToExt (mimeStr:string) = 
@@ -20,6 +28,8 @@ let mimeToExt (mimeStr:string) =
         Some "jpg"
     elif mimeStr.Contains("image/png") then
         Some "png"
+    elif mimeStr.Contains("image/webp") then
+        Some "webp"
     else
         None
 
