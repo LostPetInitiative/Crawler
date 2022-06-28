@@ -24,8 +24,9 @@ let getAnimalSpecies (htmlDoc:HtmlDocument) : Result<Species,string> =
     else
         let node = speciesNodes.[0]
         let text = node.InnerText.Trim().ToLowerInvariant()
-        if text.Contains("кошка") then Ok(Species.cat)
-        else if text.Contains("собака") then Ok(Species.dog)
+        if text.Contains("кот") then Ok(Species.cat)
+        elif text.Contains("кошка") then Ok(Species.cat)
+        elif text.Contains("собака") then Ok(Species.dog)
         else Error(sprintf "Unknown species str \"%s\"" text)
 
 let getPhotoUrls (htmlDoc:HtmlDocument) : Result<string[], string> =

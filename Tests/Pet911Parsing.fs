@@ -28,7 +28,7 @@ let ``Extract card id`` () =
     }
 
 [<Fact>]
-let ``Extract cat species`` () =
+let ``Extract species (lost cat female)`` () =
     async {
         let! doc = loadAndParseHtmlTestFile "petCard_rl518787.html.dump"
         let parseRes = getAnimalSpecies doc
@@ -36,11 +36,19 @@ let ``Extract cat species`` () =
     }
 
 [<Fact>]
-let ``Extract dog species`` () =
+let ``Extract species (found dog male)`` () =
     async {
         let! doc = loadAndParseHtmlTestFile "petCard_rf518209.html.dump"
         let parseRes = getAnimalSpecies doc
         Assert.Equal(Species.dog, extractSuccessful(parseRes))
+    }
+
+[<Fact>]
+let ``Extract species (lost cat male)`` () =
+    async {
+        let! doc = loadAndParseHtmlTestFile "petCard_rl537378_lost_cat_male.html.dump"
+        let parseRes = getAnimalSpecies doc
+        Assert.Equal(Species.cat, extractSuccessful(parseRes))
     }
 
 
