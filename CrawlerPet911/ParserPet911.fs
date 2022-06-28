@@ -60,7 +60,7 @@ let getEventTimeUTC (htmlDoc:HtmlDocument) : Result<System.DateTime, string> =
             Error "Could not parse event date"
 
 let getAuthorName (htmlDoc:HtmlDocument) : Result<string option,string> =
-    let authorNodes = htmlDoc.DocumentNode.SelectNodes("//div[@class='card']//div[@class='card-information']/div[@class='card-info'][div='Имя хозяина']/div[@class='card-info__value']")
+    let authorNodes = htmlDoc.DocumentNode.SelectNodes("//div[@class='card']//div[@class='card-information']/div[@class='card-info'][contains(div,'Имя хозяина') or contains(div,'Имя нашедшего')]/div[@class='card-info__value']")
     if authorNodes = null then
         Ok None
     elif authorNodes.Count <> 1 then

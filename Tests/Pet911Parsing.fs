@@ -9,7 +9,7 @@ open Kashtanka.pet911.Parsers
 open HtmlAgilityPack
 open Kashtanka.SemanticTypes
 
-let dataDir = "../../../../data/2022/"
+let dataDir = "../../../../data/20220628/"
 
 let loadAndParseHtmlTestFile filename =
     async {
@@ -79,7 +79,7 @@ let ``Extract event time``() =
     }
 
 [<Fact>]
-let ``Extract author name``() =
+let ``Extract author name (found card)``() =
     async {
         let! doc = loadAndParseHtmlTestFile "petCard_rf518209.html.dump"
         let authorRes = getAuthorName(doc) 
@@ -87,9 +87,17 @@ let ``Extract author name``() =
     }
 
 [<Fact>]
+let ``Extract author name (lost card)``() =
+    async {
+        let! doc = loadAndParseHtmlTestFile "petCard_rl527005_lost_author_name.html.dump"
+        let authorRes = getAuthorName(doc) 
+        Assert.Equal(Some("Дмитрий"),extractSuccessful(authorRes))
+    }
+
+[<Fact>]
 let ``Extract author name for lost card that is found``() =
     async {
-        let! doc = loadAndParseHtmlTestFile "petCard_rl518948_lost_is_found.html.dump"
+        let! doc = loadAndParseHtmlTestFile "petCard_rl537200_lost_is_found.html.dump"
         let authorRes = getAuthorName(doc) 
         Assert.Equal(None,extractSuccessful(authorRes))
     }
