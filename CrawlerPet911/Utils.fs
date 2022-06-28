@@ -86,8 +86,7 @@ let cardToPipelineJSON (card:PetCard) =
     let descriptorToPhoto (descriptor:RemoteResourseDescriptor) =
         let res = JObject()
         let filenameWithExt = snd (parsePhotoId descriptor.ID).Value
-        let baseName = System.IO.Path.GetFileNameWithoutExtension(filenameWithExt)
-        res.Add("id",JValue(baseName))
+        res.Add("id",JValue(filenameWithExt))
         res
     card.photos |> Seq.iter (fun x -> photos.Add(descriptorToPhoto x))
     pet.Add("photos",photos)

@@ -134,3 +134,12 @@ let getCatalogCards (htmlDoc:HtmlDocument) : Result<RemoteResourseDescriptor[],s
         |> Seq.map (fun x -> {ID = idFromUrl x; url = sprintf "%s%s" hostUrl x})
         |> Seq.toArray
     Ok(hrefs)
+
+/// Returns photoID (incl. extension)
+let getPhotoId (photoUrl: System.Uri) =
+    let photoUrlStr = photoUrl.ToString()
+    let lastSlashPos = photoUrlStr.LastIndexOf '/'
+    if lastSlashPos = -1 then
+        Error(sprintf "Did not find slash: %O" photoUrl)
+    else
+        Ok(photoUrlStr.Substring(lastSlashPos+1))

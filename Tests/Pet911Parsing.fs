@@ -65,10 +65,27 @@ let ``Extract photo URLs`` () =
         Assert.Contains("https://cdn.pet911.ru/thumb_Pet_165095351662678d2c27d440.01200981.webp",extractSuccessful(parseRes))
         Assert.Contains("https://cdn.pet911.ru/thumb_Pet_165095355562678d53ce94c6.03768364.webp",extractSuccessful(parseRes))
         Assert.Contains("https://cdn.pet911.ru/thumb_Pet_165095355662678d54a27803.69782174.webp",extractSuccessful(parseRes))
-        
-
-        
     }
+
+[<Fact>]
+let ``Extract photo ID (CDN 1)`` () =
+    let parseRes = getPhotoId(Uri("https://cdn.pet911.ru/thumb_1654448834629ce2c249c577.33157738_image.webp"))
+    Assert.Equal(Ok("thumb_1654448834629ce2c249c577.33157738_image.webp"),parseRes)
+
+[<Fact>]
+let ``Extract photo ID (CDN 2)`` () =
+    let parseRes = getPhotoId(Uri("https://cdn.pet911.ru/thumb_Pet_165095343462678cda7583a1.69548470.webp"))
+    Assert.Equal(Ok("thumb_Pet_165095343462678cda7583a1.69548470.webp"),parseRes)
+
+[<Fact>]
+let ``Extract photo ID (CDN 3)`` () =
+    let parseRes = getPhotoId(Uri("https://cdn.pet911.ru/thumb_165521764662a89dee7a9f67.94353445_1.webp"))
+    Assert.Equal(Ok("thumb_165521764662a89dee7a9f67.94353445_1.webp"),parseRes)
+
+[<Fact>]
+let ``Extract photo ID (upload)`` () =
+    let parseRes = getPhotoId(Uri("https://pet911.ru/upload/d2/2022_06/165521425862a890b29d17a3.55330430_7BA6C9051EFD4B21A537967B2D129936.jpeg"))
+    Assert.Equal(Ok("165521425862a890b29d17a3.55330430_7BA6C9051EFD4B21A537967B2D129936.jpeg"),parseRes)
 
 [<Fact>]
 let ``Card with no photos`` () =
