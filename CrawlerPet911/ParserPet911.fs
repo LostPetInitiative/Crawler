@@ -5,10 +5,9 @@ open Kashtanka.SemanticTypes
 open Kashtanka.Crawler
 
 let hostUrl = "https://pet911.ru"
-let photoUrlPrefix = sprintf "%s/upload/Pet_thumb_" hostUrl
 
 let getCardId (htmlDoc:HtmlDocument) : Result<string,string> =        
-    let idNodes = htmlDoc.DocumentNode.SelectNodes("//div[@class='p-art']/span[@class='text']");
+    let idNodes = htmlDoc.DocumentNode.SelectNodes("//div[@class='card']//div[@class='card-information']/div[@class='card-info'][div='Номер объявления']/div[@class='card-info__value']");
     if idNodes = null then
         Error("Can't find cardID element")
     elif idNodes.Count <> 1 then Error(sprintf "Found %d cardID instead of 1" idNodes.Count)
@@ -18,40 +17,40 @@ let getCardId (htmlDoc:HtmlDocument) : Result<string,string> =
 
 
 let getAnimalSpecies (htmlDoc:HtmlDocument) : Result<Species,string> =
-    let speciesNodes = htmlDoc.DocumentNode.SelectNodes("//div[@class='only-mobile']/div[@class='p-animal']");
+    let speciesNodes = htmlDoc.DocumentNode.SelectNodes("//div[@class='card']//div[@class='card__title']/h1");
     if speciesNodes = null then
         Error "Can't find species node"
     elif speciesNodes = null || speciesNodes.Count <> 1 then Error(sprintf "Found %d species tags instead of 1" speciesNodes.Count)
     else
         let node = speciesNodes.[0]
-        match node.InnerText.Trim().ToLowerInvariant() with
-        |   "кошка" -> Ok(Species.cat)
-        |   "собака" -> Ok(Species.dog)
-        |   speciesStr -> Error(sprintf "Unknown species \"%s\"" speciesStr)
+        let text = node.InnerText.Trim().ToLowerInvariant()
+        if text.Contains("кошка") then Ok(Species.cat)
+        else if text.Contains("собака") then Ok(Species.dog)
+        else Error(sprintf "Unknown species str \"%s\"" text)
 
 let getPhotoUrls (htmlDoc:HtmlDocument) : Result<string[], string> =
-    let photoNodes = htmlDoc.DocumentNode.SelectNodes("//a[@data-lightbox='pet']")
+    let photoNodes = htmlDoc.DocumentNode.SelectNodes("//div[@class='card']//div[@class='swiper-wrapper']//a[contains(@class,'js-card-slide')]/img")
     if photoNodes = null then
-        Error ("Can't find photo elements")
+        Ok(Array.empty)
     else
         let hrefs =
             photoNodes
-            |> Seq.map (fun node -> node.Attributes.["href"].Value)
-            |> Seq.filter (fun x -> not(x.StartsWith("/img/no_photo"))) // missing photo stub
+            |> Seq.map (fun node -> node.Attributes.["src"].Value)
+            |> Seq.filter (fun x -> not(x.StartsWith("https://pet911.ru/img/no-photo/"))) // missing photo stub
             |> Array.ofSeq
-        if hrefs |> Seq.forall (fun (href:string) -> href.StartsWith("/upload/Pet_")) then
-            Ok(hrefs |> Array.map (fun href -> sprintf "%s%s" photoUrlPrefix (href.Substring("/upload/Pet_".Length))))
+        if hrefs |> Seq.forall (fun (href:string) -> href.StartsWith("https://cdn.pet911.ru/")) then
+            Ok(hrefs)
         else
-            Error(sprintf "One of the photo URLs is unexpected: %s" (hrefs |> Seq.find (fun x -> not(x.StartsWith("/upload/Pet_")))))
+            Error(sprintf "One of the photo URLs is unexpected: %s" (hrefs |> Seq.find (fun x -> not(x.StartsWith("https://cdn.pet911.ru/")))))
 
 let getEventTimeUTC (htmlDoc:HtmlDocument) : Result<System.DateTime, string> =
-    let dateNodes = htmlDoc.DocumentNode.SelectNodes("//section[@id='view-pet']//div[@class='only-mobile']/div[@class='p-date']")
+    let dateNodes = htmlDoc.DocumentNode.SelectNodes(@"//div[@class='card']//div[@class='card-information']/div[@class='card-info'][contains(div,'Найден') or contains(div,'Пропал')]/div[@class='card-info__value']")
     if dateNodes = null then
         Error "Can't find event time element"
-    elif dateNodes.Count <> 2 then
-        Error(sprintf "Expected 2 date elements, found %d" dateNodes.Count)
+    elif dateNodes.Count <> 1 then
+        Error(sprintf "Expected 1 date elements, found %d" dateNodes.Count) //rf518209 Найден(а)
     else
-        let eventDateNode = dateNodes |> Seq.filter (fun x -> x.InnerText.ToLowerInvariant().Contains("дата")) |> Seq.exactlyOne
+        let eventDateNode = dateNodes |> Seq.exactlyOne
         let text = eventDateNode.InnerText.ToLower().Trim()
         let dateText = text.Substring(text.Length - 10)
         let couldParse, date = System.DateTime.TryParseExact(dateText,"dd.MM.yyyy",System.Globalization.CultureInfo.InvariantCulture, System.Globalization.DateTimeStyles.AssumeUniversal ||| System.Globalization.DateTimeStyles.AdjustToUniversal)
@@ -61,7 +60,7 @@ let getEventTimeUTC (htmlDoc:HtmlDocument) : Result<System.DateTime, string> =
             Error "Could not parse event date"
 
 let getAuthorName (htmlDoc:HtmlDocument) : Result<string option,string> =
-    let authorNodes = htmlDoc.DocumentNode.SelectNodes("//section[@id='view-pet']//div[@class='p-author']/span[@class='text']")
+    let authorNodes = htmlDoc.DocumentNode.SelectNodes("//div[@class='card']//div[@class='card-information']/div[@class='card-info'][div='Имя хозяина']/div[@class='card-info__value']")
     if authorNodes = null then
         Ok None
     elif authorNodes.Count <> 1 then
@@ -70,7 +69,7 @@ let getAuthorName (htmlDoc:HtmlDocument) : Result<string option,string> =
         Ok(Some(authorNodes.[0].InnerText.Trim()))
 
 let getAuthorMessage (htmlDoc:HtmlDocument) : Result<string,string> =
-    let messageNodes = htmlDoc.DocumentNode.SelectNodes("//section[@id='view-pet']//div[@class='p-description']")
+    let messageNodes = htmlDoc.DocumentNode.SelectNodes("//div[@class='card']//div[@class='card__content']//div[contains(@class, 'card__descr')]/p")
     if messageNodes = null then
         Error "Can't find message element"
     elif messageNodes.Count <> 1 then
@@ -79,7 +78,7 @@ let getAuthorMessage (htmlDoc:HtmlDocument) : Result<string,string> =
         Ok(messageNodes.[0].InnerText.Trim())
 
 let getEventAddress (htmlDoc:HtmlDocument) : Result<string, string> =
-    let addressNodes = htmlDoc.DocumentNode.SelectNodes("//section[@id='view-pet']//div[@class='p-address']/span[@class='text']")
+    let addressNodes = htmlDoc.DocumentNode.SelectNodes("//div[@class='card']//div[contains(@class,'card-map__address')]")
     if addressNodes = null then
         Error "Can't find address element"
     elif addressNodes.Count <> 1 then
@@ -88,7 +87,7 @@ let getEventAddress (htmlDoc:HtmlDocument) : Result<string, string> =
         Ok(addressNodes.[0].InnerText.Trim())
 
 let getAnimalSex (htmlDoc:HtmlDocument) : Result<Sex, string> =
-    let sexNodes = htmlDoc.DocumentNode.SelectNodes("//section[@id='view-pet']//div[@class='p-sex']/span[@class='text']")
+    let sexNodes = htmlDoc.DocumentNode.SelectNodes("//div[@class='card']//div[@class='card-information']/div[@class='card-info'][div='Пол питомца']/div[@class='card-info__value']")
     if sexNodes = null then
         Ok Sex.unknown
     elif sexNodes.Count <> 1 then
@@ -96,31 +95,26 @@ let getAnimalSex (htmlDoc:HtmlDocument) : Result<Sex, string> =
     else
         let sex =
             match sexNodes.[0].InnerText.Trim().ToLowerInvariant() with
-            |   "м" -> Ok Sex.male
-            |   "ж" -> Ok Sex.female
+            |   "мужской" -> Ok Sex.male
+            |   "женский" -> Ok Sex.female
             |   s -> Error (sprintf "Unexpected sex value %s" s)
         sex
 
 let getEventType (htmlDoc:HtmlDocument) : Result<EventType, string> =
-    let dateNodes = htmlDoc.DocumentNode.SelectNodes("//section[@id='view-pet']//div[@class='only-mobile']/div[@class='p-date']")
-    if dateNodes = null then
-        Error "Can't find event date element"
-    elif dateNodes.Count <> 2 then
-        Error(sprintf "Expected 2 date elements, found %d" dateNodes.Count)
+    let headingNodes = htmlDoc.DocumentNode.SelectNodes("//div[@class='card']//div[@class='card__title']/h1");
+    if headingNodes = null then
+        Error "Can't find heading node"
+    elif headingNodes = null || headingNodes.Count <> 1 then Error(sprintf "Found %d heading tags instead of 1" headingNodes.Count)
     else
-        let eventDateNode = dateNodes |> Seq.filter (fun x -> x.InnerText.ToLowerInvariant().Contains("дата")) |> Seq.exactlyOne
-        let text = eventDateNode.InnerText.ToLower().Trim()
-        if text.Contains("пропажи") then
-            Ok EventType.lost
-        else
-            if text.Contains("находки") then
-                Ok EventType.found
-            else
-                Error (sprintf "Could not find event type keyword: \"%s\"" text)
+        let node = headingNodes.[0]
+        let text = node.InnerText.Trim().ToLowerInvariant()
+        if text.Contains("пропала") then Ok(EventType.lost)
+        else if text.Contains("найдена") then Ok(EventType.found)
+        else Error(sprintf "Unknown heading str \"%s\"" text)
 
 let getEventCoords (htmlDoc:string) : Result<float*float, string> =
     match htmlDoc with
-    | Kashtanka.Common.InterpretedMatch @"initMap\s*\(\s*\{\s*lat\s*:\s*([\d\.]+)\s*,\s*lng\s*:\s*([\d\.]+)\s*\}" [_; latGrp; lonGrp] ->
+    | Kashtanka.Common.InterpretedMatch @"initMap\s*\((.|\n)*\{\s*lat\s*:\s*(?'lat'[\d\.]+)\s*,\s*lng\s*:\s*(?'lon'[\d\.]+)\s*\}" [_;_;latGrp; lonGrp] ->
         match System.Double.TryParse(latGrp.Value),System.Double.TryParse(lonGrp.Value) with
         |   (true,lat),(true,lon) ->
             Ok(lat,lon) 
@@ -128,7 +122,7 @@ let getEventCoords (htmlDoc:string) : Result<float*float, string> =
     | _ ->  Error "Regex did not find the lat/lon"
 
 let getCatalogCards (htmlDoc:HtmlDocument) : Result<RemoteResourseDescriptor[],string> = 
-    let cardRefNodes = htmlDoc.DocumentNode.SelectNodes("//a[@class='btn btn-green']")
+    let cardRefNodes = htmlDoc.DocumentNode.SelectNodes("//div[contains(@class,'catalog-item')]//a[@class='catalog-item__thumb']")
     let idFromUrl (url:string) =
         let idx = url.LastIndexOf('/')
         url.Substring(idx+1)

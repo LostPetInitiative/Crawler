@@ -135,9 +135,10 @@ let constructPet911CardProcessor baseDir download =
                                                 |   Error er -> return Error(er)
                                                 |   Ok(photoUrls) ->
                                                     let photoUrlToID (url:string) =
-                                                        if url.StartsWith(photoUrlPrefix) then
-                                                            Ok(sprintf "%s/%s" cardID (url.ToLowerInvariant().Substring(photoUrlPrefix.Length)))
-                                                        else Error(sprintf "Unexpected photo URL prefix in url %s" url)
+                                                        match url with
+                                                        | Kashtanka.Common.InterpretedMatch @"\S+?([a-fA-F0-9][\.a-fA-F0-9]+\.[a-z]+)$" [_;image_id] ->
+                                                            Ok(sprintf "%s/%s" cardID image_id.Value)
+                                                        | _ ->  Error(sprintf "Unexpected photo URL prefix in url %s" url)
                                                     match photoUrls |> Seq.map photoUrlToID |> Common.allResults with
                                                     |   Error er -> return Error(er)
                                                     |   Ok(photoIds) ->
