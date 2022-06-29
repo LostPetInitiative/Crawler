@@ -24,8 +24,9 @@ let getAnimalSpecies (htmlDoc:HtmlDocument) : Result<Species,string> =
     else
         let node = speciesNodes.[0]
         let text = node.InnerText.Trim().ToLowerInvariant()
-        if text.Contains("кошка") then Ok(Species.cat)
-        else if text.Contains("собака") then Ok(Species.dog)
+        if text.Contains("кот") then Ok(Species.cat)
+        elif text.Contains("кошка") then Ok(Species.cat)
+        elif text.Contains("собака") then Ok(Species.dog)
         else Error(sprintf "Unknown species str \"%s\"" text)
 
 let getPhotoUrls (htmlDoc:HtmlDocument) : Result<string[], string> =
@@ -60,7 +61,7 @@ let getEventTimeUTC (htmlDoc:HtmlDocument) : Result<System.DateTime, string> =
             Error "Could not parse event date"
 
 let getAuthorName (htmlDoc:HtmlDocument) : Result<string option,string> =
-    let authorNodes = htmlDoc.DocumentNode.SelectNodes("//div[@class='card']//div[@class='card-information']/div[@class='card-info'][div='Имя хозяина']/div[@class='card-info__value']")
+    let authorNodes = htmlDoc.DocumentNode.SelectNodes("//div[@class='card']//div[@class='card-information']/div[@class='card-info'][contains(div,'Имя хозяина') or contains(div,'Имя нашедшего')]/div[@class='card-info__value']")
     if authorNodes = null then
         Ok None
     elif authorNodes.Count <> 1 then
@@ -133,3 +134,12 @@ let getCatalogCards (htmlDoc:HtmlDocument) : Result<RemoteResourseDescriptor[],s
         |> Seq.map (fun x -> {ID = idFromUrl x; url = sprintf "%s%s" hostUrl x})
         |> Seq.toArray
     Ok(hrefs)
+
+/// Returns photoID (incl. extension)
+let getPhotoId (photoUrl: System.Uri) =
+    let photoUrlStr = photoUrl.ToString()
+    let lastSlashPos = photoUrlStr.LastIndexOf '/'
+    if lastSlashPos = -1 then
+        Error(sprintf "Did not find slash: %O" photoUrl)
+    else
+        Ok(photoUrlStr.Substring(lastSlashPos+1))

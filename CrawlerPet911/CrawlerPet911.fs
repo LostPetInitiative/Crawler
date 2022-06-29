@@ -134,14 +134,10 @@ let constructPet911CardProcessor baseDir download =
                                                 match getPhotoUrls(doc) with
                                                 |   Error er -> return Error(er)
                                                 |   Ok(photoUrls) ->
-                                                    let photoUrlToID (url:string) =
-                                                        match url with
-                                                        | Kashtanka.Common.InterpretedMatch @"\S+?([a-fA-F0-9][\.a-fA-F0-9]+\.[a-z]+)$" [_;image_id] ->
-                                                            Ok(sprintf "%s/%s" cardID image_id.Value)
-                                                        | _ ->  Error(sprintf "Unexpected photo URL prefix in url %s" url)
-                                                    match photoUrls |> Seq.map photoUrlToID |> Common.allResults with
+                                                    match photoUrls |> Seq.map (fun x -> System.Uri(x) |> getPhotoId) |> Common.allResults with
                                                     |   Error er -> return Error(er)
-                                                    |   Ok(photoIds) ->
+                                                    |   Ok(barePhotoIds) ->
+                                                        let photoIds = barePhotoIds |> List.map (fun x -> sprintf "%s/%s" cardID x)
                                                         match getEventCoords(text) with
                                                         | Error er -> return Error(er)
                                                         | Ok(lat,lon) ->

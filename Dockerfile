@@ -7,7 +7,8 @@ COPY . .
 RUN dotnet build -c Release "CrawlerPet911/CrawlerPet911.fsproj" -o /app/build
 
 FROM build AS publish
-RUN dotnet publish "CrawlerPet911/CrawlerPet911.fsproj" -c Release -o /app/publish
+ARG VERSION="0.0.0"
+RUN dotnet publish "CrawlerPet911/CrawlerPet911.fsproj" /p:Version="$VERSION" -c Release -o /app/publish
 
 
 FROM base AS final

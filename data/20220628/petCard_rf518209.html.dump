@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta id="vp" name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 <meta name="csrf-param" content="_csrf-newfront">
-<meta name="csrf-token" content="XnmGIdl1mSs4opNE6QNN9iNh-X5VbfwQxmu12UbKgdgtPsJDj0PYHQvm2DeDOwzPRDG2KD0gukGNAOSvP6vLrQ==">
+<meta name="csrf-token" content="942sySbJs31I6tzZhtOGEuRp7JVdfrGCmnqMchS38s6d-P2PFYzjHhejr6n1meBVqiiV8DIM6NrvLfodR-GGoA==">
 <title>Найдена собака, Обнинск, Pet911 - Всероссийская система поиска и возврата животных.</title>
 <meta name="description" content="Нашли собаку по адресу улица Цветкова, 2, Обнинск  – размещайте объявления на Pet911 – объявления о пропаже собак и кошек рядом с Вами, найдём потеряшек вместе.">
 <meta name="keywords" content="найдена собака Обнинск">
@@ -29,16 +29,24 @@
 <link href="https://unpkg.com/leaflet.markercluster@1.3.0/dist/MarkerCluster.css" rel="stylesheet" media="print" onload="this.media=&#039;all&#039;">
 <link href="https://unpkg.com/leaflet.markercluster@1.3.0/dist/MarkerCluster.Default.css" rel="stylesheet" media="print" onload="this.media=&#039;all&#039;">
 <link href="/assets/9827e0b5/css/style.min.css?v=1650910441" rel="stylesheet">
-<link href="/css/app.min.css?v=1651065752" rel="stylesheet">
-<link href="/css/dop.css?v=1651063600" rel="stylesheet">
-<script src="/js/libs.min.js?v=1650980299"></script> <link rel="icon" href="/img/favicon.svg">
+<link href="/css/app.min.css?v=1652208898" rel="stylesheet">
+<link href="/css/dop.css?v=1655370203" rel="stylesheet">
+<script src="/js/libs.min.js?v=1652208898"></script>
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="icon" type="image/svg" sizes="120x120" href="/img/favicon.svg">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#258a56">
+<meta name="msapplication-TileColor" content="#9f00a7">
+<meta name="theme-color" content="#ffffff">
 <script>
         var mapUrl = 'https://tile.openstreetmap.org/{z}/{x}/{y}.png';
         var nominatimCountryCode = 'ru';
         var nominatimLang = 'ru';
     </script>
 </head>
-<body>
+<body class=" ">
 <div class="card">
 <div class="page-header card-top d-flex align-items-center d-md-none">
 <div class="page-header__inner card-top__nav d-flex align-items-center justify-content-between">
@@ -105,8 +113,8 @@
 </div>
 <div class="card-row d-flex flex-column flex-md-row justify-content-between align-items-md-end">
 <div class="card__buttons order-1 order-md-2 d-flex flex-wrap">
-<a href="/login" class="btn btn-fill-accent-lt card__show-number">
-Показать номер хозяина </a>
+<button class="btn btn-fill-accent-lt card__show-number js-popup-btn" data-popup=".js-popup-phone">
+Показать номер нашедшего </button>
 </div>
 <div class="order-2 order-md-1 card-share">
 <div class="card-share__title">
@@ -145,7 +153,8 @@
 <div class="card-info__value">пт, 22.04.2022</div>
 </div>
 <div class="card-info">
-<div class="gray-dk-color card-info__title">Имя хозяина</div>
+<div class="gray-dk-color card-info__title">
+Имя нашедшего </div>
 <div class="card-info__value">Максим</div>
 </div>
 </div>
@@ -161,16 +170,59 @@
 <div class="swiper-container slider__wrapper js-pets-slider">
 <div class="swiper-wrapper">
 <div class="swiper-slide">
-<a href="/%D0%9E%D0%B1%D0%BD%D0%B8%D0%BD%D1%81%D0%BA/найдена/собака/rf517948" class="pets-item">
-<div class="pets-item__thumb">
-<img src="https://pet911.ru/img/no-photo/no-photo-1.svg" class="img-crop">
+<a href="/%D0%9E%D0%B1%D0%BD%D0%B8%D0%BD%D1%81%D0%BA/найдена/собака/rf530047" class="pets-item">
+ <div class="pets-item__thumb">
+<img src="https://cdn.pet911.ru/thumb_165475588862a19230278ae6.84171690_IMG20220609WA0006.webp" class="img-crop">
 </div>
 <div class="pets-item__content">
 <div class="pets-item__title">
-<h3>Найдена собака, улица Мира, 5, Обнинск</h3>
+<h3>Найдена собака, проспект Маркса, 63, Обн...</h3>
 </div>
-<div class="text pets-item__excerpt">Ищу хозяина хаски, кобель, глаза разные, ошейник синий. Бегал нескольк...</div>
-<div class="gray-dk-color pets-item__date">20.04.2022</div>
+<div class="text pets-item__excerpt">Собака с ошейником и поводком .</div>
+<div class="gray-dk-color pets-item__date">09.06.2022</div>
+</div>
+</a>
+</div>
+<div class="swiper-slide">
+<a href="/%D0%9E%D0%B1%D0%BD%D0%B8%D0%BD%D1%81%D0%BA/найдена/собака/rf522571" class="pets-item">
+<div class="pets-item__thumb">
+<img src="https://cdn.pet911.ru/thumb_1652311405627c456d29d883.77525426_2mjSH7g5xHe70zpxhXzVVSKZYO1lSdFN9BJsiemGrKsOlsJCt7aG7XaVbK5hCZdSlFby6PWau9gELP8vISRtblal.webp" class="img-crop">
+</div>
+<div class="pets-item__content">
+<div class="pets-item__title">
+<h3>Найдена собака, проспект Маркса, 130, Об...</h3>
+</div>
+<div class="text pets-item__excerpt">09.05.2022 найден мальчик Хаски, кличка Чаки. г. Обнинск. Домашний, ух...</div>
+<div class="gray-dk-color pets-item__date">09.05.2022</div>
+</div>
+</a>
+</div>
+<div class="swiper-slide">
+<a href="/%D0%9E%D0%B1%D0%BD%D0%B8%D0%BD%D1%81%D0%BA/найдена/собака/rf522085" class="pets-item">
+<div class="pets-item__thumb">
+<img src="https://cdn.pet911.ru/thumb_1652188889627a66d9a45993.66296368_IMG20220509WA0043.webp" class="img-crop">
+</div>
+<div class="pets-item__content">
+<div class="pets-item__title">
+<h3>Найдена собака, улица Гагарина, 52, Обни...</h3>
+</div>
+<div class="text pets-item__excerpt">Обнинск, Калужская область.
+Нашли на улице в ужасном состоянии, отмы...</div>
+<div class="gray-dk-color pets-item__date">09.05.2022</div>
+</div>
+</a>
+</div>
+<div class="swiper-slide">
+<a href="/%D0%9E%D0%B1%D0%BD%D0%B8%D0%BD%D1%81%D0%BA/найдена/собака/rf521798" class="pets-item">
+<div class="pets-item__thumb">
+<img src="https://cdn.pet911.ru/thumb_16521140516279428337f192.48509069_IMG_20220509_192746.webp" class="img-crop">
+</div>
+<div class="pets-item__content">
+<div class="pets-item__title">
+<h3>Найдена собака, проспект Маркса, 82, Обн...</h3>
+</div>
+ <div class="text pets-item__excerpt">мальчик, предположительно карликовый пинчер. Найден в подъезде дома,...</div>
+<div class="gray-dk-color pets-item__date">09.05.2022</div>
 </div>
 </a>
 </div>
@@ -181,7 +233,7 @@
 </div>
 <div class="pets-item__content">
 <div class="pets-item__title">
-<h3>Найдена собака, улица Менделеева, Обнинс...</h3>
+<h3>Найдена собака, проспект Ленина, 16, Обн...</h3>
 </div>
 <div class="text pets-item__excerpt">Хаски с разными глазами, синим ошейником. Найден в старом городе, бега...</div>
 <div class="gray-dk-color pets-item__date">20.04.2022</div>
@@ -220,7 +272,7 @@
 </div>
 <div class="swiper-slide">
 <a href="/%D0%9E%D0%B1%D0%BD%D0%B8%D0%BD%D1%81%D0%BA/найдена/собака/rf513761" class="pets-item">
-<div class="pets-item__thumb">
+ <div class="pets-item__thumb">
 <img src="https://cdn.pet911.ru/thumb_Pet_16485466896242d381752849.60526727.webp" class="img-crop">
 </div>
 <div class="pets-item__content">
@@ -229,49 +281,6 @@
 </div>
 <div class="text pets-item__excerpt">Найден щенок породы бигль</div>
 <div class="gray-dk-color pets-item__date">29.03.2022</div>
-</div>
-</a>
-</div>
-<div class="swiper-slide">
-<a href="/%D0%9E%D0%B1%D0%BD%D0%B8%D0%BD%D1%81%D0%BA/найдена/собака/rf507674" class="pets-item">
-<div class="pets-item__thumb">
-<img src="https://cdn.pet911.ru/thumb_Pet_1645011438620ce1ee2fcf65.50873971.webp" class="img-crop">
-</div>
-<div class="pets-item__content">
-<div class="pets-item__title">
-<h3>Найдена собака, улица Мира, 5, Обнинск</h3>
-</div>
-<div class="text pets-item__excerpt">Найдена в коричневом ошейнике</div>
-<div class="gray-dk-color pets-item__date">16.12.2021</div>
-</div>
-</a>
-</div>
-<div class="swiper-slide">
-<a href="/%D0%9E%D0%B1%D0%BD%D0%B8%D0%BD%D1%81%D0%BA/найдена/собака/rl499535" class="pets-item">
-<div class="pets-item__thumb">
-<img src="https://cdn.pet911.ru/thumb_Pet_163971298461bc08d8bc3c42111.21060193.webp" class="img-crop">
-</div>
-<div class="pets-item__content">
-<div class="pets-item__title">
-<h3>Найдена собака, улица Победы, 25, Обнинс...</h3>
-</div>
-<div class="text pets-item__excerpt">собачка в наморднике и с поводком пробегала в районе налоговой где под...</div>
-<div class="gray-dk-color pets-item__date">17.12.2021</div>
-</div>
-</a>
-</div>
-<div class="swiper-slide">
-<a href="/%D0%9E%D0%B1%D0%BD%D0%B8%D0%BD%D1%81%D0%BA/найдена/собака/rf499527" class="pets-item">
-<div class="pets-item__thumb">
-<img src="https://cdn.pet911.ru/thumb_Pet_163969339461bbbc523565b3.42181784.webp" class="img-crop">
- </div>
-<div class="pets-item__content">
-<div class="pets-item__title">
-<h3>Найдена собака, улица Мира, 5, Обнинск</h3>
-</div>
-<div class="text pets-item__excerpt">Хаски
-Без ошейника</div>
-<div class="gray-dk-color pets-item__date">16.12.2021</div>
 </div>
 </a>
 </div>
@@ -325,7 +334,7 @@
 <div class="popup__overlay overlay js-popup-close"></div>
 <div class="popup__container d-flex flex-column">
 <form id="commentViewForm" class="share__wrapper" action="/%D0%9E%D0%B1%D0%BD%D0%B8%D0%BD%D1%81%D0%BA/%D0%BD%D0%B0%D0%B9%D0%B4%D0%B5%D0%BD%D0%B0/%D1%81%D0%BE%D0%B1%D0%B0%D0%BA%D0%B0/rf518209" method="post">
-<input type="hidden" name="_csrf-newfront" value="XnmGIdl1mSs4opNE6QNN9iNh-X5VbfwQxmu12UbKgdgtPsJDj0PYHQvm2DeDOwzPRDG2KD0gukGNAOSvP6vLrQ=="> <div class="share__title">
+<input type="hidden" name="_csrf-newfront" value="942sySbJs31I6tzZhtOGEuRp7JVdfrGCmnqMchS38s6d-P2PFYzjHhejr6n1meBVqiiV8DIM6NrvLfodR-GGoA=="> <div class="share__title">
 <h3>Оставить комментарий</h3>
 </div>
 <label class="input popup-comment__field field-addcommentform-comment required">
@@ -354,7 +363,7 @@
 <div class="popup__container d-flex flex-column">
 <div class="share__wrapper">
 <form id="complainForm" class="complain-form" action="/pet/send-complain" method="post">
-<input type="hidden" name="_csrf-newfront" value="XnmGIdl1mSs4opNE6QNN9iNh-X5VbfwQxmu12UbKgdgtPsJDj0PYHQvm2DeDOwzPRDG2KD0gukGNAOSvP6vLrQ=="> <input type="hidden" name="petID" value="518209">
+<input type="hidden" name="_csrf-newfront" value="942sySbJs31I6tzZhtOGEuRp7JVdfrGCmnqMchS38s6d-P2PFYzjHhejr6n1meBVqiiV8DIM6NrvLfodR-GGoA=="> <input type="hidden" name="petID" value="518209">
 <div class="share__title">
 <h3>Сообщите о проблеме</h3>
 </div>
@@ -382,6 +391,18 @@
 <button type="button" class="btn btn-transparent-red share__close-offset js-popup-close">Закрыть</button>
 </div>
 </form> </div>
+</div>
+</div>
+<div class="popup popup-middle share js-popup-phone js-popup">
+<div class="popup__overlay overlay js-popup-close"></div>
+<div class="popup__container d-flex flex-column">
+<div class="share__wrapper">
+<div class="share__title">
+Для просмотра номера телефона необходимо <a class="link-accent" href="/login?backUrl=%2F%25D0%259E%25D0%25B1%25D0%25BD%25D0%25B8%25D0%25BD%25D1%2581%25D0%25BA%2F%25D0%25BD%25D0%25B0%25D0%25B9%25D0%25B4%25D0%25B5%25D0%25BD%25D0%25B0%2F%25D1%2581%25D0%25BE%25D0%25B1%25D0%25B0%25D0%25BA%25D0%25B0%2Frf518209">авторизоваться</a> </div>
+<div class="popup__buttons">
+<button class="btn btn-transparent-red share__close js-popup-close">Закрыть</button>
+</div>
+</div>
 </div>
 </div>
 <div class="popup popup-middle share js-share518209 js-popup">
@@ -580,7 +601,7 @@
 <li><a href="/donate">Поддержите проект</a></li>
 </ul>
 </div>
- </div>
+</div>
 <div class="footer-block footer-block-big">
 <div class="footer-contacts d-flex justify-content-between align-items-start align-items-md-end">
 <div></div>
@@ -611,42 +632,22 @@
 </div>
 </footer>
 
-<script type="text/javascript" async>
-    (function (d, w, c) {
-        (w[c] = w[c] || []).push(function () {
-            try {
-                w.yaCounter44478286 = new Ya.Metrika2({
-                    id: 44478286,
-                    clickmap: true,
-                    trackLinks: true,
-                    accurateTrackBounce: true,
-                    webvisor: true,
-                    trackHash: true,
-                    triggerEvent: true
-                });
-            } catch (e) {
-            }
-        });
+<script type="text/javascript">
+    (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+    (window, document, "script", "https://cdn.jsdelivr.net/npm/yandex-metrica-watch/tag.js", "ym");
 
-        var n = d.getElementsByTagName('script')[0],
-            s = d.createElement('script'),
-            f = function () {
-                n.parentNode.insertBefore(s, n);
-            };
-        s.type = 'text/javascript';
-        s.async = true;
-        s.src = 'https://mc.yandex.ru/metrika/tag.js';
-
-        if (w.opera == '[object Opera]') {
-            d.addEventListener('DOMContentLoaded', f, false);
-        } else {
-            f();
-        }
-    })(document, window, 'yandex_metrika_callbacks2');
+    ym(44478286, "init", {
+        clickmap:true,
+        trackLinks:true,
+        accurateTrackBounce:true,
+        webvisor:true,
+        trackHash:true,
+        ecommerce:"dataLayer"
+    });
 </script>
-<noscript>
-    <div><img src="https://mc.yandex.ru/watch/44478286" style="position:absolute; left:-9999px;" alt=""/></div>
-</noscript>
+<noscript><div><img src="https://mc.yandex.ru/watch/44478286" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+
 <script type="text/javascript">
     (function (e, t) {
         var n = e.amplitude || { _q: [], _iq: {} };
@@ -751,13 +752,13 @@
 <script src="/assets/9e8c47fc/jquery.pjax.js?v=1650910451"></script>
 <script src="https://unpkg.com/@tarekraafat/autocomplete.js@10.2.7/dist/autoComplete.min.js"></script>
 <script src="/js/plugins/headroom.js?v=1650980299"></script>
-<script src="/js/common.js?v=1650980299"></script>
+<script src="/js/common.js?v=1655281316"></script>
 <script src="https://www.gstatic.com/firebasejs/5.7.0/firebase.js"></script>
 <script src="/js/firebase.js?v=1650980299"></script>
 <script src="/js/custom.js?v=1650980299"></script>
 <script>jQuery(function ($) {
     let map;
-    let zoomVar = 14;
+    let zoomVar = 17;
     let provider;
     let marker;
     
@@ -780,7 +781,8 @@
         
     function initMap(mapTagId, coords) {
         map = L.map(mapTagId,{
-            scrollWheelZoom: false
+            scrollWheelZoom: false,
+			dragging: !L.Browser.mobile
         }).setView(coords, zoomVar);
         map.zoomControl.setPosition('topright');
         
@@ -843,6 +845,8 @@
         }
       });
     });
+    
+    $(".comments-item__text a").addClass('link_comment');
 jQuery('#commentViewForm').yiiActiveForm([{"id":"addcommentform-comment","name":"comment","container":".field-addcommentform-comment","input":"#addcommentform-comment","error":".input__notice","validate":function (attribute, value, messages, deferred, $form) {yii.validation.required(value, messages, {"message":"Необходимо заполнить «Комментарий»."});yii.validation.string(value, messages, {"message":"Значение «Комментарий» должно быть строкой.","min":3,"tooShort":"Значение «Комментарий» должно содержать минимум 3 символа.","skipOnEmpty":1});}},{"id":"addcommentform-name","name":"name","container":".field-addcommentform-name","input":"#addcommentform-name","error":".input__notice","validate":function (attribute, value, messages, deferred, $form) {yii.validation.required(value, messages, {"message":"Необходимо заполнить «Имя»."});yii.validation.string(value, messages, {"message":"Значение «Имя» должно быть строкой.","min":3,"tooShort":"Значение «Имя» должно содержать минимум 3 символа.","skipOnEmpty":1});}},{"id":"addcommentform-terms","name":"terms","container":".field-addcommentform-terms","input":"#addcommentform-terms","error":".switcher__notice","validate":function (attribute, value, messages, deferred, $form) {yii.validation.required(value, messages, {"message":"Вы должны согласиться с политикой конфиденциальности","requiredValue":1});}}], []);
 jQuery(document).pjax("#commentPjax a", {"push":true,"replace":false,"timeout":0,"scrollTo":false,"container":"#commentPjax"});
 jQuery(document).off("submit", "#commentPjax form[data-pjax]").on("submit", "#commentPjax form[data-pjax]", function (event) {jQuery.pjax.submit(event, {"push":true,"replace":false,"timeout":0,"scrollTo":false,"container":"#commentPjax"});});
@@ -921,6 +925,6 @@ const autoCompleteJS = new autoComplete({
   }
 });
 jQuery('#searchFrm').yiiActiveForm([], []);
-});</script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/v652eace1692a40cfa3763df669d7439c1639079717194" integrity="sha512-Gi7xpJR8tSkrpF7aordPZQlW2DLtzUlZcumS8dMQjwDHEnw9I7ZLyiOj/6tZStRBGtGgN6ceN6cMH8z7etPGlw==" data-cf-beacon='{"rayId":"7036eaa42b90fa1c","version":"2021.12.0","r":1,"token":"9014c09324db4844a9e1bc18beb1870e","si":100}' crossorigin="anonymous"></script>
+});</script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/v652eace1692a40cfa3763df669d7439c1639079717194" integrity="sha512-Gi7xpJR8tSkrpF7aordPZQlW2DLtzUlZcumS8dMQjwDHEnw9I7ZLyiOj/6tZStRBGtGgN6ceN6cMH8z7etPGlw==" data-cf-beacon='{"rayId":"7226efffa978b8a9","version":"2022.6.0","r":1,"token":"9014c09324db4844a9e1bc18beb1870e","si":100}' crossorigin="anonymous"></script>
 </body>
 </html>

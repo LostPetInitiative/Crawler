@@ -9,7 +9,7 @@ open Kashtanka.pet911.Parsers
 open HtmlAgilityPack
 open Kashtanka.SemanticTypes
 
-let dataDir = "../../../../data/2022/"
+let dataDir = "../../../../data/20220628/"
 
 let loadAndParseHtmlTestFile filename =
     async {
@@ -28,7 +28,7 @@ let ``Extract card id`` () =
     }
 
 [<Fact>]
-let ``Extract cat species`` () =
+let ``Extract species (lost cat female)`` () =
     async {
         let! doc = loadAndParseHtmlTestFile "petCard_rl518787.html.dump"
         let parseRes = getAnimalSpecies doc
@@ -36,11 +36,19 @@ let ``Extract cat species`` () =
     }
 
 [<Fact>]
-let ``Extract dog species`` () =
+let ``Extract species (found dog male)`` () =
     async {
         let! doc = loadAndParseHtmlTestFile "petCard_rf518209.html.dump"
         let parseRes = getAnimalSpecies doc
         Assert.Equal(Species.dog, extractSuccessful(parseRes))
+    }
+
+[<Fact>]
+let ``Extract species (lost cat male)`` () =
+    async {
+        let! doc = loadAndParseHtmlTestFile "petCard_rl537378_lost_cat_male.html.dump"
+        let parseRes = getAnimalSpecies doc
+        Assert.Equal(Species.cat, extractSuccessful(parseRes))
     }
 
 
@@ -57,10 +65,27 @@ let ``Extract photo URLs`` () =
         Assert.Contains("https://cdn.pet911.ru/thumb_Pet_165095351662678d2c27d440.01200981.webp",extractSuccessful(parseRes))
         Assert.Contains("https://cdn.pet911.ru/thumb_Pet_165095355562678d53ce94c6.03768364.webp",extractSuccessful(parseRes))
         Assert.Contains("https://cdn.pet911.ru/thumb_Pet_165095355662678d54a27803.69782174.webp",extractSuccessful(parseRes))
-        
-
-        
     }
+
+[<Fact>]
+let ``Extract photo ID (CDN 1)`` () =
+    let parseRes = getPhotoId(Uri("https://cdn.pet911.ru/thumb_1654448834629ce2c249c577.33157738_image.webp"))
+    Assert.Equal(Ok("thumb_1654448834629ce2c249c577.33157738_image.webp"),parseRes)
+
+[<Fact>]
+let ``Extract photo ID (CDN 2)`` () =
+    let parseRes = getPhotoId(Uri("https://cdn.pet911.ru/thumb_Pet_165095343462678cda7583a1.69548470.webp"))
+    Assert.Equal(Ok("thumb_Pet_165095343462678cda7583a1.69548470.webp"),parseRes)
+
+[<Fact>]
+let ``Extract photo ID (CDN 3)`` () =
+    let parseRes = getPhotoId(Uri("https://cdn.pet911.ru/thumb_165521764662a89dee7a9f67.94353445_1.webp"))
+    Assert.Equal(Ok("thumb_165521764662a89dee7a9f67.94353445_1.webp"),parseRes)
+
+[<Fact>]
+let ``Extract photo ID (upload)`` () =
+    let parseRes = getPhotoId(Uri("https://pet911.ru/upload/d2/2022_06/165521425862a890b29d17a3.55330430_7BA6C9051EFD4B21A537967B2D129936.jpeg"))
+    Assert.Equal(Ok("165521425862a890b29d17a3.55330430_7BA6C9051EFD4B21A537967B2D129936.jpeg"),parseRes)
 
 [<Fact>]
 let ``Card with no photos`` () =
@@ -79,7 +104,7 @@ let ``Extract event time``() =
     }
 
 [<Fact>]
-let ``Extract author name``() =
+let ``Extract author name (found card)``() =
     async {
         let! doc = loadAndParseHtmlTestFile "petCard_rf518209.html.dump"
         let authorRes = getAuthorName(doc) 
@@ -87,9 +112,17 @@ let ``Extract author name``() =
     }
 
 [<Fact>]
+let ``Extract author name (lost card)``() =
+    async {
+        let! doc = loadAndParseHtmlTestFile "petCard_rl527005_lost_author_name.html.dump"
+        let authorRes = getAuthorName(doc) 
+        Assert.Equal(Some("Дмитрий"),extractSuccessful(authorRes))
+    }
+
+[<Fact>]
 let ``Extract author name for lost card that is found``() =
     async {
-        let! doc = loadAndParseHtmlTestFile "petCard_rl518948_lost_is_found.html.dump"
+        let! doc = loadAndParseHtmlTestFile "petCard_rl537200_lost_is_found.html.dump"
         let authorRes = getAuthorName(doc) 
         Assert.Equal(None,extractSuccessful(authorRes))
     }
