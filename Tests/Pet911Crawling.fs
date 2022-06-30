@@ -227,6 +227,29 @@ type Pet911RealCrawling() =
         }
 
     [<Fact>]
+    member _.``Card semantics extracted 2`` () =
+        async {
+            let descr:RemoteResourseDescriptor = {
+                ID = "rl538274"
+                url= "https://pet911.ru/%D0%9C%D0%BE%D1%81%D0%BA%D0%B2%D0%B0/%D0%BF%D1%80%D0%BE%D0%BF%D0%B0%D0%BB%D0%B0/%D0%BA%D0%BE%D1%88%D0%BA%D0%B0/rl538274"
+            }
+
+            let! agent =
+                constructPet911CardProcessor tempDir downloadResource
+
+            let! result = agent.Process(descr);
+            do! agent.Shutdown()
+            
+            match result with
+            |   Error er -> Assert.False(true,er)
+            |   Ok(check) ->
+                match check with
+                |   Missing -> Assert.True(false, "Card is missing while supposed to be there")
+                |   Processed card ->
+                    Assert.Equal(Species.cat, card.animal)
+        }
+
+    [<Fact>]
     member _.``Missing card reported`` () =
         async {
             let descr:RemoteResourseDescriptor = {

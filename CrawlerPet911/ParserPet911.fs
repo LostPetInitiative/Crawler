@@ -109,8 +109,8 @@ let getEventType (htmlDoc:HtmlDocument) : Result<EventType, string> =
     else
         let node = headingNodes.[0]
         let text = node.InnerText.Trim().ToLowerInvariant()
-        if text.Contains("пропала") then Ok(EventType.lost)
-        else if text.Contains("найдена") then Ok(EventType.found)
+        if text.Contains("пропал") then Ok(EventType.lost)
+        else if text.Contains("найден") then Ok(EventType.found)
         else Error(sprintf "Unknown heading str \"%s\"" text)
 
 let getEventCoords (htmlDoc:string) : Result<float*float, string> =
