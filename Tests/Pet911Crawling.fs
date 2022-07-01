@@ -41,7 +41,7 @@ type Pet911RealCrawling() =
     let tempDir = Path.Combine(Path.GetTempPath(),Path.GetRandomFileName())
 
     let downloadingAgent =
-        let fetchUrl = Downloader.httpDownload userAgent 60000
+        let fetchUrl = Downloader.httpRequest userAgent 60000
         new Downloader.Agent(1, Downloader.defaultDownloaderSettings, fetchUrl)
     let downloadResource (desc:RemoteResourseDescriptor) = (cachedFetch downloadingAgent.Download) desc.url
     
@@ -136,6 +136,24 @@ type Pet911RealCrawling() =
             do! agent.Shutdown()
 
             Assert.False(File.Exists(Path.Combine(tempDir,"rf468348","1628158124610bb8ac4a6e25.22661272.webp")))
+        }
+
+    [<Fact>]
+    member _.``Card existence check (exists)`` () =
+        async {
+            let! a = NewCards.verifyCardExists 538308 pet911.Utils.downloadUrl
+            match a with
+            |   Ok b -> Assert.True(b)
+            |   Error e -> Assert.True(false, e)
+        }
+
+    [<Fact>]
+    member _.``Card existence check (does not exists)`` () =
+        async {
+            let! a = NewCards.verifyCardExists 538310 pet911.Utils.downloadUrl
+            match a with
+            |   Ok b -> Assert.False(b)
+            |   Error e -> Assert.True(false, e)
         }
 
     [<Fact>]

@@ -46,7 +46,7 @@ type internal DownloaderMsg =
     |   DownloadFinished of DownloadResult * AsyncReplyChannel<DownloadResult>
 
 /// Returns the downloaded file and it's mime type if it is specified in the headers
-let httpDownload (userAgent:string) (timeoutMs:int) (url:string) = 
+let httpRequest (userAgent:string) (timeoutMs:int) (url:string) = 
     async {
         if System.String.IsNullOrEmpty(url) then
             return Error("empty url")

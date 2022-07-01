@@ -5,6 +5,16 @@ open Kashtanka.SemanticTypes
 open Newtonsoft.Json.Linq
 open FSharp.Data
 open System
+open Kashtanka
+
+let userAgent = sprintf "KashtankaCrawler/%O" (System.Reflection.Assembly.GetExecutingAssembly().GetName().Version)
+
+let downloadingAgent =
+    let fetchUrl = Downloader.httpRequest userAgent 60000
+    new Downloader.Agent(1, Downloader.defaultDownloaderSettings, fetchUrl)
+
+let downloadUrl (url:System.Uri) =
+    downloadingAgent.Download (url.ToString())
 
 let cardIDsFromRange firstCard lastCard =
     seq {
@@ -28,7 +38,6 @@ let parsePhotoId (id:string) =
     match parts with
     | [| cardId; photoId |] -> Some(cardId,photoId)
     |   _ -> None
-
 
 let cardToPipelineJSON (card:PetCard) =
     let pet = new JObject()

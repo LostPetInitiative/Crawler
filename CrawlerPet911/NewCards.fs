@@ -1,16 +1,17 @@
 ﻿module Kashtanka.NewCards
 
+open Newtonsoft.Json.Linq
 open Crawler
 open Downloader
 
-let urlsToQueryBase = [|
-    "https://pet911.ru/catalog?PetsSearch[animal]=2&PetsSearch[type]=1"; // & page=2 ...
-    "https://pet911.ru/catalog?PetsSearch[animal]=1&PetsSearch[type]=1";
-    "https://pet911.ru/catalog?PetsSearch[animal]=2&PetsSearch[type]=2";
-    "https://pet911.ru/catalog?PetsSearch[animal]=1&PetsSearch[type]=2";
-|]
+let getNewCardsFromCatalog (knownToLookFor: Set<int> option) (download: RemoteResourseDescriptor -> Async<Result<RemoteResourseLookup,string>>) =
+    let urlsToQueryBase = [|
+        "https://pet911.ru/catalog?PetsSearch[animal]=2&PetsSearch[type]=1"; // & page=2 ...
+        "https://pet911.ru/catalog?PetsSearch[animal]=1&PetsSearch[type]=1";
+        "https://pet911.ru/catalog?PetsSearch[animal]=2&PetsSearch[type]=2";
+        "https://pet911.ru/catalog?PetsSearch[animal]=1&PetsSearch[type]=2";
+    |]
 
-let getNewCards (knownToLookFor: Set<int> option) (download: RemoteResourseDescriptor -> Async<Result<RemoteResourseLookup,string>>) =
     let getPageCardsDescriptors pageNum = 
         async {
             let descriptors =
@@ -60,3 +61,40 @@ let getNewCards (knownToLookFor: Set<int> option) (download: RemoteResourseDescr
                 }
             return! findLatest 1 Set.empty
     }
+
+let verifyCardExists num (fetchJson:System.Uri -> Async<DownloadResult>) =
+    async {
+        let! checkJsonRes = fetchJson (System.Uri(sprintf "https://pet911.ru/ajax/check-pet?art=%d" num))
+        match checkJsonRes with
+        |   Error er -> return Error er
+        |   Ok resp ->
+            match resp with
+            |   Absent -> return Error "Unexpected 404"
+            |   Downloaded(d, _) ->
+                match d with
+                |   Binary _ -> return Error "Unexpected binary response"
+                |   Text t ->
+                    let jObject = JObject.Parse(t)
+                    let data = jObject.GetValue("data")
+                    if data = null then
+                        return Ok false
+                    else
+                        let dataList = data.Children()
+                        let numStr = sprintf "%d" num
+                        return Ok(Seq.exists (fun (jtoken:JToken) -> jtoken.Value<string>("url").EndsWith(numStr)) dataList)
+                
+    }
+
+//let getNewCardsFromCheckAPI (knownToLookFor: Set<int> option) (download: string -> Async<DownloadResult>) =
+//    async {
+//        match knownToLookFor with
+//        |   None ->
+//            // fallback to catalog lookup
+//            return getNewCardsFromCatalog None download
+//        |   Some knownIds ->
+//            let checkNum num =
+                
+//            let knownSorted = knownIds |> Seq.sortByDescending |> List.ofSeq
+//            // looking for largest existing ad
+
+//    }
