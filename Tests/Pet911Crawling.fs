@@ -157,6 +157,19 @@ type Pet911RealCrawling() =
         }
 
     [<Fact>]
+    member _.``Search cards by substring`` () =
+        async {
+            let! a = NewCards.searchCardsBySubstring "12345" pet911.Utils.downloadUrl
+            match a with
+            |   Ok arts ->
+                Assert.True(Seq.contains "rl012345" arts)
+                Assert.True(Seq.contains "rf123452" arts)
+                Assert.True(Seq.contains "rl512345" arts)
+                
+            |   Error e -> Assert.True(false, e)
+        }
+
+    [<Fact>]
     member _.``Photo mime is written`` () =
         async {
             let descr:RemoteResourseDescriptor = {

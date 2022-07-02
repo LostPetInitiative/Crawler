@@ -4,6 +4,8 @@ open Newtonsoft.Json.Linq
 open Crawler
 open Downloader
 
+type FetchUrlType = System.Uri -> Async<DownloadResult>
+
 let getNewCardsFromCatalog (knownToLookFor: Set<int> option) (download: RemoteResourseDescriptor -> Async<Result<RemoteResourseLookup,string>>) =
     let urlsToQueryBase = [|
         "https://pet911.ru/catalog?PetsSearch[animal]=2&PetsSearch[type]=1"; // & page=2 ...
@@ -62,9 +64,9 @@ let getNewCardsFromCatalog (knownToLookFor: Set<int> option) (download: RemoteRe
             return! findLatest 1 Set.empty
     }
 
-let verifyCardExists num (fetchJson:System.Uri -> Async<DownloadResult>) =
+let searchCardsBySubstring substring (fetchJson:FetchUrlType) =
     async {
-        let! checkJsonRes = fetchJson (System.Uri(sprintf "https://pet911.ru/ajax/check-pet?art=%d" num))
+        let! checkJsonRes = fetchJson (System.Uri(sprintf "https://pet911.ru/ajax/check-pet?art=%s" substring))
         match checkJsonRes with
         |   Error er -> return Error er
         |   Ok resp ->
@@ -77,12 +79,23 @@ let verifyCardExists num (fetchJson:System.Uri -> Async<DownloadResult>) =
                     let jObject = JObject.Parse(t)
                     let data = jObject.GetValue("data")
                     if data = null then
-                        return Ok false
+                        return Ok Array.empty
                     else
-                        let dataList = data.Children()
-                        let numStr = sprintf "%d" num
-                        return Ok(Seq.exists (fun (jtoken:JToken) -> jtoken.Value<string>("url").EndsWith(numStr)) dataList)
-                
+                        let arts =
+                            data.Children()
+                            |> Seq.map (fun jtoken -> jtoken.Value<string>("url"))
+                            |> Seq.map (fun x -> let idx = x.LastIndexOf '/' in x.Substring (idx+1))
+                        let resArray = Array.ofSeq arts
+                        return Ok(resArray)
+    }
+
+let verifyCardExists num (fetchJson:FetchUrlType) =
+    async {
+        let numStr = sprintf "%d" num
+        let! artsRes = searchCardsBySubstring numStr fetchJson
+        match artsRes with
+        |   Error e -> return Error e
+        |   Ok arts -> return Ok (arts |> Seq.exists (fun x -> x.EndsWith numStr))
     }
 
 //let getNewCardsFromCheckAPI (knownToLookFor: Set<int> option) (download: string -> Async<DownloadResult>) =
