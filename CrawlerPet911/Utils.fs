@@ -118,7 +118,7 @@ let pingPipeline (newIds:string seq) =
                                 // HttpRequestHeaders.Origin urlPrefix
                                 ],
                     httpMethod = "POST",
-                    body = TextRequest jsonBody, silentHttpErrors = true, timeout = 10000)
+                    body = TextRequest jsonBody, silentHttpErrors = true, timeout = 30*60*1000)
             match pingResult.StatusCode with
             |   201 ->
                 return Ok()
