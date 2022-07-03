@@ -10,6 +10,7 @@ open Kashtanka.Crawler
 open Kashtanka.SemanticTypes
 
 open Kashtanka.pet911.Crawler
+open Kashtanka.pet911.Utils
 open System.Threading
 
 let userAgent = "KashtankaTestRunner/1.0.0"
@@ -41,7 +42,7 @@ type Pet911RealCrawling() =
     let tempDir = Path.Combine(Path.GetTempPath(),Path.GetRandomFileName())
 
     let downloadingAgent =
-        let fetchUrl = Downloader.httpDownload userAgent 60000
+        let fetchUrl = Downloader.httpRequest userAgent 60000
         new Downloader.Agent(1, Downloader.defaultDownloaderSettings, fetchUrl)
     let downloadResource (desc:RemoteResourseDescriptor) = (cachedFetch downloadingAgent.Download) desc.url
     
@@ -136,6 +137,47 @@ type Pet911RealCrawling() =
             do! agent.Shutdown()
 
             Assert.False(File.Exists(Path.Combine(tempDir,"rf468348","1628158124610bb8ac4a6e25.22661272.webp")))
+        }
+
+    [<Fact>]
+    member _.``Card existence check (exists)`` () =
+        async {
+            let! a = NewCards.verifyCardExists pet911.Utils.downloadUrl 538308
+            match a with
+            |   Ok b -> Assert.True(b)
+            |   Error e -> Assert.True(false, e)
+        }
+
+    [<Fact>]
+    member _.``Card existence check (does not exists)`` () =
+        async {
+            let! a = NewCards.verifyCardExists pet911.Utils.downloadUrl 538310
+            match a with
+            |   Ok b -> Assert.False(b)
+            |   Error e -> Assert.True(false, e)
+        }
+
+    [<Fact>]
+    member _.``Search cards by substring`` () =
+        async {
+            let! a = NewCards.searchCardURLsBySubstring pet911.Utils.downloadUrl "12345"
+            match a with
+            |   Ok arts ->
+                Assert.True(Seq.exists (fun (x:string) -> x.EndsWith "rl012345") arts)
+                Assert.True(Seq.exists (fun (x:string) -> x.EndsWith "rf123452") arts)
+                Assert.True(Seq.exists (fun (x:string) -> x.EndsWith "rl512345") arts)
+                
+            |   Error e -> Assert.True(false, e)
+        }
+
+    [<Fact>]
+    member _.``getNewCardsFromCheckAPI retrieves new card`` () =
+        async {
+            match! Kashtanka.NewCards.getNewCardsFromCheckAPI (Set.singleton 12345 |> Some) downloadUrl 10 with
+            |   Error e -> Assert.True(false, sprintf "%A" e)
+            |   Ok newCards ->
+                Assert.True(newCards.Count > 0)
+                Assert.True(newCards |> Seq.exists (fun x -> x.ID = "rl012346"))
         }
 
     [<Fact>]

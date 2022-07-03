@@ -25,8 +25,6 @@ type CLIArgs =
             |   Range _ -> "Process a fixed specified range of cards (first,last)"
             |   NewCards _ -> "Detect and download new cards loop (intervals in seconds between checks) (boolean: whether to notify processing pipeline with POST HTTP requests)"
 
-let userAgent = sprintf "KashtankaCrawler/%O" (System.Reflection.Assembly.GetExecutingAssembly().GetName().Version)
-
 [<EntryPoint>]
 let main argv =
     System.Diagnostics.Trace.Listeners.Add(new System.Diagnostics.ConsoleTraceListener()) |> ignore
@@ -44,13 +42,8 @@ let main argv =
                 let dbDir = parsed.GetResult Dir
                 sprintf "Data directory is %s" dbDir |> traceInfo
                 System.IO.Directory.CreateDirectory(dbDir) |> ignore
-                                   
-                let downloadingAgent =
-                    let fetchUrl = Downloader.httpDownload userAgent 60000
-                    new Downloader.Agent(1, Downloader.defaultDownloaderSettings, fetchUrl)
-                let downloadResource (desc:RemoteResourseDescriptor) = downloadingAgent.Download desc.url
-
-                let! crawler = constructCrawler dbDir downloadResource
+                                
+                let! crawler = constructCrawler dbDir (fun d -> downloadUrl (System.Uri d.url))
                 if parsed.Contains Range then
                     let (firstCardID,lastCardID) = parsed.GetResult Range
                     sprintf "Fetching range from %d to %d" firstCardID lastCardID |> traceInfo
@@ -85,7 +78,7 @@ let main argv =
                         async {
                             let! nextIterArg =
                                 async {
-                                    match! NewCards.getNewCards knownSet downloadResource with
+                                    match! NewCards.getNewCardsFromCheckAPI knownSet downloadUrl 50 with
                                     |   Error er ->
                                         sprintf "Error while detecting new cards: %s" er |> traceError
                                         return arg
