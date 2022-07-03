@@ -10,6 +10,7 @@ open Kashtanka.Crawler
 open Kashtanka.SemanticTypes
 
 open Kashtanka.pet911.Crawler
+open Kashtanka.pet911.Utils
 open System.Threading
 
 let userAgent = "KashtankaTestRunner/1.0.0"
@@ -167,6 +168,16 @@ type Pet911RealCrawling() =
                 Assert.True(Seq.exists (fun (x:string) -> x.EndsWith "rl512345") arts)
                 
             |   Error e -> Assert.True(false, e)
+        }
+
+    [<Fact>]
+    member _.``getNewCardsFromCheckAPI retrieves new card`` () =
+        async {
+            match! Kashtanka.NewCards.getNewCardsFromCheckAPI (Set.singleton 12345 |> Some) downloadUrl 10 with
+            |   Error e -> Assert.True(false, sprintf "%A" e)
+            |   Ok newCards ->
+                Assert.True(newCards.Count > 0)
+                Assert.True(newCards |> Seq.exists (fun x -> x.ID = "rl012346"))
         }
 
     [<Fact>]
