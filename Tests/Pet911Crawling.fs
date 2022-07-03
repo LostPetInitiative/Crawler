@@ -141,7 +141,7 @@ type Pet911RealCrawling() =
     [<Fact>]
     member _.``Card existence check (exists)`` () =
         async {
-            let! a = NewCards.verifyCardExists 538308 pet911.Utils.downloadUrl
+            let! a = NewCards.verifyCardExists pet911.Utils.downloadUrl 538308
             match a with
             |   Ok b -> Assert.True(b)
             |   Error e -> Assert.True(false, e)
@@ -150,7 +150,7 @@ type Pet911RealCrawling() =
     [<Fact>]
     member _.``Card existence check (does not exists)`` () =
         async {
-            let! a = NewCards.verifyCardExists 538310 pet911.Utils.downloadUrl
+            let! a = NewCards.verifyCardExists pet911.Utils.downloadUrl 538310
             match a with
             |   Ok b -> Assert.False(b)
             |   Error e -> Assert.True(false, e)
@@ -159,12 +159,12 @@ type Pet911RealCrawling() =
     [<Fact>]
     member _.``Search cards by substring`` () =
         async {
-            let! a = NewCards.searchCardsBySubstring "12345" pet911.Utils.downloadUrl
+            let! a = NewCards.searchCardURLsBySubstring pet911.Utils.downloadUrl "12345"
             match a with
             |   Ok arts ->
-                Assert.True(Seq.contains "rl012345" arts)
-                Assert.True(Seq.contains "rf123452" arts)
-                Assert.True(Seq.contains "rl512345" arts)
+                Assert.True(Seq.exists (fun (x:string) -> x.EndsWith "rl012345") arts)
+                Assert.True(Seq.exists (fun (x:string) -> x.EndsWith "rf123452") arts)
+                Assert.True(Seq.exists (fun (x:string) -> x.EndsWith "rl512345") arts)
                 
             |   Error e -> Assert.True(false, e)
         }

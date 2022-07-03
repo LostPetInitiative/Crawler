@@ -42,10 +42,8 @@ let main argv =
                 let dbDir = parsed.GetResult Dir
                 sprintf "Data directory is %s" dbDir |> traceInfo
                 System.IO.Directory.CreateDirectory(dbDir) |> ignore
-                                   
-                let downloadResource (desc:RemoteResourseDescriptor) = downloadingAgent.Download desc.url
-
-                let! crawler = constructCrawler dbDir downloadResource
+                                
+                let! crawler = constructCrawler dbDir (fun d -> downloadUrl (System.Uri d.url))
                 if parsed.Contains Range then
                     let (firstCardID,lastCardID) = parsed.GetResult Range
                     sprintf "Fetching range from %d to %d" firstCardID lastCardID |> traceInfo
@@ -80,7 +78,7 @@ let main argv =
                         async {
                             let! nextIterArg =
                                 async {
-                                    match! NewCards.getNewCardsFromCatalog knownSet downloadResource with
+                                    match! NewCards.getNewCardsFromCheckAPI knownSet downloadUrl 50 with
                                     |   Error er ->
                                         sprintf "Error while detecting new cards: %s" er |> traceError
                                         return arg
