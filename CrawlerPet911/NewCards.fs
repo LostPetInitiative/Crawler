@@ -138,11 +138,13 @@ let getNewCardsFromCheckAPI (knownToLookFor: Set<int> option) (download: FetchUr
                                 sprintf "Failed to search cards by substring %d: %A" tens e |> traceError
                                 ()
                             |   Ok arts ->
-                                let nums = arts |> Seq.map (fun x -> let slashIdx = x.LastIndexOf '/' in { ID = x.Substring(slashIdx+1); url = x} )
+                                let nums = arts |> Seq.map (fun x -> let slashIdx = x.LastIndexOf '/' in { ID = x.Substring(slashIdx+1); url = sprintf "https://pet911.ru/%s" x} )
                                 for n in nums do
                                     yield n
                         }
                     |> AsyncSeq.fold (fun s v -> Set.add v s) Set.empty
-                return Ok found
+
+                let foundNew = found|> Set.filter (fun x -> let num = System.Int32.Parse(x.ID.Substring(2)) in num > largestVerifiedNum)
+                return Ok foundNew
 
     }
