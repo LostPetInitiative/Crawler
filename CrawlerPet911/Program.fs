@@ -78,7 +78,7 @@ let main argv =
                         async {
                             let! nextIterArg =
                                 async {
-                                    match! NewCards.getNewCardsFromCheckAPI knownSet downloadUrl 50 with
+                                    match! NewCards.getNewCardsFromCheckAPI knownSet downloadUrl 100 with
                                     |   Error er ->
                                         sprintf "Error while detecting new cards: %s" er |> traceError
                                         return arg
