@@ -205,3 +205,13 @@ let ``Extract cards from catalog``() =
             Assert.Equal(20, cards.Length)
             Assert.True(cards |> Seq.exists (fun x -> x.ID="rf468348" && x.url="https://pet911.ru/%D0%9C%D0%BE%D1%81%D0%BA%D0%B2%D0%B0/найдена/собака/rf468348"))
     }
+
+[<Fact>]
+let ``Issue 45 temp image locations`` () =
+    async {
+        let! doc = loadAndParseHtmlTestFile "../20220724/rl546939.html.dump"
+        match getPhotoUrls doc with
+        | Error er -> Assert.True(false, sprintf "expected to extract URLS, but got %A" er)
+        | Ok(urls) ->
+            Assert.NotEmpty(urls)
+    }

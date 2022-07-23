@@ -39,11 +39,8 @@ let getPhotoUrls (htmlDoc:HtmlDocument) : Result<string[], string> =
             |> Seq.map (fun node -> node.Attributes.["src"].Value)
             |> Seq.filter (fun x -> not(x.StartsWith("https://pet911.ru/img/no-photo/"))) // missing photo stub
             |> Array.ofSeq
-        if hrefs |> Seq.forall (fun (href:string) -> href.StartsWith("https://cdn.pet911.ru/")) then
-            Ok(hrefs)
-        else
-            Error(sprintf "One of the photo URLs is unexpected: %s" (hrefs |> Seq.find (fun x -> not(x.StartsWith("https://cdn.pet911.ru/")))))
-
+        Ok(hrefs)
+        
 let getEventTimeUTC (htmlDoc:HtmlDocument) : Result<System.DateTime, string> =
     let dateNodes = htmlDoc.DocumentNode.SelectNodes(@"//div[@class='card']//div[@class='card-information']/div[@class='card-info'][contains(div,'Найден') or contains(div,'Пропал')]/div[@class='card-info__value']")
     if dateNodes = null then
