@@ -63,16 +63,20 @@ let httpRequest (userAgent:string) (timeoutMs:int) (url:string) =
                                                                 headers = headers,
                                                                 httpMethod = "GET", silentHttpErrors = true,
                                                                 timeout = timeoutMs,
-                                                                customizeHttpRequest = fun r -> r.MaximumAutomaticRedirections <- 5; r)                                                    
+                                                                customizeHttpRequest = fun r -> r.MaximumAutomaticRedirections <- 5; r.AllowAutoRedirect<-true; r)                                                    
                             // for some reason auto redirection following does not work.
                             match response.StatusCode with
+                            |   HttpStatusCodes.MovedPermanently                            
                             |   HttpStatusCodes.Found                            
                             |   HttpStatusCodes.PermanentRedirect
                             |   HttpStatusCodes.TemporaryRedirect ->
                                 match response.Headers.TryGetValue(HttpResponseHeaders.Location) with
                                 |   true, location ->
-                                    sprintf "handling redirect to %s" location |> traceWarning 
-                                    return! followRedirectionsFetch location (redirectsLeft - 1)
+                                    if location <> curUrl then
+                                        sprintf "handling redirect to %s" location |> traceWarning 
+                                        return! followRedirectionsFetch location (redirectsLeft - 1)
+                                    else
+                                        return Error ("Infinite redirection")
                                 |   false, _ -> return Error ("Got redirect http response code, but without location header")
                             |   _ -> return Ok response
                     }
