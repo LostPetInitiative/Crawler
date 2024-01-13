@@ -265,7 +265,7 @@ type Pet911RealCrawling() =
                     Assert.Equal(System.DateTime(2022,8,4),card.date)
                     Assert.Equal(Sex.male, card.sex)
                     Assert.Equal(EventType.found, card.``type``)
-                    Assert.Contains({url="https://cdn.pet911.ru/thumb_Pet_1628158124610bb8ac4a6e25.22661272.webp";ID="rf468348/thumb_Pet_1628158124610bb8ac4a6e25.22661272.webp"},card.photos)
+                    Assert.Contains({url="https://cdn.pet911.ru/Pet_1628158124610bb8ac4a6e25.22661272.webp";ID="rf468348/Pet_1628158124610bb8ac4a6e25.22661272.webp"},card.photos)
         }
 
     [<Fact>]
@@ -296,7 +296,7 @@ type Pet911RealCrawling() =
         async {
             let descr:RemoteResourseDescriptor = {
                 ID = "rl468348"
-                url= "https://pet911.ru/%D0%9C%D0%BE%D1%81%D0%BA%D0%B2%D0%B0/%D0%BD%D0%B0%D0%B9%D0%B4%D0%B5%D0%BD%D0%B0/%D1%81%D0%BE%D0%B1%D0%B0%D0%BA%D0%B0/rl468348"
+                url= "https://pet911.ru/%d0%9c%d0%be%d1%81%d0%ba%d0%b2%d0%b0/%d0%bd%d0%b0%d0%b9%d0%b4%d0%b5%d0%bd%d0%b0/%d1%81%d0%be%d0%b1%d0%b0%d0%ba%d0%b0/rl468348"
             }
 
             let! agent =

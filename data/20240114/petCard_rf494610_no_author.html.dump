@@ -1,0 +1,1055 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta id="vp" name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+<meta name="csrf-param" content="_csrf-newfront">
+<meta name="csrf-token" content="4x3S1FtwWVkTVkRX5bsXGKNpK1Vgu2mDmcNr00d8houqdqCjEUQ1DUIFAAKB3iNT4FpALTLZC8X2oTyXCBqx6Q==">
+<title>Найдена Немецкая овчарка на ул. А. Пушкина, 152 в Бийске | Pet911.ru</title>
+<meta name="description" content="Найдена собака в улица Александра Пушкина, 152, Бийск – размещайте объявления на Pet911 – объявления о пропаже собак и кошек рядом с вами, найдём потеряшек вместе.">
+<meta name="keywords" content="Найдена собака Бийск">
+<meta property="og:url" content="https://pet911.ru/bysk/found/dog/rf494610">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Найдена Немецкая овчарка на ул. А. Пушкина, 152 в Бийске | Pet911.ru">
+<meta property="og:description" content="Найдена собака в улица Александра Пушкина, 152, Бийск – размещайте объявления на Pet911 – объявления о пропаже собак и кошек рядом с вами, найдём потеряшек вместе.">
+<meta property="og:image" content="https://cdn.pet911.ru/Pet_16360934136184cde5e77f50.14081119.webp">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Найдена Немецкая овчарка на ул. А. Пушкина, 152 в Бийске | Pet911.ru">
+<meta name="twitter:description" content="Найдена собака в улица Александра Пушкина, 152, Бийск – размещайте объявления на Pet911 – объявления о пропаже собак и кошек рядом с вами, найдём потеряшек вместе.">
+<meta name="twitter:image" content="https://cdn.pet911.ru/Pet_16360934136184cde5e77f50.14081119.webp">
+<link href="https://pet911.ru/bysk/found/dog/rf494610" rel="canonical">
+<link href="/css/unpkg/leaflet.css?v=1680677942" rel="stylesheet" media="print" onload="this.media=&#039;all&#039;">
+<link href="/css/unpkg/geosearch.css?v=1680633563" rel="stylesheet" media="print" onload="this.media=&#039;all&#039;">
+<link href="/css/unpkg/MarkerCluster.css?v=1680633563" rel="stylesheet" media="print" onload="this.media=&#039;all&#039;">
+<link href="/css/unpkg/MarkerCluster.Default.css?v=1680633563" rel="stylesheet" media="print" onload="this.media=&#039;all&#039;">
+<link href="/assets/aa118237/css/style.min.css?v=1674384848" rel="stylesheet">
+<link href="/css/app.min.css?v=1700573875" rel="stylesheet">
+<link href="/css/dop.css?v=1701768379" rel="stylesheet">
+<link href="/css/pet_popup.css?v=1662316116" rel="stylesheet">
+<script src="/js/libs.min.js?v=1692612456"></script>
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="icon" type="image/svg" sizes="120x120" href="/img/favicon.svg">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#258a56">
+<meta name="msapplication-TileColor" content="#9f00a7">
+<meta name="theme-color" content="#ffffff">
+<script>
+        var mapUrl = 'https://core-renderer-tiles.maps.yandex.net/tiles?l=map&z={z}&x={x}&y={y}&scale=1&lang=ru_RU';
+        var nominatimCountryCode = 'ru';
+        var nominatimLang = 'ru';
+        var translatesLang = {"select_place":"\u0412\u044b\u0431\u0435\u0440\u0438\u0442\u0435 \u043c\u0435\u0441\u0442\u043e","error_date_max":"\u0414\u0430\u0442\u0430 \u043d\u0435 \u043c\u043e\u0436\u0435\u0442 \u0431\u044b\u0442\u044c \u043f\u043e\u0437\u0436\u0435 \u0442\u0435\u043a\u0443\u0449\u0435\u0439","show_phone_by_checkbox_on":"\u0422\u0435\u043b\u0435\u0444\u043e\u043d \u0431\u0443\u0434\u0435\u0442 \u043e\u0442\u043e\u0431\u0440\u0430\u0436\u0430\u0442\u044c\u0441\u044f \u043d\u0430 \u0441\u0430\u0439\u0442\u0435","show_phone_by_checkbox_off":"\u0422\u0435\u043b\u0435\u0444\u043e\u043d \u043d\u0435 \u0431\u0443\u0434\u0435\u0442 \u043e\u0442\u043e\u0431\u0440\u0430\u0436\u0430\u0442\u044c\u0441\u044f \u043d\u0430 \u0441\u0430\u0439\u0442\u0435"};
+    </script>
+<script>
+            var locationByIP = localStorage.getItem('locationByIP');
+            if (locationByIP === null) {
+                var token = "7ffe23f45177ea3f710ac4b27681ebff8e5223d5";
+
+                function iplocate(ip) {
+                    var serviceUrl = "https://suggestions.dadata.ru/suggestions/api/4_1/rs/iplocate/address";
+                    if (ip) {
+                        serviceUrl += "?ip=" + ip;
+                    }
+                    var params = {
+                        type: "GET",
+                        contentType: "application/json",
+                        headers: {
+                            "Authorization": "Token " + token
+                        }
+                    };
+                    return $.ajax(serviceUrl, params);
+                }
+
+                var ip = '185.224.129.241';
+                iplocate(ip).done(function (response) {
+                    if (response.location !== null) {
+                        sendMyLocation(response.location.data.geo_lat, response.location.data.geo_lon);
+                        localStorage.setItem('locationByIP', 1);
+                    }
+                }).fail(function (jqXHR, textStatus, errorThrown) {
+                    console.log(textStatus);
+                    console.log(errorThrown);
+                });
+            }
+        </script>
+<script>
+        var yaParams={};
+                // yaParams.ab = 'Seg B';
+        var visitVar = 'Test B';
+            </script>
+
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-KGPJGQT');</script>
+<script>
+    function my_ym(type,name, goalParams) {
+                if (typeof ym !== 'undefined' ) {
+            if (typeof goalParams !== 'undefined' ) {
+                ym(44478286, type, name, goalParams);
+            } else {
+                ym(44478286, type, name);
+            }
+        }
+            }
+</script>
+</head>
+<body class=" pet_view pet-find">
+
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KGPJGQT" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+ <script type="text/javascript">    (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};    m[i].l=1*new Date();    for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}    k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})    (window, document, "script", "https://cdn.jsdelivr.net/npm/yandex-metrica-watch/tag.js", "ym");     ym(44478286, "init", {         clickmap:true,         trackLinks:true,         accurateTrackBounce:true,         webvisor:true,         trackHash:true,         ecommerce:"dataLayer", params: yaParams    }); </script> <noscript><div><img src="https://mc.yandex.ru/watch/44478286" style="position:absolute; left:-9999px;" alt="" /></div></noscript>   <script type="text/javascript"> (function(e, x, pe, r, i, me, nt){ e[i]=e[i]||function(){(e[i].a=e[i].a||[]).push(arguments)}, me=x.createElement(pe),me.async=1,me.src=r,nt=x.getElementsByTagName(pe)[0],nt.parentNode.insertBefore(me,nt)}) (window, document, 'script', 'https://abt.s3.yandex.net/expjs/latest/exp.js', 'ymab'); ymab('metrika.44478286', 'init'/*, {clientFeatures}, {callback}*/); </script>
+<script type="application/ld+json">
+    {
+        "@type": "Animal",
+        "term": {
+            "@id": "rf494610",
+            "@type": "Pet"
+        },
+        "properties": [
+            {
+                "@type": "Property",
+                "term": {"name":"\u041d\u0430\u0439\u0434\u0435\u043d\u0430 \u041d\u0435\u043c\u0435\u0446\u043a\u0430\u044f \u043e\u0432\u0447\u0430\u0440\u043a\u0430 \u043d\u0430 \u0443\u043b. \u0410. \u041f\u0443\u0448\u043a\u0438\u043d\u0430, 152 \u0432 \u0411\u0438\u0439\u0441\u043a\u0435","description":"\u041d\u0430\u0439\u0434\u0435\u043d\u0430 \u0441\u043e\u0431\u0430\u043a\u0430 \u0432 \u0443\u043b\u0438\u0446\u0430 \u0410\u043b\u0435\u043a\u0441\u0430\u043d\u0434\u0440\u0430 \u041f\u0443\u0448\u043a\u0438\u043d\u0430, 152, \u0411\u0438\u0439\u0441\u043a \u2013 \u0440\u0430\u0437\u043c\u0435\u0449\u0430\u0439\u0442\u0435 \u043e\u0431\u044a\u044f\u0432\u043b\u0435\u043d\u0438\u044f \u043d\u0430 Pet911 \u2013 \u043e\u0431\u044a\u044f\u0432\u043b\u0435\u043d\u0438\u044f \u043e \u043f\u0440\u043e\u043f\u0430\u0436\u0435 \u0441\u043e\u0431\u0430\u043a \u0438 \u043a\u043e\u0448\u0435\u043a \u0440\u044f\u0434\u043e\u043c \u0441 \u0432\u0430\u043c\u0438, \u043d\u0430\u0439\u0434\u0451\u043c \u043f\u043e\u0442\u0435\u0440\u044f\u0448\u0435\u043a \u0432\u043c\u0435\u0441\u0442\u0435.","image":"https:\/\/cdn.pet911.ru\/Pet_16360934136184cde5e77f50.14081119.webp","animalType":"\u0421\u043e\u0431\u0430\u043a\u0430","breed":"\u041d\u0435\u043c\u0435\u0446\u043a\u0430\u044f \u043e\u0432\u0447\u0430\u0440\u043a\u0430"}            }
+        ]
+    }
+</script>
+<div class="card-notice">
+<div class="container">
+<div class="card-notice__inner">
+<div class="card-notice__title">
+Питомцу найден новый дом.
+</div>
+<div class="card-notice__descr">
+<button class="link-accent-line-dk js-close-card-notice">Всё равно смотреть</button>
+</div>
+</div>
+</div>
+</div>
+<div class="card">
+<div class="page-header card-top d-flex align-items-center d-md-none">
+<div class="page-header__inner card-top__nav d-flex align-items-center justify-content-between">
+<a href="javascript:history.back();" class="link link-icon card-top__back">
+<img src="/img/icons/icon-arrow-left-accent.svg" alt="Назад" class="link__icon">
+<div class="link__title">Назад</div>
+</a>
+<div class="card-top__controls d-flex align-items-center">
+<button type="button" class="card-top__share js-popup-btn" data-popup=".js-share494610">
+<img src="/img/icons/icon-share-accent.svg" alt="Поделиться" class="card-top__share-icon">
+</button>
+</div>
+</div>
+</div>
+<div class="card-slider">
+<div class="card-slider__bg d-none d-md-block">
+<img src="https://cdn.pet911.ru/Pet_16360934136184cde5e77f50.14081119.webp" alt="Найдена Немецкая овчарка на ул. А. Пушкина, 152 в Бийске - photo" class="img-crop" title="Найдена Немецкая овчарка на ул. А. Пушкина, 152 в Бийске - image">
+</div>
+<div class="card-slider__container">
+<div class="card-slider__inner">
+<div class="card-slider__carousel swiper-container js-card-slider">
+<div class="swiper-wrapper">
+<div class="swiper-slide">
+<a href="https://cdn.pet911.ru/Pet_16360934136184cde5e77f50.14081119.webp" class="card-slider__slide js-card-slide">
+<img class="img-crop" src="https://cdn.pet911.ru/Pet_16360934136184cde5e77f50.14081119.webp" alt="Найдена Немецкая овчарка на ул. А. Пушкина, 152 в Бийске - photo" title="Найдена Немецкая овчарка на ул. А. Пушкина, 152 в Бийске - image">
+</a>
+</div>
+<div class="swiper-slide">
+<a href="https://cdn.pet911.ru/Pet_16360934146184cde6469471.99580318.webp" class="card-slider__slide js-card-slide">
+<img class="img-crop" src="https://cdn.pet911.ru/Pet_16360934146184cde6469471.99580318.webp" alt="Найдена Немецкая овчарка на ул. А. Пушкина, 152 в Бийске - photo 2" title="Найдена Немецкая овчарка на ул. А. Пушкина, 152 в Бийске - image 2">
+</a>
+</div>
+</div>
+<div class="card-slider__pagination js-card-slider-pagination"></div>
+</div>
+</div>
+<button class="d-none d-md-block slider-btn slider__prev js-card-slider-prev">
+<img src="/img/icons/icon-arrow-left-round-dark.svg" alt="Назад" class="slider-btn__icon">
+</button>
+<button class="d-none d-md-block slider-btn slider__next js-card-slider-next">
+<img src="/img/icons/icon-arrow-right-round-dark.svg" alt="Вперед" class="slider-btn__icon">
+</button>
+<div class="card-top__controls d-none d-md-flex align-items-center">
+<button class="card-top__share js-popup-btn" data-popup=".js-share494610">
+<img src="/img/icons/icon-share-white.svg" alt="Поделиться" class="card-top__share-icon">
+</button>
+</div>
+</div>
+</div>
+<div class="container">
+<div class="card__inner">
+<div class="card__content">
+<div class="breadcrumbs section-top__breadcrumbs page-text__breadcrumbs">
+<a class="link-gray-dk breadcrumbs__item" href="/">Pet911.ru</a><a class="link-gray-dk breadcrumbs__item" href="https://pet911.ru/catalog/naydennye-sobaki-bysk">Бийск</a><a class="link-gray-dk breadcrumbs__item" href="/found-pets">Найденные</a><a class="link-gray-dk breadcrumbs__item" href="/found-dogs">Собаки</a><span class="link-gray-dk breadcrumbs__item">Найдена Немецкая овчарка на ул. А. Пушкина, 152 в Бийске</span> </div>
+<script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [{"@type":"ListItem","position":1,"name":"Pet911.ru","item":"https:\/\/pet911.ru"},{"@type":"ListItem","position":2,"name":"\u0411\u0438\u0439\u0441\u043a","item":"https:\/\/pet911.ruhttps:\/\/pet911.ru\/catalog\/naydennye-sobaki-bysk"},{"@type":"ListItem","position":3,"name":"\u041d\u0430\u0439\u0434\u0435\u043d\u043d\u044b\u0435","item":"https:\/\/pet911.ru\/found-pets"},{"@type":"ListItem","position":4,"name":"\u0421\u043e\u0431\u0430\u043a\u0438","item":"https:\/\/pet911.ru\/found-dogs"},{"@type":"ListItem","position":5,"name":"\u041d\u0430\u0439\u0434\u0435\u043d\u0430 \u041d\u0435\u043c\u0435\u0446\u043a\u0430\u044f \u043e\u0432\u0447\u0430\u0440\u043a\u0430 \u043d\u0430 \u0443\u043b. \u0410. \u041f\u0443\u0448\u043a\u0438\u043d\u0430, 152 \u0432 \u0411\u0438\u0439\u0441\u043a\u0435"}]        }
+    </script>
+<div class="card__title">
+<h1>Найдена Немецкая овчарка на ул. А. Пушкина, 152 в Бийске</h1>
+</div>
+<div class="d-md-none card-address">
+<div class="card-address__info">улица Александра Пушкина, 152, Бийск</div>
+<button class="link link-accent card-address__link js-popup-btn" data-popup=".js-address">Показать на карте</button>
+</div>
+<div class="text text-lt card__descr content">
+<p>Немецкая овчарка, на вид года 3-4, знает команды, не агрессивен </p>
+</div>
+</div>
+<svg width="0" height="0" xmlns="http://www.w3.org/2000/svg" style="display: none">
+<symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" id="star">
+<path d="M31.547 12a.848.848 0 00-.677-.577l-9.427-1.376-4.224-8.532a.847.847 0 00-1.516 0l-4.218 8.534-9.427 1.355a.847.847 0 00-.467 1.467l6.823 6.664-1.612 9.375a.847.847 0 001.23.893l8.428-4.434 8.432 4.432a.847.847 0 001.229-.894l-1.615-9.373 6.822-6.665a.845.845 0 00.214-.869z" />
+</symbol>
+</svg>
+<style>
+                    .c-icon {
+                        --star-active: #258a56;
+                        --star-inactive: #6c6962;
+                        fill: var(--star-inactive);
+                        width: 13px;
+                        height: 13px;
+                        vertical-align: top;
+                    }
+
+                    .c-icon.active {
+                        fill: var(--star-active);
+                    }
+                    .pet_review {
+                        margin: 0 0 20px;
+                    }
+                    .rev_footer {
+                        position: relative;
+                        margin: 0 0 10px;
+                    }
+                    .rev_rate {
+                        display: inline-block;
+                        padding: 3px 0 0;
+                    }
+                    .rev_date {
+                        display: inline-block;
+                        right: 0;
+                        position: absolute;
+                    }
+                    .rev_pet_title {
+                        margin: 0 0 5px;
+                    }
+                    .link_all_revs {
+                        margin: 10px 0 0;
+                    }
+                </style>
+<div class="order-2 order-md-1">
+<div class="rev_pet_title">
+<h4>Отзыв хозяина о Pet911</h4>
+</div>
+<div class="pet_review">
+<div class="rev_footer">
+<div class="rev_rate">
+<svg class="c-icon active">
+<use xlink:href="#star"></use>
+</svg>
+<svg class="c-icon active">
+<use xlink:href="#star"></use>
+</svg>
+<svg class="c-icon active">
+<use xlink:href="#star"></use>
+</svg>
+<svg class="c-icon active">
+<use xlink:href="#star"></use>
+</svg>
+<svg class="c-icon ">
+<use xlink:href="#star"></use>
+</svg>
+</div>
+<div class="rev_date">05.11.2021</div>
+</div>
+<div class="rev_msg">
+Пристрой </div>
+<div class="link_all_revs">
+<a class="link-accent" href="https://pet911.ru/reviews">Посмотреть все отзывы</a>
+</div>
+</div>
+</div>
+<div class="card-row d-flex flex-column flex-md-row justify-content-between align-items-md-end">
+<div class="card__buttons order-1 order-md-2 d-flex flex-wrap">
+</div>
+<div class="order-2 order-md-1 card-share">
+<div class="card-share__title">
+<h4>Поделиться</h4>
+</div>
+<div class="share-links">
+<a class="share-link" href="https://www.facebook.com/sharer.php?u=https%3A%2F%2Fpet911.ru%2Fbysk%2Ffound%2Fdog%2Frf494610" rel="noopener" target="_blank"><img src="/img/icons/share/icon-fb.svg" alt="FB" class="share-link__icon"></a><a class="share-link" href="http://vk.com/share.php?url=https%3A%2F%2Fpet911.ru%2Fbysk%2Ffound%2Fdog%2Frf494610&amp;title=%D0%9D%D0%B0%D0%B9%D0%B4%D0%B5%D0%BD%D0%B0+%D0%9D%D0%B5%D0%BC%D0%B5%D1%86%D0%BA%D0%B0%D1%8F+%D0%BE%D0%B2%D1%87%D0%B0%D1%80%D0%BA%D0%B0+%D0%BD%D0%B0+%D1%83%D0%BB.+%D0%90.+%D0%9F%D1%83%D1%88%D0%BA%D0%B8%D0%BD%D0%B0%2C+152+%D0%B2+%D0%91%D0%B8%D0%B9%D1%81%D0%BA%D0%B5+%7C+Pet911.ru&amp;image=https%3A%2F%2Fcdn.pet911.ru%2FPet_16360934136184cde5e77f50.14081119.webp" rel="noopener" target="_blank"><img src="/img/icons/share/icon-vk.svg" alt="VK" class="share-link__icon"></a><a class="share-link" href="https://twitter.com/share?url=https%3A%2F%2Fpet911.ru%2Fbysk%2Ffound%2Fdog%2Frf494610&amp;text=%D0%9D%D0%B0%D0%B9%D0%B4%D0%B5%D0%BD%D0%B0+%D1%81%D0%BE%D0%B1%D0%B0%D0%BA%D0%B0+%D0%B2+%D1%83%D0%BB%D0%B8%D1%86%D0%B0+%D0%90%D0%BB%D0%B5%D0%BA%D1%81%D0%B0%D0%BD%D0%B4%D1%80%D0%B0+%D0%9F%D1%83%D1%88%D0%BA%D0%B8%D0%BD%D0%B0%2C+152%2C+%D0%91%D0%B8%D0%B9%D1%81%D0%BA+%E2%80%93+%D1%80%D0%B0%D0%B7%D0%BC%D0%B5%D1%89%D0%B0%D0%B9%D1%82%D0%B5+%D0%BE%D0%B1%D1%8A%D1%8F%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F+%D0%BD%D0%B0+Pet911+%E2%80%93+%D0%BE%D0%B1%D1%8A%D1%8F%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F+%D0%BE+%D0%BF%D1%80%D0%BE%D0%BF%D0%B0%D0%B6%D0%B5+%D1%81%D0%BE%D0%B1%D0%B0%D0%BA+%D0%B8+%D0%BA%D0%BE%D1%88%D0%B5%D0%BA+%D1%80%D1%8F%D0%B4%D0%BE%D0%BC+%D1%81+%D0%B2%D0%B0%D0%BC%D0%B8%2C+%D0%BD%D0%B0%D0%B9%D0%B4%D1%91%D0%BC+%D0%BF%D0%BE%D1%82%D0%B5%D1%80%D1%8F%D1%88%D0%B5%D0%BA+%D0%B2%D0%BC%D0%B5%D1%81%D1%82%D0%B5." rel="noopener" target="_blank"><img src="/img/icons/share/icon-tw.svg" alt="TW" class="share-link__icon"></a><a class="share-link" href="https://connect.ok.ru/offer?url=https%3A%2F%2Fpet911.ru%2Fbysk%2Ffound%2Fdog%2Frf494610&amp;title=%D0%9D%D0%B0%D0%B9%D0%B4%D0%B5%D0%BD%D0%B0+%D0%9D%D0%B5%D0%BC%D0%B5%D1%86%D0%BA%D0%B0%D1%8F+%D0%BE%D0%B2%D1%87%D0%B0%D1%80%D0%BA%D0%B0+%D0%BD%D0%B0+%D1%83%D0%BB.+%D0%90.+%D0%9F%D1%83%D1%88%D0%BA%D0%B8%D0%BD%D0%B0%2C+152+%D0%B2+%D0%91%D0%B8%D0%B9%D1%81%D0%BA%D0%B5+%7C+Pet911.ru&amp;description=%D0%9D%D0%B0%D0%B9%D0%B4%D0%B5%D0%BD%D0%B0+%D1%81%D0%BE%D0%B1%D0%B0%D0%BA%D0%B0+%D0%B2+%D1%83%D0%BB%D0%B8%D1%86%D0%B0+%D0%90%D0%BB%D0%B5%D0%BA%D1%81%D0%B0%D0%BD%D0%B4%D1%80%D0%B0+%D0%9F%D1%83%D1%88%D0%BA%D0%B8%D0%BD%D0%B0%2C+152%2C+%D0%91%D0%B8%D0%B9%D1%81%D0%BA+%E2%80%93+%D1%80%D0%B0%D0%B7%D0%BC%D0%B5%D1%89%D0%B0%D0%B9%D1%82%D0%B5+%D0%BE%D0%B1%D1%8A%D1%8F%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F+%D0%BD%D0%B0+Pet911+%E2%80%93+%D0%BE%D0%B1%D1%8A%D1%8F%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F+%D0%BE+%D0%BF%D1%80%D0%BE%D0%BF%D0%B0%D0%B6%D0%B5+%D1%81%D0%BE%D0%B1%D0%B0%D0%BA+%D0%B8+%D0%BA%D0%BE%D1%88%D0%B5%D0%BA+%D1%80%D1%8F%D0%B4%D0%BE%D0%BC+%D1%81+%D0%B2%D0%B0%D0%BC%D0%B8%2C+%D0%BD%D0%B0%D0%B9%D0%B4%D1%91%D0%BC+%D0%BF%D0%BE%D1%82%D0%B5%D1%80%D1%8F%D1%88%D0%B5%D0%BA+%D0%B2%D0%BC%D0%B5%D1%81%D1%82%D0%B5.&amp;imageUrl=https%3A%2F%2Fcdn.pet911.ru%2FPet_16360934136184cde5e77f50.14081119.webp" rel="noopener" target="_blank"><img src="/img/icons/share/icon-ok.svg" alt="OK" class="share-link__icon"></a> </div>
+</div>
+</div>
+<div class="d-none d-md-block card-map">
+<div class="card-map__inner img-crop" id="map-single-pc"></div>
+<div class="card-map__info">
+<div class="md-font card-map__address">улица Александра Пушкина, 152, Бийск</div>
+<button class="link link-icon link-accent card-map__link" data-alerttitle="Адрес скопирован!">
+<img src="/img/icons/icon-copy-accent.svg" alt="Копировать" class="link__icon">
+<span class="re-font link__title">Копировать</span>
+</button>
+</div>
+</div>
+<div class="card-information">
+<div class="card-info">
+<div class="gray-dk-color card-info__title">Номер объявления</div>
+<div class="card-info__value">rf494610</div>
+</div>
+<div class="card-info">
+<div class="gray-dk-color card-info__title">Порода питомца</div>
+<div class="card-info__value">
+<a class="notice_link" href="https://pet911.ru/catalog/naydennye-sobaki-porodi-nemeckaa-ovcarka">Немецкая овчарка</a> </div>
+</div>
+<div class="card-info">
+<div class="gray-dk-color card-info__title">Пол питомца</div>
+<div class="card-info__value">Мужской</div>
+</div>
+<div class="card-info">
+<div class="gray-dk-color card-info__title">Добавлено</div>
+<div class="card-info__value">пт, 05.11.2021</div>
+</div>
+<div class="card-info">
+<div class="gray-dk-color card-info__title">
+Найден(а) </div>
+<div class="card-info__value">пн, 01.11.2021</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="commentPjax" data-pjax-container data-pjax-push-state data-pjax-timeout="0"><section class="section comments">
+<div class="container">
+<div class="section__title">
+<h2>Комментариев 1</h2>
+</div>
+</div>
+<div class="comments-form js-sticky-element">
+<div class="container">
+<div class="comments-form__inner js-popup-btn" data-popup=".js-comment">
+<label class="input comments-form__field">
+<input type="text" class="input__field" readonly name="comment" placeholder="Ваш комментарий..." />
+</label>
+<button class="comments-form__submit">Отпр.</button>
+</div>
+</div>
+</div>
+<div class="container">
+<div class="comments__items">
+<div id="w0" class="list-view"><div data-key="337552"><div class="comments-item ">
+<div class="md-font comments-item__name">Всероссийская система поиска животных Pet911</div>
+<div class="text-lt comments-item__text">Объявление rf494610 размещено в группе ВКонтакте <a href="https://vk.com/pet911altay?w=wall-176726988_1155%2Fall" target="_blank">Горно-Алтайск | Pet911 пропала собака кошка</a></div>
+<div class="gray-dk-color comments-item__date"> 05 ноября 2021</div>
+</div></div>
+</div> </div>
+<button class="btn btn-icon btn-transparent-accent comments__btn js-popup-btn" data-popup=".js-problem494610">
+<img src="/img/icons/icon-alert-accent.svg" alt="Пожаловаться" class="btn__icon">
+<span class="md-font btn__title">Пожаловаться</span>
+</button>
+</div>
+</section>
+<div class="popup popup-middle share popup-comment js-comment js-popup">
+<div class="popup__overlay overlay js-popup-close"></div>
+<div class="popup__container d-flex flex-column">
+<form id="commentViewForm" class="share__wrapper" action="/bysk/found/dog/rf494610" method="post">
+<input type="hidden" name="_csrf-newfront" value="4x3S1FtwWVkTVkRX5bsXGKNpK1Vgu2mDmcNr00d8houqdqCjEUQ1DUIFAAKB3iNT4FpALTLZC8X2oTyXCBqx6Q=="> <div class="share__title">
+<h3>Оставить комментарий</h3>
+</div>
+<label class="input popup-comment__field field-addcommentform-comment required">
+<textarea id="addcommentform-comment" class="textarea textarea-small input__field" name="AddCommentForm[comment]" placeholder="Ваш комментарий..." aria-required="true"></textarea><span class="input__notice"></span>
+</label>
+<label class="input popup-comment__field field-addcommentform-name required">
+<input type="text" id="addcommentform-name" class="input__field" name="AddCommentForm[name]" placeholder="Ваше имя" aria-required="true"><span class="input__notice"></span>
+</label>
+<label class="switcher new-ad__switcher field-addcommentform-terms required">
+<input type="hidden" name="AddCommentForm[terms]" value="0"><input type="checkbox" id="addcommentform-terms" class="switcher__old" name="AddCommentForm[terms]" value="1" checked hidden aria-required="true">
+<span class="switcher__custom"></span>
+<span class="switcher-title">
+<span class="switcher-title__main">Согласен с <a href="https://pet911.ru/post/politika-konfidencialnosti" target="_blank">политикой конфиденциальности</a></span>
+<span class="switcher__notice"></span>
+</span>
+</label>
+<label class="input popup-comment__field field-addcommentform-recaptcha">
+<input type="hidden" id="addcommentform-recaptcha" class="form-control" name="AddCommentForm[reCaptcha]"><div id="addcommentform-recaptcha-recaptcha-commentViewForm" class="g-recaptcha" data-sitekey="6Lemis4cAAAAADfcgs5_cfbF2bSFYpWSncAZbMT8" data-input-id="addcommentform-recaptcha" data-form-id="commentViewForm"></div><span class="input__notice"></span>
+</label>
+<div class="popup__btns">
+<button class="btn btn-fill-accent share__close">Отправить</button>
+<button type="button" class="btn btn-transparent-red share__back-mt js-popup-close">Закрыть</button>
+</div>
+</form> </div>
+</div>
+</div>
+<section class="section pets">
+<div class="container">
+<div class="section__title">
+<h2>Похожие найденные собаки</h2>
+</div>
+<div class="slider stories__wrapper">
+<div class="swiper-container slider__wrapper js-pets-slider">
+<div class="swiper-wrapper">
+<div class="swiper-slide">
+<a href="/bysk/found/dog/rf434960" class="pets-item" title="Найдена собака, Бийск">
+<div class="pets-item__thumb">
+<img src="https://cdn.pet911.ru/thumb_Pet_1596612141.195237.webp" class="img-crop">
+</div>
+<div class="pets-item__content">
+<div class="pets-item__title">
+<h3>Найдена собака, Бийск</h3>
+</div>
+<div class="text pets-item__excerpt">Такса.Девочка.По зубкам-не старая.Ласковая.Защищает территорию от чужа...</div>
+<div class="gray-dk-color pets-item__date">30.06.2020</div>
+</div>
+</a>
+</div>
+<div class="swiper-slide">
+<a href="/bysk/found/dog/rf429475" class="pets-item" title="Найдена собака, Россия, Алтайский край, Бийский район, посёлок Боровой">
+<div class="pets-item__thumb">
+<img src="https://pet911.ru/img/no-photo/no-photo-1.svg" class="img-crop">
+</div>
+<div class="pets-item__content">
+<div class="pets-item__title">
+<h3>Найдена собака, Россия, Алтайский край,...</h3>
+</div>
+<div class="text pets-item__excerpt">Рыже белая, красивая, похожа на колли девочка, молодая, игривая, очень...</div>
+<div class="gray-dk-color pets-item__date">29.06.2020</div>
+</div>
+</a>
+</div>
+<div class="swiper-slide">
+<a href="/bysk/found/dog/rf424910" class="pets-item" title="Найдена собака, Россия, Алтайский край, Бийск, микрорайон Заречье">
+<div class="pets-item__thumb">
+<img src="https://cdn.pet911.ru/thumb_Pet_1590846691.385834.webp" class="img-crop">
+</div>
+<div class="pets-item__content">
+<div class="pets-item__title">
+<h3>Найдена собака, Россия, Алтайский край,...</h3>
+</div>
+<div class="text pets-item__excerpt">пришел к нам песик откликается на кличку Джек был истощен, есть ошейни...</div>
+<div class="gray-dk-color pets-item__date">24.05.2020</div>
+</div>
+</a>
+</div>
+<div class="swiper-slide">
+<a href="/bysk/found/dog/rf420474" class="pets-item" title="Найдена собака, Россия, Алтайский край, Бийск">
+<div class="pets-item__thumb">
+<img src="https://pet911.ru/img/no-photo/no-photo-1.svg" class="img-crop">
+</div>
+<div class="pets-item__content">
+<div class="pets-item__title">
+<h3>Найдена собака, Россия, Алтайский край,...</h3>
+</div>
+<div class="text pets-item__excerpt">В районе мочища по улице Братской, которая параллельна улице Севастопо...</div>
+<div class="gray-dk-color pets-item__date">26.04.2020</div>
+</div>
+</a>
+</div>
+<div class="swiper-slide">
+<a href="/bysk/found/dog/rf410334" class="pets-item" title="Найдена собака, Бийск">
+<div class="pets-item__thumb">
+<img src="https://cdn.pet911.ru/thumb_Pet_1581940378.908268.webp" class="img-crop">
+</div>
+<div class="pets-item__content">
+<div class="pets-item__title">
+<h3>Найдена собака, Бийск</h3>
+</div>
+<div class="text pets-item__excerpt">Рыжий пёсик, бегает несколько дней, ул Ломоносова</div>
+<div class="gray-dk-color pets-item__date">16.02.2020</div>
+</div>
+</a>
+</div>
+<div class="swiper-slide">
+<a href="/bysk/found/dog/rf409245" class="pets-item" title="Найдена собака, Бийск">
+<div class="pets-item__thumb">
+<img src="https://cdn.pet911.ru/thumb_Pet_1581319003.241149.webp" class="img-crop">
+</div>
+<div class="pets-item__content">
+<div class="pets-item__title">
+<h3>Найдена собака, Бийск</h3>
+</div>
+<div class="text pets-item__excerpt">Найден щенок, мальчик. Чистенький, ухоженный. Возле магазина Олимпиец,...</div>
+<div class="gray-dk-color pets-item__date">09.02.2020</div>
+</div>
+</a>
+</div>
+<div class="swiper-slide">
+<a href="/bysk/found/dog/rf402307" class="pets-item" title="Найдена собака, Россия, Алтайский край, Бийск, улица Революции, 82">
+<div class="pets-item__thumb">
+<img src="https://cdn.pet911.ru/thumb_Pet_1578334540.136345.webp" class="img-crop">
+</div>
+<div class="pets-item__content">
+<div class="pets-item__title">
+<h3>Найдена собака, Россия, Алтайский край,...</h3>
+</div>
+<div class="text pets-item__excerpt">похожа на немецкого терьера высота 40 см черная с коричневой мордой</div>
+<div class="gray-dk-color pets-item__date">05.01.2020</div>
+</div>
+</a>
+</div>
+<div class="swiper-slide">
+<a href="/bysk/found/dog/rf395457" class="pets-item" title="Найдена собака, Бийск">
+<div class="pets-item__thumb">
+<img src="https://cdn.pet911.ru/thumb_Pet_1575567194.79160.webp" class="img-crop">
+</div>
+<div class="pets-item__content">
+<div class="pets-item__title">
+<h3>Найдена собака, Бийск</h3>
+</div>
+<div class="text pets-item__excerpt">Возле школы-интернат бегает самец немецкой овчарки, видно, что домашни...</div>
+<div class="gray-dk-color pets-item__date">04.12.2019</div>
+</div>
+</a>
+</div>
+<div class="swiper-slide">
+<div class="pets-item">
+<div class="pets-item__thumb">
+<div class="img-crop">
+<a class="img4_similar" href="/bysk/found/dog/rf387726">
+<img src="https://cdn.pet911.ru/thumb_Pet_1571896808.62953.webp" class="img-crop4">
+</a>
+<a class="img4_similar" href="/bysk/found/dog/rf386327">
+<img src="https://cdn.pet911.ru/thumb_Pet_1571291058.162274.webp" class="img-crop4">
+</a>
+<a class="img4_similar" href="/bysk/found/dog/rf384054">
+<img src="https://cdn.pet911.ru/thumb_Pet_1570294825.547171.webp" class="img-crop4">
+</a>
+<a class="img4_similar" href="/bysk/found/dog/rf380338">
+<img src="https://cdn.pet911.ru/thumb_Pet_1569175084.726853.webp" class="img-crop4">
+</a>
+</div>
+</div>
+<div class="pets-item__content">
+<div class="pets-item__title" style="text-align: center;">
+<h3>
+<a href="https://pet911.ru/catalog/naydennye-sobaki-bysk">
+Еще 10 похожих питомцев найдено </a>
+</h3>
+</div>
+<div class="text pets-item__excerpt" style="text-align: center;">
+<a class="see_similar_pets_btn" href="https://pet911.ru/catalog/naydennye-sobaki-bysk">Смотреть ></a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<button class="d-none d-xl-block slider-btn slider__prev js-pets-slider-prev">
+<img src="/img/icons/icon-arrow-left-round-dark.svg" alt="Назад" class="slider-btn__icon">
+</button>
+<button class="d-none d-xl-block slider-btn slider__next js-pets-slider-next">
+<img src="/img/icons/icon-arrow-right-round-dark.svg" alt="Вперед" class="slider-btn__icon">
+</button>
+</div>
+</div>
+</section>
+<div class="popup popup-middle share js-problem494610 js-popup">
+<div class="popup__overlay overlay js-popup-close"></div>
+<div class="popup__container d-flex flex-column">
+<div class="share__wrapper">
+<form id="complainForm" class="complain-form" action="https://pet911.ru/pet/send-complain" method="post">
+<input type="hidden" name="_csrf-newfront" value="4x3S1FtwWVkTVkRX5bsXGKNpK1Vgu2mDmcNr00d8houqdqCjEUQ1DUIFAAKB3iNT4FpALTLZC8X2oTyXCBqx6Q=="> <input type="hidden" name="petID" value="494610">
+<div class="share__title">
+<h3>Сообщите о проблеме</h3>
+</div>
+<div class="share__descr"></div>
+<div class="new-ad-fields">
+<div class="new-ad-block">
+<label class="input new-ad-block__input">
+<select name="reason" class="input__field select">
+<option disabled selected>Укажите тему проблемы</option>
+<option value="1">Спам</option>
+<option value="2">Объявление задублировано</option>
+<option value="3">Этот питомец не терялся</option>
+<option value="4">Есть подходящий найденный (потерянный)</option>
+<option value="5">Уже найден</option>
+<option value="6">Другое</option>
+</select>
+</label>
+<label class="input new-ad-block__input">
+<textarea id="complainMes" name="mes" placeholder="Описание..." class="input__field textarea textarea-middle"></textarea>
+</label>
+</div>
+</div>
+<div class="popup__buttons">
+<button type="button" id="sendComplainFormBtn" class="btn btn-fill-accent map-address__btn">Отправить</button>
+<button type="button" class="btn btn-transparent-red share__close-offset js-popup-close">Закрыть</button>
+</div>
+</form> </div>
+</div>
+</div>
+<div class="popup popup-middle share js-share494610 js-popup">
+<div class="popup__overlay overlay js-popup-close"></div>
+<div class="popup__container d-flex flex-column">
+<div class="share__wrapper">
+<div class="share__title">
+<h3>Поделиться</h3>
+</div>
+<div class="text share__descr">Расскажите об этом объявлении своим друзьям и родным</div>
+<div class="share-block__blocks">
+<div class="share-block">
+<button class="share-block__item copyBtnLink js-popup-btn" data-popup=".js-copy" data-link="https://pet911.ru/bysk/found/dog/rf494610">
+<div class="share-block__title">Копировать ссылку</div>
+<img src="/img/icons/icon-copy.svg" alt="Копировать ссылку" class="share-block__icon">
+</button>
+</div>
+<div class="share-block">
+<a class="share-block__item" href="https://www.facebook.com/sharer.php?u=https%3A%2F%2Fpet911.ru%2Fbysk%2Ffound%2Fdog%2Frf494610" rel="noopener" target="_blank"><div class="share-block__title">Facebook</div>
+<img src="/img/icons/icon-fb.svg" alt="alt" class="share-block__icon"></a><a class="share-block__item" href="http://vk.com/share.php?url=https%3A%2F%2Fpet911.ru%2Fbysk%2Ffound%2Fdog%2Frf494610&amp;title=%D0%9D%D0%B0%D0%B9%D0%B4%D0%B5%D0%BD%D0%B0+%D0%9D%D0%B5%D0%BC%D0%B5%D1%86%D0%BA%D0%B0%D1%8F+%D0%BE%D0%B2%D1%87%D0%B0%D1%80%D0%BA%D0%B0+%D0%BD%D0%B0+%D1%83%D0%BB.+%D0%90.+%D0%9F%D1%83%D1%88%D0%BA%D0%B8%D0%BD%D0%B0%2C+152+%D0%B2+%D0%91%D0%B8%D0%B9%D1%81%D0%BA%D0%B5+%7C+Pet911.ru&amp;image=https%3A%2F%2Fcdn.pet911.ru%2FPet_16360934136184cde5e77f50.14081119.webp" rel="noopener" target="_blank"><div class="share-block__title">Вконтакте</div>
+<img src="/img/icons/icon-vk.svg" alt="alt" class="share-block__icon"></a><a class="share-block__item" href="https://twitter.com/share?url=https%3A%2F%2Fpet911.ru%2Fbysk%2Ffound%2Fdog%2Frf494610&amp;text=%D0%9D%D0%B0%D0%B9%D0%B4%D0%B5%D0%BD%D0%B0+%D1%81%D0%BE%D0%B1%D0%B0%D0%BA%D0%B0+%D0%B2+%D1%83%D0%BB%D0%B8%D1%86%D0%B0+%D0%90%D0%BB%D0%B5%D0%BA%D1%81%D0%B0%D0%BD%D0%B4%D1%80%D0%B0+%D0%9F%D1%83%D1%88%D0%BA%D0%B8%D0%BD%D0%B0%2C+152%2C+%D0%91%D0%B8%D0%B9%D1%81%D0%BA+%E2%80%93+%D1%80%D0%B0%D0%B7%D0%BC%D0%B5%D1%89%D0%B0%D0%B9%D1%82%D0%B5+%D0%BE%D0%B1%D1%8A%D1%8F%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F+%D0%BD%D0%B0+Pet911+%E2%80%93+%D0%BE%D0%B1%D1%8A%D1%8F%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F+%D0%BE+%D0%BF%D1%80%D0%BE%D0%BF%D0%B0%D0%B6%D0%B5+%D1%81%D0%BE%D0%B1%D0%B0%D0%BA+%D0%B8+%D0%BA%D0%BE%D1%88%D0%B5%D0%BA+%D1%80%D1%8F%D0%B4%D0%BE%D0%BC+%D1%81+%D0%B2%D0%B0%D0%BC%D0%B8%2C+%D0%BD%D0%B0%D0%B9%D0%B4%D1%91%D0%BC+%D0%BF%D0%BE%D1%82%D0%B5%D1%80%D1%8F%D1%88%D0%B5%D0%BA+%D0%B2%D0%BC%D0%B5%D1%81%D1%82%D0%B5." rel="noopener" target="_blank"><div class="share-block__title">Twitter</div>
+<img src="/img/icons/icon-tw.svg" alt="alt" class="share-block__icon"></a><a class="share-block__item" href="https://connect.ok.ru/offer?url=https%3A%2F%2Fpet911.ru%2Fbysk%2Ffound%2Fdog%2Frf494610&amp;title=%D0%9D%D0%B0%D0%B9%D0%B4%D0%B5%D0%BD%D0%B0+%D0%9D%D0%B5%D0%BC%D0%B5%D1%86%D0%BA%D0%B0%D1%8F+%D0%BE%D0%B2%D1%87%D0%B0%D1%80%D0%BA%D0%B0+%D0%BD%D0%B0+%D1%83%D0%BB.+%D0%90.+%D0%9F%D1%83%D1%88%D0%BA%D0%B8%D0%BD%D0%B0%2C+152+%D0%B2+%D0%91%D0%B8%D0%B9%D1%81%D0%BA%D0%B5+%7C+Pet911.ru&amp;description=%D0%9D%D0%B0%D0%B9%D0%B4%D0%B5%D0%BD%D0%B0+%D1%81%D0%BE%D0%B1%D0%B0%D0%BA%D0%B0+%D0%B2+%D1%83%D0%BB%D0%B8%D1%86%D0%B0+%D0%90%D0%BB%D0%B5%D0%BA%D1%81%D0%B0%D0%BD%D0%B4%D1%80%D0%B0+%D0%9F%D1%83%D1%88%D0%BA%D0%B8%D0%BD%D0%B0%2C+152%2C+%D0%91%D0%B8%D0%B9%D1%81%D0%BA+%E2%80%93+%D1%80%D0%B0%D0%B7%D0%BC%D0%B5%D1%89%D0%B0%D0%B9%D1%82%D0%B5+%D0%BE%D0%B1%D1%8A%D1%8F%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F+%D0%BD%D0%B0+Pet911+%E2%80%93+%D0%BE%D0%B1%D1%8A%D1%8F%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F+%D0%BE+%D0%BF%D1%80%D0%BE%D0%BF%D0%B0%D0%B6%D0%B5+%D1%81%D0%BE%D0%B1%D0%B0%D0%BA+%D0%B8+%D0%BA%D0%BE%D1%88%D0%B5%D0%BA+%D1%80%D1%8F%D0%B4%D0%BE%D0%BC+%D1%81+%D0%B2%D0%B0%D0%BC%D0%B8%2C+%D0%BD%D0%B0%D0%B9%D0%B4%D1%91%D0%BC+%D0%BF%D0%BE%D1%82%D0%B5%D1%80%D1%8F%D1%88%D0%B5%D0%BA+%D0%B2%D0%BC%D0%B5%D1%81%D1%82%D0%B5.&amp;imageUrl=https%3A%2F%2Fcdn.pet911.ru%2FPet_16360934136184cde5e77f50.14081119.webp" rel="noopener" target="_blank"><div class="share-block__title">Одноклассники</div>
+<img src="/img/icons/icon-ok.svg" alt="alt" class="share-block__icon"></a> </div>
+</div>
+<div class="popup__buttons">
+<button class="btn btn-transparent-red share__close js-popup-close">Закрыть</button>
+</div>
+</div>
+</div>
+</div>
+<div class="popup popup-middle share js-copy js-popup">
+<div class="popup__overlay overlay js-popup-close"></div>
+<div class="popup__container d-flex flex-column">
+<div class="share__wrapper">
+<div class="text share__descr">Ссылка на объявление скопирована</div>
+<div class="popup__buttons">
+<button class="btn btn-transparent-red share__close js-popup-close">Закрыть</button>
+</div>
+</div>
+</div>
+</div>
+<div class="popup popup-middle map js-address js-popup">
+<div class="page-header map-top d-flex align-items-center">
+<div class="page-header__inner map-top__nav d-flex align-items-center justify-content-between">
+<button class="link link-icon map-top__back js-popup-close">
+<img src="/img/icons/icon-arrow-left-accent.svg" alt="Назад" class="link__icon">
+<div class="link__title">Назад</div>
+</button>
+</div>
+</div>
+<div class="map__container" id="map-single"></div>
+<div class="popup__container d-flex flex-column">
+<div class="map-address">
+<div class="map-address__info">
+<h3>улица Александра Пушкина, 152, Бийск</h3>
+</div>
+<button class="btn btn-fill-accent-lt map-address__btn copyAddrMob" data-alerttitle="Адрес скопирован!">
+<img src="/img/icons/icon-copy-accent-dark.svg" alt="Копировать" class="btn__icon">
+<span class="btn__title">Копировать</span>
+</button>
+</div>
+</div>
+</div> <header class="navigation ">
+<div class="d-none d-xl-block navigation-menu-overlay js-toggle-menu"></div>
+<div class="navigation-menu">
+<div class="navigation-menu__top d-flex align-items-center justify-content-between">
+<a href="/" class="navigation-menu__logo">
+<img src="/img/logo.svg" alt="Pet911.ru" class="logo__img">
+</a>
+<button class="navigation-menu__close js-toggle-menu">
+<img src="/img/icons/icon-close-big-dark.svg" alt="Закрыть">
+</button>
+</div>
+<div class="navigation-menu__inner">
+<a href="https://pet911.ru/" class="link link-dark navigation-menu__item">Главная</a>
+<a href="https://pet911.ru/catalog" class="link link-dark navigation-menu__item">Каталог</a>
+<a href="https://pet911.ru/faq" class="link link-dark navigation-menu__item">Вопросы-ответы</a>
+<a href="https://pet911.ru/post/platnye-uslugi" class="link link-dark navigation-menu__item">Платные услуги</a>
+<a href="https://pet911.ru/blog" class="link link-dark navigation-menu__item">Блог</a>
+<a href="https://pet911.ru/contact" class="link link-dark navigation-menu__item">Свяжитесь с нами</a>
+<a href="https://pet911.ru/landing-for-volunteer" class="link link-dark navigation-menu__item">Станьте волонтёром</a>
+<a href="https://pet911.ru/reviews" class="link link-dark navigation-menu__item">Отзывы</a>
+<a href="https://pet911.ru/post/istoria-sozdania-pet911-kak-my-pomogaem-vozvrasat-propavsih-pitomcev-domoj" class="link link-dark navigation-menu__item">О нас</a>
+</div>
+</div>
+<div class="d-none d-md-block navigation-main">
+<div class="container">
+<div class="row align-items-center g-0 justify-content-between">
+<div class="col-md-auto">
+<div class="navigation-main__left d-flex align-items-center">
+<button class="d-none d-xl-flex sandwich navigation__sandwich js-toggle-menu">
+<span class="sandwich__inner"></span>
+</button>
+<a href="/" class="logo navigation__logo">
+<img src="/img/logo-icon.svg" alt="Pet" class="logo__img">
+<img src="/img/logo-text.svg" alt="911" class="d-none d-xl-block logo__text">
+</a>
+<div class="navigation-support js-list-item">
+<div class="navigation-support__title js-list-item-control">Помощь</div>
+<div class="navigation-support__links js-list-item-content">
+<a class="link link-dark navigation-support__link" href="https://pet911.ru/faq">
+Вопросы и ответы </a>
+<a class="link link-dark navigation-support__link" href="https://pet911.ru/post/poleznye-sovety">
+Полезные советы </a>
+<a class="link link-dark navigation-support__link" href="https://pet911.ru/post/platnye-uslugi">
+Платные услуги </a>
+<a class="link link-dark navigation-support__link" href="https://pet911.ru/post/osteregajtes-mosennikov">
+Остерегайтесь мошенников </a>
+</div>
+</div>
+<div class="navigation__nav d-none d-xl-flex">
+<ul>
+<li><a href="https://pet911.ru/catalog">Каталог</a></li>
+</ul>
+</div>
+<form id="searchFrm" class="navigation-search js-nav-search" action="https://pet911.ru/catalog" method="get" data-pjax="1" autocomplete="off"> <label class="input navigation-search__input">
+<input type="text" id="petssearch-address" class="input__field input__field-second navigation-search__field js-nav-search-field" name="PetsSearch[address]" placeholder="Адрес или номер объявления">
+<div class="help-block"></div>
+</label>
+<button class="navigation-search__btn">
+<img src="/img/icons/icon-search-dark.svg" alt="Найти" class="navigation-search__icon">
+</button>
+<button type="button" class="navigation-search__remove js-nav-search-clear">
+<img src="/img/icons/icon-cross-dark.svg" alt="Удалить" class="navigation-search__icon">
+</button>
+</form> </div>
+</div>
+<div class="col-md-auto">
+<div class="navigation-main__right d-flex align-items-center">
+<a href="https://pet911.ru/new-ad" class="btn btn-fill-gold-lt navigation__btn">Создать объявление</a>
+<div class="navigation-personal d-flex align-items-center">
+<a href="https://pet911.ru/login" class="navigation-account js-list-item">
+Войти </a>
+</div>
+<button class="d-xl-none sandwich navigation__sandwich js-toggle-menu">
+<span class="sandwich__inner"></span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="navigation__inner d-flex d-md-none align-items-center justify-content-between">
+<nav class="navigation__links d-flex align-items-center justify-content-evenly">
+<a href="https://pet911.ru/new-ad" class="navigation-item navigation-item-create active active-item">
+<div class="navigation-item__icon"></div>
+<div class="navigation-item__title">Создать</div>
+</a>
+<a href="https://pet911.ru/catalog" class="navigation-item navigation-item-catalog">
+<div class="navigation-item__icon"></div>
+<div class="navigation-item__title">Каталог</div>
+</a>
+<a href="https://pet911.ru/login" class="navigation-item navigation-item-profile">
+<div class="navigation-item__icon"></div>
+<div class="navigation-item__title">Вход</div>
+</a>
+<button type="button" class="navigation-item navigation-item-menu js-toggle-menu" tabindex="3">
+<div class="navigation-item__icon"></div>
+<div class="navigation-item__title">Меню</div>
+</button>
+</nav>
+</div>
+</header>
+<footer class="footer">
+<div class="container">
+<div class="footer__blocks">
+<div class="footer-block">
+<div class="footer-block__title">Pet911</div>
+<div class="footer-nav">
+<ul>
+<li><a href="https://pet911.ru/post/istoria-sozdania-pet911-kak-my-pomogaem-vozvrasat-propavsih-pitomcev-domoj">О нас</a></li>
+<li><a href="https://pet911.ru/new-ad">Разместите объявление</a></li>
+<li><a href="https://pet911.ru/post/platnye-uslugi">Платные услуги</a></li>
+<li><a href="https://pet911.ru/post/poleznye-sovety">Полезные советы</a></li>
+<li><a href="https://pet911.ru/reviews">Отзывы</a></li>
+<li><a href="https://pet911.ru/faq">Вопросы-ответы</a></li>
+<li><a href="https://pet911.ru/contact">Свяжитесь с нами</a></li>
+</ul>
+</div>
+</div>
+<div class="footer-block">
+<div class="footer-block__title">Ускорьте поиск питомца</div>
+<div class="footer-nav js-scroll-elements">
+<ul>
+<li><a href="https://pet911.ru/post/platnye-uslugi#section-1">Распространите объявление в социальных сетях</a></li>
+<li><a href="https://pet911.ru/post/platnye-uslugi#section-4">Оповестите клиники и приюты</a></li>
+<li><a href="https://pet911.ru/post/platnye-uslugi#section-3">Сообщите волонтёрам о пропаже</a></li>
+<li><a href="https://pet911.ru/post/platnye-uslugi#section-2">Оповестите жителей района</a></li>
+<li><a href="https://pet911.ru/post/platnye-uslugi#section-6">Создайте премиум-объявление</a></li>
+<li><a href="https://pet911.ru/post/platnye-uslugi#section-5">Получайте уведомления о похожих питомцах</a></li>
+</ul>
+</div>
+</div>
+<div class="footer-block">
+<div class="footer-block__title">Помощь</div>
+<div class="footer-nav">
+<ul>
+<li><a href="https://pet911.ru/landing-for-volunteer">Станьте волонтёром</a></li>
+</ul>
+</div>
+</div>
+<div class="footer-block footer-block-big">
+<div class="footer-contacts d-flex justify-content-between align-items-start align-items-md-end">
+<div></div>
+<div class="social footer-social">
+<a class="social-item" href="https://vk.com/pet911ru" target="_blank"><svg width="19" height="19" viewBox="0 0 19 19" xmlns="http://www.w3.org/2000/svg" class="social-item__icon">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M1.33559 1.33559C0 2.67119 0 4.82078 0 9.12V9.88C0 14.1792 0 16.3288 1.33559 17.6644C2.67119 19 4.82078 19 9.12 19H9.88C14.1792 19 16.3288 19 17.6644 17.6644C19 16.3288 19 14.1792 19 9.88V9.12C19 4.82078 19 2.67119 17.6644 1.33559C16.3288 0 14.1792 0 9.88 0H9.12C4.82078 0 2.67119 0 1.33559 1.33559ZM3.2063 5.77921C3.30921 10.7192 5.77921 13.688 10.1096 13.688H10.3551V10.8617C11.9463 11.02 13.1496 12.1838 13.6325 13.688H15.8809C15.2634 11.4396 13.6404 10.1967 12.627 9.72171C13.6404 9.13587 15.0654 7.71087 15.4058 5.77921H13.3633C12.9199 7.34671 11.6059 8.77171 10.3551 8.90629V5.77921H8.3125V11.2575C7.04583 10.9409 5.44671 9.40504 5.37546 5.77921H3.2063Z" /></svg></a> </div>
+</div>
+</div>
+</div>
+</div>
+<div class="footer-bottom">
+<div class="container">
+<div class="footer-bottom__links">
+<a href="https://pet911.ru/cities" class="footer-bottom__link">Пропавшие и найденные животные России</a>
+<a href="https://pet911.ru/animals" class="footer-bottom__link">Пропавшие и найденные животные России по породам</a>
+<a href="https://pet911.ru/post/politika-konfidencialnosti" class="footer-bottom__link">Политика конфиденциальности</a>
+<a href="https://pet911.ru/post/uslovia-polzovania" class="footer-bottom__link">Условия пользования</a>
+</div>
+</div>
+</div>
+</footer>
+<script src="//www.google.com/recaptcha/api.js?hl=ru&amp;render=explicit&amp;onload=recaptchaOnloadCallback" async defer></script>
+<script src="/assets/cdf4f09a/yii.js?v=1674384847"></script>
+<script src="/js/unpkg/leaflet.js?v=1680633563"></script>
+<script src="/js/unpkg/geosearch.umd.js?v=1680633563"></script>
+<script src="/js/geocoderNominatim.js?v=1692612456"></script>
+<script src="/js/plugins/jquery.autocomplete.min.js?v=1650980299"></script>
+<script src="/js/unpkg/leaflet.markercluster.js?v=1680633563"></script>
+<script src="/assets/cdf4f09a/yii.validation.js?v=1674384847"></script>
+<script src="/assets/cdf4f09a/yii.activeForm.js?v=1674384847"></script>
+<script src="/assets/56ad1de9/jquery.pjax.js?v=1674384848"></script>
+<script src="/js/unpkg/autoComplete.min.js?v=1680633563"></script>
+<script src="/js/unpkg/swipe-listener.min.js?v=1680633563"></script>
+<script src="/js/plugins/headroom.js?v=1650980299"></script>
+<script src="/js/common.js?v=1695981671"></script>
+<script src="/js/firebase.js?v=1697637595"></script>
+<script type="module" src="/js/firebase_module.js?v=1698150694"></script>
+<script src="/js/custom.js?v=1696949320"></script>
+<script src="/js/pet_popup.js?v=1662316116"></script>
+<script>function recaptchaOnloadCallback() {
+    "use strict";
+    jQuery(".g-recaptcha").each(function () {
+        const reCaptcha = jQuery(this);
+        if (reCaptcha.data("recaptcha-client-id") === undefined) {
+            const recaptchaClientId = grecaptcha.render(reCaptcha.attr("id"), {
+                "callback": function (response) {
+                    if (reCaptcha.data("form-id") !== "") {
+                        jQuery("#" + reCaptcha.data("input-id"), "#" + reCaptcha.data("form-id")).val(response)
+                            .trigger("change");
+                    } else {
+                        jQuery("#" + reCaptcha.data("input-id")).val(response).trigger("change");
+                    }
+
+                    if (reCaptcha.attr("data-callback")) {
+                        eval("(" + reCaptcha.attr("data-callback") + ")(response)");
+                    }
+                },
+                "expired-callback": function () {
+                    if (reCaptcha.data("form-id") !== "") {
+                        jQuery("#" + reCaptcha.data("input-id"), "#" + reCaptcha.data("form-id")).val("");
+                    } else {
+                        jQuery("#" + reCaptcha.data("input-id")).val("");
+                    }
+
+                    if (reCaptcha.attr("data-expired-callback")) {
+                        eval("(" + reCaptcha.attr("data-expired-callback") + ")()");
+                    }
+                },
+            });
+            reCaptcha.data("recaptcha-client-id", recaptchaClientId);
+        }
+    });
+}</script>
+<script>jQuery(function ($) {
+$(function() {
+    let map;
+    let zoomVar = 17;
+    let provider;
+    let marker;
+    
+    $(document).ready(function () {
+        initMap(
+            'map-single-pc',
+            {
+                lat: 52.54243307,
+                lng: 85.28085709
+            }
+        );
+        initMap(
+            'map-single',
+            {
+                lat: 52.54243307,
+                lng: 85.28085709
+            }
+        );
+    });
+        
+    function initMap(mapTagId, coords) {
+        map = L.map(mapTagId,{
+            scrollWheelZoom: false,
+			dragging: !L.Browser.mobile
+        }).setView(coords, zoomVar);
+        map.zoomControl.setPosition('topright');
+        
+        L.tileLayer(mapUrl, {
+            maxZoom: 18,
+            attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+        }).addTo(map);
+        // TODO remove after not needed ymaps
+        map.options.crs = L.CRS.EPSG3395; 
+        
+        provider = new GeoSearch.OpenStreetMapProvider();
+        
+        marker = L.marker(coords,{
+            icon: iconSimple, 
+            draggable: true
+        }).addTo(map);
+        
+        map.panTo(coords);
+        
+        return map;
+    }
+    
+    $(document).on('click', "#sendComplainFormBtn", function() {
+        $("#complainForm .input__notice").remove();
+        $("#complainMes").parent().removeClass('has-error');
+        if($("#complainMes").val().length<3){
+            $("#complainMes").parent().addClass('has-error');
+            $("#complainMes").after('<span class="input__notice">Сообщите подробности</span>'); 
+        } else {
+          $.ajax({    
+            type: $("#complainForm").attr('method'),
+            url: $("#complainForm").attr('action'),
+            data: $("#complainForm").serialize(),
+            dataType: 'json',
+            success: function(msg){
+                if (msg.status == 'success') {
+                    $(".js-popup-close").click();
+                    $("#complainMes").val('');
+                    $('body').append(msg.alert);
+                    fadeoutAlert();
+                } else {
+                    console.log(msg);
+                }
+            }
+          });
+        }
+    });
+        
+    $(document).on('click', "#showPhoneFrmBtn", function(e) {
+        e.preventDefault();
+                
+        let frm = $("#showPhoneForm");
+        
+        frm.find(".input__notice").remove();
+        
+        $.ajax({    
+            type: frm.attr('method'),
+            url: frm.attr('action'),
+            data: frm.serialize(),
+            dataType: 'json',
+            success: function(msg){
+                if (msg.status == 'success') {
+                    frm.replaceWith(msg.html);
+                } else {
+                    $(".field-showphoneform-recaptcha").addClass('has-error').append('<span class="input__notice">'+msg.msg+'</span>'); 
+                }
+            }
+        });        
+    });
+    
+    $(document).one('click','#showPhoneBtn',function(e) {
+      e.preventDefault();
+      let thisa = this;
+      $.ajax({    
+        type: 'get',
+        url: 'https://pet911.ru/pet/show-phone/494610',
+        dataType: 'json',
+        success: function(msg){
+            if (msg.status == 'success') {
+                let el = $(".share__phone-title");
+                el.html(msg.html);
+                el.parent().attr('href','tel:'+msg.html);
+            } else {
+                console.log(msg);
+            }
+        }
+      });
+    });
+    
+    $(".comments-item__text a").addClass('link_comment');
+});
+jQuery('#commentViewForm').yiiActiveForm([{"id":"addcommentform-comment","name":"comment","container":".field-addcommentform-comment","input":"#addcommentform-comment","error":".input__notice","validate":function (attribute, value, messages, deferred, $form) {yii.validation.required(value, messages, {"message":"Необходимо заполнить «Комментарий»."});yii.validation.string(value, messages, {"message":"Значение «Комментарий» должно быть строкой.","min":3,"tooShort":"Значение «Комментарий» должно содержать минимум 3 символа.","skipOnEmpty":1});}},{"id":"addcommentform-name","name":"name","container":".field-addcommentform-name","input":"#addcommentform-name","error":".input__notice","validate":function (attribute, value, messages, deferred, $form) {yii.validation.required(value, messages, {"message":"Необходимо заполнить «Имя»."});yii.validation.string(value, messages, {"message":"Значение «Имя» должно быть строкой.","min":3,"tooShort":"Значение «Имя» должно содержать минимум 3 символа.","skipOnEmpty":1});}},{"id":"addcommentform-terms","name":"terms","container":".field-addcommentform-terms","input":"#addcommentform-terms","error":".switcher__notice","validate":function (attribute, value, messages, deferred, $form) {yii.validation.required(value, messages, {"message":"Вы должны согласиться с политикой конфиденциальности","requiredValue":1});}},{"id":"addcommentform-recaptcha","name":"reCaptcha","container":".field-addcommentform-recaptcha","input":"#addcommentform-recaptcha","error":".input__notice","validate":function (attribute, value, messages, deferred, $form) {if (!value) {
+     messages.push("Подтвердите, что вы человек");
+}}}], []);
+jQuery(document).pjax("#commentPjax a", {"push":true,"replace":false,"timeout":0,"scrollTo":false,"container":"#commentPjax"});
+jQuery(document).off("submit", "#commentPjax form[data-pjax]").on("submit", "#commentPjax form[data-pjax]", function (event) {jQuery.pjax.submit(event, {"push":true,"replace":false,"timeout":0,"scrollTo":false,"container":"#commentPjax"});});
+const autoCompleteJS = new autoComplete({
+  selector: "#petssearch-address",
+  debounce: 300,
+  threshold: 2,
+  wrapper: false,
+  searchEngine: (query, record) => {
+    return record;
+  },
+  data: {
+    src: async (q) => {
+      try {
+        let source = await fetch("/ajax/check-pet?art="+q);
+        let data = await source.json();
+        if (data.status == 'success') {
+            return data.data;            
+        } else {
+            source = await fetch("https://nominatim.openstreetmap.org/search?format=jsonv2&addressdetails=1&countrycodes=ru&accept-language=ru&q="+q);
+        }
+        return await source.json();
+      } catch (error) {
+        return error;
+      }
+    },
+    keys: ["title","address"],
+    cache: false,
+    filter: (list) => {
+      // Filter duplicates
+      if (list.length > 0 && list[0].key == 'title') {
+          return list;
+      }
+      
+      const filteredResults = Array.from(
+        new Set(list.map((value) => Nominatin.getFormattedAddress(value.value)))
+      ).map((searchedVal) => {
+        return list.find((value) => Nominatin.getFormattedAddress(value.value) === searchedVal);
+      });
+
+      return filteredResults;      
+    },
+  },
+  resultsList: {
+    maxResults: 15,
+    tabSelect: true,
+    tag: 'div',
+    class: 'navigation-results js-nav-search-results',
+    destination: '#searchFrm .js-nav-search-clear'
+  },
+  resultItem: {
+    element: (item, data) => {
+      if (data.value.addr) {
+          $(item).replaceWith(`
+          <a href="`+data.value.url+`" class="navigation-result">
+              <div class="navigation-result__address">`+data.value.title+`</div>
+              <span class="navigation-result__descr">`+data.value.addr+`</span>
+          </a>`);
+      }else if (data.value.place_id) {
+          var addr = Nominatin.getFormattedAddress(data.value);
+          var city = Nominatin.getCity(data.value);
+          $(item).replaceWith(`
+          <a href="/catalog?petcity=`+city+`&PetsSearch[latitude]=`+data.value.lat+`&PetsSearch[longitude]=`+data.value.lon+`&PetsSearch[radius]=5&PetsSearch[address]=`+addr+`" class="navigation-result">
+              <div class="navigation-result__address">`+addr+`</div>
+          </a>`);
+      }
+    },
+    highlight: true
+  },
+  events: {
+    input: {
+      focus: () => {
+        if (autoCompleteJS.input.value.length) autoCompleteJS.start();
+      }
+    }
+  }
+});
+jQuery('#searchFrm').yiiActiveForm([], []);
+});</script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v84a3a4012de94ce1a686ba8c167c359c1696973893317" integrity="sha512-euoFGowhlaLqXsPWQ48qSkBSCFs3DPRyiwVu3FjR96cMPx+Fr+gpWRhIafcHwqwCqWS42RZhIudOvEI+Ckf6MA==" data-cf-beacon='{"rayId":"84505eadcbd66578","r":1,"version":"2023.10.0","token":"9014c09324db4844a9e1bc18beb1870e"}' crossorigin="anonymous"></script>
+</body>
+</html>

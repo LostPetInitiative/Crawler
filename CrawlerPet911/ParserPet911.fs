@@ -17,17 +17,18 @@ let getCardId (htmlDoc:HtmlDocument) : Result<string,string> =
 
 
 let getAnimalSpecies (htmlDoc:HtmlDocument) : Result<Species,string> =
-    let speciesNodes = htmlDoc.DocumentNode.SelectNodes("//div[@class='card']//div[@class='card__title']/h1");
-    if speciesNodes = null then
-        Error "Can't find species node"
-    elif speciesNodes = null || speciesNodes.Count <> 1 then Error(sprintf "Found %d species tags instead of 1" speciesNodes.Count)
+    let breadcrumbNodes = htmlDoc.DocumentNode.SelectNodes("//div[contains(@class,'breadcrumbs')]//a[contains(@class,'breadcrumbs__item')]");
+    if breadcrumbNodes = null then
+        Error "Can't find breadcrumb nodes"
     else
-        let node = speciesNodes.[0]
-        let text = node.InnerText.Trim().ToLowerInvariant()
-        if text.Contains("кот") then Ok(Species.cat)
-        elif text.Contains("кошка") then Ok(Species.cat)
-        elif text.Contains("собака") then Ok(Species.dog)
-        else Error(sprintf "Unknown species str \"%s\"" text)
+        let interHtmlTexts =
+            breadcrumbNodes
+            |> Seq.map (fun node -> node.InnerHtml)
+            |> Seq.toList
+
+        if List.exists (fun (t:string) -> t.Contains("собаки", System.StringComparison.OrdinalIgnoreCase)) interHtmlTexts then Ok(Species.dog)
+        elif List.exists (fun (t:string) -> t.Contains("кошки", System.StringComparison.OrdinalIgnoreCase)) interHtmlTexts then Ok(Species.cat)
+        else Error("Can't detect species")
 
 let getPhotoUrls (htmlDoc:HtmlDocument) : Result<string[], string> =
     let photoNodes = htmlDoc.DocumentNode.SelectNodes("//div[@class='card']//div[@class='swiper-wrapper']//a[contains(@class,'js-card-slide')]/img")
