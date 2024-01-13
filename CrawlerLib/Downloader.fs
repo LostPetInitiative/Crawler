@@ -46,7 +46,12 @@ type internal DownloaderMsg =
     |   DoDownloadAttempt of url:string * retryIdx:int * AsyncReplyChannel<DownloadResult>
     |   DownloadFinished of DownloadResult * AsyncReplyChannel<DownloadResult>
 
-let httpClient = new HttpClient()
+let httpHandler =
+    let handler = new HttpClientHandler()
+    handler.AutomaticDecompression <- DecompressionMethods.All
+    handler.AllowAutoRedirect <- false
+    handler
+let httpClient = new HttpClient(httpHandler)
 
 /// Returns the downloaded file and it's mime type if it is specified in the headers
 let httpRequest (userAgent:string) (timeoutMs:int) (url:string) = 
@@ -69,8 +74,6 @@ let httpRequest (userAgent:string) (timeoutMs:int) (url:string) =
                     async {
                         if redirectsLeft = 0 then return Error(sprintf "Too many redirects for url %s" url)
                         else
-                            
-                            
                             let mutable options = System.UriCreationOptions()
                             options.DangerousDisablePathAndQueryCanonicalization <- true
                             let curUrlObj = System.Uri(curUrl, &options)
@@ -91,9 +94,9 @@ let httpRequest (userAgent:string) (timeoutMs:int) (url:string) =
                             |   HttpStatusCode.TemporaryRedirect ->
                                 let location = response.Headers.Location
                                 if location <> null then
-                                    if location.AbsoluteUri <> curUrl then
-                                        sprintf "handling redirect to %s" location.AbsoluteUri |> traceWarning 
-                                        return! followRedirectionsFetch location.AbsoluteUri (redirectsLeft - 1)
+                                    if location.OriginalString <> curUrl then
+                                        sprintf "handling redirect to %s" location.OriginalString |> traceWarning 
+                                        return! followRedirectionsFetch location.OriginalString (redirectsLeft - 1)
                                     else
                                         return Error ("Infinite redirection")
                                 else

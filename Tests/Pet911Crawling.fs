@@ -265,7 +265,7 @@ type Pet911RealCrawling() =
                     Assert.Equal(System.DateTime(2022,8,4),card.date)
                     Assert.Equal(Sex.male, card.sex)
                     Assert.Equal(EventType.found, card.``type``)
-                    Assert.Contains({url="https://cdn.pet911.ru/thumb_Pet_1628158124610bb8ac4a6e25.22661272.webp";ID="rf468348/thumb_Pet_1628158124610bb8ac4a6e25.22661272.webp"},card.photos)
+                    Assert.Contains({url="https://cdn.pet911.ru/Pet_1628158124610bb8ac4a6e25.22661272.webp";ID="rf468348/Pet_1628158124610bb8ac4a6e25.22661272.webp"},card.photos)
         }
 
     [<Fact>]

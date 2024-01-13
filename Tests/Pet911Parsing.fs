@@ -9,7 +9,7 @@ open Kashtanka.pet911.Parsers
 open HtmlAgilityPack
 open Kashtanka.SemanticTypes
 
-let dataDir = "../../../../data/20220628/"
+let dataDir = "../../../../data/20240114/"
 
 let loadAndParseHtmlTestFile filename =
     async {
@@ -58,13 +58,13 @@ let ``Extract photo URLs`` () =
         let! doc = loadAndParseHtmlTestFile "petCard_rl518787.html.dump"
         let parseRes = getPhotoUrls doc
         Assert.Equal(7, extractSuccessful(parseRes).Length)
-        Assert.Contains("https://cdn.pet911.ru/thumb_Pet_165095355762678d5570db96.27027701.webp",extractSuccessful(parseRes))
-        Assert.Contains("https://cdn.pet911.ru/thumb_Pet_165095340062678cb83dea18.58046461.webp",extractSuccessful(parseRes))
-        Assert.Contains("https://cdn.pet911.ru/thumb_Pet_165095343462678cda7583a1.69548470.webp",extractSuccessful(parseRes))
-        Assert.Contains("https://cdn.pet911.ru/thumb_Pet_165095351562678d2bb44ab4.37666840.webp",extractSuccessful(parseRes))
-        Assert.Contains("https://cdn.pet911.ru/thumb_Pet_165095351662678d2c27d440.01200981.webp",extractSuccessful(parseRes))
-        Assert.Contains("https://cdn.pet911.ru/thumb_Pet_165095355562678d53ce94c6.03768364.webp",extractSuccessful(parseRes))
-        Assert.Contains("https://cdn.pet911.ru/thumb_Pet_165095355662678d54a27803.69782174.webp",extractSuccessful(parseRes))
+        Assert.Contains("https://cdn.pet911.ru/Pet_165095340062678cb83dea18.58046461.webp",extractSuccessful(parseRes))
+        Assert.Contains("https://cdn.pet911.ru/Pet_165095343462678cda7583a1.69548470.webp",extractSuccessful(parseRes))
+        Assert.Contains("https://cdn.pet911.ru/Pet_165095351562678d2bb44ab4.37666840.webp",extractSuccessful(parseRes))
+        Assert.Contains("https://cdn.pet911.ru/Pet_165095351662678d2c27d440.01200981.webp",extractSuccessful(parseRes))
+        Assert.Contains("https://cdn.pet911.ru/Pet_165095355562678d53ce94c6.03768364.webp",extractSuccessful(parseRes))
+        Assert.Contains("https://cdn.pet911.ru/Pet_165095355662678d54a27803.69782174.webp",extractSuccessful(parseRes))
+        Assert.Contains("https://cdn.pet911.ru/Pet_165095355762678d5570db96.27027701.webp",extractSuccessful(parseRes))
     }
 
 [<Fact>]
@@ -203,7 +203,7 @@ let ``Extract cards from catalog``() =
         |   Error er -> Assert.True(false,sprintf "Failed to get cards from catalog: %s" er)
         |   Ok(cards) ->
             Assert.Equal(20, cards.Length)
-            Assert.True(cards |> Seq.exists (fun x -> x.ID="rf468348" && x.url="https://pet911.ru/%D0%9C%D0%BE%D1%81%D0%BA%D0%B2%D0%B0/найдена/собака/rf468348"))
+            Assert.True(cards |> Seq.exists (fun x -> x.ID="rl784284" && x.url="https://pet911.ru/moskva/lost/cat/rl784284"))
     }
 
 [<Fact>]

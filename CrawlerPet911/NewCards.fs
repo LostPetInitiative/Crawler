@@ -74,19 +74,20 @@ let searchCardURLsBySubstring (fetchJson:FetchUrlType) substring =
             match resp with
             |   Absent -> return Error "Unexpected 404"
             |   Downloaded(d, _) ->
-                match d with
-                |   Binary _ -> return Error "Unexpected binary response"
-                |   Text t ->
-                    let jObject = JObject.Parse(t)
-                    let data = jObject.GetValue("data")
-                    if data = null then
-                        return Ok Array.empty
-                    else
-                        let arts =
-                            data.Children()
-                            |> Seq.map (fun jtoken -> jtoken.Value<string>("url"))
-                        let resArray = Array.ofSeq arts
-                        return Ok(resArray)
+                let t =
+                    match d with
+                    |   Binary b ->  System.Text.Encoding.UTF8.GetString(b)
+                    |   Text t -> t
+                let jObject = JObject.Parse(t)
+                let data = jObject.GetValue("data")
+                if data = null then
+                    return Ok Array.empty
+                else
+                    let arts =
+                        data.Children()
+                        |> Seq.map (fun jtoken -> jtoken.Value<string>("url"))
+                    let resArray = Array.ofSeq arts
+                    return Ok(resArray)
     }
 
 let verifyCardExists (fetchJson:FetchUrlType) num  =
