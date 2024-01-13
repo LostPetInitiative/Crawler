@@ -1,7 +1,8 @@
 ﻿module Kashtanka.Downloader
 
 open System.Threading
-open FSharp.Data
+open System.Net
+open System.Net.Http
 
 let moduleName = "Downloader"
 let traceError msg = Tracing.traceError moduleName msg
@@ -45,39 +46,58 @@ type internal DownloaderMsg =
     |   DoDownloadAttempt of url:string * retryIdx:int * AsyncReplyChannel<DownloadResult>
     |   DownloadFinished of DownloadResult * AsyncReplyChannel<DownloadResult>
 
+let httpClient = new HttpClient()
+
 /// Returns the downloaded file and it's mime type if it is specified in the headers
 let httpRequest (userAgent:string) (timeoutMs:int) (url:string) = 
+    // if we use FSharp.Data.Http, it does not allow to sepcify url as System.Uri, only string, which is internelly converted to System.Uri
+    // the Url constructor used in Http.AsyncRequest
+    // replaces https://pet911.ru/%d0%9c%d0%be%d1%81%d0%ba%d0%b2%d0%b0/%d0%bd%d0%b0%d0%b9%d0%b4%d0%b5%d0%bd%d0%b0/%d1%81%d0%be%d0%b1%d0%b0%d0%ba%d0%b0/rl468348
+    // with     https://pet911.ru/%D0%9C%D0%BE%D1%81%D0%BA%D0%B2%D0%B0/%D0%BD%D0%B0%D0%B9%D0%B4%D0%B5%D0%BD%D0%B0/%D1%81%D0%BE%D0%B1%D0%B0%D0%BA%D0%B0/rl468348
+    // which leads to infinit redirect as server insists on lower case
+    // in that case we use standrart .NET WebClient instead of FSharp.Data.Http
+    // to workaround it, we also use DangerousDisablePathAndQueryCanonicalization <- true
     async {
         if System.String.IsNullOrEmpty(url) then
             return Error("empty url")
         else
             try
-                let headers = [
-                    HttpRequestHeaders.UserAgent userAgent;
-                    ]
+                //let headers = [
+                //    HttpRequestHeaders.UserAgent userAgent;
+                //    ]
                 let rec followRedirectionsFetch curUrl redirectsLeft =
                     async {
                         if redirectsLeft = 0 then return Error(sprintf "Too many redirects for url %s" url)
                         else
-                            let! response = Http.AsyncRequest(curUrl,
-                                                                headers = headers,
-                                                                httpMethod = "GET", silentHttpErrors = true,
-                                                                timeout = timeoutMs,
-                                                                customizeHttpRequest = fun r -> r.MaximumAutomaticRedirections <- 5; r.AllowAutoRedirect<-true; r)                                                    
-                            // for some reason auto redirection following does not work.
+                            
+                            
+                            let mutable options = System.UriCreationOptions()
+                            options.DangerousDisablePathAndQueryCanonicalization <- true
+                            let curUrlObj = System.Uri(curUrl, &options)
+                            let! response = Async.AwaitTask <| httpClient.GetAsync(curUrlObj)
+                            //let! response = Http.AsyncRequest(curUrlObj,
+                            //                                    headers = headers,
+                            //                                    httpMethod = "GET", silentHttpErrors = true,
+                            //                                    timeout = timeoutMs,
+                            //                                    customizeHttpRequest =  fun r ->
+                            //                                                            r.MaximumAutomaticRedirections <- 5
+                            //                                                            r.AllowAutoRedirect<-true
+                            //                                                            r)                                                    
+                            
                             match response.StatusCode with
-                            |   HttpStatusCodes.MovedPermanently                            
-                            |   HttpStatusCodes.Found                            
-                            |   HttpStatusCodes.PermanentRedirect
-                            |   HttpStatusCodes.TemporaryRedirect ->
-                                match response.Headers.TryGetValue(HttpResponseHeaders.Location) with
-                                |   true, location ->
-                                    if location <> curUrl then
-                                        sprintf "handling redirect to %s" location |> traceWarning 
-                                        return! followRedirectionsFetch location (redirectsLeft - 1)
+                            |   HttpStatusCode.MovedPermanently                            
+                            |   HttpStatusCode.Found                            
+                            |   HttpStatusCode.PermanentRedirect
+                            |   HttpStatusCode.TemporaryRedirect ->
+                                let location = response.Headers.Location
+                                if location <> null then
+                                    if location.AbsoluteUri <> curUrl then
+                                        sprintf "handling redirect to %s" location.AbsoluteUri |> traceWarning 
+                                        return! followRedirectionsFetch location.AbsoluteUri (redirectsLeft - 1)
                                     else
                                         return Error ("Infinite redirection")
-                                |   false, _ -> return Error ("Got redirect http response code, but without location header")
+                                else
+                                    return Error ("Got redirect http response code, but without location header")
                             |   _ -> return Ok response
                     }
                         
@@ -85,17 +105,15 @@ let httpRequest (userAgent:string) (timeoutMs:int) (url:string) =
                 |   Error er -> return Error er
                 |   Ok response ->
                     match response.StatusCode with
-                    |   HttpStatusCodes.OK ->
-                        let content:DownloadedFile =
-                            match response.Body with
-                            |   HttpResponseBody.Text text -> Text text
-                            |   HttpResponseBody.Binary bin -> Binary bin
-                        let contentType = Map.tryFind HttpResponseHeaders.ContentType response.Headers
+                    |   HttpStatusCode.OK ->
+                        let! bytes = Async.AwaitTask <| response.Content.ReadAsByteArrayAsync()
+                        let content:DownloadedFile = Binary bytes
+                        let contentType = response.Content.Headers.GetValues("Content-Type") |> Seq.tryHead
                         return Ok(Downloaded(content,contentType))
-                    |   HttpStatusCodes.NotFound ->
+                    |   HttpStatusCode.NotFound ->
                         return Ok(Absent)
                     |   _ ->
-                        let errMsg = sprintf "Got not successful HTTP code: %d. %O" response.StatusCode response.Body
+                        let errMsg = sprintf "Got not successful HTTP code: %O. %O" response.StatusCode response.ReasonPhrase
                         return Error errMsg
             with
             |   we ->
