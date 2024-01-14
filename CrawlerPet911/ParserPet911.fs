@@ -100,16 +100,18 @@ let getAnimalSex (htmlDoc:HtmlDocument) : Result<Sex, string> =
         sex
 
 let getEventType (htmlDoc:HtmlDocument) : Result<EventType, string> =
-    let headingNodes = htmlDoc.DocumentNode.SelectNodes("//div[@class='card']//div[@class='card__title']/h1");
-    if headingNodes = null then
-        Error "Can't find heading node"
-    elif headingNodes = null || headingNodes.Count <> 1 then Error(sprintf "Found %d heading tags instead of 1" headingNodes.Count)
+    let breadcrumbNodes = htmlDoc.DocumentNode.SelectNodes("//div[contains(@class,'breadcrumbs')]//a[contains(@class,'breadcrumbs__item')]");
+    if breadcrumbNodes = null then
+        Error "Can't find breadcrumb nodes"
     else
-        let node = headingNodes.[0]
-        let text = node.InnerText.Trim().ToLowerInvariant()
-        if text.Contains("пропал") then Ok(EventType.lost)
-        else if text.Contains("найден") then Ok(EventType.found)
-        else Error(sprintf "Unknown heading str \"%s\"" text)
+        let interHtmlTexts =
+            breadcrumbNodes
+            |> Seq.map (fun node -> node.InnerHtml)
+            |> Seq.toList
+
+        if List.exists (fun (t:string) -> t.Contains("найденные", System.StringComparison.OrdinalIgnoreCase)) interHtmlTexts then Ok(EventType.found)
+        elif List.exists (fun (t:string) -> t.Contains("пропавшие", System.StringComparison.OrdinalIgnoreCase)) interHtmlTexts then Ok(EventType.lost)
+        else Error("Can't detect event type")
 
 let getEventCoords (htmlDoc:string) : Result<float*float, string> =
     match htmlDoc with
