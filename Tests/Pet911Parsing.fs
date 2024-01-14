@@ -215,3 +215,11 @@ let ``Issue 45 temp image locations`` () =
         | Ok(urls) ->
             Assert.NotEmpty(urls)
     }
+
+[<Fact>]
+let ``Issue 52: can't extract event type`` () =
+    async {
+        let! doc = loadAndParseHtmlTestFile "petCard_rf777439_issue_52.html.dump"
+        let eventTypeRes = getEventType(doc) 
+        Assert.Equal(EventType.found, extractSuccessful(eventTypeRes))
+    }
